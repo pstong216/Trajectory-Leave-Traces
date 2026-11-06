@@ -48,8 +48,8 @@ calibration.
   and Stacked L2, and on par with or above HTC-Full (figure below, right).
 
 <p align="center">
-  <img src="figures/fig03_success_false_alarm.png" width="48%" alt="False cuts under key-step vs. trajectory-level supervision">
-  <img src="figures/fig04_detection_false_cut.png" width="48%" alt="Detection rate vs. false-cut rate">
+  <img src="assets/fig03_success_false_alarm.png" width="48%" alt="False cuts under key-step vs. trajectory-level supervision">
+  <img src="assets/fig04_detection_false_cut.png" width="48%" alt="Detection rate vs. false-cut rate">
 </p>
 
 ## What this repository contains
