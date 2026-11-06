@@ -1,0 +1,1098 @@
+{
+  "seed": 42,
+  "target_n": 150,
+  "by_source": {
+    "webarena_claude_gemini.json": {
+      "total_available": 61,
+      "n_sampled": 9
+    },
+    "webarena_claude_m_gemini.json": {
+      "total_available": 64,
+      "n_sampled": 9
+    },
+    "webarena_gpt_5_2_gemini.json": {
+      "total_available": 89,
+      "n_sampled": 13
+    },
+    "webarena_gpt_5_2_m_gemini.json": {
+      "total_available": 97,
+      "n_sampled": 14
+    },
+    "webarena_gptnano_gemini.json": {
+      "total_available": 104,
+      "n_sampled": 15
+    },
+    "webarena_gptnano_m_gemini.json": {
+      "total_available": 115,
+      "n_sampled": 17
+    },
+    "webarena_kimi_gemini.json": {
+      "total_available": 117,
+      "n_sampled": 17
+    },
+    "webarena_kimi_m_gemini.json": {
+      "total_available": 117,
+      "n_sampled": 17
+    },
+    "webarena_qwen30b_gemini.json": {
+      "total_available": 140,
+      "n_sampled": 21
+    },
+    "webarena_qwen30b_m_gemini.json": {
+      "total_available": 126,
+      "n_sampled": 18
+    }
+  },
+  "items": [
+    {
+      "taskKey": "webarena::claude::100",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "100",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::118",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "118",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::121",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "121",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::140",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "140",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::144",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "144",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::147",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "147",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::57",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "57",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::69",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "69",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude::91",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "91",
+      "source_file": "webarena_claude_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::100",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "100",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::104",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "104",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::121",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "121",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::161",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "161",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::31",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "31",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::36",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "36",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::58",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "58",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::65",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "65",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::claude_m::88",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "88",
+      "source_file": "webarena_claude_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::103",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "103",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::12",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "12",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::140",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "140",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::142",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "142",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::144",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "144",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::146",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "146",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::38",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "38",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::44",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "44",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::6",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "6",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::68",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "68",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::7",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "7",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::79",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "79",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2::91",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "91",
+      "source_file": "webarena_gpt_5_2_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::0",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "0",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::110",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "110",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::112",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "112",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::113",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "113",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::125",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "125",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::126",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "126",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::137",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "137",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::15",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "15",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::161",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "161",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::164",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "164",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::21",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "21",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::3",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "3",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::69",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "69",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gpt_5_2_m::89",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "89",
+      "source_file": "webarena_gpt_5_2_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::11",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "11",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::12",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "12",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::128",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "128",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::152",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "152",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::156",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "156",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::164",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "164",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::24",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "24",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::39",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "39",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::52",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "52",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::55",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "55",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::63",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "63",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::65",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "65",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::67",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "67",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::85",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "85",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano::99",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "99",
+      "source_file": "webarena_gptnano_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::103",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "103",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::107",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "107",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::109",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "109",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::110",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "110",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::13",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "13",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::144",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "144",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::157",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "157",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::16",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "16",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::22",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "22",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::24",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "24",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::49",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "49",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::62",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "62",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::70",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "70",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::80",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "80",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::93",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "93",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::94",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "94",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::gptnano_m::98",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "98",
+      "source_file": "webarena_gptnano_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::107",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "107",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::123",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "123",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::125",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "125",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::13",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "13",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::140",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "140",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::157",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "157",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::158",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "158",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::159",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "159",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::21",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "21",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::33",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "33",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::47",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "47",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::51",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "51",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::52",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "52",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::56",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "56",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::58",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "58",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::6",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "6",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi::83",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "83",
+      "source_file": "webarena_kimi_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::107",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "107",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::127",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "127",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::136",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "136",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::137",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "137",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::140",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "140",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::145",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "145",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::153",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "153",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::162",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "162",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::25",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "25",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::40",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "40",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::52",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "52",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::59",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "59",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::6",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "6",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::65",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "65",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::74",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "74",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::76",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "76",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::kimi_m::88",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "88",
+      "source_file": "webarena_kimi_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::107",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "107",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::110",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "110",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::115",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "115",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::125",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "125",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::137",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "137",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::138",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "138",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::158",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "158",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::160",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "160",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::2",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "2",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::24",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "24",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::25",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "25",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::37",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "37",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::50",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "50",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::59",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "59",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::6",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "6",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::67",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "67",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::77",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "77",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::86",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "86",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::88",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "88",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::90",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "90",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b::97",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "97",
+      "source_file": "webarena_qwen30b_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::107",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "107",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::113",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "113",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::12",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "12",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::121",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "121",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::134",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "134",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::150",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "150",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::151",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "151",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::156",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "156",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::160",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "160",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::24",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "24",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::27",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "27",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::33",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "33",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::38",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "38",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::51",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "51",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::65",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "65",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::75",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "75",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::90",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "90",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    },
+    {
+      "taskKey": "webarena::qwen30b_m::97",
+      "dataset": "webarena",
+      "model": "qwen30b_m",
+      "taskId": "97",
+      "source_file": "webarena_qwen30b_m_gemini.json"
+    }
+  ]
+}

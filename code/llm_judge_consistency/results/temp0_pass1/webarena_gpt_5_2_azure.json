@@ -1,0 +1,2052 @@
+{
+  "updatedAt": "2026-08-09T05:27:15.200331+00:00",
+  "dataset": "webarena",
+  "model": "gpt_5_2",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::gpt_5_2::103": {
+      "taskKey": "webarena::gpt_5_2::103",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "103",
+      "keyStep": 1,
+      "failureSteps": [],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "No violations were detected in the provided violation report, and the trajectory ends immediately after the cart action. With only two steps and no detected errors, the only applicable cause is step-budget exhaustion, but there is no evidence of an actual step-limit failure in the log.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the product's 'Add to Cart' button to add the item from this tab to the shopping cart.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Stop after confirming the product has been added to the cart (e.g., the button changes to 'Added').",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:24:39.833659+00:00"
+    },
+    "webarena::gpt_5_2::12": {
+      "taskKey": "webarena::gpt_5_2::12",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "12",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent repeatedly ignored the core constraint of first reliably anchoring Hunt Library on the map via correct search/coordinates, instead continuing malformed/incorrect search attempts and even switching to unrelated UI (directions). This initial failure to establish a valid reference point at Step 0 made recovery impossible, leading to the max-step early stop without ever reaching cafe results.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up CMU Hunt Library (or its address) so the map centers on the correct location.",
+          "correct": false,
+          "error_description": "Typed into the search input but the query appears incomplete/incorrect and the map context is not yet reliably centered on Hunt Library.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Submit the search query for CMU Hunt Library and wait for Nominatim results to appear.",
+          "correct": false,
+          "error_description": "Search results show 'No results found', indicating the query did not resolve to a location.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "If results are loading, wait for them; otherwise adjust the query and resubmit.",
+          "correct": false,
+          "error_description": "Clicked the Nominatim result area while it was still loading, without improving the search outcome.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Refine the search query to a more specific, valid place name (e.g., 'Hunt Library, Carnegie Mellon University, Pittsburgh') and submit.",
+          "correct": false,
+          "error_description": "Typed a refined query but the subsequent search still did not yield results.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Submit the refined query and ensure results appear; if none, try alternative phrasing.",
+          "correct": false,
+          "error_description": "Again shows 'No results found', meaning the query still failed to resolve.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Submit another corrected query (e.g., 'Hunt Library, Carnegie Mellon University') and wait for results.",
+          "correct": false,
+          "error_description": "Typed another variant but did not lead to any results.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Avoid malformed queries; correct typos and resubmit a clean search string.",
+          "correct": false,
+          "error_description": "The query string became corrupted (e.g., 'CaCarnegie...') and still returned 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "If no results, clear the input and try a clean query or use coordinates from the known CMU location.",
+          "correct": false,
+          "error_description": "Clicked within the input area without producing results, continuing the failed search loop.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Use Ctrl+A only to select the existing text, then replace it with a clean query and submit.",
+          "correct": false,
+          "error_description": "Pressed Ctrl+A but did not immediately correct and submit a valid query (no progress toward resolving Hunt Library).",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Submit a clean, specific query for Hunt Library and wait for Nominatim results.",
+          "correct": false,
+          "error_description": "Typed another variant but results remained 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Submit a clean query and ensure the map centers on Hunt Library.",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library Pittsburgh' but results still did not resolve (loading without results).",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If results are not appearing, correct the query string (remove duplicates/typos) and resubmit.",
+          "correct": false,
+          "error_description": "Ctrl+A followed by a corrupted query (duplicated/garbled text) that still produced 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use a clean query or switch strategy (e.g., search for 'Carnegie Mellon University' then locate Hunt Library on the map).",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library, Carnegie Mellon University' but still no results; did not switch to a more reliable strategy.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Avoid malformed input; clear and retype a clean query, then submit.",
+          "correct": false,
+          "error_description": "Query became increasingly corrupted (repeated fragments like 'Hunt Library...') and still no results.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Use the 'whereami' or coordinate-based result to anchor the map at the correct CMU area, then search for nearby cafes.",
+          "correct": false,
+          "error_description": "Typed a Hunt Library query into the 'whereami' search context, which is not the correct way to use the coordinate result.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Submit a coordinate-only search or use the coordinate to center the map, not append unrelated text.",
+          "correct": false,
+          "error_description": "Ctrl+A then the query became '42.896,-73.180Hunt Library...' (concatenated), leading to 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Correct the input to either coordinates only or a clean place name, then submit.",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library CMU' into the coordinate search field, again producing no results.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Navigate back to a clean search query flow (or directly search for cafes near the known CMU location) once Hunt Library is located.",
+          "correct": false,
+          "error_description": "Navigated to a URL with a corrupted query string (concatenated fragments), continuing failure to resolve Hunt Library.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Submit a clean Hunt Library query and ensure results appear; if not, use a known CMU address/coordinates.",
+          "correct": false,
+          "error_description": "Navigated to another Hunt Library query variant that still returned 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "If Hunt Library search fails, use the map to find CMU area and then search for cafes near that area.",
+          "correct": false,
+          "error_description": "Jumped to a different map center (via goto) without establishing Hunt Library as the reference point.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Use the map center/coordinates to confirm you are at CMU (Hunt Library area) before searching for cafes.",
+          "correct": false,
+          "error_description": "Clicked 'where is this?' which did not directly lead to a reliable Hunt Library reference.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Confirm the location details from 'where is this?' and then proceed to cafe search near that location.",
+          "correct": false,
+          "error_description": "Clicked 'where is this?' again without progressing to cafe search.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Use the resolved location (CMU) from the internal result to search for cafes nearby.",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library CMU' into the search field instead of switching to 'cafe near [CMU/Hunt Library]' using the anchored location.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Clear the input and search for cafes near the anchored CMU/Hunt Library coordinates.",
+          "correct": false,
+          "error_description": "Appended 'Hunt Library CMU' to coordinates (garbled query) and got 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Replace the malformed query with a clean cafe-near query and submit.",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library Carnegie Mellon' again rather than searching for cafes.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Avoid malformed input and proceed to cafe search near the correct CMU location.",
+          "correct": false,
+          "error_description": "Clicked where [16] and the query became more corrupted (e.g., 'HHunt Library...') with no results.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Switch to a cafe-finding workflow (search for 'cafe' near the current map center) rather than directions UI.",
+          "correct": false,
+          "error_description": "Opened the directions interface, which is unrelated to finding nearby cafes.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Return to search and query for cafes near the anchored CMU/Hunt Library location.",
+          "correct": false,
+          "error_description": "Typed 'Hunt Library, Carnegie Mellon University' again instead of searching for cafes.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Search for cafes near Hunt Library/CMU (e.g., 'cafe near Carnegie Mellon University') and use results to list closest options.",
+          "correct": false,
+          "error_description": "Navigated to a Hunt Library search query again, not the cafe-near query.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Submit 'cafe near Hunt Library Carnegie Mellon University' (or near the anchored CMU coordinates) and wait for results.",
+          "correct": false,
+          "error_description": "Navigated to 'cafe near Hunt Library...' but results show 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Use the map center and search for cafes again (or broaden query to 'coffee shop' / 'cafe' near CMU) until results appear.",
+          "correct": false,
+          "error_description": "Jumped back to the map view without obtaining cafe results.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:25:00.988980+00:00"
+    },
+    "webarena::gpt_5_2::140": {
+      "taskKey": "webarena::gpt_5_2::140",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "140",
+      "keyStep": 15,
+      "failureSteps": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 15 shows the agent repeatedly typing 'books' into the subreddit chooser instead of confirming the selection and proceeding to the 'Create submission' action. This parameter/interaction misuse persists through subsequent steps (16-29), keeping the agent stuck in the chooser/preview context and ultimately causing early termination at step 30; earlier marked recovered steps do not qualify because the agent later regressed into the same unrecoverable submission-blocking behavior.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "From the homepage, navigate to the forums list so the agent can find the /f/books subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the forums page, select the books subreddit (or search within forums) to reach /f/books.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated forum entry (index [3]) instead of locating /f/books.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the forums search/filter to find the 'books' subreddit, then open it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "From the search results, open the /f/books subreddit page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "On /f/books, start creating a new submission in that subreddit.",
+          "correct": false,
+          "error_description": "The agent clicked the submissions link/list item rather than initiating the 'Create submission' flow.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Ensure the agent is on the /f/books submission creation interface (or navigate to /submit) to post the content.",
+          "correct": false,
+          "error_description": "The agent navigated away from the intended posting flow (ending up on the profile/account area) instead of proceeding to create the post.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Navigate to the submission creation page (/submit) to compose the post.",
+          "correct": false,
+          "error_description": "The agent clicked the Submit control in a way that led to the notifications page rather than composing a post.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "On /submit, choose the correct subreddit tag/category for 'books' and prepare to fill in title and body.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Select the 'books' option in the subreddit/category chooser.",
+          "correct": false,
+          "error_description": "The agent typed 'books' into the chooser but did not clearly select the 'books' option; it appears to have been misapplied to the wrong input.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Select the 'books' subreddit option from the chooser so the post will be submitted to /f/books.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser span rather than confirming/selecting the 'books' option.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Enter the post title into the title field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Enter the post body text into the body field with the ML-in-books discussion and a question for commenters.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Review the preview and ensure the post content is complete before submitting.",
+          "correct": false,
+          "error_description": "The agent clicked the preview area/element rather than clearly verifying or moving toward the final submission action.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Scroll as needed to reach the submission controls (e.g., 'Create submission') and then submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Click the 'Create submission' button to publish the post.",
+          "correct": false,
+          "error_description": "The agent clicked the wrong element (index [5], not the create/post button).",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "If the subreddit chooser is open, ensure 'books' is selected; otherwise proceed to submit.",
+          "correct": false,
+          "error_description": "The agent typed 'books' again into the chooser area, indicating confusion and not progressing toward submission.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Confirm the 'books' selection in the chooser and then click 'Create submission'.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser span again instead of confirming selection and submitting.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Click 'Create submission' once the correct subreddit is selected.",
+          "correct": false,
+          "error_description": "The agent continued interacting with the chooser/selection UI rather than submitting.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Click 'Create submission' to publish the post.",
+          "correct": false,
+          "error_description": "The agent clicked an element that did not submit the post (still stuck in the chooser/preview area).",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Select the 'books' option if needed, then immediately click 'Create submission'.",
+          "correct": false,
+          "error_description": "The agent clicked another chooser option (index [8]) rather than finalizing and submitting.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Click 'Create submission' to publish the post.",
+          "correct": false,
+          "error_description": "The agent clicked the create button area but the UI state suggests it did not successfully submit; the agent remained on the same page.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "If submission did not occur, correct the issue and click 'Create submission' again.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser span again instead of ensuring submission.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Confirm 'books' selection and then submit.",
+          "correct": false,
+          "error_description": "The agent clicked another chooser option rather than submitting.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use keyboard navigation only if it helps select the correct subreddit, then submit.",
+          "correct": false,
+          "error_description": "The agent pressed ArrowDown, continuing to manipulate the chooser without submitting.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Proceed to click 'Create submission' once the correct subreddit is selected.",
+          "correct": false,
+          "error_description": "Another ArrowDown press; still no submission attempt or confirmation.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Proceed to click 'Create submission' to publish the post.",
+          "correct": false,
+          "error_description": "Repeated ArrowDown without reaching the submit action.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Ensure 'books' is selected in the chooser, then click 'Create submission'.",
+          "correct": false,
+          "error_description": "The agent typed 'books' again into the chooser input, further delaying submission.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Click 'Create submission' to publish the post.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser span again instead of submitting.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Click 'Create submission' to publish the post.",
+          "correct": false,
+          "error_description": "The agent clicked the create submission button area but did not successfully complete posting; the page state remained in the chooser/preview context.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "If not submitted, retry clicking 'Create submission' or correct the selection, then submit.",
+          "correct": false,
+          "error_description": "The agent clicked again without achieving submission, remaining stuck on the same submit/chooser screen.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "After ensuring the post is ready, submit it; do not stop early.",
+          "correct": false,
+          "error_description": "The agent stopped due to max steps without successfully creating the submission.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:25:16.404081+00:00"
+    },
+    "webarena::gpt_5_2::142": {
+      "taskKey": "webarena::gpt_5_2::142",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "142",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent repeatedly scrolled and clicked unrelated elements instead of using viable navigation to reach the contact/refund form, indicating a fundamentally misaligned approach under the practical constraint of needing to reach the correct form page. Earlier issues were not meaningfully corrected until the message field was filled, but the overall navigation failures show the core planning/approach was not viable for reliably reaching the refund form.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate directly to the site's contact/refund form (or use the search/navigation to reach it) instead of scrolling the homepage product listings.",
+          "correct": false,
+          "error_description": "The agent scrolled on the homepage rather than locating the contact form for the refund request.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue toward the contact form by using appropriate navigation (e.g., search for 'contact us' or open the contact page).",
+          "correct": false,
+          "error_description": "The agent kept scrolling through unrelated product listings instead of heading to the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the correct navigation flow to reach the contact page (e.g., go to the contact link) rather than going back in history without progress.",
+          "correct": false,
+          "error_description": "The agent used go_back, which did not advance toward the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Load the site and then immediately locate the contact form via navigation or search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Find and open the 'Contact Us' page rather than scrolling product/category content.",
+          "correct": false,
+          "error_description": "The agent scrolled down the homepage/product area instead of locating the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Proceed to the contact form using navigation/search (e.g., click 'Contact Us' or go to /contact).",
+          "correct": false,
+          "error_description": "The agent continued scrolling within product listings, not moving toward the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Locate the contact page link (or use the site search) to start the refund request.",
+          "correct": false,
+          "error_description": "The agent kept scrolling and did not take steps toward opening the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the correct link to reach the contact form (e.g., 'Contact Us' or a footer/header contact link), not a product review link.",
+          "correct": false,
+          "error_description": "The agent clicked a link labeled '1' (likely a review/page element) rather than navigating to the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "After the click, continue navigation toward the contact form (e.g., open contact page).",
+          "correct": false,
+          "error_description": "The agent scrolled again on the product/review area instead of going to the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Go to the correct contact page URL (e.g., /contact) rather than an incorrect path.",
+          "correct": false,
+          "error_description": "The agent navigated to /contacts, which is not the valid contact page and led to an error page.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Recover from the invalid URL by going back and then navigating to the correct contact page.",
+          "correct": false,
+          "error_description": "The agent remained on an error page ('Whoops, our bad...') and did not immediately correct the URL.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Navigate to the correct contact form page (e.g., /contact) and then fill the message field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Click into the 'What\u2019s on your mind?' message textarea to prepare to enter the refund request details.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Type a refund request stating the speaker broke after three days of use, including order number #148 and the product SKU, without submitting the form.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Do not submit; stop after confirming the message field is filled with the refund request including Order #148 and the SKU.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:25:26.350746+00:00"
+    },
+    "webarena::gpt_5_2::144": {
+      "taskKey": "webarena::gpt_5_2::144",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "144",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7
+      ],
+      "failureCause": "Action:FormatError",
+      "notes": "Step 6 contains an invalid/incorrectly formatted response that breaks the required action/output format, and there is no evidence in the action log of a successful recovery or continuation with a proper Reddit draft. Step 7 then stops without providing the final collected titles and exact ready-to-post Reddit content, so the earlier formatting error directly leads to the final failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search to look up the specific product page for Racing Wheel Overdrive for Xbox X (Xbox Series X|S) reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the search results page, locate and open the product listing specifically titled Racing Wheel Overdrive for Xbox Series X|S by HORI.",
+          "correct": false,
+          "error_description": "Scrolled the results without selecting the correct product listing, delaying access to the product\u2019s reviews.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the correct Racing Wheel Overdrive product result to reach its dedicated product page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the Reviews section (or the reviews list) on the product page to view individual review entries and their ratings.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Identify review titles that correspond to 1-star ratings (e.g., 20% of 100) and record their exact titles.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue through the reviews and collect additional 1-star review titles, ensuring each title is actually from a 1-star (20%) review.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "After collecting the 1-star titles, proceed to draft the Reddit post content (or provide the collected titles) without introducing formatting/action errors, and then stop only after the draft is ready.",
+          "correct": false,
+          "error_description": "The agent\u2019s action was an invalid/incorrectly formatted response (it referenced a prior prediction and included instructions about wrapping actions), rather than continuing the task with a proper Reddit draft or final output.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Provide the final collected 1-star review titles and a ready-to-post Reddit draft (or at least the exact post text) under the specified subreddit title.",
+          "correct": false,
+          "error_description": "Stopped with a message about being unable to post to Reddit and a partial draft, without delivering a properly formatted final Reddit post content as requested.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:25:34.215410+00:00"
+    },
+    "webarena::gpt_5_2::146": {
+      "taskKey": "webarena::gpt_5_2::146",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "146",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        14,
+        15
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "Step 0 left the agent on the Reddit feed instead of starting the posting workflow, and this was not corrected later. The agent ultimately stopped at a draft/preview (steps 14\u201315) without successfully publishing, indicating an incorrect progress assessment about having reached the publish stage.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "On the Reddit forums page, navigate to the submission form (or start a new post) rather than interacting with the feed.",
+          "correct": false,
+          "error_description": "The agent stayed on the forums feed and did not begin the posting workflow.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search box or otherwise locate the relevant subreddit/forum for a ChatGPT/GitLab link, then proceed to create a submission.",
+          "correct": false,
+          "error_description": "The agent typed a search query into the page input but did not move toward creating a new Reddit post.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Submit the search query and use results to find a suitable GitLab repository or relevant context for the post.",
+          "correct": false,
+          "error_description": "The search returned no results, indicating the approach was not yielding a repository link.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Refine the search query appropriately (e.g., correct keywords/format) and re-run it to find a GitLab ChatGPT repo.",
+          "correct": false,
+          "error_description": "The agent continued with an ineffective search refinement and still did not obtain results.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "If Reddit search is failing, switch to directly browsing GitLab to find a ChatGPT-related repository.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Open the GitLab browsing interface to search for ChatGPT-related projects.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Search within GitLab for 'ChatGPT' (or similar) to locate a relevant repository.",
+          "correct": false,
+          "error_description": "The agent typed 'ChatGPT' but did not show a clear submission/selection action to execute the search.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the GitLab search results to open a relevant ChatGPT-related project repository page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "On the repository page, capture the repository URL for later use in the Reddit post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Return to the Reddit submission workflow after obtaining the GitLab repository URL.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated UI element (likely the top-level navigation) instead of proceeding directly to the Reddit submit flow.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Navigate to the Reddit 'submit/create submission' page to publish the post linking to the GitLab repo.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Select the target subreddit/forum (e.g., MachineLearning) and fill in the post title/body with the GitLab link.",
+          "correct": false,
+          "error_description": "The agent typed the GitLab URL into the wrong field (likely not the title/body) and did not set the subreddit/forum yet.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Enter an appropriate post title in the title field and ensure the body contains the link and brief context.",
+          "correct": false,
+          "error_description": "The agent continued typing into a field labeled as a textarea/input without clearly setting the subreddit/forum or structuring title vs body.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Add the main post text (body) including a short description and the GitLab repository link.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Choose the relevant subreddit/forum (e.g., MachineLearning) from the forum dropdown before publishing.",
+          "correct": false,
+          "error_description": "The agent clicked the forum selection control but the chosen subreddit is not confirmed as MachineLearning (or any specific relevant forum).",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Click 'Create submission' to publish the Reddit post.",
+          "correct": false,
+          "error_description": "The agent stopped with a draft/preview and did not publish the submission.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:25:45.146451+00:00"
+    },
+    "webarena::gpt_5_2::38": {
+      "taskKey": "webarena::gpt_5_2::38",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "38",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent never successfully initiated the directions workflow from the start (Step 0: typed the origin but did not submit/search), and this early failure was not recovered later\u2014subsequent steps repeatedly interacted with map/\"Way\" pages instead of starting car directions and extracting travel time. Because the agent continued with an approach that did not satisfy the required precondition (a located origin and active directions UI), the failure became permanent by the time it reached the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the origin address/name (Animal Rescue League of Pittsburgh) into the search box and submit the search to locate it on the map.",
+          "correct": false,
+          "error_description": "The agent typed the origin into the search input but did not submit the search (no clear action to execute the query).",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "From the search results, select the correct listing for Animal Rescue League of Pittsburgh to open its place details.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the selected place to obtain its coordinates/address and then switch to directions/travel-time mode toward Schenley Park by car.",
+          "correct": false,
+          "error_description": "The agent clicked into a 'Way' page (OpenStreetMap feature) rather than initiating car directions/travel time.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Navigate to a directions feature (e.g., 'Directions from here' / 'Directions to here') using the origin coordinates.",
+          "correct": false,
+          "error_description": "The agent continued clicking map/zoom-related elements on the way page instead of starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Start directions from the origin to the destination (Schenley Park) with the travel mode set to car.",
+          "correct": false,
+          "error_description": "The agent clicked around the map/way page (changing map view) rather than opening directions.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Open the directions UI from the origin location.",
+          "correct": false,
+          "error_description": "The agent zoomed/changed map view instead of selecting directions.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open directions from the origin to the destination.",
+          "correct": false,
+          "error_description": "The agent clicked map controls (e.g., map key/zoom area) rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Proceed to set the destination (Schenley Park) in the directions workflow.",
+          "correct": false,
+          "error_description": "The agent continued interacting with the origin way page/map view without starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the directions workflow (from here/to here) for car travel.",
+          "correct": false,
+          "error_description": "The agent clicked map/way page elements; no directions were initiated.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Initiate directions from the origin.",
+          "correct": false,
+          "error_description": "The agent kept clicking around the way page instead of using directions.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Initiate directions from the origin to Schenley Park by car.",
+          "correct": false,
+          "error_description": "The agent zoomed/changed map view rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the origin location to open directions (e.g., 'Directions from here').",
+          "correct": false,
+          "error_description": "The agent clicked 'Show My Location' instead of directions from the origin.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the origin place details and start directions to Schenley Park.",
+          "correct": false,
+          "error_description": "The agent clicked within the 'Share' panel/geo URI area rather than initiating directions.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Open directions from the origin coordinates.",
+          "correct": false,
+          "error_description": "The agent clicked map layers/controls; no directions workflow was started.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent continued clicking map/way page elements instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Open directions from the origin to Schenley Park.",
+          "correct": false,
+          "error_description": "The agent clicked zoom/map controls; still no directions initiated.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent clicked map/way page elements rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Open directions from the origin to the destination.",
+          "correct": false,
+          "error_description": "The agent kept interacting with map view/controls; no directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent clicked zoom/map controls instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Open directions from the origin (not just share/geo URI).",
+          "correct": false,
+          "error_description": "The agent clicked around the share/geo URI area rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent zoomed out via map controls; directions were not started.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Open directions from the origin to Schenley Park by car.",
+          "correct": false,
+          "error_description": "The agent continued clicking map/way page elements; no directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent clicked map/way page elements rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Open directions from the origin.",
+          "correct": false,
+          "error_description": "The agent clicked map/way page elements; still no directions.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Enter the destination (Schenley Park) into the search box and submit to locate it, then use directions to compute car travel time.",
+          "correct": false,
+          "error_description": "The agent typed 'Schenley Park' into the search input but did not submit the search at this step.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Select the correct Schenley Park result to open its place details.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "From Schenley Park details, set it as the destination in the directions workflow from the origin.",
+          "correct": false,
+          "error_description": "The agent clicked into a 'Way' page for Schenley Park instead of using directions to compute travel time.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Use the directions UI to calculate car travel time from the origin to Schenley Park.",
+          "correct": false,
+          "error_description": "The agent continued interacting with the Schenley Park way page; no directions/travel-time calculation was performed.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Open directions from the origin to Schenley Park with car mode and read the minimum travel time.",
+          "correct": false,
+          "error_description": "The agent zoomed/changed map view on the Schenley Park way page rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Open directions from the origin to Schenley Park and extract the minimum car travel time.",
+          "correct": false,
+          "error_description": "The agent clicked map/way page elements; no travel-time result was obtained.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "After computing directions, report the minimum travel time by car and stop.",
+          "correct": false,
+          "error_description": "The agent stopped early without ever obtaining a car travel-time/directions result.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:02.621744+00:00"
+    },
+    "webarena::gpt_5_2::44": {
+      "taskKey": "webarena::gpt_5_2::44",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "44",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 0 clicked the wrong starting UI element (\u201cNew project/repository\u201d) instead of using the issue search, which permanently derailed the workflow. Later issues (Steps 2, 4, 5) were marked recovered and the action log shows the agent still reached a correct final state, so they do not qualify as the unrecoverable root cause.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "From the GitLab home page, use the top search to look for issues with the keyword \"better\" in the title.",
+          "correct": false,
+          "error_description": "The agent clicked an element labeled \"New project/repository\" instead of initiating issue search.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Type the keyword \"better\" into the GitLab search box.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Ensure the search is scoped to Issues (not all results) so the agent can open the relevant issue.",
+          "correct": false,
+          "error_description": "The agent clicked a result that appears to switch scope to merge requests rather than staying on issues.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the issue result titled \"Header check doesn't handle tabs\" (#12869) from the issues search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Select the specific issue entry \"Header check doesn't handle tabs\" (#12869) rather than clicking unrelated filter controls.",
+          "correct": false,
+          "error_description": "The agent clicked a control labeled \"Apply\"/filter area instead of opening the issue.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Click the issue title \"Header check doesn't handle tabs\" (#12869) to open its details page.",
+          "correct": false,
+          "error_description": "The agent clicked the author/row element rather than the issue title link.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Verify the issue state on the issue details page and report whether it is closed or open.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:10.184406+00:00"
+    },
+    "webarena::gpt_5_2::6": {
+      "taskKey": "webarena::gpt_5_2::6",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "6",
+      "keyStep": 7,
+      "failureSteps": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At Step 7 the agent used an overly narrow 'supermarket' query and, after getting 'No results found', did not broaden the search terms or POI categories as required. This derailed the task and led to stopping at Step 11 without any supermarket to compute a walking distance; earlier issues marked [RECOVERED] did not permanently block progress.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for the Pittsburgh International Airport location to anchor the nearby-hotel search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the correct Pittsburgh International Airport result from the search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Search for a Hilton hotel near the airport (e.g., by querying 'Hilton' or 'DoubleTree by Hilton Hotel Pittsburgh Airport').",
+          "correct": false,
+          "error_description": "The agent typed 'Hilton Pittsburgh Airport' into the page without first using the search results flow to ensure it navigated to the intended Hilton hotel listing.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "From the Hilton-related search results, click a specific Hilton hotel near the airport (preferably DoubleTree by Hilton Hotel Pittsburgh Airport).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the selected hotel\u2019s details page (the DoubleTree by Hilton Hotel Pittsburgh Airport object) to confirm the hotel name.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the hotel\u2019s location to search for nearby supermarkets (or a supermarket POI) around the hotel coordinates.",
+          "correct": false,
+          "error_description": "The agent navigated to a generic search for coordinates (40.50907, -80.22437) rather than directly searching for supermarkets near the hotel.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Search for supermarkets near the selected hotel using the hotel name or coordinates (e.g., query 'supermarket near DoubleTree by Hilton Hotel Pittsburgh Airport').",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "If no results are found for 'supermarket', broaden the query to common supermarket tags/terms (e.g., 'grocery', 'supermarket', 'convenience', specific store chains) or use POI categories.",
+          "correct": false,
+          "error_description": "The agent proceeded with a narrow query that returned 'No results found' for 'supermarket' and did not broaden the search strategy.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "After 'No results found', adjust the search query or use alternative terms/nearby POI types to find at least one supermarket.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (likely 'Where is this?') and did not change the search approach to find supermarkets.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Return to the search results and refine the query to locate supermarkets near the hotel.",
+          "correct": false,
+          "error_description": "The agent clicked into the 'Where is this?' input area, further derailing from the supermarket-finding task.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Use a better supermarket query (broaden terms or search for known chains) and then compute the shortest walking distance from the hotel to the found supermarket.",
+          "correct": false,
+          "error_description": "The agent again searched for supermarkets but with an incomplete/incorrect query context, resulting in 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If a supermarket is found, determine the shortest walking distance; otherwise, continue refining the search rather than stopping.",
+          "correct": false,
+          "error_description": "The agent stopped without finding any supermarket results and therefore could not compute the shortest walking distance.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:20.723736+00:00"
+    },
+    "webarena::gpt_5_2::68": {
+      "taskKey": "webarena::gpt_5_2::68",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "68",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The agent repeatedly clicked the same non-progress element (likely a header/select) instead of interacting with the correct search/sort/product elements, so it never reached product details to verify the 15-card minimum. Earlier steps are not recovered because the action pattern persists through the early stop at step 9.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to enter the query 'switch card holder' and include the 15-card minimum requirement, then submit the search.",
+          "correct": false,
+          "error_description": "The agent typed 'switch card holder 15 cards' into the page but did not clearly submit the search or navigate to results in this step.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "On the search results page, sort by lowest price (ascending) and then open a product listing to check it meets the 15-card minimum.",
+          "correct": false,
+          "error_description": "The agent clicked the product header/select element rather than sorting by price or opening a specific product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "After any sorting control interaction, ensure the results are ordered by lowest price and then select a specific product to view its details.",
+          "correct": false,
+          "error_description": "The agent again clicked the same product header/select element instead of sorting correctly or opening a product.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Set the sort order to ascending by price (lowest first) and then click a specific product name/image to inspect card capacity and price.",
+          "correct": false,
+          "error_description": "The agent clicked the sort control/header again without progressing to product details or verifying the 15-card capacity constraint.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Confirm the page is sorted ascending by price and then open the cheapest candidate product to verify it holds at least 15 cards.",
+          "correct": false,
+          "error_description": "The agent clicked the product header/select element again, causing repeated non-progress actions rather than selecting a product.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Select a specific product from the sorted results (not the header) to view its details and confirm it meets the 15-card minimum.",
+          "correct": false,
+          "error_description": "The agent continued clicking the same header/select element, not a product listing, so it never checked capacity or price.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Proceed to a product detail page for the current cheapest result and verify storage capacity is at least 15 cards.",
+          "correct": false,
+          "error_description": "The agent repeated the same click action on the header/select element, making no genuine progress toward identifying the least expensive qualifying item.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "If sorting is correct, click the cheapest product name/image to open details; otherwise adjust sorting to lowest price.",
+          "correct": false,
+          "error_description": "The agent again clicked the same header/select element instead of opening a product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the cheapest product detail page and confirm it holds at least 15 cards, then report the least expensive qualifying option.",
+          "correct": false,
+          "error_description": "The agent repeated the same non-detail click action, continuing the loop without verifying the 15-card requirement.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Do not stop; continue selecting a specific product and verify capacity and price to determine the least expensive qualifying switch card holder.",
+          "correct": false,
+          "error_description": "The agent stopped early due to repeating the same action, without finding or validating any product meeting the 15-card minimum.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:30.340114+00:00"
+    },
+    "webarena::gpt_5_2::7": {
+      "taskKey": "webarena::gpt_5_2::7",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "7",
+      "keyStep": 17,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "The earliest unrecovered violation is Step 17, where the agent repeatedly clicked the same UI element without progressing to route calculation or retrieving travel time. Earlier issues (e.g., search query problems) were not the direct cause of the final failure because the agent continued attempting to reach directions, but the persistent action/flow disconnect at Step 17 made recovery impossible and led to the early stop after repeated identical actions.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the starting location (Gates Building at CMU) into the OpenStreetMap search box to get a precise map point.",
+          "correct": false,
+          "error_description": "The agent typed into the search input but the query context appears inconsistent (later searches fail), indicating the starting location was not correctly established.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Submit the search for the Gates Building at CMU and select a matching result from Nominatim.",
+          "correct": false,
+          "error_description": "The search returned 'No results found' and the agent did not adjust the query appropriately after the failure.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Refine the search query (e.g., use a known address or a simpler name like 'Gates Center for Computer Science') and submit again.",
+          "correct": false,
+          "error_description": "The agent continued with a query that still produced 'No results found' and did not successfully obtain a start point.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Correct the search string and submit a clean query to obtain a valid start location result.",
+          "correct": false,
+          "error_description": "The query became malformed (concatenated terms) and still yielded 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use a reliable identifier for the start (e.g., a known CMU address) and submit to get a valid location.",
+          "correct": false,
+          "error_description": "The agent typed another query but it still did not produce results, suggesting the approach was not yet working.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Submit the refined start query and select the correct result if it appears.",
+          "correct": false,
+          "error_description": "The agent clicked the search input again while results remained 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Further refine the start query (avoid malformed strings) until a valid Nominatim result is returned.",
+          "correct": false,
+          "error_description": "The agent typed another query that again resulted in 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Fix the query text (remove duplicated/garbled characters) and submit to obtain a valid start location.",
+          "correct": false,
+          "error_description": "The query string was corrupted (duplicated 'Gates Center for Computer Scien...') and the agent still did not obtain results.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Switch to a known CMU address for the start (e.g., 5000 Forbes Ave) and submit to get a valid start point.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "After the start address is entered, submit and select the correct Nominatim result for the start point.",
+          "correct": false,
+          "error_description": "The agent returned to the map view and typed again rather than completing the selection flow from the search results.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Select the correct Nominatim result corresponding to the start address (Warner Hall / 5000 Forbes Ave).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the selected start place to set the 'from' point for directions.",
+          "correct": false,
+          "error_description": "The agent clicked into a specific OSM 'Way' (Warner Hall) rather than proceeding to set directions from that point.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the map/directions workflow to set up routing (from start to police station).",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (zoom/other control) and did not progress toward setting directions.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Open the directions interface to start planning a car route.",
+          "correct": false,
+          "error_description": "The agent clicked a map element ('where is this?') instead of moving directly to directions setup.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "On the directions page, choose 'Car (OSRM)' and fill the 'from' and 'to' fields.",
+          "correct": false,
+          "error_description": "The agent typed into an input field but did not ensure the correct route mode and did not clearly set both endpoints.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Enter the destination police station into the 'to' field and submit/compute directions.",
+          "correct": false,
+          "error_description": "The agent typed 'Pittsburgh police station' but did not confirm a valid destination selection or compute the route.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Select the 'Car (OSRM)' option and ensure both 'from' and 'to' are set before requesting directions.",
+          "correct": false,
+          "error_description": "The agent clicked the 'to' input area without showing that the route was computed or that endpoints were correctly set.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Choose the correct routing mode (Car) and proceed to compute directions.",
+          "correct": false,
+          "error_description": "The agent repeatedly clicked the same UI element without progressing to route calculation.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Select 'Car (OSRM)' (not bicycle/foot) to match the 'by car' requirement.",
+          "correct": false,
+          "error_description": "The agent clicked the mode selector but the subsequent URL indicates bicycle/route parameters were not properly handled.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "After setting mode to Car, compute directions and read the travel time to check if it is within 1 hour.",
+          "correct": false,
+          "error_description": "The agent continued clicking the mode selector without obtaining travel time results.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Compute directions from the start (Gates Building/CMU) to the specific Pittsburgh police station and then read the car travel time.",
+          "correct": false,
+          "error_description": "The generated directions URL appears to have 'from' set to 'Carnegie Mellon Police Station' (not the intended Pittsburgh police station) and the agent did not verify the correct destination.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Verify the computed route and extract the travel duration to determine if it is reachable within one hour by car.",
+          "correct": false,
+          "error_description": "The agent clicked the input again and did not retrieve/confirm the travel time.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Ensure the route is computed (car mode) and then check the resulting travel time.",
+          "correct": false,
+          "error_description": "The agent repeated the same click action without progressing to any visible route summary or time.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Read the directions results (distance/time) and compare against the 1-hour threshold.",
+          "correct": false,
+          "error_description": "The agent continued repeating clicks and did not access the route results.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "If the route is not showing, adjust inputs/mode and recompute; otherwise extract the travel time.",
+          "correct": false,
+          "error_description": "The agent kept clicking the same element; no evidence of route computation or time extraction.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Stop only after determining whether the police station is reachable within one hour by car (provide the conclusion).",
+          "correct": false,
+          "error_description": "Early stop occurred due to repeated identical actions; the agent never produced the required within-1-hour determination.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:45.848260+00:00"
+    },
+    "webarena::gpt_5_2::79": {
+      "taskKey": "webarena::gpt_5_2::79",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "79",
+      "keyStep": 20,
+      "failureSteps": [
+        4,
+        20,
+        21
+      ],
+      "failureCause": "Reflection:OutcomeMisinterpretation",
+      "notes": "Step 20 permanently derailed progress by clicking the 'Sign Out' element instead of continuing to the next order, ending the session. Earlier Step 4\u2019s missing element attempt did not directly cause the final failure, while Step 21 confirms the unrecovered consequence (no re-login and no further searching).",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the My Account page by clicking the account link from the homepage.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to the My Orders section by clicking the 'My Orders' link in the account page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the most recent order details by clicking 'View Order' for the latest order listed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Scroll within the order details to reach the 'Items Ordered' section so the ordered products can be checked for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Inspect the 'Items Ordered' list on the order page to see whether any item name includes 'body butter'.",
+          "correct": false,
+          "error_description": "The agent attempted to click an element that was not present/identified (no matching element found) instead of reading the items list.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the order page content and continue checking the 'Items Ordered' for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Go back to the order history list and open the next most recent order to continue searching for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Use pagination controls to navigate to the next page of orders (page 2) to continue searching for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Open the most recent order on page 2 (first 'View Order') and inspect it for 'body butter'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Inspect the order details for the presence of 'body butter' in the 'Items Ordered' section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Return to the order history list and open the next order to continue checking for 'body butter'.",
+          "correct": false,
+          "error_description": "The agent clicked the 'Sign Out' link (element [3]) instead of continuing to the next order, causing the session to end.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "If signed out, re-authenticate and continue checking remaining orders for 'body butter'.",
+          "correct": false,
+          "error_description": "The agent stopped after signing out and did not log back in to continue the search.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:26:57.997742+00:00"
+    },
+    "webarena::gpt_5_2::91": {
+      "taskKey": "webarena::gpt_5_2::91",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "91",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At Step 2 the agent begins searching/entering USCIS information without properly constraining the search to the CMU area, leading to selecting a far-away USCIS (Step 3) and then repeatedly failing to establish a correct SSA-near-USCIS walking route. Earlier issues are not recovered because the workflow remains anchored to incorrect origin/target constraints, culminating in the early-stop loop at Step 29 without obtaining the required walking distance.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter 'Carnegie Mellon University' into the OpenStreetMap search box to locate the campus on the map.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the correct Carnegie Mellon University result (the one matching the campus) to open its place page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the CMU location, search for 'US Citizenship and Immigration Services' near CMU (or use a nearby search) to find the closest USCIS office.",
+          "correct": false,
+          "error_description": "The agent typed 'US Citizenship and Immigration Services' without ensuring it was searched near CMU, leading to an unrelated location.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the USCIS result that is actually near Carnegie Mellon University.",
+          "correct": false,
+          "error_description": "The selected USCIS result is in Rhode Island (Johnston, Providence County), not near CMU in Pittsburgh.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the USCIS place details page for the selected (nearby) USCIS office.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the directions tool (or equivalent) to plan walking directions from this USCIS office to the nearest Social Security Administration office.",
+          "correct": false,
+          "error_description": "The agent clicked a share/geo-related control rather than initiating directions to a Social Security Administration office.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Return to the map context and proceed to find the nearest Social Security Administration relative to the USCIS office.",
+          "correct": false,
+          "error_description": "The agent clicked a zoom-related control, not moving toward finding the nearest SSA or starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Search for 'Social Security Administration' near the currently selected USCIS office (not a global search).",
+          "correct": false,
+          "error_description": "The agent searched for SSA without constraining it to be near the USCIS office, risking irrelevant results.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Select the SSA result that is closest to the USCIS office.",
+          "correct": false,
+          "error_description": "The SSA results shown are in Pennsylvania/New York/other far locations, not clearly the nearest to the USCIS office.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate back to the USCIS office page or to a state where directions can be set up correctly.",
+          "correct": false,
+          "error_description": "The agent went back to the map view without establishing a correct SSA target for directions.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the map UI to continue toward finding SSA near the USCIS office (or open directions).",
+          "correct": false,
+          "error_description": "The agent clicked a map layer control rather than progressing toward SSA/directions.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Proceed to search for SSA near the USCIS office or open directions from USCIS to SSA.",
+          "correct": false,
+          "error_description": "The agent clicked zoom/controls and did not set up the required SSA search/directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "If a help/donation page is opened accidentally, return to the map/directions workflow.",
+          "correct": false,
+          "error_description": "The agent navigated to the OpenStreetMap support site, which is unrelated to finding USCIS/SSA and walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Return to the map and continue the search for the nearest SSA relative to the USCIS office.",
+          "correct": false,
+          "error_description": "The agent clicked around the map UI without re-establishing the SSA target or directions setup.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Open the search box and search for SSA near the USCIS office coordinates.",
+          "correct": false,
+          "error_description": "The agent clicked map layers again rather than performing the required SSA-near-USCIS search.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Search for 'Social Security Administration' near the USCIS office (using a nearby query or coordinates).",
+          "correct": false,
+          "error_description": "The agent entered an SSA query but the context/targeting was not reliably constrained to the USCIS office location.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Select an SSA result if one appears; otherwise broaden/adjust the nearby search while staying near USCIS.",
+          "correct": false,
+          "error_description": "No results were found, indicating the query/targeting failed; the agent did not adjust effectively to obtain a valid nearby SSA.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Refine the SSA search query to obtain at least one SSA result near the USCIS office.",
+          "correct": false,
+          "error_description": "The agent continued with SSA-near-USCIS queries that returned no results.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "If nearby search fails, perform a broader SSA search and then choose the closest SSA to the USCIS office.",
+          "correct": false,
+          "error_description": "The agent again searched and received 'No results found', without switching to a workable strategy.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Wait for results to load or select a valid SSA result to use as the destination for walking directions.",
+          "correct": false,
+          "error_description": "The agent clicked a result entry while results were still not available/loaded properly ('Loading...'), not selecting a valid SSA destination.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Return to the map and correctly set up directions from the USCIS office to the chosen SSA office.",
+          "correct": false,
+          "error_description": "The agent typed another SSA query (Providence RI) unrelated to finding the nearest SSA to the USCIS office near CMU.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Select an SSA result that is near the USCIS office; if none, adjust the search while keeping the USCIS office as the reference point.",
+          "correct": false,
+          "error_description": "The agent searched for SSA in Providence RI and again got 'No results found', failing to obtain a destination.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "On the directions page, set the origin to the USCIS office and the destination to the selected nearest SSA, then choose 'Foot (OSRM)' for walking distance.",
+          "correct": false,
+          "error_description": "The agent typed 'US Citizenship and Immigration Services' into the directions origin field rather than using the actual USCIS coordinates/place and a valid SSA destination.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Set the destination field to the SSA office (not just the generic name) and ensure walking mode is selected.",
+          "correct": false,
+          "error_description": "The agent typed 'Social Security Administration' into the destination field without selecting a specific SSA location, so the route cannot be correctly computed to the nearest SSA.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Select 'Foot (OSRM)' and compute directions to get the walking distance.",
+          "correct": false,
+          "error_description": "The agent clicked the foot option area but the subsequent route indicates a car engine was used and the destination was not correctly set to the nearest SSA.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Compute walking directions and read the walking distance between the USCIS office and the nearest SSA.",
+          "correct": false,
+          "error_description": "The computed route is 468 km (car engine) between USCIS in Rhode Island and an SSA in Pennsylvania, not a walking distance to the nearest SSA from CMU.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Switch to 'Foot (OSRM)' if not already selected and confirm the walking distance for the correct origin/destination pair.",
+          "correct": false,
+          "error_description": "The agent clicked the mode selector but the route remained a car-based long-distance route, not the required walking distance to the nearest SSA.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Ensure the route is recalculated for walking between the correct USCIS and nearest SSA locations.",
+          "correct": false,
+          "error_description": "The agent repeatedly clicked the mode selector without correcting the origin/destination or switching to a valid walking route.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Verify the walking distance value and prepare the final response.",
+          "correct": false,
+          "error_description": "The route still shows the same incorrect long-distance car route; no correct walking distance to the nearest SSA is obtained.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Stop only after successfully obtaining the walking distance from USCIS to the nearest SSA near CMU.",
+          "correct": false,
+          "error_description": "The agent stopped early after repeated identical actions without producing the required walking distance result.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass1",
+      "updatedAt": "2026-08-09T05:27:15.200319+00:00"
+    }
+  }
+}

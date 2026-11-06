@@ -1,0 +1,14 @@
+Deployment    : gpt-5.2
+Pass tag      : gpt52_pass3
+Manifest      : <ROOT>/annotation/result_consistency/sample_150.json  (150 items)
+Output dir    : <ROOT>/annotation/result_consistency/gpt52_pass3
+
+[claude] task_id=100  (6 steps)  call1...call2...  keyStep=5  cause=System:StepLimitExhaustion
+[claude] task_id=118  (18 steps)  call1...call2...  keyStep=7  cause=Reflection:ProgressMisassessment
+[claude] task_id=121  (6 steps)  call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[claude] task_id=140  (31 steps)  call1...call2...  keyStep=8  cause=Action:ParameterError
+[claude] task_id=144  (31 steps)  call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+[claude] task_id=147  (31 steps)  call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+[claude] task_id=57  (12 steps)  call1...call2...  keyStep=7  cause=Planning:ConstraintIgnorance
+[claude] task_id=69  (9 steps)  call1...call2...  keyStep=8  cause=System:StepLimitExhaustion
+[claude] task_id=91  (29 steps)  call1...

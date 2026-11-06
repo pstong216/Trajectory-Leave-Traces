@@ -1,0 +1,1923 @@
+{
+  "updatedAt": "2026-08-12T03:00:31.379200+00:00",
+  "dataset": "webarena",
+  "model": "gptnano",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::gptnano::11": {
+      "taskKey": "webarena::gptnano::11",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "11",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 0 the agent prematurely concluded it could not determine the walking time and stopped, despite the expected available path of using OSM search and routing. There were no earlier steps or recovered errors; the immediate stop permanently prevented progress toward computing the walking time.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the OpenStreetMap search box to find \u201cCarnegie Museum of Art\u201d and a specific CMU library (e.g., \u201cHunt Library, Carnegie Mellon University\u201d), then open directions/routing and read the walking time.",
+          "correct": false,
+          "error_description": "The agent stopped immediately instead of interacting with the available search inputs and routing features to compute a walking time.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:45:28.093136+00:00"
+    },
+    "webarena::gptnano::12": {
+      "taskKey": "webarena::gptnano::12",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "12",
+      "keyStep": 5,
+      "failureSteps": [
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "KeyStep 5 is the first violation and it was never truly corrected: the agent scrolled instead of ensuring the search was submitted/loaded, and subsequent steps continued without establishing the correct Hunt Library location. Later issues (misusing 'Where is this?' and then action-format parse failures) compounded the failure, but they do not qualify as earlier root causes because the agent never recovered from the initial lack of progress toward a valid location search.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click into the main search box to prepare to enter the location query for CMU Hunt Library.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Type a precise query for the target location (e.g., \u201cHunt Library, Carnegie Mellon University, Pittsburgh\u201d) and submit it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Refine the query to a more specific name/address for Hunt Library at Carnegie Mellon University and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Press Enter (or otherwise submit) to run the refined search query.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "If still no results, try an alternative known name (e.g., \u201cHunt Library CMU\u201d or \u201cHunt Library Carnegie Mellon\u201d) and submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Wait for the search results to load (or press Enter if the query wasn\u2019t submitted), rather than scrolling aimlessly.",
+          "correct": false,
+          "error_description": "The agent scrolled while results were loading instead of ensuring the query was submitted/allowing results to load, making no progress toward locating Hunt Library.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Change strategy after repeated 'No results' by using a different query (e.g., 'Hunt Library Carnegie Mellon Pittsburgh') or searching for 'Carnegie Mellon University' first and then Hunt Library.",
+          "correct": false,
+          "error_description": "The agent pressed Enter again without changing the query/strategy despite repeated 'No results found', so it did not advance toward finding the correct location.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the search box to search for 'Carnegie Mellon University' (or 'Hunt Library CMU') rather than clicking 'Where is this?' which uses the current map center.",
+          "correct": false,
+          "error_description": "The agent clicked 'Where is this?' which queries the current map center (not Pittsburgh/CMU), diverting from the goal of locating Hunt Library.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Search for 'Carnegie Mellon University, Pittsburgh' (or 'Hunt Library CMU') and submit, then use the found location as the anchor for nearby cafes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Wait for results to load and then select the correct Hunt Library/CMU result if it appears.",
+          "correct": false,
+          "error_description": "The agent clicked back into the input while the page was still loading instead of waiting for results and selecting a relevant match.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Avoid 'Where is this?' unless the map is centered on CMU; instead keep refining the Pittsburgh/CMU query until the correct location is found.",
+          "correct": false,
+          "error_description": "The agent clicked 'Where is this?' again, causing the workflow to focus on the wrong coordinates rather than finding CMU Hunt Library.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "After realizing the map is at the wrong coordinates, return to searching for 'Carnegie Mellon University, Pittsburgh' (or directly 'Hunt Library CMU') using the site\u2019s search box with a properly formatted action.",
+          "correct": false,
+          "error_description": "The agent produced an invalid/unparseable action (formatting error) and attempted to go to openstreetmap.org instead of using the provided site instance, halting progress.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Issue a correctly formatted navigation or search action within the current environment (18.116.169.131:3000) to locate CMU/Hunt Library.",
+          "correct": false,
+          "error_description": "Another invalid/unparseable action was produced, so the agent still could not execute the needed navigation/search.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Correct the action formatting and proceed to search for cafes near the correctly found Hunt Library location.",
+          "correct": false,
+          "error_description": "A third invalid/unparseable action was produced; the agent never recovered to a valid action sequence.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Continue with valid actions to find Hunt Library and then query nearby cafes, returning the closest cafe(s).",
+          "correct": false,
+          "error_description": "The agent stopped due to repeated action-parsing failures without completing the task.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:46:27.247072+00:00"
+    },
+    "webarena::gptnano::128": {
+      "taskKey": "webarena::gptnano::128",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "128",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error occurred at step 0: the agent clicked an unlabeled/wrong element instead of locating and opening the target gimmiethat.space project, and there is no later evidence in the action log of successfully navigating to that repo or reaching its Members/Invite flow. Because the agent never recovered by opening the correct project context, all subsequent interactions remained on irrelevant pages (Access Tokens), so no earlier error was corrected and step 0 is the keyStep.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the Projects page search to locate and open the target repository gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled element instead of searching for/opening the gimmiethat.space project.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Search for \u201cgimmiethat.space\u201d in the projects list/search bar and open that project.",
+          "correct": false,
+          "error_description": "Opened the global \u201cNew\u2026\u201d menu rather than navigating to the gimmiethat.space project.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Close the create-new menu and navigate to the gimmiethat.space project (via search or list).",
+          "correct": false,
+          "error_description": "Clicked an unrelated link in the projects list (likely a project metric) instead of selecting gimmiethat.space.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "From the project page, go to Project information \u2192 Members (or use \u201cInvite members\u201d) for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Navigated back to the GitLab home via the GitLab logo instead of proceeding to invite members for the correct repo.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the gimmiethat.space project from the projects list/search.",
+          "correct": false,
+          "error_description": "Clicked a numeric/unrelated control in the cloud-to-butt row, opening the wrong project area.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "In the correct project (gimmiethat.space), open Members/Invite members to add collaborators.",
+          "correct": false,
+          "error_description": "Went to Settings for the wrong project (cloud-to-butt) rather than locating gimmiethat.space and inviting members.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Navigate to Project information \u2192 Members (or Invite members) for gimmiethat.space, not project settings unrelated to members.",
+          "correct": false,
+          "error_description": "Clicked Settings \u2192 Access Tokens in the wrong project, which is unrelated to inviting collaborators.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Leave Access Tokens and go to Members/Invite members for the target repo gimmiethat.space.",
+          "correct": false,
+          "error_description": "Stayed on the Access Tokens page and clicked the Access Tokens header, not moving toward inviting members.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space (via sidebar Project information \u2192 Members or top \u201cInvite members\u201d).",
+          "correct": false,
+          "error_description": "Repeatedly clicked the Access Tokens header without navigating to Members/Invite members.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Stop interacting with token controls and instead open the Members page or Invite members flow for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button/control on the Access Tokens form, still unrelated to inviting collaborators.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the project navigation to reach Members/Invite members for the correct repo.",
+          "correct": false,
+          "error_description": "Clicked \u201cLearn more\u201d on access tokens rather than navigating to Members/Invite members.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Navigate away from Access Tokens to Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked into the token name input field, continuing an irrelevant workflow.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Open the Members page (Project information \u2192 Members) or use the top \u201cInvite members\u201d action.",
+          "correct": false,
+          "error_description": "Clicked \u201cCollapse sidebar,\u201d which does not advance toward inviting collaborators.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Use navigation/search to get to gimmiethat.space and then Members/Invite members.",
+          "correct": false,
+          "error_description": "Clicked \u201cLearn more\u201d again on the Access Tokens page instead of going to Members/Invite members.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked \u201cLearn more\u201d again; still stuck on Access Tokens.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate to Members/Invite members for the target repo.",
+          "correct": false,
+          "error_description": "Clicked the write_repository scope checkbox, continuing token configuration unrelated to collaborator invites.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Exit token settings and open Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked an unrelated input/control on the Access Tokens page, not progressing toward inviting members.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked the Access Tokens breadcrumb/link again, remaining on the same irrelevant page.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Use the project menu to go to Members/Invite members (or switch to the correct project first).",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button/control on the Access Tokens form, still not attempting to invite members.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Clicked the role select dropdown for tokens, which is unrelated to collaborator invitations.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the token role dropdown; no progress toward inviting collaborators.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Open Members/Invite members for gimmiethat.space (or use the top \u201cInvite members\u201d action visible in the header).",
+          "correct": false,
+          "error_description": "Clicked the api scope checkbox, continuing token setup instead of inviting collaborators.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Navigate to Members/Invite members for the target repo.",
+          "correct": false,
+          "error_description": "Clicked \u201cLearn more\u201d again on the Access Tokens page rather than switching to Members/Invite members.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate to Members/Invite members for gimmiethat.space and add Jakub Klinkovsk\u00fd and Beno\u00eet Blanchon.",
+          "correct": false,
+          "error_description": "Clicked into the token name input again; still not attempting the invite flow.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Stop only after successfully inviting both users as collaborators to gimmiethat.space (or after exhausting navigation options like Project information \u2192 Members / top \u201cInvite members\u201d).",
+          "correct": false,
+          "error_description": "Stopped while on the wrong page (Project Access Tokens) and wrong project context, without attempting the visible \u201cInvite members\u201d entry point or navigating to the correct repo.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:47:41.073360+00:00"
+    },
+    "webarena::gptnano::152": {
+      "taskKey": "webarena::gptnano::152",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "152",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        6
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 4 the agent navigated to the moderation log instead of upvoting and proceeding to CameronKelsey's profile/submissions, and there is no later evidence it corrected course; it ultimately stopped at step 6 without liking anything. The step-2 mistake (clicking search again) was later bypassed by continuing navigation, so it did not permanently prevent completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site's search box to look up the user CameronKelsey or navigate directly to /f/EarthPorn and locate CameronKelsey's submissions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Enter the query \"CameronKelsey\" into the search input and submit the search to find relevant posts/users.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Review the search results and click a relevant result (ideally the user profile for CameronKelsey or an EarthPorn submission by them).",
+          "correct": false,
+          "error_description": "The agent clicked the Search button again instead of selecting a result to proceed toward listing/liking CameronKelsey's EarthPorn submissions.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Click a relevant EarthPorn submission by CameronKelsey (or the CameronKelsey profile) from the search results to proceed to the content to like.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Upvote/like the submission and then navigate to CameronKelsey's profile or other EarthPorn submissions by CameronKelsey to like all of them.",
+          "correct": false,
+          "error_description": "The agent went to the moderation log instead of liking the post and finding/liking all EarthPorn submissions by CameronKelsey.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the submission page and perform the like/upvote action, then continue to CameronKelsey's profile to like remaining EarthPorn submissions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Click the upvote/like control on the post and then navigate to CameronKelsey's profile to like all their EarthPorn submissions (not stop after identifying the author).",
+          "correct": false,
+          "error_description": "The agent stopped after confirming the author, without performing the required likes on all CameronKelsey submissions in EarthPorn.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:48:18.149262+00:00"
+    },
+    "webarena::gptnano::156": {
+      "taskKey": "webarena::gptnano::156",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "156",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error was at step 2: the agent diverted into profile/activity navigation instead of committing to a viable project-creation flow, and it never later executed a clear, successful 'create new public project' sequence (it only searched/navigated to an existing project). Earlier step 0 was corrected by later navigation, so it does not qualify as the keyStep.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click \u201cNew project\u201d (or the \u201cNew project/repository\u201d menu) to start creating the new public project.",
+          "correct": false,
+          "error_description": "Clicked the user avatar image instead of initiating new project creation.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click \u201cNew project\u201d to begin creating the project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "On the new project page, choose to create a blank project and fill in name/visibility, then create it.",
+          "correct": false,
+          "error_description": "Navigated to the user profile and activity instead of the project creation flow.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Return to the new project creation form and proceed with creating \u201cawesome-llms\u201d as public.",
+          "correct": false,
+          "error_description": "Clicked into personal projects from the user activity page rather than creating a new project.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the global \u201cNew project\u201d action (or return to dashboard) to create the project.",
+          "correct": false,
+          "error_description": "Clicked followers instead of starting project creation.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Navigate away from followers and go to project creation (dashboard/new project).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Use the \u201cNew project/repository\u201d control to create a new project named \u201cawesome-llms\u201d with public visibility.",
+          "correct": false,
+          "error_description": "Clicked the global search input instead of the new project action.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Click \u201cNew project/repository\u201d (or \u201cNew project\u201d) rather than using search.",
+          "correct": false,
+          "error_description": "No valid UI action was executed; the agent produced a formatting error message instead of interacting with the page.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the new project creation page and create the project (not search for it).",
+          "correct": false,
+          "error_description": "Typed into the global search box, triggering a search for an existing project instead of creating a new one.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "From search results, click the existing \u201cByte Blaze/awesome-llms\u201d project to proceed to member management (since it already exists).",
+          "correct": false,
+          "error_description": "Clicked the search submit button again instead of opening the project result.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Click the \u201cByte Blaze/awesome-llms\u201d project result to open it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Go to the project\u2019s Members/Project information \u2192 Members page (or use \u201cInvite members\u201d).",
+          "correct": false,
+          "error_description": "Went into project Settings instead of directly managing members.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate to Members (Project information \u2192 Members) and invite primer, convexegg, abishek.",
+          "correct": false,
+          "error_description": "Clicked an unrelated input within General Settings rather than finding the Members page.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Navigate to Members and invite the specified users.",
+          "correct": false,
+          "error_description": "Clicked Repository instead of Members.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "From the project, open Members (Project information \u2192 Members) or use \u201cInvite members\u201d.",
+          "correct": false,
+          "error_description": "Collapsed the sidebar; this did not advance toward inviting members.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Open the Members page for the project.",
+          "correct": false,
+          "error_description": "Clicked \u201cProject information\u201d but then navigated to Activity rather than Members.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Click \u201cMembers\u201d under Project information to manage membership.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "On the Team/Members area, proceed to invite members.",
+          "correct": false,
+          "error_description": "Navigated to Snippets instead of the members management interface.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to the project and open Members to invite users.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Open the Members page (Project information \u2192 Members) and invite primer, convexegg, abishek.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "If Team/Members isn\u2019t visible, use Project information \u2192 Members or Settings \u2192 Members to reach member management.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled/irrelevant control that opened the Atom feed rather than member management.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Return to the project page and navigate to Members.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Click \u201cMembers\u201d (Project information \u2192 Members) or \u201cInvite members\u201d to add the specified users.",
+          "correct": false,
+          "error_description": "Clicked \u201cConfigure Integrations\u201d instead of going to Members.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate to the Members page for the project.",
+          "correct": false,
+          "error_description": "Clicked Snippets from Integrations settings instead of Members.",
+          "recovered": true
+        },
+        {
+          "step": 24,
+          "expected_action": "Open the project\u2019s Members page and invite primer, convexegg, abishek.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Use the correct members URL or UI navigation (Project information \u2192 Members) to reach member management.",
+          "correct": false,
+          "error_description": "Navigated to a non-existent /-/members path resulting in 404.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Try an alternative correct path (e.g., /-/project_members) or navigate via UI to Members.",
+          "correct": false,
+          "error_description": "Repeated the same invalid /-/members URL, still 404.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Try the correct members endpoint (e.g., /-/project_members) or use UI navigation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "Click \u201cInvite members\u201d, add primer, convexegg, abishek, choose a role, and click \u201cInvite\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 29,
+          "expected_action": "In the invite dialog, add all three users (primer, convexegg, abishek), select appropriate role, and click \u201cInvite\u201d.",
+          "correct": false,
+          "error_description": "Only typed one username (primer) and did not complete selection/role/invite or add the other two users.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Select the suggested user(s), add convexegg and abishek as well, then click \u201cInvite\u201d to finalize.",
+          "correct": false,
+          "error_description": "Stopped before selecting the suggestion(s) and sending the invitations, leaving the task incomplete.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:49:37.465686+00:00"
+    },
+    "webarena::gptnano::164": {
+      "taskKey": "webarena::gptnano::164",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "164",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "failureCause": "Action:FormatError",
+      "notes": "At step 0 the agent issued an incorrectly formatted command that the system could not parse, resulting in no UI interaction; this was never corrected in later steps. Steps 1 and 2 repeat the same formatting mistake (no recovery evidence in the action log), and step 3 is the forced stop caused by the accumulated unparsable actions.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the projects page search/filter input to locate the a11yproject repository (e.g., type \"a11yproject\" into the search box) so you can open it and then navigate to its Issues list.",
+          "correct": false,
+          "error_description": "The agent did not execute a valid UI action; it produced an incorrectly formatted command that the system could not parse, so no interaction occurred.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Correct the action syntax and type the query into the projects search input (or directly click the \"The A11Y Project/a11yproject.com\" project link if that is the target) to proceed toward the issue list.",
+          "correct": false,
+          "error_description": "The agent again output an action in an invalid format, so the system could not perform the intended typing/search.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Finally issue a properly formatted action (e.g., type into the search field or click the a11yproject.com project link) to reach the project and then open Issues to find the 404 issue.",
+          "correct": false,
+          "error_description": "The agent repeated the same unparsable action format a third time, making no progress toward opening the project or assigning the issue.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue with a valid interaction sequence (open the a11yproject project, go to Issues, open the 404 issue, and assign it to self) rather than stopping.",
+          "correct": false,
+          "error_description": "The agent stopped due to repeated action-parsing failures instead of recovering by issuing a correctly formatted action.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:50:08.283734+00:00"
+    },
+    "webarena::gptnano::24": {
+      "taskKey": "webarena::gptnano::24",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "24",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        5,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "At step 3 the agent committed to an unworkable strategy by entering a generic category (\u201ctea cafe\u201d) as the destination instead of identifying a concrete nearby POI first, which prevented generating a valid walking route and was never corrected later. Earlier issues in steps 0\u20131 were genuinely recovered because the agent subsequently entered the origin and continued interacting with the directions/search UI.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the main search box to find \u201cUniversity of Pittsburgh\u201d (or open Directions intentionally) so you can anchor the start location.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link that jumped to the Directions page without first locating the University of Pittsburgh on the map/search.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click into the 'from' input field on the Directions page (not an icon) to enter the start location.",
+          "correct": false,
+          "error_description": "Clicked an image/icon element instead of focusing the actual 'from' input field, making no progress.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter \u201cUniversity of Pittsburgh\u201d into the 'from' field and select the correct suggestion/result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Enter a specific destination place name (or first search for nearby tea caf\u00e9s and pick one) rather than a generic category in the 'to' field.",
+          "correct": false,
+          "error_description": "Typed a generic query (\u201ctea cafe\u201d) into the destination field, which typically won\u2019t resolve to a routable place without selecting a concrete POI result.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Select 'Foot (OSRM)' and compute directions only after both 'from' and 'to' are valid locations.",
+          "correct": false,
+          "error_description": "Clicked 'Reverse Directions' instead of setting a valid destination and calculating a walking route.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Fix the missing destination by entering/selecting a real tea caf\u00e9 POI in the 'to' field (or search for tea caf\u00e9s first).",
+          "correct": false,
+          "error_description": "Clicked 'Reverse Directions' again, resulting in an empty/invalid route state rather than correcting the missing destination.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Enter a valid 'from' location again (University of Pittsburgh) and then set a valid 'to' tea caf\u00e9 POI.",
+          "correct": false,
+          "error_description": "Clicked into an input but did not correct the now-empty 'from' field or establish a valid route.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Return to the map search (or use 'Search' for POIs) to find nearby tea caf\u00e9s, then use 'Directions from here'/'to here'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Click the main search box and search for \u201cUniversity of Pittsburgh\u201d to center the map on the campus area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Submit the search for \u201cUniversity of Pittsburgh\u201d and open the correct result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Click the University of Pittsburgh result (not the Nominatim site link) to center the map and then search for tea caf\u00e9s nearby or use map features/POI search.",
+          "correct": false,
+          "error_description": "Clicked the 'OpenStreetMap Nominatim' link, leaving the OSM map workflow and losing the ability to easily compute walking directions from the campus to a nearby POI.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use Nominatim properly by searching for the origin first (University of Pittsburgh), then use viewbox/bounded search or structured queries for amenities (e.g., cafe/tea) near that area.",
+          "correct": false,
+          "error_description": "Entered a combined free-text query (\u201cUniversity of Pittsburgh, tea cafe\u201d) which is unlikely to return nearby POIs and does not use viewbox/bounded search.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Run the search and, if no results, adjust by enabling 'bounded to viewbox' around Pittsburgh or using structured search/amenity tags.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Clear the query and try a better approach (e.g., search 'University of Pittsburgh' alone to get coordinates, then search 'tea'/'bubble tea'/'cafe' with bounded viewbox), rather than appending text.",
+          "correct": false,
+          "error_description": "Typed a new query without clearing the old one, causing the URL/query string to become concatenated and increasingly nonsensical.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Reset the search field and use a targeted query (e.g., 'bubble tea Pittsburgh' or 'tea' with bounded viewbox) instead of further appending unrelated terms.",
+          "correct": false,
+          "error_description": "Appended 'coffee' to an already malformed query, further reducing the chance of getting usable results.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Clear the field and search for a specific nearby tea shop name or use bounded viewbox/structured search for cafes in Oakland/Pittsburgh.",
+          "correct": false,
+          "error_description": "Continued appending terms ('tea cafe') to the malformed query instead of resetting and using a workable search strategy.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Switch strategy: return to OSM map and use POI search (e.g., 'bubble tea') near the centered campus, then request walking directions to the selected POI.",
+          "correct": false,
+          "error_description": "Appended 'tea shop' to the already corrupted query rather than changing approach to obtain a concrete destination POI.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "If staying in Nominatim, clear the query and use bounded search or structured parameters; otherwise go back to OSM and search for nearby tea shops/bubble tea.",
+          "correct": false,
+          "error_description": "Repeatedly typed 'tea shop' again, still not clearing the query or using bounded/structured search, yielding no progress.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Recover by returning to OSM, finding a specific nearby tea caf\u00e9 POI (e.g., via 'bubble tea' search), then compute a Foot (OSRM) route from University of Pittsburgh to that POI to obtain walking distance.",
+          "correct": false,
+          "error_description": "Stopped after unsuccessful Nominatim searches without attempting alternative workable queries (e.g., 'bubble tea') or returning to OSM to select a POI and compute walking directions.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:53:23.186258+00:00"
+    },
+    "webarena::gptnano::39": {
+      "taskKey": "webarena::gptnano::39",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "39",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 6 the agent performed an unrelated, high-impact side effect (closing an issue) instead of navigating to the global 'Merge requests \u2192 Assigned to you' view, and there is no later evidence it recognized this as a mistake and returned to the assigned-to-me MR list. Earlier violations (steps 0\u20135) were genuinely corrected by subsequent navigation away from those dead ends, but after step 6 the agent remained off-goal and continued unproductive interactions until step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the global \"Merge requests\" link for \"Assigned to you\" (or otherwise navigate to the assigned merge requests list).",
+          "correct": false,
+          "error_description": "Clicked \"Explore\" instead of going to merge requests assigned to the user.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click \"Merge requests\" (Assigned to you) in the top navigation/notification area.",
+          "correct": false,
+          "error_description": "Clicked the notifications/assigned-items area but ended up on the Issues dashboard rather than the merge requests assigned-to-you list.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Navigate from the Issues dashboard to the merge requests assigned to you (e.g., click \"Merge requests\" in the header).",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button on the Issues page (likely search/filter) instead of switching to merge requests assigned to the user.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the \"Merge requests\" assigned-to-you link (or go back and select merge requests rather than issues).",
+          "correct": false,
+          "error_description": "Clicked the \"To-Do\"/notification count link (4) rather than navigating to merge requests assigned to the user.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "From the To-Do list, click a merge request item assigned to you (e.g., !1270 or !1485) or go to the assigned merge requests list.",
+          "correct": false,
+          "error_description": "Clicked a merge request-related to-do row container (update or remove 404 links) but did not open the merge request; it stayed on the To-Do list.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Open one of the merge requests assigned to you from the To-Do list (e.g., click !1270 or !1485).",
+          "correct": false,
+          "error_description": "Opened an issue (#1478) instead of a merge request assigned to the user.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Leave the issue and navigate to merge requests assigned to you (do not change issue state).",
+          "correct": false,
+          "error_description": "Closed the issue, which is unrelated to checking merge requests assigned to the user and is an unintended side effect.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Navigate to merge requests assigned to you (or open an assigned merge request from To-Do).",
+          "correct": false,
+          "error_description": "Clicked \"Mark as done\" on the issue (to-do action), still not moving toward viewing assigned merge requests.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Navigate to merge requests assigned to you.",
+          "correct": false,
+          "error_description": "Reopened the issue (undoing the earlier close) instead of navigating to assigned merge requests.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to merge requests assigned to you.",
+          "correct": false,
+          "error_description": "Closed the issue again, continuing unrelated issue state changes.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Click the project's \"Merge requests\" section or go to the global assigned merge requests list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Filter to merge requests assigned to you (or open one that is assigned to you).",
+          "correct": false,
+          "error_description": "Opened a merge request (!1532) from the project list without confirming it is assigned to the user; the task is specifically 'assigned to me' across GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the global \"Merge requests assigned to you\" list or apply an assignee filter to yourself.",
+          "correct": false,
+          "error_description": "Interacted with the activity sort/filter control on a specific MR instead of navigating to the assigned-to-you MR list.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Clicked the Write tab in the comment box, which does not help find merge requests assigned to the user.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Clicked the Write tab again, still not progressing toward viewing assigned merge requests.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Clicked \"Add a to do\" on the MR, which is unrelated to checking merge requests assigned to the user.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Opened the MR \"Code\" dropdown; this is about local checkout, not about locating merge requests assigned to the user.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Clicked \"Check out branch\" (local checkout instructions) instead of going to the assigned-to-you MR list.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or set assignee=self filter).",
+          "correct": false,
+          "error_description": "Clicked a button in the checkout instructions (copy command), still focused on local checkout rather than finding assigned merge requests.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Recognize the UI changed and either re-open the Code dropdown or abandon checkout and go to the assigned-to-you MR list.",
+          "correct": false,
+          "error_description": "Tried to click a non-existent element ([82]) due to stale indexing, indicating loss of state awareness.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Go to the global assigned-to-you merge requests list (or apply assignee filter) rather than repeatedly opening menus.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button near the Code dropdown, not moving toward the assigned-to-you merge requests list.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked the unlabeled button again (likely MR actions/menu), still not addressing the task goal.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked the unlabeled button again, repeating unproductive interaction on the same MR page.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked \"Mark as ready\" (changed MR state) which is unrelated to checking merge requests assigned to the user and introduces side effects.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked the 'Marked as ready' status message area; no progress toward locating assigned merge requests.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked the Preview tab in the comment box, unrelated to the task.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Navigate to the assigned-to-you merge requests list (or filter assignee=self).",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link/button near the comment area; still not moving toward the assigned-to-you MR list.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate to the global assigned-to-you merge requests list (e.g., top nav 'Merge requests' -> 'Assigned to you').",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button in the sidebar/metadata area, not navigating to assigned merge requests.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Navigate to the assigned-to-you merge requests list.",
+          "correct": false,
+          "error_description": "Clicked another unlabeled button (showing 'Copied'), continuing irrelevant interactions on the same MR.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Navigate to the assigned-to-you merge requests list.",
+          "correct": false,
+          "error_description": "Clicked the same unlabeled button again, repeating the copy action with no progress.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Stop only after reaching the assigned-to-you merge requests page and reviewing the list of assigned merge requests.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without ever navigating to the global 'merge requests assigned to you' list or confirming assigned MRs.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:54:58.142112+00:00"
+    },
+    "webarena::gptnano::52": {
+      "taskKey": "webarena::gptnano::52",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "52",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error was Step 0: the agent entered the Export workflow instead of using search/directions to locate Gardner Steel Conference Center and compute hotel walking times, and it never demonstrated a successful return to the correct search/routing path afterward. Later parse/format errors (Steps 11, 19\u201321) further prevented recovery, but earlier steps are not considered recovered because the action log shows continued drifting into unrelated pages and signup rather than completing venue search and walking-distance calculations.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up \u201cGardner Steel Conference Center\u201d (or its city/address) rather than opening Export.",
+          "correct": false,
+          "error_description": "Clicked the Export link, which is unrelated to finding hotels and walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Return to the map/search and search for \u201cGardner Steel Conference Center\u201d.",
+          "correct": false,
+          "error_description": "Clicked \u201cManually select a different area\u201d in Export, continuing an irrelevant workflow.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the main search input to query \u201cGardner Steel Conference Center\u201d (not \u201cWhere is this?\u201d coordinates).",
+          "correct": false,
+          "error_description": "Clicked \u201cWhere is this?\u201d, which only reports coordinates and doesn\u2019t advance toward hotel-to-venue walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Type \u201cGardner Steel Conference Center\u201d into the search field and select the correct result.",
+          "correct": false,
+          "error_description": "Clicked a generic button in search results instead of searching for the venue by name/address.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Search for the venue name/address and zoom to it.",
+          "correct": false,
+          "error_description": "Clicked \u201cWhere is this?\u201d again, repeating the coordinate workflow rather than locating the venue.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Search for \u201cGardner Steel Conference Center\u201d and open its place page or center the map there.",
+          "correct": false,
+          "error_description": "Selected an internal coordinate result (42.896, -75.103) unrelated to the venue and task.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stay on the provided site (18.116.169.131) and search for the venue; do not jump to the public openstreetmap.org site unless necessary.",
+          "correct": false,
+          "error_description": "Ended up on openstreetmap.org at a global zoom, losing the task context and location.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the search box to query \u201cGardner Steel Conference Center\u201d (or its city) on OSM.",
+          "correct": false,
+          "error_description": "Clicked into the search input but did not enter the venue query; no progress toward locating the destination.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Type the venue name/address and run the search, then choose the correct result.",
+          "correct": false,
+          "error_description": "Clicked an empty DIV in the results area, causing navigation away from the needed search/directions flow.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Go back and search for the venue, then use Directions to compute walking routes from nearby hotels.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated OSM relation page, not connected to the venue or hotels.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to search and locate \u201cGardner Steel Conference Center\u201d specifically.",
+          "correct": false,
+          "error_description": "Clicked \u201cWhere is this?\u201d again from a global map state, not targeting the venue.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Issue a valid browser action (e.g., type the venue name in the search box) rather than outputting a narrative summary.",
+          "correct": false,
+          "error_description": "Produced an incorrectly formatted non-action response, triggering a parse error instead of continuing the task.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Type \u201cGardner Steel Conference Center\u201d into the search field and submit.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link/button ([18]) without entering the venue query, leading into directions with wrong coordinates.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "In Directions, set destination to Gardner Steel Conference Center and then search for nearby hotels as origins to compute walking times.",
+          "correct": false,
+          "error_description": "Clicked into a directions input but the destination was already incorrect (40.7, -123.0), so this did not advance the task.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Enter correct origin/destination (venue + hotel) and request walking route results.",
+          "correct": false,
+          "error_description": "Clicked the directions \u2018Go\u2019/route button without providing valid origin/destination for the venue/hotels.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Back out and correctly search for the venue and nearby hotels; avoid account flows.",
+          "correct": false,
+          "error_description": "Clicked \u201cStart Mapping,\u201d which led into account/signup rather than routing/walking distance results.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Navigate back to Directions/Search; do not attempt to sign up.",
+          "correct": false,
+          "error_description": "Clicked into the signup form, entering an irrelevant account-creation workflow.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Exit signup and return to searching/routing for the venue and hotels.",
+          "correct": false,
+          "error_description": "Typed a username into signup, further committing to an unnecessary flow.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Exit signup and return to routing; if blocked, use an alternative method within the site to compute walking times.",
+          "correct": false,
+          "error_description": "Typed an email into signup, continuing the irrelevant account workflow.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Provide a valid formatted action (e.g., navigate back) rather than a narrative summary.",
+          "correct": false,
+          "error_description": "Again produced an incorrectly formatted non-action response, causing another parse error.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Recover by issuing a valid action to leave signup and return to search/directions for the venue.",
+          "correct": false,
+          "error_description": "Repeated the same incorrectly formatted non-action response, failing to recover.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Recover by issuing a valid action (back/navigation/search) to continue the task.",
+          "correct": false,
+          "error_description": "Repeated the parse-error-causing non-action response a third time, preventing any further progress.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Continue with valid actions to locate the venue, identify nearby hotels, and compute walking times \u2264 5 minutes.",
+          "correct": false,
+          "error_description": "Stopped due to repeated action parsing failures without completing the task.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:56:08.129695+00:00"
+    },
+    "webarena::gptnano::55": {
+      "taskKey": "webarena::gptnano::55",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "55",
+      "keyStep": 2,
+      "failureSteps": [
+        2
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 2 the agent prematurely stopped, treating the search-results view as sufficient and reporting a single price without verifying the item brand or collecting prices from actual EYZUTAK product pages to compute a true min\u2013max range. There are no earlier violations in the report, so no recovered errors qualify as the key step.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click into the site search box to prepare to search for the brand name EYZUTAK.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Enter the query \"EYZUTAK\" into the search field and submit the search (press Enter or click the Search button).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the EYZUTAK product(s) from the search results and read the product price(s) to compute the min and max price range for EYZUTAK items.",
+          "correct": false,
+          "error_description": "The agent stopped after reaching the search results without verifying that the listed item is actually an EYZUTAK product and without collecting prices from the product page(s) to determine the true brand price range.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:56:32.089122+00:00"
+    },
+    "webarena::gptnano::63": {
+      "taskKey": "webarena::gptnano::63",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "63",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 0 the agent prematurely concluded the token could not be retrieved and stopped without attempting any navigation (user menu/preferences/search) to locate the RSS feed token. There were no earlier steps or recovered errors, so this initial misassessment directly caused the final failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the user\u2019s RSS feed settings (e.g., via the avatar menu to Preferences/Profile or directly to the RSS feed page) and locate/copy the RSS feed token.",
+          "correct": false,
+          "error_description": "The agent stopped immediately on the GitLab dashboard without attempting to open the user menu/preferences or search for the RSS token location, so it made no progress toward retrieving the token.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:56:53.166771+00:00"
+    },
+    "webarena::gptnano::65": {
+      "taskKey": "webarena::gptnano::65",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "65",
+      "keyStep": 16,
+      "failureSteps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "failureCause": "Action:FormatError",
+      "notes": "The earliest permanent failure occurs at step 16 when the agent outputs a narrative summary instead of a valid, parseable action/response format, triggering repeated parsing errors and preventing delivery of the requested under-$30 men's shoes product list. Earlier violations (steps 3\u201313) were genuinely recovered because the agent later navigated correctly to the under-$30 men\u2019s shoes URL (step 14) and continued browsing (step 15).",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate into the relevant top-level category (Clothing, Shoes & Jewelry) to reach men's shoes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the 'Men' subcategory to narrow results toward men's items.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click into the 'Shoes' subcategory under Men to reach men's shoes listings.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Apply a price filter that will allow identifying items under $30 (e.g., $0-$9.99, $10-$19.99, $20-$29.99 if available) or otherwise proceed to a method to constrain to <$30.",
+          "correct": false,
+          "error_description": "Clicked the broad $0-$99.99 filter, which does not satisfy the 'under $30' constraint and adds unnecessary noise.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Apply a sub-$30 price filter (e.g., $0-$9.99 and $10-$19.99, and/or find a $20-$29.99 range) rather than leaving the shopping flow.",
+          "correct": false,
+          "error_description": "Clicked 'Sign Out', which derailed the shopping task and removed progress/context.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the men's shoes listing and continue filtering to under $30 (no login required).",
+          "correct": false,
+          "error_description": "Clicked 'Sign In' after signing out, initiating an unnecessary authentication flow unrelated to finding products under $30.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Navigate back to Clothing > Men > Shoes and apply the under-$30 filter (or use search) instead of creating an account.",
+          "correct": false,
+          "error_description": "Clicked 'Create an Account', which is unnecessary for browsing/filtering products and wastes steps.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Abort account creation and return to product browsing/filtering for men's shoes under $30.",
+          "correct": false,
+          "error_description": "Started filling the account creation form (email) instead of returning to the shopping task.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Stop account creation and navigate back to the men's shoes category page to apply price filters.",
+          "correct": false,
+          "error_description": "Continued filling account creation (first name), still off-task.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Stop account creation and return to browsing men's shoes under $30.",
+          "correct": false,
+          "error_description": "Continued filling account creation (last name), still off-task.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Stop account creation and return to the men's shoes listing to filter under $30.",
+          "correct": false,
+          "error_description": "Entered a password for account creation, continuing an unnecessary flow.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Stop account creation and return to product browsing/filtering.",
+          "correct": false,
+          "error_description": "Entered confirm password, still pursuing account creation rather than the shopping task.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Submit nothing further for account creation and instead navigate back to men's shoes under $30.",
+          "correct": false,
+          "error_description": "Repeated typing confirm password again; redundant and still off-task.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "From the account page, navigate back to the men's shoes listing and apply an under-$30 filter, using a properly formatted browser action.",
+          "correct": false,
+          "error_description": "Produced an invalid action format (a narrative 'goto' statement) causing a parsing failure instead of executing a valid navigation action.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Navigate directly to a men's shoes listing filtered to under $30 (e.g., via URL parameters) using a valid goto action.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Scroll or switch to list/grid view to read product names and prices and then report products under $30.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Extract and present the products shown (names and prices) under $30, or continue scrolling to gather more, using valid actions/output formatting.",
+          "correct": false,
+          "error_description": "Returned a narrative summary instead of a valid action/response format, triggering another parsing error and preventing task completion.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Recover from the formatting error by issuing a valid action (e.g., scroll to collect more items) or provide the final answer in the required channel/format without causing parsing failures.",
+          "correct": false,
+          "error_description": "Repeated the same invalid narrative output, causing another parse failure rather than recovering with a valid action or final response.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Stop repeating invalid outputs and either take a valid action (scroll/click) or finalize by listing products under $30 from the page.",
+          "correct": false,
+          "error_description": "Again repeated the invalid narrative output, leading to a third parse failure and no progress toward delivering the requested product list.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Provide the final list of men's shoes products under $30 (from the visible results) or continue valid browsing actions to compile them.",
+          "correct": false,
+          "error_description": "Stopped due to repeated action-parsing failures, ending without presenting the requested products under $30.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:57:50.452803+00:00"
+    },
+    "webarena::gptnano::67": {
+      "taskKey": "webarena::gptnano::67",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "67",
+      "keyStep": 8,
+      "failureSteps": [
+        8,
+        9,
+        10
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The first permanent error occurs at step 8: the agent treats a view-mode change (List view) as meaningful progress instead of narrowing to Xbox controller models, and never corrects course afterward. Earlier category-navigation mistakes (steps 0\u20135) do not qualify because the agent continued navigating and those misclicks did not irreversibly prevent later recovery.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search (or go directly to the Video Games category) and query for \u201cXbox controller\u201d or navigate to Xbox accessories/controllers.",
+          "correct": false,
+          "error_description": "Clicked into Home & Kitchen, which is unrelated to finding Xbox controller models from 2020\u20132021.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to Video Games (or use search) to find Xbox controllers and then identify models released in 2020\u20132021.",
+          "correct": false,
+          "error_description": "Clicked Electronics instead of going to Video Games or searching for Xbox controllers.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Switch to Video Games and filter to Xbox controllers/accessories, then look for controller model names and release years (2020\u20132021).",
+          "correct": false,
+          "error_description": "Drilled into Electronics subcategories (Accessories & Supplies) rather than moving to Video Games/Xbox controller listings.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Back out and go to Video Games \u2192 Xbox, or use the search bar for \u201ccontroller\u201d/\u201cXbox Series controller\u201d.",
+          "correct": false,
+          "error_description": "Clicked another Electronics subcategory (Portable Audio & Video) and did not progress toward Xbox controllers.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to Video Games \u2192 Xbox category or search for Xbox controllers.",
+          "correct": false,
+          "error_description": "Clicked Television & Video, continuing unrelated navigation.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Use search or go to Video Games to locate Xbox controllers and then determine which models were released in 2020\u20132021.",
+          "correct": false,
+          "error_description": "Clicked Beauty & Personal Care, moving further away from the relevant category.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Go to Video Games and locate Xbox controllers (ideally Xbox Series/Xbox One controller products) and extract model names and release timeframe.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Within Video Games, open the Xbox category and then narrow to controllers/accessories and identify controller models released in 2020\u20132021.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Click into Accessories (or search within the category) and then find actual controller products and their model/release info.",
+          "correct": false,
+          "error_description": "Switched the view mode to List instead of narrowing to Accessories/controllers, which did not meaningfully advance the task.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Filter to Accessories/controllers and select an actual Xbox controller product (not a replacement part) to identify model and release timeframe.",
+          "correct": false,
+          "error_description": "Opened a D-pad replacement parts listing rather than an Xbox controller model, and did not gather any 2020\u20132021 model information.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to listings and locate actual Xbox controller models (e.g., Xbox Wireless Controller variants) and compile those released in 2020\u20132021.",
+          "correct": false,
+          "error_description": "Stopped on a controller accessory/replacement part product page and ended without answering the question about controller models released in 2020\u20132021.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:58:34.797218+00:00"
+    },
+    "webarena::gptnano::85": {
+      "taskKey": "webarena::gptnano::85",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "85",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is Step 3: the agent re-submitted the same query while results were loading and never later demonstrated a successful recovery to a clean, verified CMU-in-Pittsburgh starting point (no evidence of selecting the correct result or confirming map context). Earlier issues (e.g., Step 0) were later corrected enough to continue, but the unresolved navigation/context problems compounded into wrong endpoints and culminated in repeated unparseable final responses.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up \u201cCarnegie Mellon University\u201d (or Pittsburgh) rather than clicking an unlabeled map control.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link/control ([26]) that only changed zoom and did not advance toward finding CMU or CVS.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click into the search field and search for \u201cCarnegie Mellon University, Pittsburgh\u201d to move the map to the correct area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter \u201cCarnegie Mellon University\u201d in the search input and submit the query once.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Wait for results or refine the query (e.g., add \u201cPittsburgh\u201d) instead of re-submitting the same query repeatedly.",
+          "correct": false,
+          "error_description": "Re-typed/submitted the same query again while results were still loading, contributing to a malformed combined query later.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Clear the search box and submit a clean query like \u201cCarnegie Mellon University, Pittsburgh, PA\u201d.",
+          "correct": false,
+          "error_description": "Typed a refined query but did not clear the prior malformed query state, leading to an increasingly corrupted URL/query string.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Submit the corrected search and select the CMU result to center the map on Pittsburgh.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled control ([17]) instead of properly executing/choosing a search result; search remained with 'No results found'.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "On the Directions page, fill the 'from' field with Carnegie Mellon University and ensure it resolves to Pittsburgh, PA.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "After setting the origin, fill the destination field with the nearest CVS (e.g., \u201cCVS near Carnegie Mellon University\u201d) and then request directions.",
+          "correct": false,
+          "error_description": "Clicked 'Reverse Directions' without having both endpoints set, which swapped/cleared fields and disrupted the intended flow.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Enter a specific destination such as \u201cCVS Pharmacy\u201d (ideally with Pittsburgh context) in the 'to' field and select the correct nearby result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Request directions (not reverse) and ensure the routing mode is set to Foot (walking).",
+          "correct": false,
+          "error_description": "Clicked 'Reverse Directions' again, which moved 'CVS' into the wrong field and cleared the destination, preventing a proper route to CVS.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Restore 'from' as Carnegie Mellon University and 'to' as the nearest CVS, then set routing to Foot and calculate directions.",
+          "correct": false,
+          "error_description": "Typed 'CVS' into the destination while the origin had become coordinates and the system later routed to an unrelated location; did not verify the selected CVS near CMU.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Switch the routing profile to Foot (walking) and read the walking distance for CMU \u2192 nearest CVS in Pittsburgh, then output the final answer in the required action format.",
+          "correct": false,
+          "error_description": "Produced a free-form final answer (and used a car route) instead of taking a valid tool/action step; also accepted an obviously incorrect 905 km route.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Issue a properly formatted action (or correct the route first) rather than repeating an unparseable narrative response.",
+          "correct": false,
+          "error_description": "Again returned an unparseable narrative response instead of a valid formatted action, without fixing walking mode or the incorrect endpoints.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Correct the workflow: set Foot routing, ensure destination is a nearby CVS in Pittsburgh, then provide the distance using the correct action syntax.",
+          "correct": false,
+          "error_description": "Repeated the same formatting failure and did not correct the underlying routing errors (car mode/unrelated destination).",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "If unable to proceed due to parsing issues, attempt a valid formatted action to recover; otherwise stop only after exhausting recovery options.",
+          "correct": false,
+          "error_description": "Stopped due to repeated action-parsing failures without ever issuing a correctly formatted action or obtaining the walking distance to the nearest CVS.",
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:59:32.221601+00:00"
+    },
+    "webarena::gptnano::99": {
+      "taskKey": "webarena::gptnano::99",
+      "dataset": "webarena",
+      "model": "gptnano",
+      "taskId": "99",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 3 the agent clicked into an Issues context (assignee link) instead of opening the target verification-functions merge request, and the action log shows no later correction back to the correct MR context. Earlier violations (steps 0\u20131) were navigational misclicks that were later bypassed, but the step-3 wrong-target navigation was never truly recovered and led directly to commenting on the wrong MR.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the \u201cMerge requests\u201d item in the top navigation (or the \u201cReview requests for you\u201d link) to locate the merge request you need to review.",
+          "correct": false,
+          "error_description": "Clicked \u201cYours18\u201d (projects filter) instead of navigating to merge requests/review requests.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to the merge requests list (preferably \u201cReview requests for you\u201d or \u201cAssigned to you\u201d).",
+          "correct": false,
+          "error_description": "Opened the Help menu instead of going to merge requests.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click \u201cMerge requests\u201d (or \u201cReview requests for you\u201d) to reach the MR list relevant to the task.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "From the merge requests area, open the specific merge request about verification functions (likely from review requests/assigned list).",
+          "correct": false,
+          "error_description": "Ended up on the Issues dashboard and clicked an issue assignee link (Byte Blaze) rather than locating the target merge request.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Return to merge requests and search for the MR about verification functions.",
+          "correct": false,
+          "error_description": "Navigated to the user profile page and clicked \u201cOverview,\u201d which is unrelated to finding the target merge request.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the top navigation to go to Merge requests (review requests/assigned) rather than leaving to the home/projects page.",
+          "correct": false,
+          "error_description": "Clicked the GitLab logo to go back to the homepage instead of going directly to merge requests.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Click \u201cMerge requests\u201d to reach the MR list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "From the merge requests section, open the MR about verification functions (not issues).",
+          "correct": false,
+          "error_description": "Again landed on Issues and clicked a label filter, not the merge requests list for the task.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Switch to merge requests and locate the specific MR about verification functions.",
+          "correct": false,
+          "error_description": "Continued interacting with issue label filters (Type Bug) instead of navigating to the relevant merge request.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to the merge requests list (project or global) and find the MR about verification functions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Select the merge request that matches \u201cverification functions I have to review,\u201d not an unrelated MR.",
+          "correct": false,
+          "error_description": "Opened MR !19 \u201cFix broken link,\u201d which does not match the stated target (verification functions).",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Check the discussion/activity at the end of the correct verification-functions MR to see whether the author responded last.",
+          "correct": false,
+          "error_description": "Scrolled within the wrong merge request (!19), so any subsequent checks are irrelevant to the task goal.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "If (and only if) the author responded at the end of the correct MR, type \u201cThank you\u201d in the comment box; otherwise type a simple @ mention reminder.",
+          "correct": false,
+          "error_description": "Clicked Comment before composing and without confirming the author responded at the end; also still on the wrong MR.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Post the appropriate response on the correct MR: \u201cThank you\u201d only if the MR author responded last; otherwise post a simple @ reminder.",
+          "correct": false,
+          "error_description": "Typed \u201cThank you\u201d on the wrong merge request and without evidence the author responded at the end.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Submit the comment only after verifying it\u2019s the correct MR and the correct condition (author responded last).",
+          "correct": false,
+          "error_description": "Submitted the \u201cThank you\u201d comment on the wrong merge request.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Conclude only after confirming the correct MR was handled; otherwise navigate back and find the verification-functions MR.",
+          "correct": false,
+          "error_description": "Produced a narrative/status message instead of taking an action to recover (and still did not address the correct MR).",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "If the correct MR was not handled, continue navigation to find it; otherwise stop after successfully posting the correct reply on the correct MR.",
+          "correct": false,
+          "error_description": "Stopped despite never locating the verification-functions merge request or verifying the author\u2019s end-of-thread response there.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T03:00:31.379185+00:00"
+    }
+  }
+}

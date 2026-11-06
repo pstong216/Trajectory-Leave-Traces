@@ -1,0 +1,34 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Benchmark} & \textbf{Method} & \textbf{Det.@5\%FCR} & \textbf{Det.@10\%FCR} & \textbf{Det.@15\%FCR} & \textbf{Det.@20\%FCR} \\
+\midrule
+\multirow{6}{*}{WebArena-Lite} & Verb. Conf. & 6.9\% & 6.9\% & 13.4\% & 14.1\% \\
+ & Action Ent. & 5.0\% & 6.5\% & 8.1\% & 10.5\% \\
+ & HTC Full & \textbf{24.2\%} & 30.6\% & 38.5\% & 41.9\% \\
+ & Micro-only & 13.6\% & 20.3\% & 29.9\% & 33.2\% \\
+ & Macro-only & 23.2\% & \textbf{32.3\%} & \textbf{40.9\%} & 42.6\% \\
+ & Macro\&Micro & \textbf{24.2\%} & 30.1\% & 39.5\% & \textbf{44.3\%} \\
+\midrule
+\multirow{6}{*}{Mind2Web} & Verb. Conf. & 14.1\% & 18.1\% & 19.8\% & 23.4\% \\
+ & Action Ent. & 4.7\% & 7.9\% & 9.8\% & 12.0\% \\
+ & HTC Full & 12.2\% & 27.0\% & 36.4\% & 40.4\% \\
+ & Micro-only & 21.4\% & 24.7\% & 27.4\% & 33.6\% \\
+ & Macro-only & \textbf{22.6\%} & 30.7\% & \textbf{37.2\%} & \textbf{44.5\%} \\
+ & Macro\&Micro & 21.0\% & \textbf{31.2\%} & 36.7\% & 42.7\% \\
+\midrule
+\multirow{6}{*}{Pooled} & Verb. Conf. & 6.9\% & 14.6\% & 17.8\% & 21.1\% \\
+ & Action Ent. & 4.8\% & 6.7\% & 8.8\% & 11.2\% \\
+ & HTC Full & \textbf{20.5\%} & 29.6\% & 37.2\% & 41.1\% \\
+ & Micro-only & 18.8\% & 24.2\% & 28.1\% & 33.3\% \\
+ & Macro-only & 19.0\% & 28.9\% & \textbf{37.8\%} & \textbf{43.0\%} \\
+ & Macro\&Micro & 19.9\% & \textbf{32.0\%} & 37.5\% & 41.2\% \\
+\bottomrule
+\end{tabular}
+\caption{Detection rate under a key-step-aware early-cut policy at fixed False-Cut-Rate (FCR) budgets. A failed trajectory is detected only when it is cut at or after its externally annotated key step; a cut on a successful trajectory is always false. All methods use the same 1,576-trajectory intersection over eight non-Claude settings. Det.@$b$\%FCR is the best detection rate among thresholds whose FCR does not exceed $b\%$.}
+\label{tab:early_cut}
+\end{table*}

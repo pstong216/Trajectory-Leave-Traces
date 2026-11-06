@@ -1,0 +1,1011 @@
+{
+  "updatedAt": "2026-08-12T02:19:39.009244+00:00",
+  "dataset": "webarena",
+  "model": "claude_m",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::claude_m::100": {
+      "taskKey": "webarena::claude_m::100",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "100",
+      "keyStep": 3,
+      "failureSteps": [],
+      "failureCause": "System:EnvironmentError",
+      "notes": "No permanent failure occurred: the only violation (Step 2) was recovered because the final outcome confirms the status was successfully set to \u201cEnjoying life.\u201d Since the task succeeded, there is no unrecovered error step; keyStep is set to the terminal stop step by convention.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the user/account menu (avatar) to access the status controls such as \u201cEdit status\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click \u201cEdit status\u201d in the opened user menu to bring up the status-setting dialog.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "In the \u201cSet a status\u201d dialog, enter the desired status text \u201cEnjoying life\u201d (and optionally choose an emoji/expiration) and then click \u201cSet status\u201d.",
+          "correct": false,
+          "error_description": "The agent clicked \u201cSet status\u201d without first entering/confirming the status text, relying on the existing value rather than explicitly setting it.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Verify the status is set to \u201cEnjoying life\u201d (e.g., visible in the header/user menu) and finish the task.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:13:01.727598+00:00"
+    },
+    "webarena::claude_m::104": {
+      "taskKey": "webarena::claude_m::104",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "104",
+      "keyStep": 17,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No permanent failure occurred: the final outcome indicates the kit was successfully reordered and added to the cart. The violations at steps 6 and 14 were recovered because the agent later navigated to the correct June 30, 2022 order (#000000182) and executed the Reorder action (step 16), completing the task.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the account area to access past orders so the canceled summer 2022 makeup removal kit can be found and reordered.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the order history ('My Orders') to locate the canceled order from summer 2022 containing the makeup removal kit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Scan the order list for summer 2022 entries and open relevant orders (or paginate) to find the canceled makeup removal kit order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Use pagination to move through older orders until reaching summer 2022 orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Continue navigating through order history pages toward older (summer 2022) orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Go to the next relevant page of order history (page 3) to continue searching for the summer 2022 canceled order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Open a likely summer 2022 order (via 'View Order') to check if it contains the makeup removal kit and can be reordered.",
+          "correct": false,
+          "error_description": "The agent clicked 'View Order' for an arbitrary entry (order_id/172) without first confirming it was the makeup removal kit order; a better action would be to identify the correct date/order before opening.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "If the opened order is not the desired makeup removal kit, return to order history and continue searching for the correct summer 2022 canceled order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Continue searching order history for the correct summer 2022 canceled order that contains the makeup removal kit (ideally by date June/July 2022).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Inspect the opened order details to verify whether it contains the makeup removal kit; if not, go back and keep searching.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "If this order does not show the makeup removal kit item details, return to order history and continue to other summer 2022 orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Continue navigating within order history page 3 toward older orders until the June 2022 canceled order is found.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Go to page 4 (older orders) to reach June 2022 entries.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Open the June 2022 canceled order (via 'View Order') that likely contains the makeup removal kit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Verify the order date (June 30, 2022) and use the 'Reorder' action to add the makeup removal kit to the cart.",
+          "correct": false,
+          "error_description": "The agent scrolled down instead of immediately clicking 'Reorder' once the correct canceled June 30, 2022 order was found.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to the top (if needed) and click 'Reorder' for order #000000182 to add the kit to the cart.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Click 'Reorder' on the correct order page to add the makeup removal kit to the shopping cart.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Confirm the reordered item is in the cart and stop after successfully adding the makeup removal kit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:13:51.272467+00:00"
+    },
+    "webarena::claude_m::121": {
+      "taskKey": "webarena::claude_m::121",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "121",
+      "keyStep": 0,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No permanent failure occurred: the only flagged issue (Step 3 not clicking Subscribe) is resolved by the final state showing a successful subscription confirmation. Since the task succeeded, there is no unrecovered violation to assign as a keyStep; keyStep is set to 0 as a placeholder.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Scroll down toward the page footer to find the newsletter signup form.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue scrolling down until the footer newsletter subscription field and subscribe button are visible.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Keep scrolling to reach the footer area where the newsletter signup input and Subscribe button appear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Enter an email address into the newsletter input field and then click the Subscribe button to submit the form.",
+          "correct": false,
+          "error_description": "The agent typed an email into the newsletter field but did not click the visible \"Subscribe\" button to submit.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Verify the subscription confirmation message is shown and then stop.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:14:15.996864+00:00"
+    },
+    "webarena::claude_m::161": {
+      "taskKey": "webarena::claude_m::161",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "161",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "At step 4 the agent opened a new tab and effectively abandoned the repo-editing workflow, never returning to create car/urls.txt or commit changes; later steps did not correct this and the run ended without any repo modifications. Earlier navigation mistakes (steps 5, 6, 8, 9) were transient because the agent did move on from those specific wrong URLs/actions, but it never recovered to a viable end-to-end plan that both collects the correct /f/cars newest links and applies them in GitLab.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the GitLab search bar to locate and open the repository named gimmiethat.space.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Type the repo name into the global search input to find the gimmiethat.space project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Execute the search (select the suggestion or submit) to navigate to results for gimmiethat.space.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the Byte Blaze/gimmiethat.space project from the search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Stay in the repo and begin creating a new directory 'car' (or open Web IDE) to later add urls.txt.",
+          "correct": false,
+          "error_description": "Opened a new tab instead of starting the repo changes (creating the car folder / urls.txt) in GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "In the new tab, navigate to the Reddit-like site and open the /f/cars forum to collect the 5 most recent post links.",
+          "correct": false,
+          "error_description": "Went to an incorrect URL (/r/cars on port 9999) that returned 404 instead of using the correct forum path (typically /f/cars).",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "After the 404, go to the correct base URL for the Reddit service (port 9999) and then to /f/cars.",
+          "correct": false,
+          "error_description": "Navigated to the WebArena hub (port 4399) instead of directly correcting the Reddit URL/path on port 9999.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "From the WebArena hub, click Reddit to reach the Reddit-like site where the cars forum exists.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Use search or directly navigate to the cars forum (e.g., /f/cars) rather than scrolling the full forum list.",
+          "correct": false,
+          "error_description": "Scrolled the forums directory list instead of using a faster/direct method to reach the cars forum and its newest posts.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Open the cars forum page (likely /f/cars) from the forum list or via search.",
+          "correct": false,
+          "error_description": "Guessed an incorrect forum URL (/f/cars) without confirming the actual forum slug existed in the list, leading to another 404.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "After the 404, return to the Reddit site and locate the correct cars forum link/slug via search or the forums list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Search for the cars forum specifically and open it, then switch sorting to New to get the 5 most recent posts.",
+          "correct": false,
+          "error_description": "Searched for the keyword 'cars' but did not narrow to the cars forum itself; this approach mixes posts across many forums.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "From search results, identify and open the actual cars forum (not a post) or adjust filters to show only /f/cars.",
+          "correct": false,
+          "error_description": "Tried another guessed forum URL (/f/Cars) which 404'd instead of locating the real cars forum page.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Locate the cars forum page and view its newest posts (not global search results).",
+          "correct": false,
+          "error_description": "Switched to search sorting by new, which still does not produce the 5 most recent posts from the cars forum specifically.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Open the cars forum listing sorted by New and collect the URLs of the 5 newest posts.",
+          "correct": false,
+          "error_description": "Clicked into an external article from search results rather than collecting post URLs from the cars forum.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to the forum listing and capture the internal post permalink URLs (or short URLs) for the newest cars posts.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Collect the next needed post links (preferably internal post permalinks) and ensure they are from the cars forum.",
+          "correct": false,
+          "error_description": "Scrolled within global search results instead of navigating to /f/cars and collecting the 5 newest cars-forum post links.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Continue gathering the 5 most recent cars-forum post permalinks (and note them for urls.txt).",
+          "correct": false,
+          "error_description": "Scrolled back up without extracting/recording the required 5 most recent cars-forum post URLs.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Open a post from the cars forum (or the cars forum itself) and copy its permalink/short URL for urls.txt.",
+          "correct": false,
+          "error_description": "Opened a comments link for a search result in /f/science, not a post from the cars forum.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Copy the post permalink/short URL and ensure it belongs to the cars forum; repeat until 5 are collected.",
+          "correct": false,
+          "error_description": "Went back without capturing the needed URLs and without correcting to the cars forum context.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Stop interacting with unrelated search results and navigate to the cars forum page sorted by New.",
+          "correct": false,
+          "error_description": "Hovered on a search result, which does not help obtain the 5 most recent cars-forum post links.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Open the cars forum page (or filter to it) and collect post permalinks; do not open unrelated posts.",
+          "correct": false,
+          "error_description": "Clicked 'No comments' for a Showerthoughts post, unrelated to the cars forum requirement.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Copy the cars-forum post URL(s) and proceed to gather the remaining newest cars posts.",
+          "correct": false,
+          "error_description": "Visited a Showerthoughts post page and then left, still not collecting cars-forum newest post URLs.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate to /f/cars (or correct cars forum slug) and gather the 5 newest post links.",
+          "correct": false,
+          "error_description": "Continued scrolling within global search results instead of switching to the cars forum listing.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Collect cars-forum post permalinks from the newest listing; avoid unrelated forums.",
+          "correct": false,
+          "error_description": "Clicked into a singularity post (via comments link) from search results, not a cars-forum post.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Record the cars-forum post URL(s) and continue until 5 newest cars posts are collected.",
+          "correct": false,
+          "error_description": "Viewed a singularity post and returned without collecting cars-forum newest post URLs.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Navigate to the cars forum and collect the newest post URLs; do not open unrelated posts.",
+          "correct": false,
+          "error_description": "Clicked into a personalfinance post from search results, unrelated to the cars forum requirement.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Capture cars-forum post URLs and proceed to GitLab to create car/urls.txt with those links.",
+          "correct": false,
+          "error_description": "Viewed a personalfinance post and returned; still no cars-forum newest post URLs collected.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Stop opening unrelated posts; instead open /f/cars sorted by New and collect 5 newest post links.",
+          "correct": false,
+          "error_description": "Clicked into a todayilearned post from search results, unrelated to the cars forum requirement.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Record the required cars-forum post URLs (5 newest) and then switch back to GitLab to add them to urls.txt.",
+          "correct": false,
+          "error_description": "Focused back to GitLab without having collected the 5 most recent cars-forum post links.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Create a folder named car in the gimmiethat.space repo and add urls.txt containing the 5 newest cars post links, then commit the changes.",
+          "correct": false,
+          "error_description": "Stopped on the repo page without creating the car folder, adding urls.txt, or committing any changes.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:15:55.103753+00:00"
+    },
+    "webarena::claude_m::31": {
+      "taskKey": "webarena::claude_m::31",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "31",
+      "keyStep": 9,
+      "failureSteps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 9 the agent failed to recognize that price sorting had surfaced irrelevant high-priced items and did not refine/filter the results, then proceeded to answer anyway. Earlier violations (steps 3, 4, 6) were later bypassed because the agent eventually produced a range, but the unrecovered relevance error from step 9 persisted through the final stop.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the query \"teeth grinding mouth guard\" in the site search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Review the search results page and identify product prices (or apply sorting/filtering) to determine the minimum and maximum mouth guard prices.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Continue scanning results for the lowest and highest relevant mouth guard prices (or switch to sorting by price to find extremes).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Record the observed lowest and highest relevant mouth guard prices from the visible results (e.g., $7.99 and $49.99) and prepare to answer.",
+          "correct": false,
+          "error_description": "The agent unnecessarily scrolled up instead of capturing the already-visible min/max prices ($7.99 and $49.99) and concluding.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "If still unsure, return to the section where the lowest/highest mouth guard prices were visible or use sorting to confirm extremes.",
+          "correct": false,
+          "error_description": "The agent continued scrolling up away from the relevant price evidence rather than confirming or recording the range.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the sort dropdown to order results by price so the lowest/highest mouth guard prices can be confirmed efficiently.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the \"Price\" option from the sort dropdown (not just click the control again) to apply price sorting.",
+          "correct": false,
+          "error_description": "The agent clicked the sort dropdown again without changing the selection, making no progress toward confirming the price range.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Choose \"Price\" from the sort dropdown to sort results by price.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "After sorting by price, inspect the first items for the minimum relevant mouth guard price (and later navigate to the end for the maximum).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "If the sorted results show irrelevant expensive items, refine the query or use category/attribute filters to keep only teeth grinding mouth guards.",
+          "correct": false,
+          "error_description": "Sorting by price surfaced unrelated high-priced products, and the agent did not refine/filter to keep only mouth guards.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Toggle sort direction or adjust sorting/filtering to isolate mouth guards and find the correct min/max prices.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Inspect the lowest-priced relevant mouth guard items after sorting ascending and then determine the highest relevant mouth guard price (e.g., by paging to the end or sorting descending).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Stop with the correct price range for teeth grinding mouth guards based on observed relevant listings (minimum $7.99 and maximum $49.99).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:16:45.206075+00:00"
+    },
+    "webarena::claude_m::36": {
+      "taskKey": "webarena::claude_m::36",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "36",
+      "keyStep": 5,
+      "failureSteps": [
+        5,
+        9,
+        11,
+        13,
+        14
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 5 the agent left the order detail flow without verifying whether Order #148 was food shopping or recording its total, and it never later returned to correctly classify/record amounts, leading to a $0.00 final answer. The step-6 navigation mistake was later bypassed by direct URL navigation, so it did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to account/order history to find orders in mid\u2013end January 2023 and identify which are food shopping.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the order history ('My Orders') to review purchases and their dates.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Inspect the order list for January 2023 orders and open relevant orders to confirm they are food shopping and capture totals.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Use pagination to reach the page containing mid-to-late January 2023 orders (or otherwise locate January orders).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Open an order on this page and verify its order date and whether items are grocery/food, then record the amount if applicable.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "On the order detail page, check the item names/categories to determine if it was food shopping and record the correct total for the date range.",
+          "correct": false,
+          "error_description": "The agent immediately navigated back to 'My Orders' without verifying whether Order #148 was food shopping or capturing the relevant total for the task.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Return to the correct page of order history (page 2) and continue checking other mid-to-late January orders for grocery/food items and totals.",
+          "correct": false,
+          "error_description": "The agent returned to page 1 of order history instead of continuing from page 2 where the January 29 order was found, losing context and efficiency.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Go back to page 2 of order history to continue reviewing January orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Open another candidate January order and verify if it is food shopping, recording the total if it falls within mid\u2013end Jan 2023.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "On Order #163, verify item details/category to confirm it is food shopping and record the correct total for the date range.",
+          "correct": false,
+          "error_description": "The agent left the January 16 order detail page without checking whether the items were food shopping or recording the relevant total.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "On Order #148, scroll to totals and item details, then determine if it is food shopping and record the total if applicable.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the displayed totals and item list to decide if Order #148 is food shopping and capture the final charged amount for the date range calculation.",
+          "correct": false,
+          "error_description": "Even after reaching the totals section, the agent did not classify the order as food shopping nor record the amount toward the requested mid\u2013end Jan total.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "On Order #163, scroll to totals and item details, then determine if it is food shopping and record the final charged amount if applicable.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "From the totals section, confirm whether Order #163 is food shopping and record the correct grand total for inclusion in the mid\u2013end Jan sum.",
+          "correct": false,
+          "error_description": "The agent again failed to determine whether the order was food shopping and failed to record the amount, then moved on to another page.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Continue reviewing remaining January 2023 orders (and/or compute the sum of confirmed food-shopping orders) and provide the final total spent for mid\u2013end Jan 2023.",
+          "correct": false,
+          "error_description": "The agent stopped with $0.00 without identifying any food-shopping orders or calculating the requested total for the specified date range.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:17:36.183780+00:00"
+    },
+    "webarena::claude_m::58": {
+      "taskKey": "webarena::claude_m::58",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "58",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error is at step 0: the agent committed to navigating via Sports & Outdoors instead of the correct clothing/swimwear taxonomy, and there is no evidence in the action log that it later switched to the proper category path or used search to recover. Steps 1 and 2 continue the same wrong branch and likewise show no corrective action, so earlier violations do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate toward the product taxonomy that contains swimwear (e.g., Clothing, Shoes & Jewelry) to reach Competitive Swimwear.",
+          "correct": false,
+          "error_description": "Clicked into Sports & Outdoors instead of starting from Clothing, Shoes & Jewelry where Competitive Swimwear actually resides.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Correct course by going to Clothing, Shoes & Jewelry (or use search) since Competitive Swimwear is a clothing category.",
+          "correct": false,
+          "error_description": "Hovered Sports & Outdoors, which doesn't advance toward the Competitive Swimwear category path.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Switch to Clothing, Shoes & Jewelry or search for 'Competitive Swimwear' rather than drilling further into Sports & Outdoors.",
+          "correct": false,
+          "error_description": "Clicked Sports within Sports & Outdoors, continuing down an irrelevant category branch.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Move to Clothing, Shoes & Jewelry and locate Sport Specific Clothing > Competitive Swimwear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "From the Clothing, Shoes & Jewelry menu, open Sport Specific Clothing to access Competitive Swimwear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Click Competitive Swimwear to open the category listing page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Identify the most expensive item by sorting price descending or filtering to the highest price range (e.g., $60+).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Open the single remaining product (or the top-priced product after sorting) to confirm its exact price on the product page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Report the product name and price as the most expensive item in Competitive Swimwear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:18:11.842889+00:00"
+    },
+    "webarena::claude_m::65": {
+      "taskKey": "webarena::claude_m::65",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "65",
+      "keyStep": 5,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No permanent failure occurred: although Step 3 applied the wrong $0\u2013$99.99 facet, the agent corrected course by navigating at Step 4 to the correct under-$30 URL and successfully completed the task at Step 5. Since all violations were recovered and the final outcome meets the goal, there is no unrecovered error step to designate as keyStep.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the Clothing, Shoes & Jewelry department to begin narrowing to men's shoes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the Men category to scope results to men's items before choosing Shoes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Within Men, click Shoes to reach the men's shoes category listing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Apply a price filter that restricts results to under $30 (e.g., $0\u2013$29.99 or equivalent).",
+          "correct": false,
+          "error_description": "The agent clicked the $0.00\u2013$99.99 price facet, which does not satisfy the 'under $30' requirement.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Refine the price filter from $0\u2013$99.99 down to $0\u2013$29.99 (or otherwise set max price to $30).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Confirm the page shows men's shoes filtered to prices under $30 and finish.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:18:40.270800+00:00"
+    },
+    "webarena::claude_m::88": {
+      "taskKey": "webarena::claude_m::88",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "88",
+      "keyStep": 18,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No permanent failure occurred: the final outcome indicates the Magento Blank theme preview was successfully accessed by step 18. All listed violations were genuinely recovered later (the agent eventually reached the Themes grid and opened the preview), so there is no unrecovered keyStep to report.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Content > Design > Themes (or directly open the Themes grid) to find the Magento Blank theme.",
+          "correct": false,
+          "error_description": "Clicked the left-nav 'Themes' item but did not actually navigate to the Themes grid (remained on dashboard).",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the Themes grid page where Magento Blank is listed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "If a 404 appears, backtrack and use the correct Themes grid route (e.g., via Content > Design > Themes) rather than re-clicking the same link.",
+          "correct": false,
+          "error_description": "On a 404 page, clicked 'Themes' again instead of correcting the URL/path or navigating via the menu to the proper route.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Try an alternative correct admin route/menu path to reach the Themes grid (not leave the Magento admin).",
+          "correct": false,
+          "error_description": "Navigated away to an unrelated portal homepage (WebArena) instead of continuing within Magento admin to locate the theme preview.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Return to Magento admin and continue toward Content > Design > Themes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use a correct Themes grid URL/menu path (Content > Design > Themes) rather than guessing routes.",
+          "correct": false,
+          "error_description": "Tried another guessed URL (/design/theme/) that still led to a 404 instead of using the known working route/menu navigation.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "After hitting 404 again, stop interacting with the broken page and switch to a different known navigation path (e.g., Content > Design > Themes via menu).",
+          "correct": false,
+          "error_description": "Hovered on 'Themes' while still on a 404 page, which did not advance toward finding the Magento Blank theme.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Navigate to the correct Themes listing page (grid) using a valid route or menu click sequence.",
+          "correct": false,
+          "error_description": "Tried another guessed route (/design_config/) which is not the Themes grid needed for previewing the theme.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "From Design Configuration, use the menu to open Content > Design > Themes (Themes grid) or otherwise locate the Magento Blank theme entry.",
+          "correct": false,
+          "error_description": "Jumped back to the previously failing /design/theme/index/ URL instead of using the working navigation from the current page.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Correct the route by using the menu or trying the known Themes grid route (often /system_design_theme/ in some setups).",
+          "correct": false,
+          "error_description": "Tried another incorrect guessed URL (/theme/design_config/) that also resulted in 404 rather than switching to the correct Themes grid endpoint.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the left navigation to go to Content > Design > Themes (or otherwise reach the Themes grid) from the 404 state.",
+          "correct": false,
+          "error_description": "Clicked 'Configuration' while on a 404 page, which did not address reaching the Themes grid for preview.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Return to a stable page (e.g., dashboard) and then navigate via Content > Design > Themes to the Themes grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Open the Themes grid (Content > Design > Themes).",
+          "correct": false,
+          "error_description": "Clicked 'Themes' but did not navigate to the Themes grid (still on dashboard).",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "From the dashboard, expand Content and then click Themes under Design to reach the Themes grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Click Themes under Content > Design to open the Themes grid listing Magento Blank.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "On the Themes grid, locate 'Magento Blank' and click its 'View' action.",
+          "correct": false,
+          "error_description": "Scrolled without first using available filters/search; while not fatal, it was an inefficient action that didn't directly select the Magento Blank theme.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Click 'View' for the 'Magento Blank' row to open the Theme: Magento Blank details page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Click the Theme Preview Image on the Theme: Magento Blank page to open the storefront preview.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Confirm the preview storefront opened with Magento Blank applied and finish the task.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass3",
+      "updatedAt": "2026-08-12T02:19:39.009209+00:00"
+    }
+  }
+}

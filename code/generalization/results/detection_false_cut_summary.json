@@ -1,0 +1,68 @@
+{
+  "ours_l2_all": {
+    "auc": 0.39,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m1_verbalized_conf": {
+    "auc": 0.1882,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m2_action_logprob_mean": {
+    "auc": 0.2781,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m3_output_logprob_mean": {
+    "auc": 0.0781,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m4_cumulative_output_logprob_mean": {
+    "auc": 0.0988,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m5_action_entropy": {
+    "auc": 0.2233,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m6_cumulative_action_entropy": {
+    "auc": 0.1729,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m7_conf_cumul_mean": {
+    "auc": 0.1576,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m15_cumulative_action_logprob_mean": {
+    "auc": 0.2164,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m11_htc_full_step": {
+    "auc": 0.3982,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  },
+  "m13_stacked_htc_l2": {
+    "auc": 0.3067,
+    "n_tasks": 1576,
+    "n_failed": 1203,
+    "n_success": 373
+  }
+}

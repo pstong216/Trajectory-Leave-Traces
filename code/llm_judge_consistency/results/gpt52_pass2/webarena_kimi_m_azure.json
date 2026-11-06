@@ -1,0 +1,3339 @@
+{
+  "updatedAt": "2026-08-12T03:57:47.800032+00:00",
+  "dataset": "webarena",
+  "model": "kimi_m",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::kimi_m::107": {
+      "taskKey": "webarena::kimi_m::107",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "107",
+      "keyStep": 11,
+      "failureSteps": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 11 the agent was already on the correct product edit page but chose to reload the same URL instead of editing the Price field and saving; there is no later evidence in the action log of returning to the Price input and completing the save, so this violation was not resolved. Earlier violations (steps 1\u20139) were genuinely recovered because the agent eventually navigated back to the correct product edit URL (step 8/11), but after step 11 it repeatedly diverted to unrelated pages until the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Locate the product's Price input on the edit page and note the current value so it can be reduced by $5.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Scroll back to the Price field (or use page search) rather than continuing away from pricing, since the Price field is already available on this page.",
+          "correct": false,
+          "error_description": "The agent scrolled further down into unrelated attributes instead of editing the visible Price field.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Return to the Price field and edit it (current price minus $5), then save.",
+          "correct": false,
+          "error_description": "The agent clicked the left-nav 'Products' link, navigating away from the product edit context instead of changing the price.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "If navigation occurred, go back to the product edit page and focus on the Price field.",
+          "correct": false,
+          "error_description": "The agent clicked another navigation element (likely 'Catalog'), further derailing from editing the product price.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate back to the specific product edit page (id=1481) to change the Price and save.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use search/filter to find product 1481 or directly open its edit page, then adjust the Price by -$5.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Use the grid search/filter (by ID/SKU/name) to locate product 1481 and click Edit.",
+          "correct": false,
+          "error_description": "The agent scrolled around the product grid instead of using search/filter to quickly locate product 1481.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the search box or filters to find product 1481 (or its name) and open Edit.",
+          "correct": false,
+          "error_description": "The agent clicked the 'Products' navigation link again while already on the Products grid, making no progress toward editing price.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the product edit page for id=1481 and edit the Price field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Click into the Price input, subtract $5 from the current value, and prepare to Save.",
+          "correct": false,
+          "error_description": "The agent scrolled down away from the Price field instead of editing it.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Scroll back up to the Price field and edit it, then click Save.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Edit the Price field value (minus $5) and click Save.",
+          "correct": false,
+          "error_description": "The agent redundantly reloaded/goto the same edit URL instead of interacting with the Price input and saving.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Click into the Price input and change it to current price minus $5, then Save.",
+          "correct": false,
+          "error_description": "The agent clicked the left navigation 'Catalog' instead of editing the Price field.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Return to the product edit form and update the Price field, then Save.",
+          "correct": false,
+          "error_description": "The agent navigated away to an unrelated base URL (18.116.169.131:4399), abandoning the product edit task.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Go back to the Magento product edit page for id=1481 to change the price.",
+          "correct": false,
+          "error_description": "The agent clicked 'Merchant Admin Portal' from the WebArena hub, which was unnecessary because it was already logged into Magento admin.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate directly to the product edit page (id=1481), edit Price, and Save.",
+          "correct": false,
+          "error_description": "The agent went to the storefront (port 7770) instead of staying in admin to edit the product price.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Return to Magento admin product edit page and adjust the Price field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "From the admin dashboard, go to the product edit page for id=1481 and change the Price.",
+          "correct": false,
+          "error_description": "The agent clicked a menu element (likely expanding Catalog) but did not proceed to the product edit page or price change.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Open the product edit page for id=1481 and edit the Price field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Edit the Price input (subtract $5) and click Save.",
+          "correct": false,
+          "error_description": "The agent scrolled down away from the Price field again instead of editing it.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Scroll back up to the Price field, change it by -$5, and Save.",
+          "correct": false,
+          "error_description": "The agent clicked the left-nav 'Products' link while on the edit page, risking navigation away rather than updating the price.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Stay on the product edit page, update the Price field, and Save.",
+          "correct": false,
+          "error_description": "The agent navigated to the storefront (7770) instead of completing the price update in admin.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Return to Magento admin product edit page and change the Price field.",
+          "correct": false,
+          "error_description": "The agent clicked 'Sign In' on the storefront, which is unrelated to reducing the product price in admin.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Go back to Magento admin product edit page (id=1481) and edit Price, then Save.",
+          "correct": false,
+          "error_description": "The agent navigated to an admin URL from the storefront login page but did not proceed to edit the product price.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Navigate to Catalog > Products (or directly to the edit URL) and update the Price field for product 1481, then Save.",
+          "correct": false,
+          "error_description": "The agent clicked 'Stores' in the admin menu, which is unrelated to changing a product's price.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Return to the product edit page and change the Price field, then Save.",
+          "correct": false,
+          "error_description": "The agent scrolled within the Stores menu/dashboard area instead of returning to product pricing.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Navigate back to Catalog > Products > Edit product 1481 and adjust Price by -$5.",
+          "correct": false,
+          "error_description": "The agent continued scrolling on the dashboard rather than going to the product edit form.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Go to the product edit page for id=1481 and update the Price field, then Save.",
+          "correct": false,
+          "error_description": "The agent went to the Product Attributes page, which does not change the specific product's price.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Return to the product edit page for id=1481 and edit the Price field, then Save.",
+          "correct": false,
+          "error_description": "The agent scrolled on the Product Attributes page, still unrelated to editing the product price.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Go back to the Magento admin product edit page and reduce the Price by $5, then Save.",
+          "correct": false,
+          "error_description": "The agent navigated to the storefront product view page instead of editing the price in admin.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Stop only after successfully saving the reduced price in Magento admin (and optionally verifying on storefront).",
+          "correct": false,
+          "error_description": "The agent stopped on the storefront product page without ever editing and saving the product price in admin.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:39:44.175400+00:00"
+    },
+    "webarena::kimi_m::127": {
+      "taskKey": "webarena::kimi_m::127",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "127",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        23,
+        24,
+        25,
+        26
+      ],
+      "failureCause": "Memory:RetrievalFailure",
+      "notes": "At step 3 the agent scrolled without capturing any of the required 'most active' DIY post titles/links, and there is no later evidence in the action log that it ever returned to the subreddit to collect them, so the missing data was never recovered. Earlier step 1 was corrected later (it did not permanently block progress), whereas subsequent GitLab and action-formatting errors compounded the failure but occurred after the agent had already lost the necessary link-collection context.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Go to the DIY forum page to identify the most active 8 DIY posts/ideas and capture their titles and URLs/IDs for later inclusion in the README.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Switch the listing to the 'Active' sort (or otherwise access the active ranking) to find the most active posts.",
+          "correct": false,
+          "error_description": "Clicked the 'Hot' tab/button instead of selecting 'Active' to view the most active posts.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the 'Active' tab to load the active submissions list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Record the top active post titles and their post IDs/links from the active list (aiming for 8 total).",
+          "correct": false,
+          "error_description": "Scrolled without capturing/recording the first set of active post links/IDs needed for the README.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Continue collecting enough active post titles and URLs/IDs until reaching 8 items.",
+          "correct": false,
+          "error_description": "Navigated away to GitLab before collecting and confirming 8 active DIY post links/IDs.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Start creating a new GitLab project/repository named 'Do it myself' and ensure README initialization is enabled.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Choose 'Create blank project' to proceed with repository creation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Enter the project name exactly once as 'Do it myself', verify the slug, and check 'Initialize repository with a README'.",
+          "correct": false,
+          "error_description": "Only typed the name; did not check 'Initialize repository with a README' at this step (and later actions caused name duplication).",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Check 'Initialize repository with a README' and avoid retyping the project name.",
+          "correct": false,
+          "error_description": "Clicked back into the project name field instead of selecting the README initialization checkbox.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If the name is already entered, proceed to check 'Initialize repository with a README' (or move to create project).",
+          "correct": false,
+          "error_description": "Retyped the project name again, increasing risk of duplicated name/slug rather than moving to README initialization and creation.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Select 'Initialize repository with a README' and then click 'Create project'.",
+          "correct": false,
+          "error_description": "Scrolled without taking the needed actions to initialize README and create the project cleanly.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Check 'Initialize repository with a README' and proceed to create the project.",
+          "correct": false,
+          "error_description": "Clicked the project name field again instead of enabling README initialization or creating the project.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Stop retyping the name; ensure the project name is correct once, enable README initialization, and click 'Create project'.",
+          "correct": false,
+          "error_description": "Typed the project name yet again (with a newline), which contributed to the project being created with a duplicated name/slug.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "After project creation, verify the repository name is correct and then open README.md for editing to add the 8 DIY links.",
+          "correct": false,
+          "error_description": "Clicked the duplicated slug/link; the project was created with an incorrect duplicated name/slug ('Do it myself' repeated), and the agent did not correct/rename it.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Open README.md from the repository tree to edit its contents.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Click 'Edit' (or open Web IDE) to modify README.md content to include the 8 active DIY links.",
+          "correct": false,
+          "error_description": "Scrolled instead of initiating editing of README.md.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Return to the top controls and choose 'Edit' or 'Open in Web IDE' to edit README.md.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Use the dropdown to select 'Edit this file only' or open Web IDE to edit README.md.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Click 'Edit this file only' (or proceed to Web IDE) rather than scrolling away from the edit controls.",
+          "correct": false,
+          "error_description": "Scrolled down after opening the dropdown instead of selecting an edit option.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Go back to the edit controls and choose an edit mode to modify README.md.",
+          "correct": false,
+          "error_description": "Performed additional scrolling rather than selecting an edit option.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "Open the README in Web IDE or file editor to replace content with the 8 DIY links.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Focus the README editor pane and prepare to replace the default template with the curated list of 8 active DIY links.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Select all existing README content (Ctrl+A) so it can be replaced with the new markdown list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Type/paste the new README markdown containing links to the 8 most active DIY posts, using a correctly formatted action command.",
+          "correct": false,
+          "error_description": "Failed to issue a valid structured 'type' action (included narrative text and malformed action syntax), causing an action-parse failure.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Retry by issuing a properly formatted 'type [editor] [content]' action to replace the README content.",
+          "correct": false,
+          "error_description": "Did not perform a valid action; instead output an engine overload error message in place of a structured command.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Issue a correctly formatted 'type' action to insert the README content, then commit the change.",
+          "correct": false,
+          "error_description": "Again produced malformed action syntax (narrative plus incorrect brackets/target), so the README was never updated.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "If typing succeeded, click 'Create commit...' and commit the README update; otherwise, correct the action formatting and retry typing.",
+          "correct": false,
+          "error_description": "Stopped early after repeated action-parse failures, leaving the README unedited and the task incomplete.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:41:01.143997+00:00"
+    },
+    "webarena::kimi_m::136": {
+      "taskKey": "webarena::kimi_m::136",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "136",
+      "keyStep": 19,
+      "failureSteps": [
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error was at step 19: the agent proceeded on the submission form without ensuring the URL field contained the direct image (.jpg) required to repost the image itself; subsequent steps never corrected this and instead repeated submission attempts. Earlier violations (steps 4, 6, 7, 9, 11, 12, 13) were later corrected by eventually reaching the /submit flow and filling subreddit/title fields, so they did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the costume contest submission (preferably its comments/permalink page) so the image can be reposted.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Return to the submission page (or otherwise capture the image URL) after opening the image.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the costume contest post title/comments link to open the submission details page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Ensure you navigate into the costume contest submission page (e.g., by clicking the comments link).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Identify/copy the direct image URL (or open the image in a new tab) to use for reposting.",
+          "correct": false,
+          "error_description": "Scrolled down into comments instead of capturing the image URL or preparing to repost.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Go back up to the post content and open/copy the image URL for reposting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "From the top of the submission, open/copy the image URL (or use the short URL only if doing a link repost intentionally).",
+          "correct": false,
+          "error_description": "Scrolled down again rather than extracting the image URL or proceeding to submit.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Return to the post content area (top) to access the image and its URL.",
+          "correct": false,
+          "error_description": "Clicked the comment sorting link ('Nested') which is unrelated to reposting the image.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Navigate to the submission image element and open/copy its direct URL.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Click 'Submit' to create a new post in /f/funny (or navigate to /f/funny then submit).",
+          "correct": false,
+          "error_description": "Clicked an unlabeled header link that led to Notifications instead of starting a submission.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Leave Notifications and go to the submission creation page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the 'Submit' link to start creating the repost.",
+          "correct": false,
+          "error_description": "Opened the user menu instead of navigating to the submission form.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate to the submission form (Submit) or directly to /submit.",
+          "correct": false,
+          "error_description": "Clicked back to /f/pics rather than proceeding to create the repost.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Click 'Submit' to open the create submission page.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link again that routed to Notifications instead of the submission form.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Click 'Submit' to open the create submission page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Select forum 'funny' and fill in title and the correct image URL (direct .jpg) then submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Choose the 'funny' forum from the dropdown/search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Fill the title field with a title including the note 'from /f/pics'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Enter the title including 'from /f/pics' (ideally in the title or body as required).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Paste the direct image URL (the .jpg) into the URL field (or upload the image if required).",
+          "correct": false,
+          "error_description": "Focused the URL field but did not ensure using the direct image URL; the task requires reposting the image itself.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Paste the direct .jpg URL of the costume contest image (not the submission short URL) into the URL field.",
+          "correct": false,
+          "error_description": "Used the submission short URL (http://.../25055) instead of the direct image URL, so it would repost a link rather than the image.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Click 'Create submission' once and verify navigation to the new post page or confirmation.",
+          "correct": false,
+          "error_description": "Attempted submission without correcting the URL to the actual image; also no confirmation of successful post.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "If submission failed, read any validation errors and fix them (especially the URL/image requirement).",
+          "correct": false,
+          "error_description": "Repeated clicking 'Create submission' without diagnosing why it wasn't submitting or correcting the image URL.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Retry with a properly formatted action and then address any submission errors shown by the UI.",
+          "correct": false,
+          "error_description": "Produced an invalid action output (engine overload message) instead of interacting with the page.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Check for form errors and correct the URL to the direct image, then submit once.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' again without fixing the underlying issue (wrong URL/no validation handling).",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Inspect the page for error messages near fields/buttons and correct them.",
+          "correct": false,
+          "error_description": "Scrolled without addressing the likely submission validation problem or confirming post creation.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "If still on the form, correct fields (especially direct image URL) and submit; if submitted, verify the new post exists in /f/funny.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' again but still did not correct the URL to the image or verify successful repost.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Verify whether submission succeeded (redirect to new post) or locate and fix any errors.",
+          "correct": false,
+          "error_description": "Scrolled up without verifying submission success or correcting the missing direct image repost requirement.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "If still on the form, ensure title and direct image URL are correct and then submit; otherwise navigate to /f/funny to confirm.",
+          "correct": false,
+          "error_description": "Re-focused the title field instead of fixing the URL field to the direct image or confirming the post.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Avoid duplicating; only edit if needed and ensure the URL is the direct image URL before submitting.",
+          "correct": false,
+          "error_description": "Re-typed the title again rather than correcting the URL to the actual image and completing submission/verification.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Complete the repost by submitting with the direct image URL and then verify it appears in /f/funny with note 'from /f/pics'.",
+          "correct": false,
+          "error_description": "Stopped without successfully reposting the image to /f/funny and without verification.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:42:13.237506+00:00"
+    },
+    "webarena::kimi_m::137": {
+      "taskKey": "webarena::kimi_m::137",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "137",
+      "keyStep": 11,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No permanent failure occurred: despite minor inefficiencies at steps 2, 3, and 5 (scrolling instead of selecting/filtering), the agent later selected AskReddit (step 6), filled title/body (steps 7 and 9), and submitted (step 10), achieving the stated goal. Earlier violations do not qualify because they were genuinely recovered and did not prevent successful completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the \"Submit\" link to start creating a new post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the subreddit/forum selector (\"Choose one\u2026\") so the agent can pick a relevant subreddit such as AskReddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Select the AskReddit option from the opened forum list (or type to filter/select it).",
+          "correct": false,
+          "error_description": "The agent scrolled instead of selecting or filtering for the target subreddit (AskReddit), delaying progress.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the AskReddit option from the forum list (or use the filter input to find it).",
+          "correct": false,
+          "error_description": "The agent scrolled again rather than choosing AskReddit or filtering for it.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the forum filter input to type \"AskReddit\" (or click the AskReddit option) to set the posting subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Type \"AskReddit\" into the forum filter (or click AskReddit) to select the subreddit, then proceed to fill title/body.",
+          "correct": false,
+          "error_description": "The agent scrolled up instead of completing the subreddit selection or moving on to fill the post fields.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Type \"AskReddit\" into the forum selector input and confirm selection so the post will be submitted to AskReddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Enter a post title about \"iPhone 14\" (e.g., \"Iphone 14\") in the title field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Focus the post body text area to enter the prompt asking for opinions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Type the body text prompt exactly as requested: \"your opinion\".",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Click \"Create submission\" to publish the post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Verify the post was created in /f/AskReddit with the intended title/topic and the prompt \"your opinion\", then stop.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:43:00.834423+00:00"
+    },
+    "webarena::kimi_m::140": {
+      "taskKey": "webarena::kimi_m::140",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "140",
+      "keyStep": 29,
+      "failureSteps": [
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 29 the agent failed to verify whether the 'Create submission' click at step 28 actually succeeded (no check for redirect to the new post or validation errors), and instead scrolled, leaving the task status unknown and uncorrected before the step budget ran out. Earlier violations were genuinely corrected later (body text was finally entered at step 27 and submission was attempted at step 28), so they do not qualify as the earliest permanent error.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to find and navigate to the /f/books forum.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the 'books' forum link in the search results to open /f/books.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click 'Submit' (or otherwise start a new post) from within /f/books to create a submission in that forum.",
+          "correct": false,
+          "error_description": "Clicked the user/account menu button instead of initiating a new submission (e.g., clicking 'Submit').",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Close the user menu and proceed to click 'Submit' to start creating the post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Click 'Submit' to open the create-submission page (or otherwise begin posting).",
+          "correct": false,
+          "error_description": "Scrolled instead of taking the available 'Submit' action to start the post.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Navigate to the submission creation page (ideally preserving forum context as books).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the 'books' forum from the forum dropdown on the submit page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Choose 'books' from the opened forum list (or filter/select it) rather than scrolling aimlessly.",
+          "correct": false,
+          "error_description": "Scrolled the page while the forum picker was open instead of selecting the 'books' option directly.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Click the 'books' option in the forum list to set the target forum.",
+          "correct": false,
+          "error_description": "Clicked into the forum filter/input field rather than selecting the visible 'books' option.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Type 'books' into the forum selector input and confirm to set the forum to books.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Click the title field and enter an appropriate post title about ML helping the books/publishing field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Type the post title into the title input.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Click the body textarea to write the post content.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Type the post body content into the active body textarea using a valid action format.",
+          "correct": false,
+          "error_description": "No valid UI action was executed; the agent produced an incorrectly formatted command and failed to enter the body text.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "After filling title/body and selecting forum, click 'Create submission' to publish.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' before the body content was entered (submission likely blocked/invalid).",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "If submission failed validation, fill missing required fields (body) rather than repeatedly clicking submit.",
+          "correct": false,
+          "error_description": "Repeatedly clicked 'Create submission' again without addressing missing/invalid fields.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Return focus to the form fields (especially body) and complete them, then submit once.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Ensure the title is correctly filled (and not duplicated) and proceed to fill the body.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Avoid retyping the title if already present; move to the body field to add content.",
+          "correct": false,
+          "error_description": "Retyped the title again instead of progressing to fill the body content.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Click the body textarea to enter the post content.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Type the body content into the body textarea using a valid action format.",
+          "correct": false,
+          "error_description": "Again failed to execute a valid 'type' action due to incorrect formatting, so no body text was entered.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Fill the missing body content first; only then click 'Create submission'.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' while the body was still empty/invalid, likely preventing posting.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Navigate back to the body field and enter the content, then submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Do not click submit until required fields are filled; instead click into the body and type content.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' again without first entering the body content.",
+          "recovered": true
+        },
+        {
+          "step": 24,
+          "expected_action": "Click the title/body fields as needed (preferably body) to complete the submission.",
+          "correct": false,
+          "error_description": "Clicked the title field again rather than proceeding to fill the body (the missing requirement).",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "If title is already set, proceed to body; otherwise enter title once.",
+          "correct": false,
+          "error_description": "Retyped the title yet again instead of focusing on completing the body and submitting.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Click the body textarea to enter the post content.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Type the discussion content into the body textarea.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "Click 'Create submission' once to publish the post now that forum/title/body are filled.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 29,
+          "expected_action": "Verify whether the submission succeeded (should redirect to the new post in /f/books); if not, look for validation errors and fix them.",
+          "correct": false,
+          "error_description": "Scrolled instead of confirming submission success or addressing any visible error/redirect after clicking 'Create submission'.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Continue until the post is confirmed published (new post page or appears in /f/books), rather than stopping.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without confirming the post was successfully created in /f/books.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:43:57.910623+00:00"
+    },
+    "webarena::kimi_m::145": {
+      "taskKey": "webarena::kimi_m::145",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "145",
+      "keyStep": 8,
+      "failureSteps": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 8, after reaching the Orders grid, the agent failed to recognize the required next action (open Filters and set Status=Canceled) and instead scrolled, initiating an unrecovered off-track loop that never produced a canceled-orders lookup. Earlier violations (steps 1/3/4/6) were corrected by later direct navigation to the Orders page (step 7), so they did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales \u2192 Orders to view the orders grid where order status can be filtered to Canceled.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the first click did not navigate, retry opening Sales \u2192 Orders or wait for navigation to complete.",
+          "correct": false,
+          "error_description": "Repeatedly clicked Orders but remained on the dashboard without confirming navigation or trying an alternative (e.g., click Sales first or use direct URL).",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Sales menu (if needed) and then click Orders to reach the orders grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click Sales \u2192 Orders (not Stores) to reach the orders grid for filtering canceled orders.",
+          "correct": false,
+          "error_description": "Clicked Stores, which is unrelated to looking up canceled orders.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Return focus to Sales \u2192 Orders and open the orders grid; avoid unnecessary scrolling on the dashboard.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard after opening Stores menu instead of navigating to the Orders grid.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Click Sales \u2192 Orders to open the orders listing page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Wait for the Orders page to load or verify navigation; if not loaded, use direct navigation to /admin/sales/order/.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard instead of ensuring the Orders page opened.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Directly navigate to the Orders grid URL if menu navigation is unreliable.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Use Filters to set Status = Canceled (or search within the grid) to list canceled orders.",
+          "correct": false,
+          "error_description": "Scrolled instead of opening Filters and applying a Status=Canceled filter.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Apply a filter for Status = Canceled and/or capture the canceled orders shown.",
+          "correct": false,
+          "error_description": "Continued scrolling rather than filtering; although canceled rows were visible, the agent did not act to 'look up' canceled orders via filter or selection.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Open Filters and set Status to Canceled (or use the Status column filter) to isolate canceled orders.",
+          "correct": false,
+          "error_description": "Scrolled up instead of filtering for canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Open Filters and set Status = Canceled, then apply to show only canceled orders.",
+          "correct": false,
+          "error_description": "Clicked the Orders menu item again while already on the Orders grid, making no progress toward filtering canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the Filters button on the Orders grid to filter by Status=Canceled.",
+          "correct": false,
+          "error_description": "Clicked Reports instead of using the Orders grid filters to find canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Return to the Orders grid and apply Status=Canceled filter; avoid unrelated Reports navigation.",
+          "correct": false,
+          "error_description": "Scrolled within the Reports-expanded navigation context rather than filtering orders.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Stay on Sales \u2192 Orders grid and apply Status=Canceled filter.",
+          "correct": false,
+          "error_description": "Clicked Reports \u2192 Orders (sales report) instead of filtering the Orders grid for canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "If using reports, set Order Status filter to Canceled and run the report; otherwise return to Orders grid filters.",
+          "correct": false,
+          "error_description": "Scrolled on the Orders Report page without setting Order Status to Canceled and running the report.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Set the report's Order Status to Canceled and click Show Report (or go back to Orders grid and filter).",
+          "correct": false,
+          "error_description": "Clicked Dashboard, abandoning the report without applying the canceled status filter.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Navigate back to Sales \u2192 Orders and filter Status=Canceled.",
+          "correct": false,
+          "error_description": "Went to the Order Status configuration page, which does not list canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to Sales \u2192 Orders grid and apply Status=Canceled filter.",
+          "correct": false,
+          "error_description": "Scrolled within Order Status configuration instead of returning to the Orders grid to look up canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Use navigation to go back to Sales \u2192 Orders grid and filter by canceled status.",
+          "correct": false,
+          "error_description": "Scrolled up on the Order Status configuration page, still off-task.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Leave configuration and go to Sales \u2192 Orders grid to filter canceled orders.",
+          "correct": false,
+          "error_description": "Clicked Stores menu while on Order Status configuration, not progressing toward listing canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Navigate to Sales \u2192 Orders grid and apply Status=Canceled filter.",
+          "correct": false,
+          "error_description": "Scrolled on the Order Status configuration page after opening Stores menu; still not looking up canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Stop interacting with Order Status configuration and return to Orders grid filtering.",
+          "correct": false,
+          "error_description": "Continued scrolling on the same irrelevant configuration page.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Return to Sales \u2192 Orders grid and filter Status=Canceled.",
+          "correct": false,
+          "error_description": "Continued scrolling with no navigation or filtering action.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "If attempting a direct URL, use the correct Orders grid URL (/admin/sales/order/) rather than unrelated paths.",
+          "correct": false,
+          "error_description": "Navigated to /admin/stores/order_status/ which produced a 404 and is unrelated to listing canceled orders.",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "After hitting a 404, go back and navigate to Sales \u2192 Orders grid to filter canceled orders.",
+          "correct": false,
+          "error_description": "Scrolled on the 404 page instead of correcting course immediately.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Recover from the 404 by navigating to Sales \u2192 Orders grid and applying Status=Canceled filter.",
+          "correct": false,
+          "error_description": "Continued scrolling on the 404 page, still not returning to the Orders grid.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate back to Sales \u2192 Orders grid to filter canceled orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "Open Filters on the Orders grid and set Status=Canceled, then apply.",
+          "correct": false,
+          "error_description": "Refreshed the page (F5) instead of applying the Status=Canceled filter.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Use Filters to set Status=Canceled and apply to list canceled orders.",
+          "correct": false,
+          "error_description": "Clicked Sales (menu) instead of using the Filters button on the Orders grid to filter canceled orders.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Return to Sales \u2192 Orders grid and apply Status=Canceled filter; then report the canceled orders found.",
+          "correct": false,
+          "error_description": "Stopped on the dashboard without completing the lookup/filtering of canceled orders.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:45:10.591398+00:00"
+    },
+    "webarena::kimi_m::153": {
+      "taskKey": "webarena::kimi_m::153",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "153",
+      "keyStep": 1,
+      "failureSteps": [
+        1
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "With no explicit violations logged, the first permanent failure is the premature stop at Step 1, where the agent concludes no submissions exist without evidence of an actual search/browse verification. Step 0 is not a qualifying error because it is just an input action and contains no detectable violation on its own.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search to query for submissions by AdamCannon in r/UpliftingNews (e.g., \"author:AdamCannon subreddit:UpliftingNews\") and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If search returns results, open each AdamCannon submission in r/UpliftingNews and click the downvote/dislike control; if no results, stop and report none found.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:45:53.252839+00:00"
+    },
+    "webarena::kimi_m::162": {
+      "taskKey": "webarena::kimi_m::162",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "162",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        5,
+        6,
+        7,
+        20,
+        23,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error is Step 4: the agent clicked a phone-number link in the shipping address area instead of initiating an order-level address-change (or confirming it\u2019s impossible), and it never later demonstrated a successful order-level edit/cancel/reorder/support path. Later issues (e.g., Step 10/12/15/16) were recoverable form-navigation mistakes, but the core unrecovered problem was committing to an address-book-edit strategy that does not update the already-placed most recent order.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open account/order management by clicking \u201cMy Account\u201d to access recent orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to \u201cMy Orders\u201d to find the most recent order that needs its delivery address changed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the most recent order (top entry) via \u201cView Order\u201d to locate shipping/delivery address controls.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Locate the shipping address section and any \u201cEdit/Change\u201d option for the order\u2019s delivery address (or determine if it\u2019s not editable).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Attempt to edit the order\u2019s shipping address (or confirm it cannot be edited) from the shipping address section.",
+          "correct": false,
+          "error_description": "Clicked the shipping address phone-number link, which did not provide an order-level address edit flow and did not change the order\u2019s delivery address.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "If no order-level edit exists, pivot to a supported workaround (e.g., cancel order if possible, contact support, or reorder with new address) rather than random navigation.",
+          "correct": false,
+          "error_description": "Scrolled without identifying an order-level address change mechanism or an alternative supported path (cancel/contact/reorder).",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Use a relevant action like \u201cReorder\u201d (to place a new order with the new address) or find cancellation/support options if address cannot be edited.",
+          "correct": false,
+          "error_description": "Went to Address Book instead of addressing the requirement to change the delivery address for the specific most recent order.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "If proceeding with an address-book update as a workaround, ensure it will affect the pending order or plan to reorder/cancel; otherwise return to order actions.",
+          "correct": false,
+          "error_description": "Edited default shipping address in the address book, which typically does not retroactively update an already-placed order\u2019s delivery address.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Fill the address form fields accurately (street, city, state, zip) and save, only if this is part of a valid plan to affect the order (e.g., reorder).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Enter the new street address line 1 as \u201c77 Massachusetts Ave\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Continue completing remaining required fields (city/state/zip) and then save the address.",
+          "correct": false,
+          "error_description": "Scrolled away after typing, losing focus on completing the form efficiently (though not fatal by itself).",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Ensure street address line 1 contains the new address and proceed to city/state/zip fields.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Proceed with filling city/state/zip and save; do not emit tool/format errors.",
+          "correct": false,
+          "error_description": "No valid web action was taken due to an engine/format error message being output instead of interacting with the page.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Fill the City field with \u201cCambridge\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Select the correct State/Province (Massachusetts) from the dropdown (and ensure country is US if needed).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Choose \u201cMassachusetts\u201d from the State/Province dropdown options (not just click/scroll).",
+          "correct": false,
+          "error_description": "Scrolled up instead of selecting the state value or continuing to complete the form.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "If street address line 1 is already set, avoid redundant typing and move to remaining fields and save.",
+          "correct": false,
+          "error_description": "Re-entered the street address again unnecessarily instead of completing remaining fields and saving.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Scroll to the city/state/zip section and complete remaining fields, then save.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Enter City as \u201cCambridge\u201d (if not already) and proceed to state/zip.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Select the State/Province dropdown and choose Massachusetts.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Select \u201cMassachusetts\u201d from the dropdown (ideally via selecting the option, not typing arbitrary text into a select).",
+          "correct": false,
+          "error_description": "Typed 'Massachusetts' into a SELECT control, which may not properly select the state option and can lead to validation issues.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Enter the correct ZIP for Cambridge, MA (e.g., 02139) and ensure state/country are correctly selected.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Click \u201cSave Address\u201d to persist the updated shipping address (as part of a broader plan to update the order).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Return to the order and use an order-level mechanism (edit/cancel/contact/reorder) to actually change the delivery address for the most recent order.",
+          "correct": false,
+          "error_description": "Went back to My Orders without establishing any way that the address-book change updates the already-placed order\u2019s delivery address.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Open the most recent order again and attempt a supported action (edit shipping if available, cancel, contact support, or reorder with new address).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Check the shipping address section for an edit option or confirm whether the order reflects the new address; otherwise choose reorder/cancel/support.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "Verify whether the shipping address displayed on the order changed; if not editable, pivot to reorder/cancel/support.",
+          "correct": false,
+          "error_description": "Scrolled away from the shipping address section instead of verifying the address content or taking an order-relevant action.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "If the order shipping address cannot be edited, use \u201cReorder\u201d to place a new order with the correct address or seek cancellation/support.",
+          "correct": false,
+          "error_description": "Returned to Address Book again rather than taking an order-level action (reorder/cancel/support) to change the delivery address for the existing order.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Only revisit address book if needed to create/select a new address for a reorder; otherwise proceed with reorder/cancel/support.",
+          "correct": false,
+          "error_description": "Re-entered the shipping address edit flow again instead of executing the necessary order-level change (reorder/cancel/support).",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "If editing address book, confirm fields are correct and save; then immediately reorder using that address (since the original order likely won\u2019t update).",
+          "correct": false,
+          "error_description": "Started editing contact fields (first name) unnecessarily, not progressing toward changing the delivery address for the most recent order.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Complete the task by changing the order\u2019s delivery address via an order-level edit or by reordering/canceling/contacting support; do not stop prematurely.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without completing an order-level delivery address change (only edited address book).",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:46:56.953475+00:00"
+    },
+    "webarena::kimi_m::25": {
+      "taskKey": "webarena::kimi_m::25",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "25",
+      "keyStep": 9,
+      "failureSteps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is Step 9: after applying the ~question label, the agent failed to recognize it should wait/verify the results update and instead clicked the applied label chip, initiating a sequence of unnecessary interactions that culminated in stopping while still loading. Earlier violations (Steps 3 and 7) were genuinely recovered because the agent later successfully applied the question label filter via the UI.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the global search box to search for the project/repository name \"ffmpeg-python\" to locate the kkroening/ffmpeg-python project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the search result for the kkroening/ffmpeg-python project to navigate to the project page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the project's Issues section to be able to filter issues by question-related labels.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Wait for the issues list to finish loading and then open the filter controls (e.g., Label filter) rather than clicking into the search field while it still shows \"Loading\".",
+          "correct": false,
+          "error_description": "Clicked the issues search/filter input while the page was still in a loading state, which did not advance toward applying a label filter.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the Label filter control to choose a question-related label (e.g., \"question\").",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Type/select the desired label value (e.g., \"question\") in the Label filter input and then select it from the dropdown suggestions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Enter the label text \"question\" into the label filter input to surface the matching label option.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Issue a properly formatted action (e.g., clear the label input or select a dropdown option) rather than producing an invalidly formatted command.",
+          "correct": false,
+          "error_description": "The agent produced an incorrectly formatted action command, so no UI action was executed.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Select the \"question\" label from the dropdown to apply the label filter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "After the label chip (~question) appears, wait for the filtered issue list to update (or verify the URL/query reflects the label filter) rather than clicking the chip without need.",
+          "correct": false,
+          "error_description": "Clicked the applied label chip/control instead of waiting for or verifying the filtered results, which did not help display the filtered issue list.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If results did not update, use the issues search box or filter UI to ensure the label filter is applied (or refresh/wait), not reopen the Label filter again unnecessarily.",
+          "correct": false,
+          "error_description": "Reopened the Label filter despite already having applied ~question, instead of focusing on displaying/reading the filtered issues list.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Wait for the filtered list to load and then read out the issue titles/numbers shown under the question-related label filter.",
+          "correct": false,
+          "error_description": "Typed \"label:question\" into the general issues search field, redundantly reapplying a filter instead of extracting and displaying the resulting issue list.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Wait for the page to finish loading the filtered issues and then display the list of issues returned by the \"question\" label filter.",
+          "correct": false,
+          "error_description": "Stopped while the page was still loading and did not extract/display the list of issues with question-related labels.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:47:59.518749+00:00"
+    },
+    "webarena::kimi_m::40": {
+      "taskKey": "webarena::kimi_m::40",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "40",
+      "keyStep": 5,
+      "failureSteps": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "KeyStep is Step 5: despite the customer grid already being visible, the agent failed to recognize task completion and continued scrolling, initiating an unrecovered loop that ultimately exhausted the step budget. Step 4 does not qualify because the agent could still have stopped successfully afterward; later deviations (e.g., Step 12/15) were temporary recoveries but did not fix the persistent failure to conclude when customers were shown.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the \u201cAll Customers\u201d menu item under Customers to open the customer grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the click didn\u2019t navigate, retry by clicking \u201cAll Customers\u201d again or the parent \u201cCustomers\u201d menu to ensure the submenu is active.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click \u201cAll Customers\u201d (or ensure the Customers menu is expanded then click \u201cAll Customers\u201d) to navigate to the customer list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click \u201cAll Customers\u201d to navigate to the customer grid page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Verify the customer grid is visible (records list) and stop once customers are shown.",
+          "correct": false,
+          "error_description": "Scrolled instead of confirming the grid/list; the page already was the All Customers area and needed only to show/verify the list.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Confirm the customer grid is displayed (names/emails) and stop because customers are shown.",
+          "correct": false,
+          "error_description": "Continued scrolling despite the customer list already being visible, instead of completing the task.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Unnecessary scrolling (up) rather than finishing after customers were already displayed.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of ending the task with the visible customer list.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Continued scrolling without need; customers were already shown.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Clicked the left-nav \u201cAll Customers\u201d again while already on the All Customers grid, causing no progress toward finishing.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Scrolled again instead of completing the task.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Pressed Return with no clear target/action; did not advance or finish.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Navigated back to Dashboard instead of finishing on the customer list.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "From Dashboard, click Customers \u2192 All Customers to show the customer grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "If menu navigation is unreliable, directly go to /admin/customer/index/ to open the customer grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Confirm the customer grid is displayed and stop (customers shown).",
+          "correct": false,
+          "error_description": "Scrolled instead of concluding; the page already contained the customer grid controls and should have been verified/finished.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Scrolled up unnecessarily rather than finishing with the visible customer list.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Refreshed the page (F5) instead of completing the task.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Clicked the Customers top-level menu while already on the customer grid; no progress toward completion.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Stop and report success since the customer grid rows are visible.",
+          "correct": false,
+          "error_description": "Clicked \u201cAll Customers\u201d again while already on the All Customers grid; no progress toward completion.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Scrolled up unnecessarily rather than finishing.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Continued scrolling instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Hovered over the Customers menu; unnecessary and did not complete the task.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Stop and report success since the customer grid is visible.",
+          "correct": false,
+          "error_description": "Clicked Customer Groups (or another Customers submenu) which navigated away from the customer list instead of finishing.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "From Dashboard, click Customers \u2192 All Customers to show the customer grid and then stop.",
+          "correct": false,
+          "error_description": "Clicked \u201cAll Customers\u201d but did not ensure navigation back to the customer grid before stopping; remained on Dashboard in the trace.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Stop only after the All Customers grid is displayed (or navigate to it if not).",
+          "correct": false,
+          "error_description": "Stopped due to max steps while still on the Dashboard rather than ending on the customer list view.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:49:09.073386+00:00"
+    },
+    "webarena::kimi_m::52": {
+      "taskKey": "webarena::kimi_m::52",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "52",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "At step 3 the agent clicked into the OSM object detail page instead of using the map/routing (Directions) workflow needed to compute walking times; the action log shows no later return to a correct directions-based process, so the error was never resolved. There are no earlier violations to disqualify, and subsequent steps compound the same off-track plan (abandoning OSM for unrelated sites) rather than correcting it.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the OpenStreetMap search box to start searching for \u201cGardner Steel Conference Center\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Type \u201cGardner Steel Conference Center\u201d into the search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the correct search result for Gardner Steel Conference Center in Pittsburgh to center the map on the destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Use the map\u2019s directions feature (e.g., \u201cDirections from here/to here\u201d) rather than going to the OSM object detail page, so walking times/distances can be computed.",
+          "correct": false,
+          "error_description": "The agent navigated to the OSM way detail page, which is not the right interface for finding nearby hotels and computing walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Search for nearby hotels using OSM-compatible queries (e.g., \u201chotel\u201d or \u201camenity=hotel\u201d) and keep the map centered on the conference center to evaluate proximity.",
+          "correct": false,
+          "error_description": "The agent used a natural-language query (\u201chotels near 130 Thackeray Street Pittsburgh\u201d) that Nominatim often won\u2019t return as POI results, instead of using OSM POI search or map-based exploration.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "After getting no results, adjust the query to an OSM POI term like \u201chotel\u201d and then inspect results around the centered map area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Submit a simpler POI query such as \u201chotel\u201d (optionally with \u201cOakland Pittsburgh\u201d) to get hotel POIs near the current map view.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Wait for results to load and then click a relevant hotel result (or refine the query if none appear).",
+          "correct": false,
+          "error_description": "The agent scrolled while results were still loading and did not verify whether the new query executed or produced results.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Take a valid browser action (e.g., re-run the search, refine query, or click a result) rather than outputting an error message.",
+          "correct": false,
+          "error_description": "No meaningful action was taken; the step contains a formatting/engine error message instead of progressing the task.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Refine the OSM search (e.g., \u201chotel Oakland Pittsburgh\u201d) or return to the conference center map and use directions to compute walking times to candidate hotels.",
+          "correct": false,
+          "error_description": "The agent clicked an unlabeled link/control ([16]) without a clear purpose toward finding hotels or computing walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Stay within OpenStreetMap and use its directions feature to compute walking distances/times from hotels to the conference center.",
+          "correct": false,
+          "error_description": "The agent abandoned OpenStreetMap and navigated to the WebArena home page, losing task context and progress.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "From the WebArena home page, return to OpenStreetMap (not unrelated sites) to continue hotel/directions work.",
+          "correct": false,
+          "error_description": "The agent clicked OneStopShop, which is unrelated to mapping, hotels, or walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate back to OpenStreetMap and compute walking distances; do not use unrelated shopping pages or external search engines.",
+          "correct": false,
+          "error_description": "The agent went to Google from an unrelated shopping site, which is outside the intended tool flow and not necessary for the task.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If using external search, ensure it is accessible and then search for hotels near the conference center; otherwise return to OSM directions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Submit the query to find nearby hotels and then use a mapping/directions tool to filter those within a 5-minute walk.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "After being blocked by Google, return to OpenStreetMap and use its built-in search/directions instead of continuing with Google.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Click OpenStreetMap from the WebArena home page to continue the task using the map/directions interface.",
+          "correct": false,
+          "error_description": "The agent clicked Wikipedia instead of OpenStreetMap, moving further away from computing walking distances from hotels.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Return to OpenStreetMap and search for hotels/compute walking routes; Wikipedia is not the right tool for walking-distance calculations.",
+          "correct": false,
+          "error_description": "The agent interacted with Wikipedia\u2019s search bar, which cannot provide nearby hotel walking distances in this environment.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Use OpenStreetMap directions to compute walking times from candidate hotels to the conference center.",
+          "correct": false,
+          "error_description": "The agent searched Wikipedia for the conference center instead of using a map/directions tool to find hotels and walking times.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Go back to OpenStreetMap and identify nearby hotels, then compute walking times to filter those within 5 minutes.",
+          "correct": false,
+          "error_description": "The agent clicked the Wikipedia article result, which does not advance finding nearby hotels or walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Use OpenStreetMap (or another routing-capable map tool) to compute walking distances/times; do not read general background text.",
+          "correct": false,
+          "error_description": "The agent scrolled within the Wikipedia article, which is irrelevant to the required hotel walking-distance computation.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Return to OpenStreetMap and compute walking routes from hotels to the conference center.",
+          "correct": false,
+          "error_description": "The agent clicked the Wikipedia search box again instead of switching back to a routing/map workflow.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Navigate back to OpenStreetMap and use directions to evaluate hotels within a 5-minute walk.",
+          "correct": false,
+          "error_description": "The agent searched Wikipedia for \u201cUniversity of Pittsburgh,\u201d which does not help identify nearby hotels or walking times.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use OpenStreetMap to locate hotels near the conference center and compute walking times.",
+          "correct": false,
+          "error_description": "The agent opened the University of Pittsburgh Wikipedia article, continuing an irrelevant path.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Return to OpenStreetMap and perform hotel POI search plus walking directions to the conference center.",
+          "correct": false,
+          "error_description": "The agent clicked the Wikipedia search box again rather than returning to the mapping task.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Go back to OpenStreetMap and compute walking distances from nearby hotels to the conference center.",
+          "correct": false,
+          "error_description": "The agent searched Wikipedia for \u201cOakland Pittsburgh,\u201d still not using a routing-capable map to compute walking times.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Use OpenStreetMap to find hotels and compute walking times; Wikipedia neighborhood pages are not actionable for the task.",
+          "correct": false,
+          "error_description": "The agent clicked the Oakland (Pittsburgh) Wikipedia article, which does not provide the needed hotel walking distances.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Return to OpenStreetMap and use directions to filter hotels within a 5-minute walk of the conference center.",
+          "correct": false,
+          "error_description": "The agent scrolled within the Oakland Wikipedia article instead of switching back to mapping/routing.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Use OpenStreetMap directions to compute walking distances/times from hotels to the conference center.",
+          "correct": false,
+          "error_description": "Continued scrolling on Wikipedia; no progress toward identifying hotels or calculating walking times.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Return to OpenStreetMap and compute walking routes from candidate hotels to the conference center.",
+          "correct": false,
+          "error_description": "Continued scrolling on Wikipedia; still not performing any hotel search or routing.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Before stopping, return to OpenStreetMap and produce a list of nearby hotels with walking distances/times \u2264 5 minutes to Gardner Steel Conference Center.",
+          "correct": false,
+          "error_description": "The agent stopped without ever identifying hotels and calculating walking distances/times within 5 minutes.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:50:31.918697+00:00"
+    },
+    "webarena::kimi_m::59": {
+      "taskKey": "webarena::kimi_m::59",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "59",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is at step 4: the agent scrolled instead of using review/report filters/sorting to locate the most negative Zoe 'style' review, and it never later performed the required targeted filtering/drill-down to recover. All later violations are downstream manifestations of the same lack of effective progress (wandering through menus/sites without identifying the specific unhappy reviewer), so earlier steps do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the reviews area (Marketing \u2192 User Content \u2192 All Reviews) to find negative feedback about Zoe product style.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the first click didn\u2019t navigate, click All Reviews again or open Marketing first to access User Content \u2192 All Reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Marketing menu to access review-related pages under User Content.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click Marketing \u2192 User Content \u2192 All Reviews to view review records and identify the most negative style-related review.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Use filters/sorting to locate the most negative review mentioning 'style' and related to Zoe products, then open it to find the customer identity.",
+          "correct": false,
+          "error_description": "Scrolled without applying any filter/sort/search for Zoe or 'style', making no progress toward identifying the most unhappy customer.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Apply filters (e.g., SKU/name contains 'ZOE', review text contains 'style', low rating) and search.",
+          "correct": false,
+          "error_description": "Scrolled back up instead of using filters/search to narrow to Zoe style complaints.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Filter reviews by keyword 'style' and Zoe-related products, then open the worst review.",
+          "correct": false,
+          "error_description": "Clicked 'All Reviews' again while already on the reviews grid; no filtering or investigation occurred.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Stay in review tools and use Reports \u2192 Reviews (By Products/By Customers) or filter the grid to find the lowest-rated Zoe style review.",
+          "correct": false,
+          "error_description": "Clicked Reports top menu without a clear plan to isolate Zoe style dissatisfaction; still no filtering or selection of relevant reviews.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "From Reports \u2192 Reviews, choose a report that helps identify low-rated Zoe reviews (ideally By Products then drill down to reviews).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Sort/filter the Product Reviews Report by lowest average rating and drill into 'Show Reviews' for Zoe products, then identify the customer and get their email.",
+          "correct": false,
+          "error_description": "Clicked Catalog \u2192 Products (left nav) instead of using the report\u2019s sorting/filtering and 'Show Reviews' drill-down to find the worst Zoe style review.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the Product Reviews Report table controls (filters/sort) and open 'Show Reviews' for the relevant Zoe product.",
+          "correct": false,
+          "error_description": "Clicked Catalog menu again; remained off-task and did not use the report to locate the most unhappy Zoe style reviewer.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Return to the report and click 'Show Reviews' on the lowest-rated Zoe product (or filter by Zoe) to see individual reviews and reviewer identity.",
+          "correct": false,
+          "error_description": "Directly navigated to the product catalog URL, abandoning the review report drill-down path.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "If using catalog, search/filter products for Zoe and then access their reviews; otherwise return to review reports.",
+          "correct": false,
+          "error_description": "Clicked Reports menu from the product catalog instead of searching for Zoe products or returning to review drill-down.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "From Reports \u2192 Reviews, open By Products or By Customers and identify the lowest-rated Zoe style review, then locate the customer record for email.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "In Customer Reviews Report, click 'Show Reviews' to see the customer\u2019s reviews and determine if they are the most unhappy about Zoe style; then get their email from customer details.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated external site (luma.com) instead of drilling into 'Show Reviews' and extracting the customer identity/email.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Return immediately to Magento admin and continue review drill-down.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Click 'Show Reviews' in the Customer Reviews Report and identify the relevant customer and their email.",
+          "correct": false,
+          "error_description": "Clicked 'All Customers' menu item rather than using 'Show Reviews' to identify the unhappy reviewer tied to Zoe style complaints.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "If going to All Customers, search for the identified reviewer name/email from the review report; otherwise go back and click 'Show Reviews'.",
+          "correct": false,
+          "error_description": "Navigated to customer index without having identified any specific customer from reviews, so it could not lead to the correct email.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Search/filter customers only after identifying the unhappy reviewer\u2019s name/nickname from a specific Zoe style review.",
+          "correct": false,
+          "error_description": "Left the customer list and went back to All Reviews without having extracted a target customer from Zoe style complaints.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Filter All Reviews by Zoe-related products and 'style' keyword and lowest rating, then open the worst review.",
+          "correct": false,
+          "error_description": "Scrolled instead of applying filters/search to find Zoe style dissatisfaction.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Use the review grid filters (review text contains 'style', SKU/name contains 'ZOE', sort by rating/date) and open the most negative entry.",
+          "correct": false,
+          "error_description": "Scrolled back up again without using filters or opening any review details.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Continue within Magento admin; do not navigate away; focus on extracting the unhappy reviewer and then their email.",
+          "correct": false,
+          "error_description": "Navigated to unrelated external site (luma.com), wasting steps and abandoning the task context.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Return to Magento admin and proceed with review filtering/drill-down.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Use review filters or Reports \u2192 Reviews to locate the most negative Zoe style review and identify the customer.",
+          "correct": false,
+          "error_description": "Clicked Dashboard, resetting context instead of using available review/report tools to identify the unhappy Zoe style reviewer.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "From Dashboard, navigate back to Marketing \u2192 User Content \u2192 All Reviews or Reports \u2192 Reviews and perform targeted filtering/drill-down.",
+          "correct": false,
+          "error_description": "Navigated to a different site/portal (WebArena home) unrelated to Magento reviews, derailing the task.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Stay in Magento admin; do not switch to unrelated applications; continue review analysis.",
+          "correct": false,
+          "error_description": "Clicked into OneStopShop (different application) which is unrelated to Magento Zoe product reviews and customer emails.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to Magento admin and use review/report data to identify the most unhappy Zoe style reviewer.",
+          "correct": false,
+          "error_description": "Searched for 'Zoe' on an unrelated storefront (One Stop Market) rather than using Magento admin review data to find the unhappy customer and their email.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Use Magento admin reviews/reports; if on a storefront, this does not provide the needed customer email from admin records.",
+          "correct": false,
+          "error_description": "Continued browsing/searching on the wrong site; no path to the Magento customer email tied to the most unhappy Zoe style review.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Return to Magento admin and locate the worst Zoe style review; do not rely on storefront product pages.",
+          "correct": false,
+          "error_description": "Opened a product\u2019s review count on the unrelated storefront; still not accessing Magento admin customer records or identifying the most unhappy reviewer.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "In Magento admin, open the specific worst review and then open the customer profile to read the email address.",
+          "correct": false,
+          "error_description": "Viewed storefront reviews which show nicknames but not the Magento customer email needed for the task.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Extract the identified unhappy customer\u2019s email from Magento admin customer records and provide it as the final answer.",
+          "correct": false,
+          "error_description": "Stopped without identifying the most unhappy Zoe style reviewer in Magento admin or retrieving their email address.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:52:10.217330+00:00"
+    },
+    "webarena::kimi_m::6": {
+      "taskKey": "webarena::kimi_m::6",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "6",
+      "keyStep": 27,
+      "failureSteps": [
+        27
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 27 the agent finalized an answer claiming the shortest walking distance without verifying it was truly the minimum among nearby supermarket candidates or confirming the closest Hilton-branded option, making the final output unreliable. Earlier violations (steps 4,5,6,11,15,20,24,25) were worked around by switching to Google Maps and proceeding to a directions result, so they did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the OpenStreetMap search box to enter a query for Pittsburgh International Airport or nearby Hilton hotels.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Type a query like \u201cPittsburgh International Airport\u201d and submit to center the map on the airport area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the search results, select a relevant Hilton property near the airport to identify a candidate hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the selected Hilton result\u2019s details and capture the hotel name/address for later reporting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Search for nearby supermarkets/grocery stores around the chosen Hilton location (ideally using map features or a simpler query).",
+          "correct": false,
+          "error_description": "Used a long natural-language query in OSM search that often fails and did not first confirm/capture the hotel\u2019s address details from the OSM page.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "After no results, refine the query (e.g., \u201csupermarket Moon Township PA\u201d or use amenities filters) rather than another vague phrase.",
+          "correct": false,
+          "error_description": "Switched to another broad query without anchoring to the hotel\u2019s exact area or using OSM amenity search effectively.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Wait for results or re-run the search properly; scrolling is unnecessary for a 'Loading/No results' state.",
+          "correct": false,
+          "error_description": "Scrolled instead of correcting the query or using a different search strategy.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Try a simpler, location-specific supermarket query or switch tools if OSM search is insufficient.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "If OSM continues failing, switch to a mapping service that can provide walking directions/distances (e.g., Google Maps).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Use Google Maps search to locate the chosen Hilton hotel near Pittsburgh Airport.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Search for \u201cHilton Garden Inn Pittsburgh Airport\u201d and open the correct place card to confirm name/address.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Select the hotel result/place card (if not already opened) rather than scrolling aimlessly.",
+          "correct": false,
+          "error_description": "Scrolled on the search results view instead of explicitly selecting/opening the hotel listing to proceed.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "From the hotel place page, use Nearby/search to find supermarkets and then compute walking distance to the nearest one.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Use the search box to search nearby for \u201csupermarket\u201d or \u201cgrocery store\u201d around the hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Submit the nearby search for supermarkets to get a list of candidate supermarkets near the hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Review the supermarket results list and pick the closest plausible supermarket to compute walking distance.",
+          "correct": false,
+          "error_description": "Scrolled without first selecting a candidate result or ensuring results were visible in the panel.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Select a supermarket result and request walking directions from the hotel to that supermarket.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Click Directions for the selected supermarket to generate a route from the hotel (origin) to the supermarket (destination).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Compare walking distances/times to determine the shortest walking route to a supermarket; optionally check other supermarkets like Walmart.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "If checking Walmart, replace the destination cleanly with Walmart (not append text) and select the correct Walmart place.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Fix the destination field because it became corrupted by concatenated text and prevented route calculation.",
+          "correct": false,
+          "error_description": "Clicked into the already-corrupted destination field but did not clear/replace it, leaving Google Maps unable to find the destination.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Clear the destination input (e.g., Ctrl+A then type) to replace it with the Walmart destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Type the Walmart destination and select the correct autocomplete suggestion to set it as the destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Recognize the destination is still malformed (concatenated) and restart directions properly or use the Directions UI to set origin/destination cleanly.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Use Google Maps directions feature (not a generic search query) to create a route from the hotel to the Walmart address.",
+          "correct": false,
+          "error_description": "Entered a natural-language 'directions from ... to ...' query which may work but is less reliable than using the Directions UI directly.",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "Open the actual directions route result and ensure walking mode is selected to read the walking distance.",
+          "correct": false,
+          "error_description": "Scrolled on the search results page instead of directly selecting/confirming the directions route interface.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "On the directions page, select walking mode and read the shortest walking distance/time among route options.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Provide the Hilton hotel name near Pittsburgh Airport and the shortest walking distance to the nearest supermarket, ensuring the supermarket is truly the closest among candidates.",
+          "correct": false,
+          "error_description": "Concluded Walmart (1.2 miles, 26 min) was the shortest without comparing against the earlier Giant Eagle route (1.5 miles, 34 min) and any other nearby supermarkets; also the chosen hotel may not be the closest Hilton-branded hotel to the airport based on initial OSM result selection.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:53:33.265971+00:00"
+    },
+    "webarena::kimi_m::65": {
+      "taskKey": "webarena::kimi_m::65",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "65",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        10,
+        11,
+        12,
+        14,
+        15
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 4 the agent failed to extract and report the already-visible under-$30 men's shoe products and never later demonstrated any successful extraction or compilation, so the error was not resolved. Earlier issues (e.g., step 3 scrolling and step 5 clicking Advanced Search) do not qualify because the agent later navigated to search/results pages where qualifying items were visible, but it still did not capture them.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the Clothing, Shoes & Jewelry department to later narrow to men's shoes and apply a <$30 filter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the Men subcategory to focus on men's items before narrowing to shoes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the Shoes subcategory under Men to reach men's shoes listings.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Apply a price filter or sort/filter to show items under $30 within the men's shoes category.",
+          "correct": false,
+          "error_description": "The agent only scrolled instead of applying a <$30 price filter or otherwise narrowing results to under $30.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Identify and list products priced under $30 from the men's shoes results (or apply a tighter price filter if needed).",
+          "correct": false,
+          "error_description": "The agent scrolled up rather than capturing/returning the under-$30 products visible (e.g., $23.99, $28.57, $14.00).",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use available filters (e.g., price) on the men's shoes category page to restrict to under $30 and then list matching products.",
+          "correct": false,
+          "error_description": "The agent clicked 'Advanced Search' instead of using category filters or listing the already-visible under-$30 men's shoes products.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "In Advanced Search, set a price-to value of 30 (and ideally constrain to shoes/men via category if possible) before searching.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Fill the price 'to' field with 30 (and optionally leave product name blank or use a shoe-related term) to find items under $30.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Submit the advanced search after setting the price constraint.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Click the Search button to view results filtered to price up to $30.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Review the results and extract products that are men's shoes priced under $30, then present them to the user.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of starting to compile and report the qualifying products from the results.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Capture product names and prices under $30 from the visible results and prepare the final response list.",
+          "correct": false,
+          "error_description": "The agent continued scrolling rather than recording and reporting the under-$30 products shown (e.g., $21.59, $10.39, $24.09, $23.19).",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Continue extracting qualifying men's shoe products under $30 and ignore non-shoe items (e.g., socks) if the task is strictly shoes.",
+          "correct": false,
+          "error_description": "The agent kept scrolling without extracting/reporting items and did not filter out irrelevant results like socks labeled with 'Men Shoe'.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If more results exist, navigate to the next page and continue extracting qualifying men's shoe products under $30.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Extract the remaining qualifying products on page 2 (under $30) and prepare to present the complete list.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of extracting the remaining product(s) under $30 on page 2.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Stop only after presenting the list of men's shoes under $30 (names and prices) gathered from the results.",
+          "correct": false,
+          "error_description": "The agent stopped without providing any products, failing to complete the task despite having qualifying items visible.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:54:34.990728+00:00"
+    },
+    "webarena::kimi_m::74": {
+      "taskKey": "webarena::kimi_m::74",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "74",
+      "keyStep": 5,
+      "failureSteps": [
+        5,
+        6
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 5 the agent effectively treated the lack of a visible phone number in the current view as near-terminal progress and scrolled up instead of pursuing alternative navigation paths (other footer/help/policy/account pages) that could still contain the number; there is no later evidence it recovered from this. Earlier scrolling missteps (steps 0\u20132) do not qualify because the agent later reached and checked the Contact Us page (step 3/4), getting back on track before the final failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Look for site-wide footer/header links like \u201cContact Us\u201d or \u201cCustomer Service\u201d (or use search) rather than browsing products, since the goal is a customer service phone number.",
+          "correct": false,
+          "error_description": "The agent scrolled through product listings instead of immediately navigating to a contact/customer service page where a phone number would typically be listed.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to a \u201cContact Us\u201d/help/customer service page (often in the footer) instead of continuing to scroll product results.",
+          "correct": false,
+          "error_description": "Continued scrolling through product listings without attempting to open Contact/Help information.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the \u201cContact Us\u201d link (or similar help link) once it becomes available, rather than continuing to scroll.",
+          "correct": false,
+          "error_description": "Scrolled again even though the page navigation/footer area was already visible and could be used to reach Contact Us.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the \u201cContact Us\u201d link in the footer to find customer service contact details such as a phone number.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Scan the Contact Us page for any listed customer service phone number (often near headings, address blocks, or footer) and scroll if needed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue checking the Contact Us page (including footer/header and any contact details sections) for a customer service phone number; if none, consider other help pages like \u201cPrivacy Policy\u201d or \u201cAbout Us.\u201d",
+          "correct": false,
+          "error_description": "Scrolled back up without taking an alternative path (e.g., checking other site pages/policies) after not finding a phone number in the visible contact form area.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "If no phone number is on the Contact Us page, try other likely locations (footer links like Privacy Policy, Search Terms, Advanced Search, or account/order pages) before concluding none exists.",
+          "correct": false,
+          "error_description": "Stopped after only checking the Contact Us form page, without exploring other pages that might list a customer service phone number.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:55:19.328451+00:00"
+    },
+    "webarena::kimi_m::76": {
+      "taskKey": "webarena::kimi_m::76",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "76",
+      "keyStep": 29,
+      "failureSteps": [
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is at step 29: the agent opened a 2022 order but failed to verify it was canceled and did not proceed to find the canceled 2022 order needed to compute the refund including shipping. Earlier violations (steps 3\u201327) were detours but were later corrected by eventually reaching 2022 orders and paging further, whereas after step 29 the agent never got back on track before stopping at the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the account area (or orders) to locate the canceled 2022 order and its totals including shipping.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "From the header, proceed into the account dashboard to access order history.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click into 'My Orders' to view the order history list where canceled 2022 orders can be found.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Identify an order from 2022 that is canceled (or navigate pages until reaching 2022 canceled orders) and open it.",
+          "correct": false,
+          "error_description": "Opened the first visible order without checking whether it was from 2022, causing unnecessary detours through 2023 orders.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "On the order detail page, confirm whether it is a canceled 2022 order and, if not, return to the list to find the correct year/status.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue searching the order list for a canceled order from 2022 (use pagination if needed) rather than opening random 2023 orders.",
+          "correct": false,
+          "error_description": "Continued opening another order without filtering for 2022 canceled status.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "If the opened order is not a canceled 2022 order, go back and continue searching.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Navigate toward older orders (pagination/next pages) to reach 2022 and then open the canceled order.",
+          "correct": false,
+          "error_description": "Opened yet another 2023 order instead of paging toward 2022.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "If not the target (canceled 2022), go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Use pagination or otherwise move to older orders to find the 2022 canceled order.",
+          "correct": false,
+          "error_description": "Opened another 2023 order rather than moving to older pages for 2022.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "If not the target order, return to the list and continue toward 2022 orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Move toward older orders (pagination) instead of continuing to open 2023 orders.",
+          "correct": false,
+          "error_description": "Opened another order (still 2023) rather than paging to reach 2022.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "If not the target order, go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Use pagination/next page to reach older orders (eventually 2022) rather than opening more 2023 orders.",
+          "correct": false,
+          "error_description": "Opened another 2023 order instead of navigating to older pages for 2022.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "If not the target order, go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate to older orders (pagination) to find the canceled 2022 order.",
+          "correct": false,
+          "error_description": "Opened another 2023 order instead of paging toward 2022.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "If not the target order, go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Continue moving toward older orders (pagination) to reach 2022 canceled order.",
+          "correct": false,
+          "error_description": "Opened another 2023 order instead of using pagination to reach 2022.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "If not the target year (2022), go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Use pagination to reach 2022 orders rather than continuing to open 2023 orders.",
+          "correct": false,
+          "error_description": "Opened another 2023 order instead of paging toward 2022.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "If not the target year/status, go back and continue searching older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Proceed to older pages (pagination) to find the canceled 2022 order.",
+          "correct": false,
+          "error_description": "Clicked a 'View Order' link but did not actually open a new order page (remained on history), indicating a mis-click or no effect.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "If the click did not navigate, try a different 'View Order' link or use pagination controls to reach older orders.",
+          "correct": false,
+          "error_description": "Repeated the same ineffective click on 'View Order' without changing approach.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Use pagination (e.g., scroll to and click page 2/next) to reach older orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Click to page 2 (or next) to access older orders closer to 2022.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "On page 2, continue paging until reaching 2022 and open the canceled 2022 order (not a completed one).",
+          "correct": false,
+          "error_description": "Opened an order without verifying it was canceled and from 2022 (it was a completed 2023 order).",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to the order list and continue paging/searching for the canceled 2022 order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Open the relevant 2022 canceled order (or continue paging if not yet at 2022).",
+          "correct": false,
+          "error_description": "Opened another completed 2023 order instead of continuing toward the 2022 canceled order.",
+          "recovered": true
+        },
+        {
+          "step": 28,
+          "expected_action": "Go back and continue searching older orders for the canceled 2022 order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 29,
+          "expected_action": "Open the canceled 2022 order (or continue paging until finding it), then read the grand total and shipping to compute expected refund including shipping.",
+          "correct": false,
+          "error_description": "Opened a 2022 order but it was 'Complete' rather than 'Canceled', so it still did not answer the question.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "If the order is not canceled, go back and locate the canceled 2022 order, then extract totals (including shipping) to state the expected refund amount.",
+          "correct": false,
+          "error_description": "Stopped on a completed (not canceled) 2022 order and never located the canceled 2022 order or computed the refund including shipping.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:56:18.727123+00:00"
+    },
+    "webarena::kimi_m::88": {
+      "taskKey": "webarena::kimi_m::88",
+      "dataset": "webarena",
+      "model": "kimi_m",
+      "taskId": "88",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        21,
+        22,
+        23,
+        24,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is Step 6: despite the Magento Blank 'View' action being available on the Themes grid, the agent kept scrolling and never returned to successfully open the theme details/preview path, so the task never progressed. Earlier violations (Steps 4\u20135) do not qualify because they were still recoverable at that point (the correct action remained available), whereas from Step 6 onward the agent never demonstrated a successful correction and instead drifted into unrelated navigation until the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate toward theme management (e.g., Content \u2192 Design \u2192 Themes/Configuration) to find a way to preview the Magento Blank theme.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the first click didn\u2019t navigate, retry once or choose an alternate navigation path to the Themes page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Content menu to access Design-related options like Themes/Configuration.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click Content \u2192 Themes to reach the themes listing where Magento Blank appears.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "On the Themes grid, locate the Magento Blank row and use its action (e.g., View) or find a preview/storefront link to preview it.",
+          "correct": false,
+          "error_description": "Scrolled instead of immediately clicking the available 'View' action for Magento Blank or pursuing a preview path.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Click the 'View' link for the Magento Blank theme entry to inspect theme details and look for preview/apply options.",
+          "correct": false,
+          "error_description": "Continued scrolling despite the Magento Blank 'View' link being visible.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Select 'View' for Magento Blank (or open theme details) rather than repeatedly scrolling.",
+          "correct": false,
+          "error_description": "Repeated unnecessary scrolling without taking the available action on the Magento Blank theme.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Click 'View' for Magento Blank to proceed toward previewing or applying it.",
+          "correct": false,
+          "error_description": "Scrolled up instead of using the 'View' action for Magento Blank.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Click 'View' for Magento Blank (or open theme details) rather than refreshing.",
+          "correct": false,
+          "error_description": "Refreshed the page (F5) instead of taking the available 'View' action for Magento Blank.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "After refresh, click 'View' for Magento Blank to access theme details/preview options.",
+          "correct": false,
+          "error_description": "Scrolled again instead of clicking 'View' for Magento Blank.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Click 'View' for Magento Blank (or otherwise open theme details) to find preview/apply controls.",
+          "correct": false,
+          "error_description": "Clicked Stores \u2192 Configuration (unrelated at this moment) instead of opening Magento Blank theme details from the Themes grid.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Stay within Magento Admin and continue toward previewing the Blank theme (theme details or storefront preview).",
+          "correct": false,
+          "error_description": "Navigated away to the WebArena hub (http://18.116.169.131:4399), abandoning the in-progress theme preview flow.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Open the Magento storefront for the shop (not the WebArena hub) to preview how the theme looks.",
+          "correct": false,
+          "error_description": "Clicked OneStopShop (a different site) rather than the Magento storefront tied to the Magento admin instance.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Remain on the Magento storefront and verify whether Magento Blank is active or find a way to preview it.",
+          "correct": false,
+          "error_description": "Left the storefront immediately and returned to the hub without checking theme appearance or activation.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to Magento Admin (already available) and proceed to theme details/apply/preview workflow for Magento Blank.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate back to Content \u2192 Design \u2192 Themes (or Design Configuration) to act on Magento Blank and preview it.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled Stores submenu toggle instead of going directly to Themes/Design Configuration for previewing Magento Blank.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Use the admin navigation to reach Themes or Design Configuration to preview/apply Magento Blank.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "From Stores, choose Configuration or Content \u2192 Design \u2192 Configuration to set/apply the Blank theme for a store view.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Click Stores \u2192 Configuration and then go to the Design section to set the theme (or find preview controls).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Within Configuration, navigate to the Design section (or Content \u2192 Design \u2192 Configuration) to set Magento Blank and then preview storefront.",
+          "correct": false,
+          "error_description": "Scrolled within General configuration instead of selecting the Design section (left nav) to configure the theme for preview.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "Click the left navigation item for Design (or Web \u2192 Default Theme) rather than continuing to scroll unrelated settings.",
+          "correct": false,
+          "error_description": "Continued scrolling through unrelated configuration sections instead of opening the Design configuration area.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Open the correct Design configuration page (ensuring the URL/route is valid) and then set Magento Blank for the desired scope/store view.",
+          "correct": false,
+          "error_description": "Manually navigated to a likely incorrect/unsupported URL for the design section, leading to being off the intended configuration path.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "If the direct URL failed, use the left-side configuration navigation to click Design (or Web) and locate theme settings.",
+          "correct": false,
+          "error_description": "Stayed on the generic configuration index and scrolled instead of using the navigation to reach Design/theme settings.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate to the correct configuration section for theme selection and apply Magento Blank, then open storefront to preview.",
+          "correct": false,
+          "error_description": "Jumped to the storefront without having applied/selected Magento Blank in configuration, so no meaningful preview progress was made.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "On the storefront, verify the active theme (Blank vs Luma) and, if not Blank, return to admin to apply Blank then refresh storefront.",
+          "correct": false,
+          "error_description": "Immediately navigated back to the admin dashboard without checking storefront appearance for the Blank theme.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Go directly to Content \u2192 Design \u2192 Themes/Configuration and use Magento Blank 'View' or apply it to a store view for preview.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard instead of navigating to the theme configuration/preview workflow.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Use the admin menu to reach the Themes grid or Design Configuration to preview/apply Magento Blank.",
+          "correct": false,
+          "error_description": "Clicked Dashboard (no-op) rather than navigating to Themes/Design Configuration.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate to a valid Magento admin route for Themes (e.g., Content \u2192 Design \u2192 Themes) rather than guessing URLs.",
+          "correct": false,
+          "error_description": "Used a guessed URL (/admin/admin/theme/) instead of the known valid Themes page already visited, risking 404 and losing progress.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "If a 404 occurs, return to the known working Themes grid (/admin/admin/system_design_theme/) and click 'View' for Magento Blank or apply it via Design Configuration.",
+          "correct": false,
+          "error_description": "After hitting a 404, navigated away to the WebArena hub instead of returning to the working Themes/Design Configuration pages to complete preview.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Return to Magento Admin and complete the theme preview steps (open Magento Blank details/apply and then view storefront).",
+          "correct": false,
+          "error_description": "Opened external documentation (Admin Portal Manual) rather than continuing the in-product steps to preview Magento Blank.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Continue within Magento Admin/storefront to preview the Blank theme (apply if needed, then open storefront) before stopping.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without having previewed the Magento Blank theme.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:57:47.799997+00:00"
+    }
+  }
+}

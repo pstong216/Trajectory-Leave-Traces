@@ -1,0 +1,3770 @@
+{
+  "updatedAt": "2026-08-09T05:40:13.906876+00:00",
+  "dataset": "webarena",
+  "model": "kimi",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::kimi::107": {
+      "taskKey": "webarena::kimi::107",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "107",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0, where the agent fails to follow the required action formatting and then continues with actions that never correctly target the Price field or the product edit workflow. This indicates a fundamental constraint/interaction-format mismatch that prevents reliable execution and makes recovery impossible, leading to max-step early stopping without changing/saving the price.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "On the product edit page, locate the Price field and click into it to prepare for changing the price.",
+          "correct": false,
+          "error_description": "The agent did not interact with the Price field; it instead issued an unrelated/invalid action format.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Scroll only as needed to bring the Price input into view, then focus the Price field.",
+          "correct": false,
+          "error_description": "The agent continued with scrolling without ever entering the Price value.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Continue scrolling until the Price input is visible, then click the Price input.",
+          "correct": false,
+          "error_description": "The agent scrolled further down into other sections rather than targeting the Price input.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Avoid random clicks; keep navigating to the Price field on the product edit form.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (likely a dropdown/attribute selector) instead of the Price field.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Return focus to the Price input on the product edit page.",
+          "correct": false,
+          "error_description": "The agent again did not interact with the Price field and instead produced an invalid/irrelevant action.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Scroll back to the Price section and click the Price input.",
+          "correct": false,
+          "error_description": "The agent did not reach the Price input and did not enter any price value.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Click into the Price input and prepare to change it by -$5.",
+          "correct": false,
+          "error_description": "The agent did not click the Price input; it issued an invalid/irrelevant action.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Focus the Price input (or Advanced Pricing if required) and adjust the value by subtracting $5.",
+          "correct": false,
+          "error_description": "The agent did not enter the Price field; it continued with invalid/irrelevant actions.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Click the Price input field (the one labeled Price) to edit the numeric value.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (not the Price input) and did not modify price.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If navigation is lost, return to the product edit page for the same product ID and edit the Price field.",
+          "correct": false,
+          "error_description": "The agent navigated away to the product listing page without making the required price change.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "On the product grid, locate the target product (ID 1481) and click its Edit action.",
+          "correct": false,
+          "error_description": "The agent did not select the correct product edit link; it continued with invalid/irrelevant actions.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Click the Edit link for product ID 1481 from the grid.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of clicking the Edit action for the target product.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the product listing to open the edit page for ID 1481 (or directly navigate to the known edit URL).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "On the product edit page, click the Price input and change it to current_price - 5, then save.",
+          "correct": false,
+          "error_description": "The agent did not interact with the Price input; it issued an invalid/irrelevant action.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Scroll minimally to ensure the Price input is visible, then click into the Price field.",
+          "correct": false,
+          "error_description": "The agent scrolled up without editing the Price field.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Scroll to the Price section and click the Price input.",
+          "correct": false,
+          "error_description": "The agent continued scrolling down/up around the page but did not click or edit the Price input.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Click into the Price input field (or Advanced Pricing) to edit the numeric price.",
+          "correct": false,
+          "error_description": "The agent pressed F5 (refresh) instead of editing the price.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "After refresh, immediately locate and click the Price input to adjust it by -$5.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (not the Price input) and did not change price.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Stay on the product edit page; do not navigate away until the price is updated and saved.",
+          "correct": false,
+          "error_description": "The agent navigated to the admin dashboard, losing the product editing context.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Return to the product edit page for ID 1481 and edit the Price field.",
+          "correct": false,
+          "error_description": "The agent clicked another unrelated dashboard element rather than returning to the product edit page.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "On the product listing, select product ID 1481 and open its Edit page.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of selecting the correct product edit action.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Click the Edit link for product ID 1481.",
+          "correct": false,
+          "error_description": "The agent did not click the correct edit link; it continued navigation without editing price.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Open the product edit page for ID 1481 (if not already there) and then edit the Price field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Click the Price input and update it to current_price - 5.",
+          "correct": false,
+          "error_description": "The agent scrolled down without editing the Price input.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Remain on the product edit page; do not navigate to unrelated URLs.",
+          "correct": false,
+          "error_description": "The agent navigated to an unrelated port (4399) instead of editing the product price.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Return to the Magento admin product edit page for ID 1481.",
+          "correct": false,
+          "error_description": "The agent clicked within an unrelated web arena page, not returning to the product edit workflow.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Navigate back to the product edit page for ID 1481 and edit the Price field.",
+          "correct": false,
+          "error_description": "The agent returned to the Magento dashboard, not the product edit page, and did not edit price.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "From the dashboard, go to Catalog > Products and open the edit page for ID 1481.",
+          "correct": false,
+          "error_description": "The agent clicked unrelated dashboard elements rather than opening the product edit page.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Continue navigation to the product edit page for ID 1481.",
+          "correct": false,
+          "error_description": "The agent remained on the dashboard and did not reach the product edit form.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Open the product edit page for ID 1481 and adjust the Price field by -$5, then save.",
+          "correct": false,
+          "error_description": "The agent continued clicking dashboard elements and never edited the product price.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "After updating the price, click Save and confirm the change.",
+          "correct": false,
+          "error_description": "The agent stopped early due to max steps without ever changing or saving the product price.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:35:59.824840+00:00"
+    },
+    "webarena::kimi::123": {
+      "taskKey": "webarena::kimi::123",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "123",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The agent never navigated to the required 'Contact Us' refund form, instead repeatedly scrolling through unrelated page content (steps 0\u20132). Because the agent\u2019s navigation strategy was fundamentally misdirected and not corrected, later typing attempts (steps 5\u20136) could not reliably achieve the intended outcome.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the site's 'Contact Us' page (or locate the 'Contact Us' link) to access the refund form.",
+          "correct": false,
+          "error_description": "The agent only scrolled on the homepage/product listing instead of going to the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue toward the 'Contact Us' link/page rather than browsing unrelated products.",
+          "correct": false,
+          "error_description": "The agent scrolled through product listings and did not move toward the contact form.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Find and click the 'Contact Us' link (typically in the footer) to open the contact form.",
+          "correct": false,
+          "error_description": "The agent kept scrolling through search/pagination content instead of locating 'Contact Us'.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the 'Contact Us' link to open the contact form page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Click inside the 'What\u2019s on your mind?' text area to focus it for drafting the refund message.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Type the refund message into the focused text area, including order ID, reason (broke after 3 days), and refund amount, without submitting.",
+          "correct": false,
+          "error_description": "The agent's typing action was not executed correctly due to an invalid action/format, so the message was not reliably entered.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Retry typing the refund message into the text area with the correct action format, ensuring required fields are included.",
+          "correct": false,
+          "error_description": "The agent again used an incorrectly formatted typing action, so the message still was not properly entered.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Ensure the refund message is fully present in the text area with the required order ID, reason, and refund amount, and do not submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Stop without submitting the form, leaving the drafted refund message in the contact form.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:36:09.223434+00:00"
+    },
+    "webarena::kimi::125": {
+      "taskKey": "webarena::kimi::125",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "125",
+      "keyStep": 8,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "failureCause": "Planning:ImpossibleAction",
+      "notes": "Step 8 navigated to an order edit URL (/admin/sales/order/edit/order_id/299/) that later produced a 404, indicating the URL pattern was invalid for this Magento instance. After this unrecoverable misnavigation, subsequent steps failed to reliably return to the orders grid and open the correct 'View' link, so the agent never reached the order edit form needed to change the address.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the Orders item in the Sales menu to open the orders grid.",
+          "correct": false,
+          "error_description": "The agent clicked an element labeled 'Orders' but the action target is ambiguous ('click [5] where [5]') and did not reliably navigate to the orders page.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Ensure navigation to the Orders page by clicking the Orders menu item or using a direct orders URL.",
+          "correct": false,
+          "error_description": "The agent again performed an ambiguous click ('click [5] where [5]') without confirming the page changed.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Navigate to the Orders page (sales/order) so the agent can locate order #299.",
+          "correct": false,
+          "error_description": "Another ambiguous click ('click [5] where [5]') was performed while still on the dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Navigate to the Orders page by selecting the Orders menu item.",
+          "correct": false,
+          "error_description": "The agent clicked 'click [3] where [3]' which did not correspond clearly to opening Orders.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use a correct Magento admin URL or menu navigation to reach the Orders grid.",
+          "correct": false,
+          "error_description": "The agent's action was malformed (reasoning text about URL pattern and formatting errors) and did not execute a proper navigation command.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Go to the Magento admin Orders grid page (e.g., /admin/sales/order/) to search for order #299.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "On the Orders grid, locate order #299 by using the search box or scrolling to the row with ID 000000299.",
+          "correct": false,
+          "error_description": "The agent performed an ambiguous click ('click [5] where [5]') instead of searching for or selecting order #299.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Click the 'View' action for order ID 000000299 to open the order edit page.",
+          "correct": false,
+          "error_description": "The agent scrolled and then navigated via a direct edit URL without first ensuring the correct order row/action was selected.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the order edit page for order #299 (should load the edit form, not a 404).",
+          "correct": false,
+          "error_description": "The agent navigated to /admin/sales/order/edit/order_id/299/ which later shows a 404 page, indicating the URL is invalid for this Magento instance.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If the edit page fails (e.g., 404), return to the orders grid and use the 'View' link for the specific order to get the correct edit URL.",
+          "correct": false,
+          "error_description": "The page shows '404 Error - Page not found', but the agent only scrolled rather than correcting the navigation method.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Recover from the 404 by going back to the orders grid and selecting the correct 'View' link for order #299.",
+          "correct": false,
+          "error_description": "The agent continued interacting on the 404 page (scrolling) instead of using a recovery path.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Recover from the 404 by returning to the orders grid and opening order #299 via the grid's 'View' action.",
+          "correct": false,
+          "error_description": "The agent clicked an element on the 404 page ('click [2] where [2]') without a clear recovery to the correct edit form.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Recover from the 404 by navigating back to the orders grid and using the correct order edit link.",
+          "correct": false,
+          "error_description": "The agent remained on the 404 page and did not successfully reach the order edit form.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "On the 404 page, use browser navigation (back) or return to the orders grid to retry opening order #299 correctly.",
+          "correct": false,
+          "error_description": "The agent pressed 'right' on the 404 page, which is not a meaningful recovery action.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Recover from the 404 by returning to the orders grid and selecting order #299 again.",
+          "correct": false,
+          "error_description": "The agent continued scrolling on the 404 page rather than navigating back to the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Recover from the 404 by going back to the orders grid and opening the order via the grid's 'View' link.",
+          "correct": false,
+          "error_description": "The agent clicked 'click [2] where [2]' on the 404 page without reaching the edit form.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Navigate back to the Orders grid (sales/order) to retry opening order #299.",
+          "correct": false,
+          "error_description": "The agent clicked into the dashboard area rather than directly returning to the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "From the dashboard, go to the Orders grid to locate order #299.",
+          "correct": false,
+          "error_description": "The agent performed another ambiguous click ('click [5] where [5]') without ensuring it reached the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "On the Orders grid, search for order #299 or scroll to its row and click 'View'.",
+          "correct": false,
+          "error_description": "The agent only scrolled down and did not take a targeted action to open order #299.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Locate order ID 000000299 in the grid and click its 'View' link.",
+          "correct": false,
+          "error_description": "The agent scrolled but did not select order #299; the visible rows do not include 000000299.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Use the search box or filters to jump directly to order #299.",
+          "correct": false,
+          "error_description": "The agent pressed F5 (refresh) and then navigated away, losing progress toward opening order #299.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Return to the Orders grid from the dashboard.",
+          "correct": false,
+          "error_description": "The agent clicked 'click [2] where [2]' on the dashboard, which did not clearly lead to the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Navigate to the Orders grid (sales/order) to continue the task.",
+          "correct": false,
+          "error_description": "The agent pressed 'press [right]' on the dashboard, not a direct navigation to Orders.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Stay within the Magento admin and navigate back to the Orders grid.",
+          "correct": false,
+          "error_description": "The agent navigated to an external site (goto http://luma.com/), which is unrelated to the Magento admin task.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Return to the Magento admin Orders grid.",
+          "correct": false,
+          "error_description": "The agent remained on the external site and did not perform the required admin actions.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Go to the Orders grid and open order #299 for editing.",
+          "correct": false,
+          "error_description": "The agent navigated to the dashboard again rather than directly to the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "On the Orders grid, use search/filters to find order #299 and click 'View' to open the edit form.",
+          "correct": false,
+          "error_description": "The agent clicked 'click [1] where [1]' which is not a targeted action to open order #299.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate back to the Orders grid and open order #299 via the grid's 'View' link.",
+          "correct": false,
+          "error_description": "The agent went back to the dashboard ('go_back') instead of continuing the order edit workflow.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Open order #299 from the Orders grid (search for 000000299 and click 'View').",
+          "correct": false,
+          "error_description": "The agent stopped without successfully opening the order edit form; the final failure indicates the orders content/edit form was never reached.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:36:29.168600+00:00"
+    },
+    "webarena::kimi::13": {
+      "taskKey": "webarena::kimi::13",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "13",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The agent repeatedly clicked unrelated dashboard/menu elements instead of committing to the correct customer order-count report workflow, and this misdirected navigation was never recovered in a way that enabled extracting the 5th-highest customer before the step limit. Earlier [RECOVERED] steps (10-13) did not restore the necessary report context and ranking extraction, so the earliest unrecoverable deviation at Step 0 is the keyStep.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the Sales \u2192 Orders/Reports area or the relevant reporting entry to find a customer ranking by total orders.",
+          "correct": false,
+          "error_description": "Clicked an element on the dashboard (id [18]) without navigating toward the required customer order-count report.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue navigation toward the customer order-count report (e.g., Reports \u2192 customer orders/order count).",
+          "correct": false,
+          "error_description": "Clicked another dashboard element ([18]) again, still not progressing toward the customer order-count ranking.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Navigate from the dashboard to the Reports section that lists customers by number of orders.",
+          "correct": false,
+          "error_description": "Clicked a dashboard element ([16]) rather than entering the correct reporting workflow.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the Reports \u2192 Advanced Reporting/BI Essentials entry that can produce customer order counts.",
+          "correct": false,
+          "error_description": "Clicked [40] (Reports) but the subsequent context shows the agent still did not reach the correct customer order-count report immediately.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Within Reports/Advanced Reporting, open the specific report for customer order count (orders by customer).",
+          "correct": false,
+          "error_description": "Clicked [46] which did not directly lead to the customer order-count report; navigation remained unfocused.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the menu to reach the correct customer orders/order count report rather than scrolling the dashboard.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard instead of selecting the correct report path.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the appropriate report entry for customer order count (not unrelated dashboard items).",
+          "correct": false,
+          "error_description": "Clicked [14] which appears to be unrelated (e.g., product/category area) and not the customer order-count report.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Return to the Reports/Advanced Reporting area and open the customer order count report.",
+          "correct": false,
+          "error_description": "Clicked [3] (Invoices) which is not the customer order-count ranking needed for the question.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Navigate back to Reports/Advanced Reporting and open the customer order count report.",
+          "correct": false,
+          "error_description": "Scrolled up rather than selecting the correct report entry.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Open the Sales/Reports area that can compute customer order counts (e.g., report_customer/orders).",
+          "correct": false,
+          "error_description": "Clicked [3] (Dashboard/Sales menu item) without reaching the customer order-count report.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Go directly to the customer order-count report or the Orders report that can be aggregated by customer.",
+          "correct": false,
+          "error_description": "Navigated to /admin/sales/order/ (order grid) instead of the customer order-count report.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the report/export functionality to determine which customer has the 5th highest total order count.",
+          "correct": false,
+          "error_description": "Scrolled the orders grid without extracting/aggregating order counts by customer.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Open a customer-focused report (orders by customer / order count report) rather than drilling into individual order rows.",
+          "correct": false,
+          "error_description": "Clicked a row action (View) on an order list, which does not help compute the 5th-highest customer order count.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "From the reporting area, open the customer order count report (report_customer/orders) and then sort/rank by total orders.",
+          "correct": false,
+          "error_description": "Navigated to a product-sold report (/admin/reports/report_product/sold/) which is unrelated to customer order counts.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Switch from product-sold report to the customer order count report.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "On the Order Count Report, set the correct interval/scope (entire history) and read the ranking to find the 5th highest order count customer.",
+          "correct": false,
+          "error_description": "Pressed right navigation instead of configuring the report and extracting the 5th-ranked customer from the report results.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Stay within the Order Count Report and use its table/export to identify the customer with the 5th most orders.",
+          "correct": false,
+          "error_description": "Navigated away to /admin/customer/index/ (customer list) rather than using the order-count report output.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Use the order-count report data (or export) to determine the 5th-highest order-count customer; do not just browse customers.",
+          "correct": false,
+          "error_description": "Refreshed (F5) on the customer list without obtaining order-count ranking information.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to the order-count report and extract the 5th-ranked customer by total orders.",
+          "correct": false,
+          "error_description": "Went back to the dashboard/admin root, losing the report context.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Navigate back to the customer order count report (report_customer/orders) to finish the ranking.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard instead of returning to the order-count report.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Select the correct report entry for customer order count.",
+          "correct": false,
+          "error_description": "Continued scrolling on the dashboard without selecting the needed report.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Open the customer order count report from Advanced Reporting/Reports.",
+          "correct": false,
+          "error_description": "Clicked 'goto report_customer/orders' directly later, but the immediate action was still not based on extracting the needed ranking; overall progress was delayed.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "On the Order Count Report, set scope to entire history and read the sorted results to identify the 5th highest order count customer.",
+          "correct": false,
+          "error_description": "Clicked [4] where [4] (unrelated navigation) rather than extracting the report results.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Return to the order-count report page to continue extracting the 5th-ranked customer.",
+          "correct": false,
+          "error_description": "Navigated back to the dashboard, losing the report results again.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Stay within the Magento admin/reporting system to compute the answer; do not switch to unrelated external pages.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated WebArena page (different port) and clicked a portal link.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Go directly back to the customer order count report and extract the 5th-ranked customer.",
+          "correct": false,
+          "error_description": "Returned to dashboard and clicked an unrelated menu item ([5]) rather than the report.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Open the customer order count report (report_customer/orders) and use its output to find the 5th highest order count customer.",
+          "correct": false,
+          "error_description": "Opened a new tab but did not reach the needed report output.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Ensure the correct tab/page is active and navigate to the customer order count report.",
+          "correct": false,
+          "error_description": "Switched to about:blank, indicating a navigation/control failure.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Navigate to the customer order count report and extract the 5th-ranked customer by total orders.",
+          "correct": false,
+          "error_description": "Went back to /admin/sales/order/ (order grid) instead of the customer order count report.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Return to the customer order count report and extract the 5th-ranked customer.",
+          "correct": false,
+          "error_description": "Clicked/pressed right on the dashboard rather than extracting report results.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Stop only after identifying the customer with the 5th most orders and provide the name.",
+          "correct": false,
+          "error_description": "Early stopped due to max steps without determining the 5th-highest order-count customer.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:36:48.097754+00:00"
+    },
+    "webarena::kimi::140": {
+      "taskKey": "webarena::kimi::140",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "140",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        16,
+        17,
+        18,
+        19,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0, where the agent begins from an incorrect UI state (clicking the wrong element and not initiating a proper search/submission flow). This initial misnavigation cascades into repeated attempts to fill/submit the post on the wrong controls, and the agent never successfully recovers to a state where the title/body are correctly entered and the post is submitted before hitting the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the search input (or otherwise navigate to the search feature) to find the books subreddit.",
+          "correct": false,
+          "error_description": "Clicked the wrong element (the 'books' input was not yet targeted correctly), starting from the MachineLearning listing instead of initiating a proper search flow.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Type 'books' into the search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the books subreddit results (or the specific books subreddit listing) from the search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "From the /f/books page, navigate to the submission creation page (e.g., /f/books/submit or equivalent).",
+          "correct": false,
+          "error_description": "Clicked an element that did not take the agent to the submission form; it stayed on the subreddit listing.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "If redirected to notifications, go back to the books subreddit page to continue toward the submit form.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the books subreddit listing and then locate the 'Create submission' / 'Submit' control.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Close any open overlay/menu (if present) and continue locating the submit button/link.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Click the correct 'Submit' or 'Create submission' control for the books subreddit.",
+          "correct": false,
+          "error_description": "Clicked an element that again did not lead to the submission form; it appears to have selected a post rather than the submit action.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "If redirected to notifications, go back to the books subreddit page to continue toward submission.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to the books subreddit submission page (submit form).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "If /f/books/submit is not found, use the site navigation to reach the correct submit page for the books forum.",
+          "correct": false,
+          "error_description": "Tried to access a non-existent submit URL (404), indicating the submit route was incorrect.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "From the home page, navigate to the general submission creation page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Click 'Create submission' to open the submission editor.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Select the target forum 'books' in the forum dropdown.",
+          "correct": false,
+          "error_description": "Typed 'books' into the wrong control (the forum dropdown search/typeahead), but the selection was not properly confirmed yet.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Confirm the forum selection (e.g., via Enter or selecting the dropdown option) so the submission will be posted to r/books.",
+          "correct": false,
+          "error_description": "Pressed Enter without clearly selecting/confirming the intended forum option; the dropdown state suggests the selection may not have been finalized.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Ensure the forum dropdown shows 'books' selected before filling the title/body.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Type the submission title into the title input field.",
+          "correct": false,
+          "error_description": "Typed the title into an input that appears to be the forum dropdown/typeahead rather than the title field.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Click into the body textarea to start writing the post content.",
+          "correct": false,
+          "error_description": "Clicked the body textarea area incorrectly; no evidence the body field was activated for content entry.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Type the post body text into the body textarea (without including meta-instructions or formatting errors).",
+          "correct": false,
+          "error_description": "Attempted to type content using an invalid action/format (included meta text and did not properly execute a textarea typing action).",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Click the 'Create submission' button only after title and body are filled.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' prematurely without confirming the body content was actually entered.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Scroll to locate the body textarea and ensure the post content can be entered.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Click the body textarea (or the correct input) to enter the post body.",
+          "correct": false,
+          "error_description": "Clicked the 'Create submission' button again (or wrong element) instead of the body textarea.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Scroll back to the title/body fields and then click the correct textarea/input.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Click the forum dropdown or title field only if needed; otherwise proceed to body textarea.",
+          "correct": false,
+          "error_description": "Clicked the 'Create submission' button again rather than focusing the correct text fields.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Type the submission title into the title input field (not the forum selector).",
+          "correct": false,
+          "error_description": "Typed the title into the wrong field (likely the title input was not the active target; the action targeted input [7] which is not clearly the title).",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Ensure the forum is set to 'books' and then fill the body textarea with the ML-help-for-books content.",
+          "correct": false,
+          "error_description": "Navigated to a submit URL with forum parameter but did not actually fill the body content; it reset/changed state without progress toward posting.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Select/confirm the 'books' forum in the dropdown on the submit page.",
+          "correct": false,
+          "error_description": "Clicked the wrong dropdown element (choose-one control) rather than confirming the forum selection cleanly.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Type/select 'books' in the forum dropdown and confirm selection.",
+          "correct": false,
+          "error_description": "Typed 'books' into the dropdown/typeahead but did not show a confirmed selection state.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Confirm the forum selection (e.g., press Enter) so the submission will post to r/books.",
+          "correct": false,
+          "error_description": "Pressed Enter but the selection confirmation is not evident; the dropdown still shows 'books' as a span without clear finalization.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Click into the title/body fields and complete the post content, then submit.",
+          "correct": false,
+          "error_description": "Clicked an input [7] that does not correspond to the title/body fields; no content entry toward the post body is shown.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Submit the completed post to the books subreddit.",
+          "correct": false,
+          "error_description": "Early-stopped due to max steps before successfully entering the post body and submitting.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:37:04.822771+00:00"
+    },
+    "webarena::kimi::157": {
+      "taskKey": "webarena::kimi::157",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "157",
+      "keyStep": 15,
+      "failureSteps": [
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        18,
+        21
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest unrecovered violation is Step 15, where the agent repeatedly re-clicks 'Invite members' instead of entering/selecting the username in the invite dialog, indicating the overall navigation/invitation plan was not aligned with the UI flow. Earlier issues (Steps 4, 6, 8-12) were recovered and did not permanently block progress, but the invitation workflow errors culminated in the later member-add steps.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the 'New project' page from the GitLab Projects area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Choose the 'Create from template' option to start a project using a built-in template.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Select the Android template from the built-in templates list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Enter the project name 'web_agent_android_xl' in the 'Project name' field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "After entering the project name, ensure the project access is set to 'Private' and fill any required fields before creating the project.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of verifying/setting the required 'Private' access and preparing to submit the form.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Click 'Create project' to create the private project using the selected Android template.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Wait for the repository import/template initialization to complete.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element ('click [4]') during the import-in-progress state rather than waiting for completion.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Confirm the project page loaded successfully after import and then proceed to the Members/Invite flow.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Open the 'Members' section (or project settings) to invite the specified users.",
+          "correct": false,
+          "error_description": "The agent scrolled/clicked within the repository page instead of directly navigating to the Members/invite controls.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to the project 'Members' page (or 'Invite members') rather than the Issues page.",
+          "correct": false,
+          "error_description": "The agent went to the Issues area, which is not relevant to inviting project members.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to the project Members/Invite interface.",
+          "correct": false,
+          "error_description": "The agent continued interacting within the Issues page context (scroll/click) rather than switching to Members.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Open project settings or directly go to the Members page to invite users.",
+          "correct": false,
+          "error_description": "The agent navigated to the project edit/settings page and then scrolled, not directly to Members/invite.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Locate and use the Members/Project members navigation to invite the required users.",
+          "correct": false,
+          "error_description": "The agent scrolled within settings without taking the next step toward inviting members.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Go to the 'Project members' page for the project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Click 'Invite members' to open the invite dialog.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "In the invite dialog, type the first username 'primer' and select the matching user.",
+          "correct": false,
+          "error_description": "The agent clicked 'Invite members' again instead of entering the username in the invite dialog.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Type 'primer' into the invite input field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Select the suggested user entry for 'primer' (Primer) from the dropdown.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Click 'Invite' to add Primer as a member.",
+          "correct": false,
+          "error_description": "The agent clicked the input area again rather than confirming the invite action.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Type the second username 'convexegg' into the invite input field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Select the suggested user entry for 'convexegg' (Convex Eggtart).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Click 'Invite' to add Convex Eggtart as a member.",
+          "correct": false,
+          "error_description": "The agent clicked within the invite UI without actually submitting the invite for Convex Eggtart.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Type the third username 'abisubramanya27' (Abishek S) into the invite input field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Select the suggested user entry for 'abisubramanya27' (Abishek S).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Click 'Invite' to add Abishek S as a member.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Verify the success message and that all three members were added, then finish.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:37:18.378954+00:00"
+    },
+    "webarena::kimi::158": {
+      "taskKey": "webarena::kimi::158",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "158",
+      "keyStep": 30,
+      "failureSteps": [
+        0,
+        1,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The agent never extracted Amanda Kim\u2019s destination city and therefore never reached the routing step; it only stopped when the 30-step budget was exhausted. Earlier violations (e.g., steps 5\u20138, 10\u201311) were recovered, but the first unrecovered errors from step 0 onward prevented progress toward the required destination, culminating in step 30\u2019s early stop.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the map/routing tool to start a route search from Allentown, PA to Amanda Kim's city once her destination is known.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated host/port (18.116.169.131:4399) instead of beginning the routing workflow.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Return to the routing/map interface or otherwise locate Amanda Kim's address/city needed for the destination.",
+          "correct": false,
+          "error_description": "Clicked into the e-commerce/admin portal area rather than continuing toward routing or extracting the needed destination city.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "If using the admin portal, sign in with the provided credentials to access customer records.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "If using the admin portal, sign in with the provided credentials to access customer records.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Submit the sign-in form to access the admin dashboard.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Navigate to the Customers section and search for Amanda Kim to obtain her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Clicked an unrelated dashboard element (Bestsellers) instead of going directly to customer search.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Go to Customers -> All Customers to find Amanda Kim.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the same dashboard area without reaching the Customers list.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Go to Customers -> All Customers to find Amanda Kim.",
+          "correct": false,
+          "error_description": "Continued clicking within the dashboard rather than opening the customer list.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Go to Customers -> All Customers to find Amanda Kim.",
+          "correct": false,
+          "error_description": "Still not reaching the customer list; action did not advance toward extracting Amanda Kim's location.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Open the Customers -> All Customers page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the customer search/filter to locate Amanda Kim by name.",
+          "correct": false,
+          "error_description": "Scrolled instead of using the search box/filters to find Amanda Kim efficiently.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the customer search/filter to locate Amanda Kim by name.",
+          "correct": false,
+          "error_description": "Scrolled again rather than searching for Amanda Kim.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Select the row for Amanda Kim once she appears in the customer list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "After selecting Amanda Kim, open her customer details to confirm her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Clicked a navigation element that returned to the admin dashboard, losing the customer context.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to the customer list/details for Amanda Kim to retrieve her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Hovered/clicked within the dashboard without restoring access to Amanda Kim's details.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to the customer list/details for Amanda Kim to retrieve her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Hovered within the dashboard; no progress toward retrieving Amanda Kim's location.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Return to the customer list/details for Amanda Kim to retrieve her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled/clicked in a way that did not restore the customer details view.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Return to Customers -> All Customers and locate Amanda Kim's record.",
+          "correct": false,
+          "error_description": "Navigated away from customers to an unrelated sales/orders area.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled within Orders instead of returning to customer location lookup.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Clicked within Orders list; still not retrieving Amanda Kim's location.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Returned to the admin dashboard without resuming the customer lookup.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard; no progress toward the required destination city.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled further on the dashboard; still no customer location extraction.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Clicked a dashboard element that did not lead to customer details.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Go back to Customers -> All Customers to retrieve Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Returned to dashboard again; no customer lookup progress.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Use the customer list to confirm Amanda Kim's city/state/ZIP.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "Use the customer list to confirm Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled without confirming Amanda Kim's record details (city) from the list.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Select Amanda Kim's row and extract her city/state/ZIP.",
+          "correct": false,
+          "error_description": "Clicked an unrelated row/action (not clearly Amanda Kim) and did not extract the needed city.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Return to Customers -> All Customers to extract Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Navigated to Orders again, abandoning the destination lookup.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Return to Customers -> All Customers to extract Amanda Kim's city/state/ZIP.",
+          "correct": false,
+          "error_description": "Scrolled/clicked within Orders; still no destination city extraction.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Once destination city is known, open the routing tool and display the route and driving time from Allentown, PA to that city.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without ever producing the requested route/driving time.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:37:36.003080+00:00"
+    },
+    "webarena::kimi::159": {
+      "taskKey": "webarena::kimi::159",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "159",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 permanently derailed the workflow by clicking an unrelated map element instead of entering the directions workflow. Subsequent steps repeatedly interacted with incorrect controls (often clicking 'where'), and there is no evidence in the action log that the agent successfully recovered to a correctly configured driving directions computation before stopping.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "On the map page, navigate to the Directions interface to start setting an origin and destination.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element ('where') on the map instead of opening the directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the driving/car routing option (Car (OSRM)) before entering locations.",
+          "correct": false,
+          "error_description": "Typed the origin without ensuring the car/driving option was selected.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter the destination address (Carnegie Mellon University) in the destination field.",
+          "correct": false,
+          "error_description": "Destination was entered but the step does not show correct field focus/selection and the prior driving option still may not be set.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Switch to the routing mode selection (Car) if not already selected, then proceed to compute directions.",
+          "correct": false,
+          "error_description": "Clicked the routing mode selector without clear evidence it was set correctly for driving.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Ensure the car/driving option is selected and that both origin and destination fields are correctly populated.",
+          "correct": false,
+          "error_description": "Clicked the reverse directions button area (or mode control) rather than confirming correct driving mode and filled fields.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the car (driving) routing option explicitly.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element ('where') instead of selecting the car routing option.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Scroll only if needed to reach the directions controls (e.g., compute button or results), not to change inputs.",
+          "correct": false,
+          "error_description": "Scrolled down without clear need; no progress toward computing driving directions is evident.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Trigger route calculation (e.g., press Enter/Return) after both origin and destination are set and car mode is selected.",
+          "correct": false,
+          "error_description": "Pressed Return without evidence that the correct fields were set and car mode was selected.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "If route calculation did not start, return to the directions form and correctly set origin/destination and driving mode.",
+          "correct": false,
+          "error_description": "Clicked 'where' on the map, diverting away from the directions form.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Go back to the directions page to continue entering origin and destination for driving directions.",
+          "correct": false,
+          "error_description": "Clicked another unrelated map control ('where') instead of returning to directions inputs.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Focus the origin input field for Carnegie Music Hall, NYC.",
+          "correct": false,
+          "error_description": "Clicked on the origin input area without ensuring correct focus/field selection.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Type the origin as 'Carnegie Music Hall, New York City' into the origin field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Tab to the destination field after entering the origin.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Type the destination as 'Carnegie Mellon University' into the destination field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Select the car/driving routing option (Car (OSRM)) if not already selected.",
+          "correct": false,
+          "error_description": "Clicked 'where' instead of selecting the driving/car option or computing directions.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate to the directions results for the entered origin and destination (driving engine).",
+          "correct": false,
+          "error_description": "Used a generic query/map navigation rather than a proper directions computation with driving options.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "On the directions page, ensure the driving engine is set and that the route is computed for the given origin/destination.",
+          "correct": false,
+          "error_description": "Clicked an input ('where') rather than confirming driving engine and triggering route computation.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Enter/confirm the origin field value correctly (Carnegie Music Hall, NYC) if it was cleared, then proceed.",
+          "correct": false,
+          "error_description": "Typed into the origin field again without clear need; did not ensure driving mode or compute results.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Enter/confirm the destination field value correctly (Carnegie Mellon University) if it was cleared, then proceed.",
+          "correct": false,
+          "error_description": "Clicked 'where' instead of confirming destination and computing driving directions.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Type the destination 'Carnegie Mellon University' into the destination field (if not already correct).",
+          "correct": false,
+          "error_description": "Typed the destination but the action sequence still did not show driving mode selection or route computation.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Stop once the driving directions results are displayed with distance and time for the requested route.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:37:48.141616+00:00"
+    },
+    "webarena::kimi::21": {
+      "taskKey": "webarena::kimi::21",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "21",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "The agent repeatedly clicked the same dashboard element [6] and never navigated to the Invoices section, so the disconnect between the intended plan (open invoice grid) and the executed action was never recovered. Earlier steps do not qualify as recovered because there is no evidence of successful navigation or progress toward locating invoice 000000002 before the early stop.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales > Invoices in the Magento admin menu to access the invoice grid for invoice 000000002.",
+          "correct": false,
+          "error_description": "Clicked an element labeled [6] on the dashboard without opening the Invoices section.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "From the dashboard, click the Invoices menu item (Sales > Invoices) to reach the invoice listing page.",
+          "correct": false,
+          "error_description": "Repeated the same incorrect click [6] and did not navigate to the Invoices page.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Click Sales > Invoices (or otherwise reach the invoice grid) to search for invoice number 000000002.",
+          "correct": false,
+          "error_description": "Again clicked [6] and remained on the dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Proceed to the Invoices grid by selecting the Invoices menu item, then use the grid search/filter for invoice 000000002.",
+          "correct": false,
+          "error_description": "Continued repeating the same dashboard click [6] instead of navigating to Invoices.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to Sales > Invoices to locate invoice 000000002 and read its grand total.",
+          "correct": false,
+          "error_description": "Repeated the same incorrect action [6] with no progress toward the invoice page.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "After reaching the invoice grid, search for invoice 000000002 and report the grand total.",
+          "correct": false,
+          "error_description": "Stopped early due to repeating the same action; never reached the invoice grid to obtain the grand total.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:37:55.356306+00:00"
+    },
+    "webarena::kimi::33": {
+      "taskKey": "webarena::kimi::33",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "33",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent repeatedly navigated and interacted with unrelated dashboard/grid elements instead of committing to the required workflow (identify most recent 7 orders, open each, sum item quantities). This initial mis-planning at Step 0 led to a long sequence of non-productive actions and ultimately an unrecoverable failure to compute the requested total within the step budget.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate from the Magento admin dashboard to the Sales/Orders area or an orders report that can provide item quantities for the most recent 7 orders.",
+          "correct": false,
+          "error_description": "Clicked an element labeled 'Orders' in the left navigation without ensuring it leads to the correct orders listing/report for item quantities.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue navigation toward the Orders listing (Sales > Orders) or a report that includes item quantities for the last 7 orders.",
+          "correct": false,
+          "error_description": "Clicked another navigation item ('Sales') rather than directly reaching the orders listing/report needed for the last 7 orders item totals.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Sales > Orders page (order grid) to access the most recent orders.",
+          "correct": false,
+          "error_description": "Clicked a navigation item ('Operations') instead of directly opening the Orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the Sales > Orders grid page to view and select the most recent orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "On the Orders grid, sort/filter to identify the most recent 7 orders and then open each order to sum item quantities.",
+          "correct": false,
+          "error_description": "Only scrolled the Orders grid without selecting/sorting to determine the most recent 7 orders.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Refresh or adjust the grid view to reliably identify the most recent 7 orders (e.g., by date) before opening them.",
+          "correct": false,
+          "error_description": "Pressed F5 without performing the required sort/filter/selection to isolate the last 7 orders.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the 'View' action for one of the most recent orders to access its items and quantities.",
+          "correct": false,
+          "error_description": "Clicked an element labeled 'View' but the subsequent context shows the agent did not proceed with summing item quantities for the last 7 orders.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "From the order view, locate the ordered items table and record quantities for that order.",
+          "correct": false,
+          "error_description": "Clicked another 'View' from the grid rather than extracting item quantities from the opened order.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Continue opening the remaining most recent orders (up to 7) and record each order's item quantities.",
+          "correct": false,
+          "error_description": "Clicked another 'View' without recording quantities or tracking progress toward the last 7 orders total.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Stay within the order workflow to open the next most recent order and extract item quantities.",
+          "correct": false,
+          "error_description": "Navigated away from the orders workflow back to the admin dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to Sales > Orders or a sales report that directly provides item quantities for the last 7 orders.",
+          "correct": false,
+          "error_description": "Clicked within the dashboard area ('Bestsellers/Customers' style widgets) rather than going back to the orders/report needed for the last 7 orders item total.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Navigate to the correct reporting page or orders grid to compute the last 7 orders' total items sold.",
+          "correct": false,
+          "error_description": "Clicked another dashboard widget area without reaching the required report/grid.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the Reports section to find an orders/items report that can be filtered to the most recent 7 orders or a date range equivalent.",
+          "correct": false,
+          "error_description": "Scrolled the dashboard instead of selecting the appropriate report/filter.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Open the Sales Orders report page (or equivalent) where item quantities can be obtained.",
+          "correct": false,
+          "error_description": "Clicked a dashboard element ('Last Search Terms' area) unrelated to the required sales/orders item quantity computation.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "On the Orders Report page, set the date/period or order selection to cover the most recent 7 orders and ensure the report includes 'Sales Items' (quantity).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Adjust report filters (From/To or period) to match the most recent 7 orders and then run/show the report.",
+          "correct": false,
+          "error_description": "Scrolled without setting the required period/date filters to correspond to the most recent 7 orders.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Set the report parameters (date range/period and order status) and run the report to obtain 'Sales Items' quantity.",
+          "correct": false,
+          "error_description": "Clicked a 'where' element without clearly applying the needed filters; report output remains at 0 items.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Ensure the report is configured correctly (date range/period) and retrieve the 'Sales Items' total.",
+          "correct": false,
+          "error_description": "Scrolled and then navigated away to the orders grid instead of extracting the report's item quantity.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "On the orders grid, sort/filter to identify the most recent 7 orders and open them to sum item quantities.",
+          "correct": false,
+          "error_description": "Refreshed the orders grid without performing the required sort/filter/selection for the last 7 orders.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Stay within the Magento admin context to continue computing the last 7 orders' total items sold.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated host/port (4399) instead of continuing the Magento admin task.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Return to the Magento admin dashboard/orders/report workflow.",
+          "correct": false,
+          "error_description": "Clicked 'Merchant Admin Portal' from the unrelated page, indicating a detour rather than direct recovery to the needed report/grid.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Navigate back to Sales > Orders or the sales report page to compute the last 7 orders' total item quantity.",
+          "correct": false,
+          "error_description": "Returned to the dashboard but did not proceed to the required orders/report computation.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Open the correct report/grid for orders items quantity (Sales > Orders or Sales report).",
+          "correct": false,
+          "error_description": "Clicked a dashboard widget ('Orders') without ensuring it leads to the correct computation path.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Go directly to Sales > Orders or the orders report page to compute the last 7 orders' total items sold.",
+          "correct": false,
+          "error_description": "Clicked another dashboard element rather than directly opening the needed report/grid.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "On Sales > Orders, sort/filter to identify the most recent 7 orders and open each to sum item quantities.",
+          "correct": false,
+          "error_description": "Navigated to the orders index but did not sort/filter or start summing item quantities.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Identify the most recent 7 orders from the grid (by date) and open each order to extract item quantities.",
+          "correct": false,
+          "error_description": "Scrolled the orders page without selecting the last 7 orders or extracting item quantities.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Open the 'View' for the next most recent order and record its item quantities.",
+          "correct": false,
+          "error_description": "Clicked 'where' (likely a 'View' action) without demonstrating recording quantities or tracking the last 7 orders total.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Return to the orders report to obtain 'Sales Items' quantity for the last 7 orders (or equivalent date range) and compute the total.",
+          "correct": false,
+          "error_description": "Navigated back to the orders report page but did not set the required filters to compute the last 7 orders item total.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "On the orders grid, continue the process of selecting the most recent 7 orders and summing item quantities.",
+          "correct": false,
+          "error_description": "Navigated to Sales > Orders but did not proceed with sorting/filtering or summing item quantities.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Stay in Magento admin and continue computing the last 7 orders' total items sold.",
+          "correct": false,
+          "error_description": "Navigated away to another port/host (7770) unrelated to the Magento admin computation.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Complete the computation and report the total number of items sold in the most recent 7 orders.",
+          "correct": false,
+          "error_description": "Early stopped due to max steps without producing the required total.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:38:14.198149+00:00"
+    },
+    "webarena::kimi::47": {
+      "taskKey": "webarena::kimi::47",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "47",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent repeatedly clicked unrelated dashboard elements instead of navigating to the Sales > Orders workflow, indicating a fundamentally non-viable navigation/extraction approach. This error was not recovered later\u2014subsequent steps continued to derail the workflow (random clicks, refreshes, leaving the admin, and ending on an incorrect URL), culminating in early stop without producing the required payment difference.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate from the admin dashboard to the Sales > Orders grid to access the latest cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element on the dashboard instead of opening the Orders section.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the Sales > Orders page (or use the left navigation) to reach the orders grid.",
+          "correct": false,
+          "error_description": "Continued clicking an unrelated dashboard element rather than navigating to Orders.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Sales > Orders page to start collecting the last 4 cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Another unrelated dashboard click; no progress toward the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Use the navigation to go to Sales > Orders.",
+          "correct": false,
+          "error_description": "Clicked an unrelated dashboard item instead of navigating to Sales > Orders.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Land on the Sales > Orders grid page where order rows show status and grand totals.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the grid filters/sorting to identify the most recent cancelled and completed orders (last 4 of each) and record their payment amounts.",
+          "correct": false,
+          "error_description": "Scrolled without applying filters/sorting or extracting the required last-4 cancelled/completed order totals.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Continue extracting the latest cancelled and completed orders\u2019 payment amounts (grand totals) until you have 4 of each.",
+          "correct": false,
+          "error_description": "Scrolled again; did not systematically capture the last 4 cancelled and last 4 completed orders.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Extract order IDs and their payment amounts for the most recent cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Scrolled up/down rather than recording the needed 4 cancelled and 4 completed orders.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Apply filters (e.g., status = Canceled/Complete) and sort by date descending to reliably get the last 4 of each.",
+          "correct": false,
+          "error_description": "Clicked a 'where' element (likely a row action) instead of using filters/sorting to collect the required orders.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If a row action was triggered, return to the orders grid and proceed with filtering/sorting to collect last 4 cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Refreshed (F5) rather than resuming a structured extraction of the last 4 cancelled/completed orders.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Select the correct order rows (or use filters) and record their payment amounts for the last 4 cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Clicked an arbitrary element ('click [40] where [40]') without clear progress toward collecting the required totals.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Continue collecting the required order totals; avoid random scrolling and ensure you have 4 cancelled and 4 completed orders.",
+          "correct": false,
+          "error_description": "Scrolled down the orders grid without capturing the needed last-4 cancelled/completed totals.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use filters/sorting to isolate cancelled and completed orders and extract their payment amounts.",
+          "correct": false,
+          "error_description": "Clicked another arbitrary element ('click [41] where [41]') instead of applying filters/sorting and recording totals.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Use a report or the orders grid to compute the payment difference between the last 4 cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Navigated to a generic sales report page without configuring it to specifically compare last 4 cancelled vs completed orders.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Configure the report filters (date range, order status) to obtain cancelled vs completed payment totals for the last 4 orders.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element ('click [44] where [44]') and did not set up the required comparison.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Set report parameters to include cancelled orders and completed orders, then export or read the resulting totals.",
+          "correct": false,
+          "error_description": "Scrolled without selecting the correct status filters or extracting the needed cancelled/completed totals.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Adjust report filters to target cancelled vs completed orders and ensure the report returns non-zero results.",
+          "correct": false,
+          "error_description": "Scrolled while the report still showed empty/zero results; no effective filter configuration.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Select the correct order status filter(s) (including canceled) and set the period to capture the last 4 orders.",
+          "correct": false,
+          "error_description": "Clicked a navigation element ('click [3] where [3]') that did not advance the required cancelled vs completed comparison.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to the orders grid or correctly configure the report to compute the payment difference.",
+          "correct": false,
+          "error_description": "Navigated to the orders grid URL directly without ensuring the grid can be filtered/sorted to last 4 cancelled/completed.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Use the orders grid UI to filter/sort and extract the last 4 cancelled and completed orders\u2019 payment amounts.",
+          "correct": false,
+          "error_description": "Scrolled on the grid page without extracting required data or applying filters/sorting.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Apply filters/sorting on the orders grid to isolate cancelled and completed orders.",
+          "correct": false,
+          "error_description": "Scrolled up; no filter/sort or data extraction toward the goal.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Proceed with filtering/sorting and recording the last 4 cancelled and completed order totals.",
+          "correct": false,
+          "error_description": "Pressed F5 (refresh) instead of continuing the structured extraction.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Stay within the orders/report workflow to compute the payment difference.",
+          "correct": false,
+          "error_description": "Navigated away to the admin dashboard, losing the grid/report context.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate back to Sales > Orders (or the configured report) to continue extracting the required last-4 cancelled/completed totals.",
+          "correct": false,
+          "error_description": "Scrolled on the dashboard; did not return to the orders grid/report workflow.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Go to Sales > Orders to extract the last 4 cancelled and completed orders\u2019 payment amounts.",
+          "correct": false,
+          "error_description": "Clicked '3' where '3' on the dashboard, not the Orders section.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Navigate to Sales > Orders (not external sites) to compute the payment difference.",
+          "correct": false,
+          "error_description": "Navigated to an external unrelated URL (luma.com), derailing the task.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to the Magento admin and continue the orders/report extraction for cancelled vs completed orders.",
+          "correct": false,
+          "error_description": "Redirected back to /admin but did not immediately resume the orders comparison workflow.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate to Sales > Orders and extract the last 4 cancelled and completed order payment amounts.",
+          "correct": false,
+          "error_description": "Hovered on the dashboard; no navigation to Orders or extraction of required totals.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Navigate to Sales > Orders (or a properly configured report) to compute the payment difference.",
+          "correct": false,
+          "error_description": "Hovered again; no progress toward extracting cancelled/completed order totals.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Use the correct Magento admin orders URL (admin/sales/order) rather than a storefront/adminhtml path.",
+          "correct": false,
+          "error_description": "Navigated to an incorrect URL (adminhtml/sales/order) leading to a storefront error page.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Return to Sales > Orders and complete the comparison before stopping.",
+          "correct": false,
+          "error_description": "Stopped early after losing context; no comparison result produced.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:38:33.568229+00:00"
+    },
+    "webarena::kimi::51": {
+      "taskKey": "webarena::kimi::51",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "51",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0, where the agent begins by clicking unrelated dashboard widgets instead of entering the product reviews/reporting workflow. This misdirected navigation is never corrected later (the agent repeatedly scrolls/clicks without applying product-specific filters, even navigating away to luma.com), so the task context is not recovered before the step limit.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate from the Magento admin dashboard to the product reviews/reporting area needed to identify customer dislikes for Circe ice fleece.",
+          "correct": false,
+          "error_description": "Clicked an unrelated dashboard element (likely a KPI tab) instead of moving toward product review data.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue navigation toward the product reviews/reporting section (e.g., product reviews report) rather than interacting with dashboard widgets.",
+          "correct": false,
+          "error_description": "Clicked another dashboard widget element rather than progressing toward the reviews/dislikes goal.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Proceed to the product reviews report or reviews management page to extract key negative aspects for the specified product.",
+          "correct": false,
+          "error_description": "Another dashboard widget click; still not targeting the required reviews/reporting workflow.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "From the dashboard, open the product reviews report (or reviews by product) to analyze customer complaints.",
+          "correct": false,
+          "error_description": "Clicked a dashboard element that did not directly lead to the needed product review analysis.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the product reviews report page to filter/search for Circe ice fleece and then read/export the relevant negative feedback.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Locate the filter/search controls on the product reviews report and apply them for the Circe ice fleece product.",
+          "correct": false,
+          "error_description": "Scrolled without applying any product-specific filter/search, so no relevant dislikes were extracted.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Find and use the report\u2019s search/filter to narrow results to Circe ice fleece reviews.",
+          "correct": false,
+          "error_description": "Scrolled/continued without using filters to target the specific product.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Stay within the product reviews report workflow and refine results for Circe ice fleece.",
+          "correct": false,
+          "error_description": "Clicked into the left navigation (Marketing/other sections) instead of continuing the reviews report analysis.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "On the reviews management page, search/filter for Circe ice fleece and open relevant reviews to identify recurring complaints.",
+          "correct": false,
+          "error_description": "Navigated to a generic reviews index without evidence of filtering to the target product.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Use the reviews grid search/filter (e.g., by SKU/title) to find Circe ice fleece reviews.",
+          "correct": false,
+          "error_description": "Scrolled without applying any search/filter for the target product.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Apply filters/search on the reviews grid to isolate Circe ice fleece reviews.",
+          "correct": false,
+          "error_description": "Scrolled again; no product-specific filtering or extraction of negative aspects.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Continue filtering/searching for Circe ice fleece within the reviews grid.",
+          "correct": false,
+          "error_description": "Scrolled up/down without using the available search/filter controls.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the reviews grid search/filter to locate Circe ice fleece reviews and then open them for details.",
+          "correct": false,
+          "error_description": "Clicked a product grid element (unrelated) rather than using review filters for the target product.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Use the reviews grid search/filter to find Circe ice fleece and extract key negative themes.",
+          "correct": false,
+          "error_description": "Clicked another unrelated element; still no targeted filtering or review content extraction.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Keep working within the Magento admin to filter reviews for Circe ice fleece (do not attempt unrelated external navigation).",
+          "correct": false,
+          "error_description": "Agent reasoning indicates an incorrect/invalid action format and then proceeded toward an unrelated navigation attempt.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Stay in Magento admin and use the correct URL/workflow to filter Circe ice fleece reviews.",
+          "correct": false,
+          "error_description": "Attempted to goto a catalog product URL rather than continuing review analysis for Circe ice fleece.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "In the product catalog, search for Circe ice fleece to obtain its SKU/ID, then return to reviews to filter by that SKU/ID.",
+          "correct": false,
+          "error_description": "Opened catalog product listing but did not search for Circe ice fleece or capture its identifier for later review filtering.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Search within the catalog for 'Circe ice fleece' to find the exact product record (SKU/ID).",
+          "correct": false,
+          "error_description": "Scrolled without using the catalog search box to find the target product.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Use the catalog search/filter to locate Circe ice fleece and record its SKU/ID.",
+          "correct": false,
+          "error_description": "Navigated back to catalog listing without performing the required targeted search for Circe ice fleece.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Return to the product reviews report and filter reviews using the Circe ice fleece SKU/ID.",
+          "correct": false,
+          "error_description": "Went back to the reviews report without having identified the Circe ice fleece SKU/ID from the catalog.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "On the product reviews report, apply filters/search for Circe ice fleece and then extract recurring negative aspects.",
+          "correct": false,
+          "error_description": "Clicked an element in the report area without applying any product-specific filter/search.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Use the report\u2019s controls to filter to Circe ice fleece and then open/show the relevant reviews.",
+          "correct": false,
+          "error_description": "Clicked 'Show Reviews' entries without ensuring they correspond to Circe ice fleece.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Continue extracting review content for Circe ice fleece (filter first, then read negative themes).",
+          "correct": false,
+          "error_description": "Scrolled without confirming product-specific filtering or capturing negative themes.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Stay within Magento admin and continue the Circe ice fleece review analysis.",
+          "correct": false,
+          "error_description": "Navigated away using an incorrect goto to an external domain (luma.com), losing the analysis context.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Return to the Magento admin reviews/reporting workflow for Circe ice fleece.",
+          "correct": false,
+          "error_description": "On luma.com, no progress toward the Magento review/dislike extraction task.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "From the Magento dashboard, re-enter the product reviews report workflow and filter for Circe ice fleece.",
+          "correct": false,
+          "error_description": "Returned to dashboard but did not immediately re-open the reviews report with product-specific filtering.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Navigate directly to the product reviews report (or reviews by product) rather than interacting with dashboard KPIs.",
+          "correct": false,
+          "error_description": "Clicked another dashboard widget element, not the reviews report workflow.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "On the product reviews report, apply filters/search for Circe ice fleece and extract key customer dislikes.",
+          "correct": false,
+          "error_description": "Opened the reviews report but did not apply any Circe ice fleece filter/search before the run ended.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Continue within Magento admin to reach the reviews report and extract Circe ice fleece-specific negative themes.",
+          "correct": false,
+          "error_description": "Navigated to a generic /admin/ page, losing the reviews report context.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Return to the product reviews report and filter for Circe ice fleece to answer the question.",
+          "correct": false,
+          "error_description": "Returned to dashboard and clicked a widget rather than resuming the filtered reviews extraction.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Use the reviews management/reporting page to filter for Circe ice fleece and compile the key aspects customers don't like.",
+          "correct": false,
+          "error_description": "Early stop reached without extracting Circe ice fleece-specific customer dislike aspects; no successful completion path.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:38:52.190772+00:00"
+    },
+    "webarena::kimi::52": {
+      "taskKey": "webarena::kimi::52",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "52",
+      "keyStep": 30,
+      "failureSteps": [
+        2,
+        3,
+        25,
+        26,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The agent never produced the required list of hotels within 5 minutes and terminated with an early stop at the 30-step budget. Earlier issues (e.g., navigation/search mistakes) were sometimes recovered, but the unrecovered constraint failures at steps 25\u201329 prevented completion before the step limit was reached.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for Gardner Steel Conference Center to get its exact location coordinates/address.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the search result for Gardner Steel Conference Center to view its place page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the search box to find nearby hotels (e.g., 'hotels near Gardner Steel Conference Center') from the conference center context.",
+          "correct": false,
+          "error_description": "The agent typed a hotel query while on a way/feature page (not the conference center place page), indicating it did not properly navigate back to a usable search context.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Submit the hotel-near query and ensure results are found for the correct area around the conference center.",
+          "correct": false,
+          "error_description": "The agent\u2019s hotel query produced 'No results found' and it then continued without correcting the query or using a better search strategy.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Stay within the mapping/search workflow to obtain walking distances, rather than switching to an unrelated external site.",
+          "correct": false,
+          "error_description": "The agent navigated to maps.google.com without establishing a reliable hotel list or distance workflow from the prior failed OSM search.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Enter 'Gardner Steel Conference Center' in Google Maps search to locate the destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the Gardner Steel Conference Center result from Google Maps.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "From the destination place page, open the 'Hotels' nearby section.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the hotels results list to select a specific nearby hotel to compute walking distance/time.",
+          "correct": false,
+          "error_description": "The agent only scrolled and did not select a hotel result to proceed with distance calculations.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Select a hotel from the results list (not just scroll) to open its place page or directions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Open the selected hotel\u2019s details (or directions) to compute walking distance/time to the conference center.",
+          "correct": false,
+          "error_description": "The agent\u2019s action was not a valid navigation step; it appears to be an instruction/formatting error rather than a real click on the UI.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Continue by clicking the intended hotel result or the correct control to open that hotel\u2019s page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Select the hotel result that was clicked and proceed to its place page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Use the search/filter controls correctly; do not overwrite the hotel search with an unrelated query.",
+          "correct": false,
+          "error_description": "The agent typed a new query ('hotels near University of Pittsburgh Oakland') into the search field, changing the search scope away from the original 'near Gardner Steel Conference Center' goal.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Submit the corrected hotel search query and then select hotels from the resulting list.",
+          "correct": false,
+          "error_description": "The agent clicked the wrong element (clicked the back/search UI control) and did not clearly submit the intended query or proceed to a reliable hotel list.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Select a specific hotel from the results list to compute walking distance to the conference center.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "On the hotel page, open 'Directions' to the destination (Gardner Steel Conference Center) with walking mode.",
+          "correct": false,
+          "error_description": "The agent again produced a formatting/429-related non-action message instead of performing the intended UI navigation to directions.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Open the 'Directions' control for the selected hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Verify the route is set from the hotel to Gardner Steel Conference Center and that walking directions are shown.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Ensure the route/directions view is correct and ready to read walking time/distance.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated control (clicked a small button) and did not confirm the route details for walking distance/time.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "Read the walking distance/time from the directions summary once the route is properly set.",
+          "correct": false,
+          "error_description": "The agent scrolled down instead of extracting the walking distance/time information.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Select the correct starting point/destination fields if the directions are incomplete, then proceed to show the route summary.",
+          "correct": false,
+          "error_description": "The agent clicked a control that did not clearly set/confirm the route; it remained in an incomplete 'choose starting point' state.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Confirm the starting point and destination are set for directions.",
+          "correct": false,
+          "error_description": "The agent clicked another UI element without completing the route setup; the page still showed 'Choose starting point, or click on the map...'.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Enter the destination (Gardner Steel Conference Center) into the appropriate field to complete directions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Select the destination from the directions UI so the route summary loads.",
+          "correct": false,
+          "error_description": "The agent clicked the destination input field rather than selecting the destination result; the route summary did not load yet.",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "Extract the walking time and distance for the hotel that was routed, and keep only those within 5 minutes.",
+          "correct": false,
+          "error_description": "The route shown indicates 14 minutes (and 0.6 mile), which does not meet the 'at most 5 minutes' requirement; the agent did not filter out this hotel or continue to find qualifying ones.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to the hotel list or select another nearby hotel to find those within 5 minutes walking time.",
+          "correct": false,
+          "error_description": "The agent went back to the hotel page without ensuring the next hotel would satisfy the 5-minute constraint.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Select another hotel from the list to compute walking time/distance and filter to <=5 minutes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "Open the selected hotel\u2019s 'Directions' to Gardner Steel Conference Center (walking) to get time/distance.",
+          "correct": false,
+          "error_description": "The agent clicked 'Directions' but the subsequent state did not clearly provide a walking route summary within the remaining steps.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Read the walking time/distance from the directions summary and record only those <=5 minutes.",
+          "correct": false,
+          "error_description": "The agent clicked another UI element and did not extract the walking time/distance for the current hotel.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Continue extracting qualifying hotels\u2019 walking distances/times until the answer is complete.",
+          "correct": false,
+          "error_description": "The agent stopped early due to reaching the maximum step limit without producing the required list of hotels within 5 minutes walking distance.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:39:08.824018+00:00"
+    },
+    "webarena::kimi::56": {
+      "taskKey": "webarena::kimi::56",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "56",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        25,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "Step 3 first encounters an order that is not under delivery (Canceled), and the agent continues selecting subsequent orders without a viable strategy to reliably locate an under-delivery order. Earlier issues are not considered resolved because the action log shows repeated navigation/selection rather than successfully identifying an under-delivery order, culminating in Step 30 stopping without extracting the required order number.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the account area by clicking the 'My Account' link.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the account page, open the order history by clicking 'My Orders'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the order list, open the most recent under-delivery order by clicking the appropriate 'View Order' entry.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Check the order status on the order details page and, if it is not under delivery, go back and select the next most recent under-delivery order.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000170) is marked 'Canceled', so it is not an under-delivery order.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Return to the order list and select the next most recent order that is under delivery.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Verify whether the opened order is under delivery by checking its status on the order details page.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000189) is marked 'Pending', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Go back to the order list and choose the next most recent order that is under delivery.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Verify the order status to ensure it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000188) is marked 'Pending', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Verify the order status on the details page to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000187) is marked 'Pending', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000180) is marked 'Complete', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000166) is marked 'Complete', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000161) is marked 'Complete', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000156) is marked 'Canceled', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000158) is marked 'Canceled', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The agent repeatedly navigates without confirming an under-delivery status; the selected order is not verified as under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Use pagination or filtering to reach the most recent orders and locate the under-delivery one.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Go to the next page of orders (or adjust items-per-page) to continue searching for the most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "From page 2, open the most recent candidate order and check whether it is under delivery.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Check the order status to confirm it is under delivery.",
+          "correct": false,
+          "error_description": "The opened order (Order #000000148) is marked 'Complete', not under delivery.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to the order list and select the next most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate pagination controls to continue searching for the most recent under-delivery order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "Use the pagination control to move to the intended page (e.g., page 2) where under-delivery orders might appear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 29,
+          "expected_action": "Open the next candidate order on the current page and verify it is under delivery.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 30,
+          "expected_action": "On the order details page, read and report the order number of the most recent under-delivery order.",
+          "correct": false,
+          "error_description": "The run stops before extracting the required under-delivery order number; the final opened order (Order #000000163) is 'Complete' and not under delivery.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:39:23.689451+00:00"
+    },
+    "webarena::kimi::58": {
+      "taskKey": "webarena::kimi::58",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "58",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        30
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0: the agent clicked a top-level Sports & Outdoors category instead of directly navigating to competitive swimwear results. This mis-targeting cascaded into repeated non-progress actions (scrolling/clicking unrelated controls) and ultimately led to exhausting the 30-step budget without identifying the most expensive competitive swimwear product.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the competitive swimwear category (or use search) to find swimwear products.",
+          "correct": false,
+          "error_description": "Clicked the Sports & Outdoors top-level category instead of directly targeting competitive swimwear.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Within the swimwear/competitive swimwear results, sort by price descending or otherwise locate the most expensive item.",
+          "correct": false,
+          "error_description": "Scrolled within the Sports & Outdoors listing without applying a swimwear/competitive swimwear filter or price sort.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter the swimwear search term in the search box and submit to get swimwear results.",
+          "correct": false,
+          "error_description": "Typed into the search input but did not submit; also the page context is still Sports & Outdoors rather than swimwear results.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue toward swimwear results by submitting the search or using category filters, not by random scrolling.",
+          "correct": false,
+          "error_description": "Scrolled up on the Sports & Outdoors page, not progressing toward swimwear results.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the search box or category navigation to reach swimwear results, then sort by price descending.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element (appears to be a price/position control) without ensuring swimwear filtering or descending price sort.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Submit the swimwear search or navigate to the swimwear category page.",
+          "correct": false,
+          "error_description": "Scrolled up again on the Sports & Outdoors page; no swimwear search submission or sorting action occurred.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the correct category path that leads to swimwear/competitive swimwear (or use site search).",
+          "correct": false,
+          "error_description": "Clicked Clothing, Shoes & Jewelry from the Sports & Outdoors page, which is not a direct swimwear/competitive swimwear path.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Within Clothing, Shoes & Jewelry, apply a swimwear/competitive swimwear filter or use search to narrow to swimwear.",
+          "correct": false,
+          "error_description": "Clicked a price range filter ($0-$99.99) rather than narrowing to swimwear/competitive swimwear.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the search box to query 'competitive swimwear' (or 'swimwear') and submit to get relevant results.",
+          "correct": false,
+          "error_description": "Clicked another UI element (likely a filter/position control) without submitting a swimwear query.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Submit the search for 'swimwear' to reach swimwear results.",
+          "correct": false,
+          "error_description": "Typed 'swimwear' but did not submit; the page did not transition to search results yet.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "On swimwear search results, sort by price descending to identify the most expensive item.",
+          "correct": false,
+          "error_description": "Clicked Clothing, Shoes & Jewelry within search results instead of sorting by price descending or directly finding the max-priced swimwear item.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Within the filtered swimwear results, sort by price descending (or navigate to the last/highest-price page).",
+          "correct": false,
+          "error_description": "Clicked the 'Product Name/Price/Relevance' header area, but the resulting state shows category facets rather than a clear descending price sort.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Set sorting to descending by price to find the most expensive competitive swimwear.",
+          "correct": false,
+          "error_description": "Clicked the sort control again but the page still shows category facet items and no clear descending price ordering.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If a sort action is attempted, ensure it is executed correctly (no malformed action) and results reflect descending price.",
+          "correct": false,
+          "error_description": "The agent produced an invalid action format related to a 429 engine-overloaded error; sorting was not properly applied.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Apply descending price sort (or navigate to the last page) for swimwear results.",
+          "correct": false,
+          "error_description": "Clicked the sort control but the URL indicates ascending direction (product_list_dir=asc), moving away from finding the most expensive item.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Switch sorting to descending by price (or go to the last page) to locate the maximum-priced swimwear.",
+          "correct": false,
+          "error_description": "Clicked sort again but the page state still indicates ascending direction rather than descending.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Navigate to the last/highest-price results page or continue sorting correctly to reach the most expensive item.",
+          "correct": false,
+          "error_description": "Scrolled down while still not ensuring descending price ordering; likely continued through low-to-mid priced items.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Identify the highest-priced swimwear item visible or continue to the last page if sorted ascending.",
+          "correct": false,
+          "error_description": "Continued browsing without confirming the maximum price; visible items are low-priced and not the most expensive overall.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "If sorted ascending, jump to the last page to find the maximum-priced item.",
+          "correct": false,
+          "error_description": "Scrolled down further instead of navigating to the last page/highest price.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Go to the last page of swimwear results (or sort descending) to find the most expensive product.",
+          "correct": false,
+          "error_description": "Clicked page 2 rather than moving toward the last page/highest price.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Continue toward the last page (highest page number) to locate the most expensive swimwear.",
+          "correct": false,
+          "error_description": "Scrolled down on page 2 without jumping to the last page.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Navigate to the last page (page 4) or ensure descending price sort to find the maximum-priced item.",
+          "correct": false,
+          "error_description": "Scrolled down on page 2; did not move to the last page or correct sorting.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Move to the last page of results to find the most expensive swimwear.",
+          "correct": false,
+          "error_description": "Scrolled down again rather than selecting the last page.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Select the last page (page 4) or otherwise ensure the maximum price is reached.",
+          "correct": false,
+          "error_description": "Clicked page 3 (not the last page) and continued pagination without ensuring max price.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "From page 3, go to page 4 (last page) to find the most expensive item.",
+          "correct": false,
+          "error_description": "Scrolled down on page 3 instead of clicking page 4.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Click page 4 (last page) to locate the maximum-priced swimwear.",
+          "correct": false,
+          "error_description": "Scrolled down on page 3; did not navigate to page 4.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Click page 4 (last page) to find the most expensive swimwear item.",
+          "correct": false,
+          "error_description": "Clicked page 4/next control incorrectly (action led to page 4 but not via a clear max-price strategy), and the subsequent content shows non-swimwear items.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "On the last page, identify the highest-priced swimwear product and report it.",
+          "correct": false,
+          "error_description": "Scrolled down on page 4 without extracting the maximum-priced swimwear product.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Return to the swimwear results list and determine the most expensive swimwear product from the results.",
+          "correct": false,
+          "error_description": "Clicked an unrelated product (appears to be a hoodie/sweatshirt) rather than a swimwear item.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Go back to the swimwear results list to continue searching for the most expensive swimwear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 30,
+          "expected_action": "Report the most expensive competitive swimwear product found (with its price) or continue navigation if not yet identified.",
+          "correct": false,
+          "error_description": "Early stopped due to max steps without identifying the most expensive competitive swimwear product.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:39:41.924447+00:00"
+    },
+    "webarena::kimi::6": {
+      "taskKey": "webarena::kimi::6",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "6",
+      "keyStep": 7,
+      "failureSteps": [
+        0,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "Step 7 permanently derailed the workflow by navigating to an unrelated WebArena site, after which the agent repeatedly continued in Wikipedia rather than returning to the mapping/directions tool to compute walking distance. Earlier issues (e.g., malformed queries or no results) were later corrected enough to reach a final answer, but the detour starting at Step 7 made the intended distance-calculation process unrecoverable within the trajectory.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for Pittsburgh Airport on the map interface to establish the starting location.",
+          "correct": false,
+          "error_description": "The agent typed 'Pittsburgh Airport' but did not submit the search or navigate to results, leaving the map context unclear.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search results to select a nearby Hilton hotel option.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the selected hotel, search for nearby supermarkets in the same vicinity.",
+          "correct": false,
+          "error_description": "The agent typed an unrelated query ('supermarket near Pittsburgh Airport') while on a hotel 'way' page, without first using the hotel location as the basis for a targeted nearby search.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Search results should show at least one supermarket near the hotel area.",
+          "correct": false,
+          "error_description": "The search returned 'No results found' for the supermarket query.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "If results are not visible, scroll to find relevant supermarket entries or adjust the query.",
+          "correct": false,
+          "error_description": "Scrolling did not resolve the 'No results found' state.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Select a relevant supermarket from the search results (e.g., Giant Eagle Market District) near the hotel.",
+          "correct": false,
+          "error_description": "The agent typed a supermarket name despite the prior search showing no results, indicating the query flow was inconsistent.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Enter a clean, correctly spelled supermarket query near the hotel and submit it.",
+          "correct": false,
+          "error_description": "The query string became malformed ('supermarket neaHilton...r Pittsburgh Airport'), likely preventing correct search results.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Stay within the mapping/search workflow to find the nearest supermarket and then compute walking distance.",
+          "correct": false,
+          "error_description": "The agent navigated to an unrelated WebArena site (different task environment), derailing the workflow.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Return to the mapping tool to continue finding the nearest supermarket and walking distance.",
+          "correct": false,
+          "error_description": "The agent clicked Wikipedia within WebArena, continuing the detour rather than returning to the map task.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Use the map tool to locate the hotel and supermarket and then determine walking distance.",
+          "correct": false,
+          "error_description": "The agent continued using the Wikipedia environment instead of the mapping tool.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Find information relevant to the supermarket/hotel proximity or return to the map to compute distance.",
+          "correct": false,
+          "error_description": "The agent searched Wikipedia for 'Robinson Township Pittsburgh', which is not directly used to compute walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Identify the supermarket near the hotel and then compute walking distance using the map directions feature.",
+          "correct": false,
+          "error_description": "The agent clicked into a mall page and then searched for 'Giant Eagle...' within Wikipedia, not the map/directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Return to the map tool to locate the supermarket and compute walking distance from the hotel.",
+          "correct": false,
+          "error_description": "The agent continued Wikipedia searches (irrelevant to calculating walking distance).",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Use the map tool to compute walking distance between the hotel and the nearest supermarket.",
+          "correct": false,
+          "error_description": "The agent navigated to additional Wikipedia pages rather than computing distance.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to the map tool and use directions/walking distance between the hotel and supermarket.",
+          "correct": false,
+          "error_description": "The agent stayed in Wikipedia and did not progress toward the required walking-distance calculation.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to the map tool to identify the supermarket and compute walking distance.",
+          "correct": false,
+          "error_description": "The agent continued Wikipedia navigation, not the map/directions task.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Use the map tool to compute walking distance; do not rely solely on general area descriptions.",
+          "correct": false,
+          "error_description": "The agent scrolled within Wikipedia about Settlers Ridge rather than calculating walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Return to the map tool to confirm the supermarket location and then compute walking distance from the hotel.",
+          "correct": false,
+          "error_description": "The agent remained in Wikipedia and only later attempted to go back to the map.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to OpenStreetMap and re-establish the hotel location for directions.",
+          "correct": false,
+          "error_description": "The agent went to the OpenStreetMap homepage/map without ensuring the hotel and supermarket were selected for directions.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Search for and select the specific Hilton hotel near Pittsburgh Airport.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "From the hotel page, search for the nearest supermarket and select it.",
+          "correct": false,
+          "error_description": "The agent typed a supermarket query while on the hotel 'way' page without using a clear, consistent search/directions workflow.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Select the correct supermarket result (Giant Eagle Market District at Settlers Ridge Shopping Center).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Open the selected supermarket's page to prepare for distance calculation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Use directions/walking distance between the hotel and the supermarket.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (likely not initiating directions), so walking distance was not computed at this step.",
+          "recovered": true
+        },
+        {
+          "step": 24,
+          "expected_action": "Provide the final answer: Hilton hotel name and shortest walking distance to the nearest supermarket.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:39:56.300175+00:00"
+    },
+    "webarena::kimi::83": {
+      "taskKey": "webarena::kimi::83",
+      "dataset": "webarena",
+      "model": "kimi",
+      "taskId": "83",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20,
+        21,
+        26,
+        27,
+        28
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The agent repeatedly scrolled through diffs without performing review completion or navigation to the next PR, indicating it misassessed progress as sufficient. This culminated in stopping at Step 28 while !1071 merge conflicts were still unresolved, and the later recovered misclicks (Steps 22-25) did not address the core issue of not initiating conflict resolution.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the 'Merge requests assigned to you' list so you can review each required merge request.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "From the to-do list, open the first merge request that requires your review (e.g., !1270).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "On the !1270 merge request page, navigate to the diffs/changes view to review the actual code changes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "In the diffs view for !1270, review the changes and then proceed to the next merge request when done.",
+          "correct": false,
+          "error_description": "The agent only scrolled within the diffs without performing any review-relevant navigation or completion action.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Continue reviewing the diffs for !1270 and ensure you reach the end/next file or section needed for review.",
+          "correct": false,
+          "error_description": "The agent continued scrolling through diffs without any clear review completion step or transition to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue reviewing the diffs for !1270, focusing on the substantive changes rather than repeated scrolling.",
+          "correct": false,
+          "error_description": "Repeated scrolling through the same diffs content without progressing to a review completion or next PR.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Continue through !1270 diffs until review is complete, then move on to !1485.",
+          "correct": false,
+          "error_description": "The agent kept scrolling within the !1270 diffs without a clear review completion or navigation to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Proceed to the next merge request after finishing review of !1270.",
+          "correct": false,
+          "error_description": "The agent scrolled up/down within !1270 diffs rather than moving to the next merge request.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "After reviewing !1270, return to the to-do list or open the next PR (!1485).",
+          "correct": false,
+          "error_description": "The agent clicked an element that returned to the diffs context rather than transitioning to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "From the to-do list, open the next merge request requiring review (!1485).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "On !1485, navigate to the diffs/changes view to review the code changes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "In the !1485 diffs view, review the changes and then proceed to the next PR (!40).",
+          "correct": false,
+          "error_description": "The agent scrolled within diffs without any clear review completion or transition to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Continue reviewing !1485 diffs, ensuring you cover the relevant files/sections.",
+          "correct": false,
+          "error_description": "Continued scrolling through diffs without progressing to a completion action or next PR.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Continue reviewing !1485 diffs and then move on to !40 once review is complete.",
+          "correct": false,
+          "error_description": "The agent kept scrolling within !1485 diffs rather than moving forward to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "After reviewing !1485, navigate back to the to-do list or open !40.",
+          "correct": false,
+          "error_description": "The agent clicked within the diffs context instead of transitioning to the next merge request.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Proceed to the next merge request (!40) after finishing !1485 review.",
+          "correct": false,
+          "error_description": "The agent continued interacting within !1485 diffs rather than moving to !40.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Open the merge request list filtered to your assigned items so you can select !40.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Open merge request !40 from the list so you can review it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Navigate to the diffs/changes view for !40 to review the implementation details.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Review the !40 diffs content and then proceed to the next required PR (!1071).",
+          "correct": false,
+          "error_description": "The agent scrolled through !40 diffs without a clear review completion or transition to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Continue reviewing !40 diffs, focusing on the logic and edge cases, then move to !1071.",
+          "correct": false,
+          "error_description": "The agent continued scrolling within !40 diffs without progressing to the next PR.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "After reviewing !40, go back to the to-do list to open !1071 (merge conflicts).",
+          "correct": false,
+          "error_description": "The agent navigated away from the diffs but did not immediately open !1071; it went to the to-do list without selecting the conflict PR.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "From the to-do list, open !1071 (the merge-conflict PR) to address it.",
+          "correct": false,
+          "error_description": "The agent clicked !1270 again from the to-do list instead of opening !1071.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Return to the to-do list and open the remaining required merge request(s), especially !1071.",
+          "correct": false,
+          "error_description": "The agent navigated to an unrelated issue page (a11y-syntax-highlighting issue) rather than continuing merge request review.",
+          "recovered": true
+        },
+        {
+          "step": 24,
+          "expected_action": "Open !1071 from the to-do list.",
+          "correct": false,
+          "error_description": "The agent clicked !1485 again from the to-do list rather than selecting !1071.",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "Open !1071 diffs/changes so you can identify and resolve the merge conflicts.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "In !1071 diffs, locate the conflict markers and use GitLab conflict resolution actions (e.g., resolve locally / resolve in UI) to proceed.",
+          "correct": false,
+          "error_description": "The agent only scrolled within !1071 diffs and did not take any conflict-resolution action.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Continue conflict resolution for !1071 until conflicts are addressed or a resolution workflow is initiated.",
+          "correct": false,
+          "error_description": "The agent continued scrolling without resolving the merge conflicts.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Do not stop until !1071 merge conflicts are resolved or you have taken concrete steps toward resolution.",
+          "correct": false,
+          "error_description": "The agent stopped claiming completion while !1071 conflicts were not resolved (no resolution actions taken).",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:40:13.906859+00:00"
+    }
+  }
+}

@@ -1,0 +1,1409 @@
+{
+  "updatedAt": "2026-08-09T05:23:12.779682+00:00",
+  "dataset": "webarena",
+  "model": "claude",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::claude::100": {
+      "taskKey": "webarena::claude::100",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "100",
+      "keyStep": 2,
+      "failureSteps": [
+        2
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 2 involved clicking the wrong/incorrect target for the status text input such that typing could not proceed correctly; the action did not successfully focus the intended status editor field. Earlier Step 0 was recovered, and Step 2 is the earliest unrecovered error that directly impacts the ability to set the status correctly.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the user menu/avatar area to open the options for setting your GitLab status.",
+          "correct": false,
+          "error_description": "The agent clicked the 'Projects' link instead of the user/avatar menu needed to reach the 'Set status' control.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the 'Set status' button/link in the user menu to open the status editor.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Focus the status text input field (the one for entering the status message) so the agent can type 'Enjoying life'.",
+          "correct": false,
+          "error_description": "The agent clicked an input element but did not successfully place focus into the status message field (the status editor content was not ready for typing yet).",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Type 'Enjoying life' into the status message input field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Click the 'Set status' confirmation button to save the new status.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Stop once the page reflects that the status has been successfully updated to 'Enjoying life'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:21:34.721609+00:00"
+    },
+    "webarena::claude::118": {
+      "taskKey": "webarena::claude::118",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "118",
+      "keyStep": 15,
+      "failureSteps": [
+        15,
+        16,
+        17
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The unrecovered error begins at Step 15 where the agent keeps scrolling instead of selecting the cheapest qualifying product (>=5 reviews). This pattern continues through Steps 16 and 17, culminating in early stop after repeated non-progress actions; earlier issues were recovered and did not permanently block selection/purchase.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the 'Clothing, Shoes & Jewelry' category link to reach the relevant product listing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the category page, navigate into the 'Men' -> 'Shoes' subcategory (or otherwise filter to men's shoes).",
+          "correct": false,
+          "error_description": "The agent only hovered over the 'Men' link instead of clicking through to the men's shoes listing.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the 'Men' subcategory (or the appropriate 'Men' -> 'Shoes' path) to narrow results.",
+          "correct": false,
+          "error_description": "The agent hovered again rather than selecting the subcategory.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the correct subcategory link to reach the men's shoes page.",
+          "correct": false,
+          "error_description": "The agent clicked 'Uniforms, Work & Safety' (a clothing subcategory) instead of proceeding directly to 'Shoes'.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "On the men's shoes page, sort by lowest price and then identify the cheapest product that also has at least 5 reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the page controls (e.g., sort dropdown or list/grid toggle) correctly to sort by price, without attempting invalid element clicks.",
+          "correct": false,
+          "error_description": "The agent attempted to click a non-existent element (element [1109]), indicating an incorrect UI interaction.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Adjust sorting/filtering properly (e.g., set sort order to price) using valid controls rather than typing into unrelated elements.",
+          "correct": false,
+          "error_description": "The agent typed 'Price' into the 'Position/Product Name/Price' select area (element [27]) instead of using the correct sort control.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Ensure the listing is sorted by price ascending (least expensive first) so the first qualifying item can be selected.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Inspect the visible products to find the least expensive item with at least 5 reviews, then open its details if needed to confirm review count.",
+          "correct": false,
+          "error_description": "The agent scrolled down without selecting/confirming the cheapest qualifying product (and the page content suggests it was not consistently focusing on the men's shoes items).",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Continue scanning the sorted list to locate the cheapest product meeting the review-count constraint (>=5).",
+          "correct": false,
+          "error_description": "The agent scrolled up, disrupting the search for the least expensive qualifying item.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Verify the cheapest candidate(s) by checking review counts and then proceed to the best match.",
+          "correct": false,
+          "error_description": "The agent scrolled up again instead of evaluating the current cheapest items against the 'at least 5 reviews' requirement.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Select the cheapest product that has at least 5 reviews (and then add to cart or open details to confirm).",
+          "correct": false,
+          "error_description": "The agent clicked a 'Grid/List' control area (element [26]) rather than choosing a product based on price and review count.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "In list mode, identify the cheapest product with at least 5 reviews and open its details if necessary to confirm.",
+          "correct": false,
+          "error_description": "The agent scrolled down without selecting or confirming the cheapest qualifying product.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Check the visible products' review counts (>=5) and pick the least expensive one; then proceed to purchase.",
+          "correct": false,
+          "error_description": "The agent scrolled down without making a selection, despite review counts being visible for some items.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Continue evaluating the sorted list and select the least expensive product that satisfies the review constraint.",
+          "correct": false,
+          "error_description": "The agent scrolled down, continuing to avoid selecting a qualifying product.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Select the cheapest qualifying product (>=5 reviews) rather than just scrolling.",
+          "correct": false,
+          "error_description": "The agent scrolled down again without choosing a product to buy.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Once the cheapest qualifying product is identified, click 'Add to Cart' (or open details then add to cart).",
+          "correct": false,
+          "error_description": "The agent continued scrolling instead of adding the identified cheapest qualifying item to the cart.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Complete the purchase by adding the selected product to the cart (or confirming selection) rather than early stopping.",
+          "correct": false,
+          "error_description": "The agent stopped early due to repeating the same action, without completing the required selection/purchase.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:21:46.167442+00:00"
+    },
+    "webarena::claude::121": {
+      "taskKey": "webarena::claude::121",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "121",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 3 mis-targeted the newsletter email input field, and Step 4 continued with unreliable field targeting. Earlier scroll-only issues (Steps 0-2) were recovered by eventually reaching the correct area, and the final subscription succeeded, so the unrecovered, directly harmful error is the incorrect element targeting during input.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Scroll or navigate to the newsletter sign-up section so the email field and Subscribe button are visible.",
+          "correct": false,
+          "error_description": "The agent only scrolled down without ensuring the newsletter section was reached or visible.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue scrolling until the 'Sign Up for Our Newsletter' input field and 'Subscribe' button are in view.",
+          "correct": false,
+          "error_description": "The agent scrolled further but remained on product listings rather than reaching the newsletter form.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Scroll to the bottom of the product listing/pagination area until the newsletter sign-up form appears.",
+          "correct": false,
+          "error_description": "The agent scrolled but still did not reach the newsletter form; it was not yet visible.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the newsletter email input field (or focus it) under 'Sign Up for Our Newsletter'.",
+          "correct": false,
+          "error_description": "The agent clicked the input field by index but the action did not clearly correspond to focusing the correct newsletter email input (it appears to have been mis-targeted).",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Type a valid email address into the newsletter email input field.",
+          "correct": false,
+          "error_description": "The agent typed the email into the wrong/uncertain field (the input targeting was not reliably the newsletter email field).",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Verify the subscription succeeded by observing the confirmation message 'Thank you for your subscription.'",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:21:52.923278+00:00"
+    },
+    "webarena::claude::140": {
+      "taskKey": "webarena::claude::140",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "140",
+      "keyStep": 21,
+      "failureSteps": [
+        21,
+        22,
+        29,
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The agent hit the posting restriction at Step 21 (\u201cYou cannot post more. Wait a while before trying again\u201d) but did not resolve it (it navigated away), leading to repeated ineffective attempts and ultimately exhausting the 30-step budget at Step 30. Earlier issues were marked recovered and, per the action log, the agent continued attempting submission rather than being permanently blocked until the posting-limit restriction and subsequent step exhaustion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the books subreddit (or its forum page) so the agent can create a new post there.",
+          "correct": false,
+          "error_description": "The agent typed 'books' on the forums homepage/search without clearly selecting the books subreddit page.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search results to open the books subreddit listing page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the books subreddit listing, go to the submission creation flow (submit page).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the correct link/button to create a new submission within /f/books.",
+          "correct": false,
+          "error_description": "The agent navigated to /f/books/submit, which is not a valid route (it later returns 404).",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "After hitting a 404, return to the correct submission creation page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the books subreddit page and then proceed to the global submit page for creating a post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the submit/create submission page (not notifications) to start composing the post.",
+          "correct": false,
+          "error_description": "The agent clicked into /notifications instead of going directly to the submission composer.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "On the create submission page, fill in the post title and body relevant to how machine learning could help the books field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Enter an appropriate title for the post about machine learning helping the books field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Enter the main body text proposing specific ways ML could help the books field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Select the correct subreddit/forum tag/category (books) before submitting.",
+          "correct": false,
+          "error_description": "The agent clicked the wrong element (likely the category dropdown placeholder) rather than selecting the intended 'books' option.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Ensure the preview is correct and then proceed to select the 'books' forum/category if not already selected.",
+          "correct": false,
+          "error_description": "The agent scrolled instead of confirming/setting the forum selection needed for posting.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Select the 'books' option in the forum/category chooser.",
+          "correct": false,
+          "error_description": "The agent clicked the category chooser area but did not successfully select the 'books' forum at this step.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Type/select the 'books' option in the category chooser.",
+          "correct": false,
+          "error_description": "The agent typed 'books' into the chooser input but the selection was not confirmed yet.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Confirm the 'books' selection in the chooser.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again rather than confirming the 'books' selection.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Confirm the 'books' selection in the chooser.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again without confirming the correct forum selection.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Select the 'books' option from the chooser list.",
+          "correct": false,
+          "error_description": "The agent attempted to type/select 'books' again, indicating the forum selection still was not properly set.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Confirm the 'books' selection in the chooser.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again instead of confirming the 'books' forum selection.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "Confirm the 'books' selection in the chooser.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again without successfully confirming the forum selection.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Type/select the 'books' option cleanly (no partial/invalid text) and confirm it.",
+          "correct": false,
+          "error_description": "The agent typed 'books' with a trailing newline/partial text, suggesting the chooser input was not handled correctly.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "Click the confirmed 'books' option so the post will be categorized correctly.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "If submission is blocked, wait/retry later or adjust strategy; do not abandon the composer without addressing the block.",
+          "correct": false,
+          "error_description": "The agent encountered 'You cannot post more. Wait a while before trying again.' but then navigated away instead of waiting or otherwise resolving the posting restriction.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Return to the submit page only if the posting restriction has been resolved; otherwise wait.",
+          "correct": false,
+          "error_description": "The agent went back to /f/books and then to /submit despite the earlier posting-limit restriction.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "On the submit page, re-enter the title/body only if the form is still usable and posting is allowed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Ensure the body text is fully entered and ready for submission.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Select/confirm the 'books' forum/category before submitting.",
+          "correct": false,
+          "error_description": "The agent clicked the category chooser placeholder rather than confirming the 'books' selection.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Scroll to the category chooser and confirm the correct forum selection.",
+          "correct": false,
+          "error_description": "The agent scrolled without confirming the forum selection needed to submit.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Open the category chooser to select 'books'.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again without ensuring the 'books' option was selected.",
+          "recovered": true
+        },
+        {
+          "step": 28,
+          "expected_action": "Type/select 'books' in the chooser and confirm it.",
+          "correct": false,
+          "error_description": "The agent typed 'books' into the chooser input but did not confirm selection at this step.",
+          "recovered": true
+        },
+        {
+          "step": 29,
+          "expected_action": "Confirm the 'books' selection and then submit the post.",
+          "correct": false,
+          "error_description": "The agent clicked the chooser placeholder again rather than submitting; no successful submission occurred.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Submit the post (or, if blocked, wait and retry) to reach the final successful posting outcome.",
+          "correct": false,
+          "error_description": "The run ended with early stop at max steps without successfully submitting the post.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:22:08.358319+00:00"
+    },
+    "webarena::claude::144": {
+      "taskKey": "webarena::claude::144",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "144",
+      "keyStep": 30,
+      "failureSteps": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The earliest unrecovered issue that directly led to the final failure is the run ending at Step 30 due to exhausting the 30-step budget before successfully posting. Earlier violations (e.g., Steps 1, 8, 9) were recovered, and the remaining unrecovered issues reflect ongoing inability to correctly prepare/select the subreddit and post content, but the immediate terminal cause is step-limit exhaustion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search to enter the product name 'Racing Wheel Overdrive for Xbox X' and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the search results page, locate the exact product listing for Racing Wheel Overdrive for Xbox X and open its product page.",
+          "correct": false,
+          "error_description": "The agent only scrolled the results list without selecting the correct product link.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the product result titled 'Racing Wheel Overdrive Designed for Xbox Series X|S By HORI - Officially Licensed by Microsoft' to open the product page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "On the product page, navigate to the Reviews section (or click the Reviews link) to view customer reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Scan the reviews and identify titles (review headings) for reviews with 1-star rating.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue scanning reviews and collect the review titles/headings where the rating is 1 star.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Continue scanning reviews across the page(s) and keep collecting only 1-star review titles.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "If there are multiple review pages, go to the next page of reviews to continue collecting 1-star review titles.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "On the reviews page, continue reading review entries and capture the titles for those with 1-star rating.",
+          "correct": false,
+          "error_description": "The agent scrolled upward into the review form/ratings UI rather than continuing to extract 1-star review titles.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Return to the review list content and continue extracting 1-star review titles.",
+          "correct": false,
+          "error_description": "The agent scrolled down but did not clearly resume extracting 1-star review titles; it moved away from the relevant review entries.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Stay on the product reviews page and continue collecting 1-star review titles (including navigating pages if needed).",
+          "correct": false,
+          "error_description": "The agent navigated to an unrelated URL (port 9999 forums) instead of continuing review extraction.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Continue the task by returning to OneStopShop product reviews to finish collecting 1-star review titles.",
+          "correct": false,
+          "error_description": "The agent remained on the unrelated forums site rather than returning to the product reviews.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "If posting is intended, select the correct subreddit/community and prepare a post with the collected 1-star review titles; otherwise, return to OneStopShop to collect missing data.",
+          "correct": false,
+          "error_description": "The agent started creating a submission on the unrelated forums site without having gathered the required 1-star review titles.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Enter the post title exactly as specified: 'real user feedback on Racing Wheel Overdrive for Xbox X'.",
+          "correct": false,
+          "error_description": "The agent typed into the wrong field (body/content area) instead of setting the post title.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Focus on the correct subreddit selection and ensure the post title is set to the required text.",
+          "correct": false,
+          "error_description": "The agent clicked the body textarea rather than correcting the post title/subreddit workflow.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Type the collected 1-star review titles into the post body (not the product review text itself) and format them as a list.",
+          "correct": false,
+          "error_description": "The agent attempted to type review titles but the action was malformed/incorrectly executed per the system note.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Type only the 1-star review titles into the post body field.",
+          "correct": false,
+          "error_description": "The agent typed review text snippets (not clearly extracted 1-star review titles) into the body field.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Select the correct subreddit/community (games subreddit) for posting.",
+          "correct": false,
+          "error_description": "The agent clicked the wrong element (likely the subreddit dropdown) rather than ensuring the correct subreddit is selected.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Verify the subreddit selection and continue preparing the post content correctly.",
+          "correct": false,
+          "error_description": "The agent scrolled without making clear progress toward selecting the correct subreddit or finalizing the post.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Choose the 'games' subreddit from the subreddit search results.",
+          "correct": false,
+          "error_description": "The agent clicked the wrong control (not selecting the intended subreddit).",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Type 'games' into the subreddit search field to find the correct subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Ensure the subreddit search query is exactly 'games' and select the correct result.",
+          "correct": false,
+          "error_description": "The agent appended/changed the query to 'game' and did not select the correct subreddit result.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Clear the subreddit search field and re-enter 'games' to get results.",
+          "correct": false,
+          "error_description": "The agent's intended recovery action was not executed correctly (formatting/system note indicates the action was malformed).",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Clear the subreddit search field (e.g., Ctrl+A then delete) to remove the incorrect query.",
+          "correct": false,
+          "error_description": "The agent pressed Ctrl+A but did not follow through with a correct clear-and-retype sequence.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "After clearing, type 'games' and select the correct subreddit from results.",
+          "correct": false,
+          "error_description": "The agent clicked the search field/result area without successfully selecting the correct subreddit.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Clear the search field contents to prepare for retyping 'games'.",
+          "correct": false,
+          "error_description": "The agent pressed Ctrl+A again but did not complete the clear-and-retype workflow.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Delete the selected text in the subreddit search field to clear it.",
+          "correct": false,
+          "error_description": "The agent pressed Delete but the subsequent state still shows no results and the workflow did not progress.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Continue clearing the search field (Backspace) until it is empty.",
+          "correct": false,
+          "error_description": "Backspace did not lead to a successful subreddit search/selection.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Type 'games' once the field is cleared and select the correct subreddit result.",
+          "correct": false,
+          "error_description": "The agent kept pressing Backspace without retyping 'games' or selecting a subreddit.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Type 'games' and select the correct subreddit result to proceed with posting.",
+          "correct": false,
+          "error_description": "The agent continued pressing Backspace and made no progress toward selecting the subreddit.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Submit the post to the games subreddit with the required title and body content.",
+          "correct": false,
+          "error_description": "The run ended early due to reaching the maximum step limit without successfully posting.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:22:24.109491+00:00"
+    },
+    "webarena::claude::147": {
+      "taskKey": "webarena::claude::147",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "147",
+      "keyStep": 30,
+      "failureSteps": [
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The agent terminates at Step 30 with an early stop due to reaching the 30-step maximum, without completing the Reddit submission. Earlier violations were marked recovered and, per the action log, the agent continued attempting to fill fields, so they do not qualify as the permanent cause of the final failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the auth0/angular-storage repository page to extract the repo description for the Reddit post.",
+          "correct": false,
+          "error_description": "The agent starts on a Reddit forums page instead of the target repository.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the GitHub repository URL for auth0/angular-storage in the browser.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Locate the repository description text on the GitHub page (e.g., the short tagline near the top or in the README) to use as the Reddit post body.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue on the GitHub page to capture the description, rather than returning to Reddit.",
+          "correct": false,
+          "error_description": "The agent navigates back to the Reddit site, losing focus on extracting the repo description.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Go to the Reddit submission form (submit page) to create a new post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Paste the repository URL into the appropriate title/link field or otherwise prepare the post content fields correctly.",
+          "correct": false,
+          "error_description": "The agent types the URL into the wrong field (the title field appears to be auto-populated/incorrectly handled).",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the correct input field for the post title and ensure it contains only the intended title text.",
+          "correct": false,
+          "error_description": "The agent clicks a textarea/input without ensuring the correct field focus for the title.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Enter the intended title text (e.g., 'auth0/angular-storage') into the title field.",
+          "correct": false,
+          "error_description": "The agent types 'auth0/angular-storage' into a field that later shows the title being treated as body content, indicating field misalignment.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the correct action format to clear and set the title/body fields to the repo tagline ('A storage library for AngularJS done right').",
+          "correct": false,
+          "error_description": "The agent's planned action is not executed due to an invalid action format (it describes triple_click but does not perform a valid action).",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Click into the title field to edit it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Select all text in the title field to replace it cleanly.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Type the correct title text ('auth0/angular-storage') into the title field.",
+          "correct": false,
+          "error_description": "The agent types 'auth0/angular-storage' but subsequent steps indicate the title/body fields are still not correctly targeted.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Click into the body/description textarea to edit the post content.",
+          "correct": false,
+          "error_description": "The agent clicks the same textarea again without confirming it is the body field, continuing the field-mapping confusion.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Select all text in the body textarea to replace it with the repo description.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Delete the selected text in the body textarea to prepare for inserting the repo description.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Select all remaining text in the body textarea (if any) to ensure it is fully cleared.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Type the repo description into the body textarea: 'A storage library for AngularJS done right'.",
+          "correct": false,
+          "error_description": "The agent again types 'auth0/angular-storage' into the body textarea instead of the repo description.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Stay on the submit page and continue editing the body/title fields rather than navigating away.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Click into the body textarea to edit it.",
+          "correct": false,
+          "error_description": "The agent clicks the textarea again without ensuring correct field focus, continuing inconsistent field targeting.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Type the repo description into the body textarea: 'A storage library for AngularJS done right'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Click into the subreddit/category selection control to choose the correct subreddit (technology).",
+          "correct": false,
+          "error_description": "The agent clicks an element that appears to be the markdown/preview area rather than the subreddit selection.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Scroll to the subreddit selection area if it is not visible.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Select the subreddit 'technology' from the autocomplete list.",
+          "correct": false,
+          "error_description": "The agent clicks a control that does not clearly correspond to selecting the 'technology' subreddit option.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Type 'technology' into the subreddit selection input.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Click the 'technology' suggestion to confirm the subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Ensure the subreddit selection is confirmed (no extra unintended clicks).",
+          "correct": false,
+          "error_description": "The agent clicks the span/selection control again, risking deselection or leaving the form in an inconsistent state.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Confirm the subreddit selection and proceed toward submitting the post.",
+          "correct": false,
+          "error_description": "Repeated clicking suggests the agent is not reliably confirming the subreddit selection.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Type 'technology' again only if the selection was cleared; otherwise proceed to submit.",
+          "correct": false,
+          "error_description": "The agent re-types 'technology' even though it appears already selected, indicating unnecessary/erroneous interaction.",
+          "recovered": true
+        },
+        {
+          "step": 28,
+          "expected_action": "Press Enter to select the 'technology' subreddit suggestion.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 29,
+          "expected_action": "Click the 'Create submission' button to submit the post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 30,
+          "expected_action": "If submission fails due to rate limiting, wait and retry later rather than stopping immediately.",
+          "correct": false,
+          "error_description": "The agent stops after the platform error 'You cannot post more. Wait a while before trying again.' without any recovery attempt.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:22:39.104124+00:00"
+    },
+    "webarena::claude::57": {
+      "taskKey": "webarena::claude::57",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "57",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 did not properly submit the CMU search, so the agent never reliably established the correct map reference. Later issues were marked recovered and the agent still produced an answer, but the initial failure to execute the core search action correctly is the earliest unrecovered disconnect that undermines the rest of the navigation.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter 'Carnegie Mellon University' into the OpenStreetMap search box and submit the search to locate the campus on the map.",
+          "correct": false,
+          "error_description": "The agent typed into the page but did not clearly submit the search, leaving the query incomplete.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "From the search results, select the Carnegie Mellon University result to open its place page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the located CMU place as the reference and search for nearby pharmacies (e.g., 'pharmacy near Carnegie Mellon University') to get candidate pharmacies.",
+          "correct": false,
+          "error_description": "The agent typed a new query into the page without ensuring it was properly submitted/formed as a valid search.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Submit the 'pharmacy near Carnegie Mellon University Pittsburgh' search and review results for nearby pharmacies.",
+          "correct": false,
+          "error_description": "The search returned 'No results found', indicating the query was not effective.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Correct the search query (remove malformed text) and resubmit a valid pharmacy search near CMU.",
+          "correct": false,
+          "error_description": "The query string became malformed ('Univpharmacy...') and again produced no results.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "After failed searches, switch to a broader but valid query (e.g., 'pharmacy Pittsburgh PA') to obtain pharmacy candidates, then identify the closest ones to CMU.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "From the Pittsburgh pharmacy results, open the specific pharmacy entries (e.g., CVS Pharmacy and University Pharmacy) to extract their addresses.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "On the University Pharmacy place page, capture the pharmacy name and address details needed for the final response.",
+          "correct": false,
+          "error_description": "The agent clicked a tag (amenity/pharmacy) rather than retrieving the address information for the pharmacy.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "If a tag documentation page opens, navigate back to the pharmacy place page to continue collecting the needed address details.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Return to the pharmacy place page and continue extracting the pharmacy address information.",
+          "correct": false,
+          "error_description": "The agent went back again, leaving the pharmacy page context without collecting address details.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "From the results list, open the CVS Pharmacy entry to obtain its address for the final answer.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the CVS Pharmacy address (and optionally the University Pharmacy address) to answer which pharmacy is nearest and within a 20-minute walk from CMU, then stop.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:22:48.054177+00:00"
+    },
+    "webarena::claude::69": {
+      "taskKey": "webarena::claude::69",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "69",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "Step 0 permanently derailed the workflow by clicking an unrelated map element instead of entering the directions interface, so all subsequent steps operated on an incorrect/unchanged routing context. Earlier issues (e.g., attempts to clear fields) did not recover because the agent never established a reliable Pittsburgh\u2192Philadelphia car directions state.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the directions interface (or navigate to the directions page) to start a route query between Pittsburgh and Philadelphia by car.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element ('where is this?') on the map instead of going to the directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "On the directions page, select the car routing mode and enter 'Pittsburgh' as the origin.",
+          "correct": false,
+          "error_description": "Typed into the origin field but did not ensure the car mode was selected; the action also appears to be incomplete/unclear for origin entry.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter 'Philadelphia' as the destination in the 'To' field.",
+          "correct": false,
+          "error_description": "Typed 'Philadelphia' but the resulting route later shows an incorrect destination/route, indicating the destination entry did not correctly set Philadelphia.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Verify the computed route corresponds to Pittsburgh \u2192 Philadelphia by car and read the displayed travel time.",
+          "correct": false,
+          "error_description": "The page shows Distance: 709km and Time: 8:33, which is inconsistent with Pittsburgh to Philadelphia by car (should be much shorter), indicating the route parameters are wrong.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Correct the destination/origin fields so the route updates to Pittsburgh \u2192 Philadelphia, then re-check the time.",
+          "correct": false,
+          "error_description": "Attempted to clear/adjust the destination but the route remained unchanged (still 709km, 8:33), so the correction did not take effect.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Click into the correct 'To' input field to enable editing of the destination.",
+          "correct": false,
+          "error_description": "Clicked the 'To' field but no subsequent destination correction is shown; the route/time remained the same.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Use Ctrl+A (and then type) to replace the destination text with 'Philadelphia' so the route recalculates.",
+          "correct": false,
+          "error_description": "Pressed Ctrl+A but did not follow with typing the correct destination; the route/time did not change.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "After correcting inputs, ensure the route is Pittsburgh \u2192 Philadelphia and then read the updated car travel time.",
+          "correct": false,
+          "error_description": "Navigated to a new route URL with different coordinates (40.442,-79.990 to 39.952,-75.165) without confirming it matches Pittsburgh \u2192 Philadelphia; this appears to be an arbitrary/incorrect adjustment.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Stop only after reporting the correct car travel time from Pittsburgh to Philadelphia based on the displayed route.",
+          "correct": false,
+          "error_description": "Stopped with '5 hours and 46 minutes' while the page shows Distance: 491km. Time: 5:46, but the route still appears not to be verified as Pittsburgh \u2192 Philadelphia; the final answer is therefore not reliably grounded in a correct Pittsburgh\u2192Philadelphia route.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:22:56.367630+00:00"
+    },
+    "webarena::claude::91": {
+      "taskKey": "webarena::claude::91",
+      "dataset": "webarena",
+      "model": "claude",
+      "taskId": "91",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent began routing using an unconfirmed USCIS origin (Step 4) and then repeatedly set/verified directions without establishing correct endpoints, making the computed walking distance unreliable. Earlier issues were marked recovered because the agent continued searching, but this constraint/endpoint-confirmation failure was not corrected in a way that ensured the final USCIS-to-nearest-SSA route was actually computed from the intended locations.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter a search query for the nearest USCIS office to Carnegie Mellon University.",
+          "correct": false,
+          "error_description": "Typed a query into the map without ensuring it was submitted/used correctly for the USCIS search.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Submit the USCIS-near-CMU search and review results.",
+          "correct": false,
+          "error_description": "Search returned 'No results found' from Nominatim, indicating the query was not effective.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Refine the USCIS search query (e.g., include 'Pittsburgh Field Office' or the address) until a valid USCIS location is found.",
+          "correct": false,
+          "error_description": "Another refined query still produced 'No results found'.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue refining until the USCIS office address/location is successfully identified.",
+          "correct": false,
+          "error_description": "Query refinement still resulted in 'No results found'.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the identified USCIS address to search for that exact address (or directly navigate to it) so it can be used as a routing origin.",
+          "correct": false,
+          "error_description": "Navigated to a generic search for '1000 Liberty Avenue Pittsburgh PA' without confirming it resolved to the USCIS office.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the resolved address result (or otherwise confirm the USCIS origin point) from the search results.",
+          "correct": false,
+          "error_description": "Clicked an element but the search results still showed 'No results found', so the USCIS origin was not confirmed.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open directions and set walking mode to compute distance between the USCIS office and the nearest SSA office.",
+          "correct": false,
+          "error_description": "Switched to directions without having a confirmed USCIS origin and SSA destination.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Ensure the directions mode is set to walking (foot).",
+          "correct": false,
+          "error_description": "Clicked the mode selector but did not clearly set/confirm walking for the route inputs.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Proceed to fill the directions 'from' and 'to' fields with USCIS and SSA locations.",
+          "correct": false,
+          "error_description": "Repeated mode interaction without establishing correct route endpoints.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Select 'Foot (OSRM)' as the routing mode.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Enter the USCIS office address as the starting point in the directions form.",
+          "correct": false,
+          "error_description": "Entered '1000 Liberty Avenue, Pittsburgh, PA' but the earlier steps never confirmed this as the USCIS office in the UI.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Enter the SSA office address as the destination in the directions form.",
+          "correct": false,
+          "error_description": "Entered '411 Seventh Avenue, Pittsburgh, PA' as the destination, which is not the nearest SSA office mentioned in the task outcome.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Trigger the route calculation (or ensure both endpoints are correctly set) for walking distance.",
+          "correct": false,
+          "error_description": "Clicked an input area without clearly confirming correct endpoints or starting the route calculation.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Confirm the route is computed and the distance shown corresponds to USCIS-to-SSA walking.",
+          "correct": false,
+          "error_description": "Clicked another control without verifying the route endpoints/distance correspond to USCIS and SSA.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Set directions route using the correct USCIS origin and SSA destination coordinates/addresses.",
+          "correct": false,
+          "error_description": "Navigated to a directions URL with route coordinates that do not match the expected USCIS-to-SSA pair.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Verify the computed distance is non-zero and corresponds to the intended USCIS-to-SSA walking route.",
+          "correct": false,
+          "error_description": "Route distance shown was 0m earlier in the flow and the coordinates appear unrelated to the intended SSA location.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Recompute/adjust the route until it matches USCIS to the nearest SSA office, then record the walking distance.",
+          "correct": false,
+          "error_description": "After getting a 257m route, the agent left directions and went back to a USCIS search, not to SSA routing verification.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Search for the USCIS office and then the nearest SSA office (or directly set SSA destination) to compute the final walking distance.",
+          "correct": false,
+          "error_description": "Navigated to a USCIS search that again showed 'No results found', not progressing toward SSA distance.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "Return to the map centered on the relevant area (downtown Pittsburgh) to locate USCIS and SSA points.",
+          "correct": false,
+          "error_description": "Jumped to a map center unrelated to a confirmed USCIS/SSA pair.",
+          "recovered": true
+        },
+        {
+          "step": 19,
+          "expected_action": "Continue locating the correct USCIS and SSA locations on the map.",
+          "correct": false,
+          "error_description": "Moved the map center without establishing which POIs correspond to USCIS and SSA.",
+          "recovered": true
+        },
+        {
+          "step": 20,
+          "expected_action": "Use the map to identify the USCIS office and SSA office locations, then compute walking distance.",
+          "correct": false,
+          "error_description": "Continued panning/centering without selecting POIs or confirming endpoints.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Compute walking directions between the confirmed USCIS and SSA locations.",
+          "correct": false,
+          "error_description": "Opened directions with a route that still appears not tied to the expected SSA location.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Ensure the directions route is correctly computed and corresponds to USCIS-to-SSA.",
+          "correct": false,
+          "error_description": "Jumped back to map view, not verifying the route endpoints/distance for USCIS-to-SSA.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Use the query features to find nearby relevant features (e.g., SSA office) around the USCIS location.",
+          "correct": false,
+          "error_description": "Opened query features at a point but did not ensure it was the USCIS location.",
+          "recovered": true
+        },
+        {
+          "step": 24,
+          "expected_action": "Handle the Overpass API error by retrying or switching approach to obtain nearby POIs.",
+          "correct": false,
+          "error_description": "Overpass API returned a Gateway Timeout, preventing nearby feature lookup.",
+          "recovered": true
+        },
+        {
+          "step": 25,
+          "expected_action": "Retry locating the correct POIs by adjusting map position or using alternative search methods.",
+          "correct": false,
+          "error_description": "Panned the map without evidence of successfully retrieving SSA/USCIS POIs after the API timeout.",
+          "recovered": true
+        },
+        {
+          "step": 26,
+          "expected_action": "Continue adjusting to locate the correct USCIS and SSA points for routing.",
+          "correct": false,
+          "error_description": "Continued panning without confirming POI identities.",
+          "recovered": true
+        },
+        {
+          "step": 27,
+          "expected_action": "Set directions using the correct USCIS origin and nearest SSA destination.",
+          "correct": false,
+          "error_description": "Opened directions again with a route that was not clearly tied to the expected USCIS and SSA addresses.",
+          "recovered": true
+        },
+        {
+          "step": 28,
+          "expected_action": "Stop once the walking distance between the USCIS office and the nearest SSA office is correctly computed and reported.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass2",
+      "updatedAt": "2026-08-09T05:23:12.779667+00:00"
+    }
+  }
+}

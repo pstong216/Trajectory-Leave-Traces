@@ -1,0 +1,65 @@
+=== HTC Full (M11) outer-CV shuffle ablation, matched-8 population (no claude) ===
+
+
+-- scope=pooled --
+region            early     mid    late
+mode                                   
+unshuffled       0.7117  0.6981  0.7157
+shuffled_seed42  0.7204  0.7009  0.7139
+shuffled_seed0   0.7219  0.7019  0.7033
+shuffled_seed1   0.7204  0.6961  0.7216
+shuffled_seed2   0.7222  0.6965  0.7075
+shuffled_seed3   0.7188  0.7029  0.7070
+
+shuffled mean +/- std:
+region
+early    0.7207 +/- 0.0014
+mid      0.6997 +/- 0.0032
+late     0.7107 +/- 0.0072
+unshuffled vs shuffled mean delta:
+region
+early   -0.0090
+mid     -0.0016
+late     0.0050
+
+-- scope=webarena --
+region            early     mid    late
+mode                                   
+unshuffled       0.7187  0.7194  0.7267
+shuffled_seed42  0.7231  0.7131  0.7133
+shuffled_seed0   0.7334  0.7255  0.7183
+shuffled_seed1   0.7239  0.7209  0.7408
+shuffled_seed2   0.7287  0.7188  0.7289
+shuffled_seed3   0.7269  0.7184  0.7146
+
+shuffled mean +/- std:
+region
+early    0.7272 +/- 0.0041
+mid      0.7193 +/- 0.0045
+late     0.7232 +/- 0.0116
+unshuffled vs shuffled mean delta:
+region
+early   -0.0085
+mid      0.0001
+late     0.0035
+
+-- scope=mind2web --
+region            early     mid    late
+mode                                   
+unshuffled       0.7102  0.6840  0.7087
+shuffled_seed42  0.7184  0.6945  0.7147
+shuffled_seed0   0.7163  0.6877  0.6941
+shuffled_seed1   0.7179  0.6824  0.7109
+shuffled_seed2   0.7200  0.6848  0.6957
+shuffled_seed3   0.7149  0.6919  0.7025
+
+shuffled mean +/- std:
+region
+early     0.7175 +/- 0.002
+mid       0.6883 +/- 0.005
+late     0.7036 +/- 0.0091
+unshuffled vs shuffled mean delta:
+region
+early   -0.0073
+mid     -0.0043
+late     0.0051

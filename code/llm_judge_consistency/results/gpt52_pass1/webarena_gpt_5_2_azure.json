@@ -1,0 +1,2009 @@
+{
+  "updatedAt": "2026-08-12T02:30:52.158276+00:00",
+  "dataset": "webarena",
+  "model": "gpt_5_2",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::gpt_5_2::103": {
+      "taskKey": "webarena::gpt_5_2::103",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "103",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At step 0 the agent added the current product without first comparing per-unit prices across the open tabs, violating the core task constraint and making the selection potentially wrong. There is no evidence in the action log that this was later corrected (step 1 stops immediately), so earlier errors do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Determine which product across the open tabs has the lowest per-unit price (by checking unit size/quantity and price) and only then click that product\u2019s \u201cAdd to Cart\u201d button.",
+          "correct": false,
+          "error_description": "The agent immediately added the current candle product to the cart without comparing per-unit prices across the other open tabs, so it did not ensure it selected the lowest per-unit-price item.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "If the lowest per-unit-price product was not yet identified, navigate to other open tabs to compare per-unit prices and add the correct lowest-per-unit item to the cart (or replace/remove the wrong item if needed).",
+          "correct": false,
+          "error_description": "The agent stopped after confirming the item was added, without ever verifying it was the lowest per-unit-price product among the open tabs.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:19:46.605958+00:00"
+    },
+    "webarena::gpt_5_2::12": {
+      "taskKey": "webarena::gpt_5_2::12",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "12",
+      "keyStep": 24,
+      "failureSteps": [
+        24,
+        25,
+        26,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is at step 24: the agent again typed into the wrong input/with uncleared coordinates, producing a malformed query that prevented locating Hunt Library and thus blocked finding nearby cafes. Earlier violations (steps 2\u201322) do not qualify because the agent later navigated back to search/map states (e.g., got to a CMU-centered map view) and continued attempting corrected searches, indicating those mistakes were not the point of no return.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up \u201cHunt Library, Carnegie Mellon University, Pittsburgh, PA\u201d to center the map on the correct library.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Refine the query (add Pittsburgh/PA) or try \u201cHunt Library CMU Pittsburgh\u201d after seeing no results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Wait for results to load and then select a relevant result (or retry search if none appear).",
+          "correct": false,
+          "error_description": "Clicked the results toggle/button while results were still loading instead of waiting or refining the query.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Enter a more specific query including city/state to find the correct Hunt Library at CMU.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "If no results, try alternate phrasing like \u201cHunt Library CMU Pittsburgh PA\u201d or search for \u201cCarnegie Mellon University\u201d first.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Submit a clean refined query once (ensuring the previous text is replaced) and wait for results.",
+          "correct": false,
+          "error_description": "Kept typing new queries without clearing the field/confirming submission, leading to concatenated/garbled queries.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Clear the search box and re-enter a clean query (or search for \u201cCarnegie Mellon University\u201d alone).",
+          "correct": false,
+          "error_description": "Clicked an unrelated control instead of clearing and reissuing a clean search after the query became corrupted.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Focus the search input and clear it before typing a new query.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Select all text in the search box to replace it with a clean query.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Type a clean query and submit it, ensuring it replaces the old text.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Wait for the submitted search to return results rather than immediately typing again.",
+          "correct": false,
+          "error_description": "Typed another query while the page was still loading, again risking concatenation and preventing stable results.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Clear the search box fully before retrying a different query.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Enter a clean query and submit once, then wait for results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "If searches keep failing, switch strategy: search for \u201cCarnegie Mellon University\u201d or use the map to navigate to Pittsburgh/CMU.",
+          "correct": false,
+          "error_description": "Used \u201cWhere is this?\u201d which only reports the current map center location and does not help find Hunt Library.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "Return to normal search and search for \u201cCarnegie Mellon University\u201d (or \u201cPittsburgh\u201d) to reposition the map correctly.",
+          "correct": false,
+          "error_description": "Typed a new query into the wrong context (the where-am-I search), causing the coordinates to be concatenated with the query.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Clear the malformed query and run a clean search query.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Type a clean query into the main search box (not concatenated with coordinates) and submit.",
+          "correct": false,
+          "error_description": "Typed into the wrong input (or without properly clearing), continuing the coordinate+query concatenation problem.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Directly navigate to a clean search URL (or search for \u201cCarnegie Mellon University\u201d) to reset the broken query state.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "If still no results, broaden to \u201cCarnegie Mellon University\u201d alone or use known coordinates/address for Hunt Library.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Center the map on CMU/Hunt Library using coordinates or by selecting a CMU result, then search nearby for cafes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "With the map centered on CMU, search for \u201cHunt Library\u201d or directly query nearby amenities (cafes) around the map center.",
+          "correct": false,
+          "error_description": "Clicked a generic page button (welcome/overlay control) instead of performing a place/amenity search.",
+          "recovered": true
+        },
+        {
+          "step": 21,
+          "expected_action": "Search for \u201cHunt Library\u201d (or \u201cHunt Library CMU\u201d) using the search box, not the where-am-I tool.",
+          "correct": false,
+          "error_description": "Clicked \u201cWhere is this?\u201d again, which only reports the current location and does not find Hunt Library or cafes.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Use the normal search box to find \u201cHunt Library\u201d and select it from results, then look for nearby cafes.",
+          "correct": false,
+          "error_description": "Typed \u201cHunt Library CMU\u201d into the where-am-I query field, again concatenating coordinates with the search term.",
+          "recovered": true
+        },
+        {
+          "step": 23,
+          "expected_action": "Clear the malformed query and run a clean search for \u201cHunt Library\u201d or \u201cHunt Library CMU\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Enter a clean query in the correct search box and submit once, then wait for results.",
+          "correct": false,
+          "error_description": "Typed into the wrong input again (coordinates/search concatenation persisted), so the query remained malformed and returned no results.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Return to the main map search and search for \u201cHunt Library\u201d or \u201cCarnegie Mellon University\u201d cleanly, then proceed to cafe search.",
+          "correct": false,
+          "error_description": "Clicked an unrelated control/link instead of fixing the search workflow; this diverted to directions without identifying Hunt Library or cafes.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Exit directions and use map search or query features to find cafes near Hunt Library.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button in directions (likely back/close) without using directions inputs or progressing toward finding cafes.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Search for \u201cHunt Library\u201d and select the correct result, then search for \u201ccafe\u201d around that location.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 28,
+          "expected_action": "If Hunt Library search fails, search for \u201cCarnegie Mellon University\u201d and then use \u201cQuery features\u201d/amenity=cafe near the map center.",
+          "correct": false,
+          "error_description": "Jumped to a generic \u2018cafe near Hunt Library\u2019 text search even though Hunt Library could not be resolved in OSM search, leading to no results.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Keep the map centered on CMU and use \u2018Query features\u2019 or a direct amenity=cafe search around the current map view.",
+          "correct": false,
+          "error_description": "Returned to the map without executing any cafe discovery method (no query features, no amenity search, no selecting results).",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Run a nearby cafe search (e.g., \u2018cafe\u2019 with query features/amenity filter) and report the closest cafes to Hunt Library.",
+          "correct": false,
+          "error_description": "Stopped without finding or reporting any cafes.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:20:29.860323+00:00"
+    },
+    "webarena::gpt_5_2::140": {
+      "taskKey": "webarena::gpt_5_2::140",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "140",
+      "keyStep": 8,
+      "failureSteps": [
+        8,
+        9,
+        10,
+        12,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error was at step 8: the agent typed 'books' into the forum selector but failed to select the actual 'books' dropdown option, leaving the target forum unset and causing all subsequent submit attempts to fail. Step 4 does not qualify because the agent moved on from the mistaken user-menu click and continued the posting flow, whereas the forum-selection parameter error was never corrected.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the forums list or use search to find the /f/books subreddit to post in.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search box to search for the books forum (e.g., type 'books' and submit).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Submit the search query for 'books' to locate the books forum.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click into the /f/books forum from the search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Click the global 'Submit' link/button to start creating a new post in /f/books (or find a 'submit to /f/books' option).",
+          "correct": false,
+          "error_description": "Opened the user menu (profile dropdown) instead of proceeding to create a submission.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Click the global 'Submit' link/button to open the create-submission page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "If accidentally navigated away, return to the submit page and continue creating the post.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "On the create submission page, select the 'books' forum from the forum chooser and fill in title/body.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Type 'books' into the forum selector input and then select the 'books' option from the dropdown list.",
+          "correct": false,
+          "error_description": "Typed 'books' into the forum selector input but did not actually select the 'books' forum option from the dropdown.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Select the 'books' option from the dropdown so the submission is targeted to /f/books.",
+          "correct": false,
+          "error_description": "Clicked the forum chooser again instead of selecting the 'books' option, leaving the forum unselected.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Enter the post title into the title field (not the body textarea) and ensure the forum is selected as 'books'.",
+          "correct": false,
+          "error_description": "Entered the title text into a textarea (likely the body field) rather than the dedicated title input, and the forum still wasn't confirmed selected.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Enter the post body into the body textarea and keep the title in the title field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Select the 'books' forum from the forum dropdown (or verify it is selected) before submitting.",
+          "correct": false,
+          "error_description": "Clicked the forum chooser again but still did not select the 'books' forum option.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If the forum selector is off-screen, scroll only as needed to reach the forum selector and submit button, then select 'books' and submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Open the forum dropdown and select the 'books' option from the list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Click the 'books' option in the dropdown list to set the target forum to /f/books.",
+          "correct": false,
+          "error_description": "Typed 'books' again into the dropdown filter instead of clicking the visible 'books' option to select it.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Click the 'books' option in the dropdown list to confirm selection.",
+          "correct": false,
+          "error_description": "Clicked the forum chooser area again rather than selecting the 'books' option, so the forum remained unconfirmed.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "After selecting the forum and filling title/body, click 'Create submission' to post.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' without having successfully selected the 'books' forum (and with the title likely in the wrong field), so submission could not proceed.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Fix missing/incorrect fields (select forum 'books' and ensure title is in the title input), then submit.",
+          "correct": false,
+          "error_description": "Re-opened the forum chooser again but did not correct the underlying issue by selecting 'books' and fixing the title field.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Click the 'books' option in the dropdown list to set the forum.",
+          "correct": false,
+          "error_description": "Clicked into the dropdown input rather than selecting the 'books' option from the list.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Once the forum is selected and required fields are correct, click 'Create submission' to post.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' again without having successfully selected the forum and without fixing the title placement.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Select 'books' from the dropdown list (or verify it is selected) and then submit.",
+          "correct": false,
+          "error_description": "Opened the forum chooser again but still did not select the 'books' option.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Click the 'books' option in the dropdown list to confirm the forum selection.",
+          "correct": false,
+          "error_description": "Clicked the dropdown input again instead of selecting the 'books' option.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use keyboard navigation only if needed, then press Enter on the highlighted 'books' option to select it.",
+          "correct": false,
+          "error_description": "Pressed ArrowDown without confirming selection (e.g., Enter) and without evidence the correct option was highlighted/selected.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Confirm the 'books' option selection (typically by clicking it or pressing Enter) rather than continuing to scroll through options.",
+          "correct": false,
+          "error_description": "Pressed ArrowDown again, continuing navigation without selecting 'books'.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Select 'books' (click or Enter) and then proceed to submit.",
+          "correct": false,
+          "error_description": "Pressed ArrowDown again instead of selecting the 'books' forum.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Stop retyping and click the 'books' option (or press Enter) to set the forum.",
+          "correct": false,
+          "error_description": "Retyped 'books' yet again rather than selecting the 'books' option from the dropdown.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Click the 'books' option in the dropdown list to confirm selection.",
+          "correct": false,
+          "error_description": "Clicked the forum chooser area again, which did not confirm selecting the 'books' forum.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "After fixing forum selection and title/body fields, click 'Create submission' to post.",
+          "correct": false,
+          "error_description": "Clicked 'Create submission' again without successfully selecting the forum and without correcting the title field issue.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Select the 'books' forum option and ensure the title is in the title input, then submit.",
+          "correct": false,
+          "error_description": "Reopened the forum chooser yet again instead of completing the required selection and submission.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Select 'books' from the dropdown (click the visible 'books' option) and then click 'Create submission' to finalize the post.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without ever selecting the 'books' forum and successfully submitting the post.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:21:52.409669+00:00"
+    },
+    "webarena::gpt_5_2::142": {
+      "taskKey": "webarena::gpt_5_2::142",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "142",
+      "keyStep": 13,
+      "failureSteps": [
+        13,
+        14
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 13 the agent typed the refund message but used an incorrect parameter/value for a required detail (left the SKU as a placeholder), and there is no later step that corrects it before stopping at step 14. Earlier navigation missteps (steps 0\u20138) were recovered because the agent ultimately reached the contact form and filled the message field.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate toward the site's Contact Us page (via footer/header link or search) rather than browsing product listings.",
+          "correct": false,
+          "error_description": "Scrolled through the homepage product grid without attempting to locate the Contact Us form.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Look for a Contact/Help/Customer Service link (often in header/footer) or use site search to find the contact page.",
+          "correct": false,
+          "error_description": "Continued scrolling product listings instead of locating the contact form.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Stop browsing listings and navigate to Contact Us (or use search/footer) to reach the form.",
+          "correct": false,
+          "error_description": "Used back navigation from the product listing page, which did not advance toward finding the contact form.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "From a blank/incorrect state, return to the store and then locate the Contact Us page via navigation elements.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Locate and open the Contact Us page (likely via footer) instead of scrolling the homepage again.",
+          "correct": false,
+          "error_description": "Scrolled down the homepage again rather than seeking the Contact Us link.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Use navigation (header/footer) to find Contact Us; if not visible, scroll strategically to the footer.",
+          "correct": false,
+          "error_description": "Scrolled up/down within product listings without targeting the footer or a Contact Us link.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Scroll to the footer or use a menu/search to find the Contact Us page.",
+          "correct": false,
+          "error_description": "Scrolled down again without selecting any navigation element toward Contact Us.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Navigate to Contact Us rather than opening an unrelated product page.",
+          "correct": false,
+          "error_description": "Clicked a product link (Pre-baked Gingerbread House) unrelated to contacting support for a refund.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "If already off-track in product browsing, stop and navigate directly to Contact Us.",
+          "correct": false,
+          "error_description": "Scrolled further within product listings instead of moving to the contact form.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Attempt to open the Contact Us page directly if a link isn't easily found.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "After hitting a 404, try an alternative valid contact URL or use on-page links (Store Home) to find Contact Us.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "If /contacts/ also fails, try another likely endpoint (e.g., /contact) or navigate via site links.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "On the Contact Us page, fill required fields (name, email, phone if required) and the message with refund request including order number and SKU.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Type a clear refund request stating the speaker broke after three days and include Order #148 and the product SKU (actual value).",
+          "correct": false,
+          "error_description": "Included a SKU placeholder instead of the actual product SKU required by the task.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Verify all required fields are filled correctly (including the actual SKU) and do not submit, leaving the form ready for user review.",
+          "correct": false,
+          "error_description": "Stopped with the message still containing a SKU placeholder rather than the actual SKU, leaving the task incomplete.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:22:58.763084+00:00"
+    },
+    "webarena::gpt_5_2::144": {
+      "taskKey": "webarena::gpt_5_2::144",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "144",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 6 the agent prematurely switched from tool actions to free-text, incorrectly asserting it couldn't post to Reddit and failing to initiate the required Reddit navigation/posting workflow; this was never corrected later. There are no earlier logged violations to qualify, and step 7 merely terminates after the unresolved step-6 failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the product name into the site search box and submit the search to find the correct product page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Narrow the search results to the specific 'Racing Wheel Overdrive...' product (e.g., by scrolling until it appears and selecting it).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the correct product result for 'Racing Wheel Overdrive Designed for Xbox Series X|S...' to open its product page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the reviews section (or click the reviews count) to view individual reviews and their star ratings.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Identify which reviews are 1-star (20%) and record their review titles, then continue scrolling if needed to find all 1-star titles.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue scanning reviews for 1-star (20%) entries and capture any additional 1-star review titles.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Proceed to Reddit (log in if necessary) and create a post in r/games titled 'real user feedback on Racing Wheel Overdrive for Xbox X' containing the collected 1-star review titles.",
+          "correct": false,
+          "error_description": "The agent did not navigate to Reddit or attempt to create the required subreddit post; instead it produced an improperly formatted free-text response and claimed it couldn't post.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "If posting failed earlier, retry by navigating to Reddit and submitting the post with the specified title and the list of 1-star review titles.",
+          "correct": false,
+          "error_description": "The agent stopped without attempting the Reddit posting workflow, leaving the main task requirement (posting to r/games) incomplete.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:23:39.852661+00:00"
+    },
+    "webarena::gpt_5_2::146": {
+      "taskKey": "webarena::gpt_5_2::146",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "146",
+      "keyStep": 12,
+      "failureSteps": [
+        12,
+        14,
+        15
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 12 the agent entered the intended title into the wrong field (likely the body textarea), leaving the required title input empty; the action log shows no later correction (no subsequent typing into the title field), so the submission could not be completed. Earlier violations (steps 1\u20133, 8\u20139) were recovered because the agent later navigated to the GitLab repo and then to Reddit\u2019s submit page with the correct link filled.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to a place where the agent can find a GitLab repository related to ChatGPT (e.g., open GitLab or a general search tool).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Use an appropriate search method to locate a ChatGPT-related GitLab repository (preferably by going to GitLab and using its search).",
+          "correct": false,
+          "error_description": "Entered an external-web style query into the forum site's search box, which only searches local forum posts and cannot find GitLab repositories.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "After seeing no results, switch to GitLab (or another proper source) to search for ChatGPT repositories.",
+          "correct": false,
+          "error_description": "Clicked into the forum's internal search field again instead of moving to GitLab or another relevant search interface.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Leave the forum search and use GitLab's Explore/Search to find a ChatGPT-related repository.",
+          "correct": false,
+          "error_description": "Continued using the forum's internal search with a generic query, which still cannot locate GitLab repositories.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to GitLab (via the WebArena hub) and search there for ChatGPT-related projects.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Click into GitLab from the WebArena hub.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Use GitLab's search bar to search for 'ChatGPT' and locate a relevant repository.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Open a relevant ChatGPT-related GitLab project from the search results and capture its URL for later posting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Copy/confirm the repository URL and then proceed to Reddit to create a post linking to it.",
+          "correct": false,
+          "error_description": "Clicked a GitLab navigation/control element ('This project' menu) instead of proceeding toward Reddit posting or capturing the link explicitly.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to Reddit's submission page to create a post linking to the GitLab repository.",
+          "correct": false,
+          "error_description": "Clicked the GitLab top navigation (switcher) rather than moving to Reddit; this did not advance the Reddit-posting goal.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Go to Reddit and open the 'Create submission' page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Fill the Reddit submission form correctly: provide a title, the GitLab link in the URL field, and select an appropriate subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Enter a clear post title in the title field (not the body field) and ensure the link remains in the URL field.",
+          "correct": false,
+          "error_description": "Typed the intended title into a textarea (likely the body) instead of the title input, leaving the title field empty.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Add optional body text (if desired) and verify the title field is filled; then choose a relevant subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Select a relevant subreddit (e.g., MachineLearning) from the dropdown/list.",
+          "correct": false,
+          "error_description": "Clicked the 'Choose one\u2026' control but did not actually select any subreddit.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Finalize by selecting the subreddit, ensuring the title is filled, and clicking 'Create submission' to publish the Reddit post.",
+          "correct": false,
+          "error_description": "Stopped without selecting a subreddit and without clicking 'Create submission' to publish (and the title likely remained empty).",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:24:18.305306+00:00"
+    },
+    "webarena::gpt_5_2::38": {
+      "taskKey": "webarena::gpt_5_2::38",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "38",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error occurs at step 2: instead of selecting the context option to start directions/routing from the origin, the agent clicked an unrelated/unlabeled map control and never subsequently initiated the directions workflow. All later violations are repetitions of the same mis-targeted clicking/search behavior without evidence in the action log that directions mode was ever opened, so the step-2 error was never resolved.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for \u201cAnimal Rescue League of Pittsburgh\u201d using the main search box to locate the origin.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the correct search result for Animal Rescue League of Pittsburgh to get a selectable place for routing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Choose \u201cDirections from here\u201d (or otherwise start routing) from the place\u2019s context options.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled map control/link instead of initiating directions/routing from the origin.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "If directions were not started, click \u201cDirections from here\u201d for the Animal Rescue League location.",
+          "correct": false,
+          "error_description": "Clicked another unrelated control (likely zoom/pan) rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Continued interacting with map controls instead of opening the directions workflow.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Zoomed/panned rather than starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Clicked map UI (map key/layers/zoom) instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link/control; no progress toward routing.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Clicked the copyright/attribution control area rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Clicked another unrelated control (likely zoom) instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Continued clicking map controls; directions still not started.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Initiate routing from the origin via \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Opened the Share panel (or similar) instead of directions/routing.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Close share and start directions from the origin (or use the directions links in the map footer).",
+          "correct": false,
+          "error_description": "Clicked another footer/control item rather than selecting \u201cDirections from here/to here\u201d.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Start directions from the origin using \u201cDirections from here\u201d.",
+          "correct": false,
+          "error_description": "Opened Map Layers instead of starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Exit layers and start directions from the origin.",
+          "correct": false,
+          "error_description": "Clicked within the layers UI (or toggled it) without initiating routing.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Click \u201cDirections from here\u201d for Animal Rescue League of Pittsburgh.",
+          "correct": false,
+          "error_description": "Clicked the map footer/control area again rather than the directions action.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Start directions from the origin and proceed to set destination.",
+          "correct": false,
+          "error_description": "Clicked another unrelated control; still no routing interface.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Start directions from the origin and proceed to set destination.",
+          "correct": false,
+          "error_description": "Opened/used Map Key control instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Start directions from the origin and proceed to set destination.",
+          "correct": false,
+          "error_description": "Clicked Share/other control again; no progress toward travel time.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Use \u201cDirections from here\u201d and then enter Schenley Park as destination.",
+          "correct": false,
+          "error_description": "Zoomed out instead of initiating directions.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Use \u201cDirections from here\u201d and then enter Schenley Park as destination.",
+          "correct": false,
+          "error_description": "Clicked another footer/control item (likely pan/zoom) rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Start directions from the origin (Animal Rescue League) rather than continuing map navigation.",
+          "correct": false,
+          "error_description": "Clicked the map footer/control area again; still not in directions mode.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Start directions from the origin and set destination to Schenley Park.",
+          "correct": false,
+          "error_description": "Zoomed in/out instead of starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use the search box only after directions is started (or use a routing panel) to set destination.",
+          "correct": false,
+          "error_description": "Clicked into the search box without having initiated a directions workflow from the origin.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "If directions mode is active, enter \u201cSchenley Park\u201d as destination; otherwise first click \u201cDirections from here\u201d at the origin.",
+          "correct": false,
+          "error_description": "Searched for Schenley Park as a separate lookup instead of setting it as the destination in a directions/routing interface.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Select Schenley Park and then use \u201cDirections to here\u201d (or return to origin and start routing properly).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "Click \u201cDirections to here\u201d for Schenley Park to create a route from the origin.",
+          "correct": false,
+          "error_description": "Clicked the map footer/control area instead of selecting \u201cDirections to here\u201d.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Click \u201cDirections to here\u201d (or open routing panel) and ensure origin is Animal Rescue League of Pittsburgh, then read the car travel time.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled control (likely zoom/pan) rather than initiating directions to Schenley Park.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Initiate directions to Schenley Park and compute the driving time.",
+          "correct": false,
+          "error_description": "Clicked the footer/control area again; no routing result obtained.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Initiate directions to Schenley Park and compute the driving time.",
+          "correct": false,
+          "error_description": "Zoomed in/out instead of starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "If directions are not yet shown, start routing (Directions from Animal Rescue League to Schenley Park) and read the minimum car travel time.",
+          "correct": false,
+          "error_description": "Stopped without ever opening a directions/routing view that provides driving time.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:25:16.804675+00:00"
+    },
+    "webarena::gpt_5_2::44": {
+      "taskKey": "webarena::gpt_5_2::44",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "44",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 3 the agent clicked the wrong filter control (generic \"Any\"), failing to constrain results to the user's own issues and/or sort by last updated, which led it onto the wrong result set. There is no evidence in later steps that it corrected the filtering/sorting or re-identified the latest updated issue containing \"better\", so subsequent steps (4\u20136) compounded the same unrecovered selection error.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click into the global search input (top navbar search) to begin searching for issues with \"better\" in the title.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Enter the keyword \"better\" into the search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Switch the search scope to Issues to find issues matching \"better\".",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Refine results to the user's own issues (e.g., Issues I've created/assigned) and sort by last updated to identify the latest updated issue with \"better\" in the title.",
+          "correct": false,
+          "error_description": "The agent clicked the generic \"Any\" filter instead of filtering to the user's own issues and/or sorting by last updated to locate the latest updated matching issue.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Apply a filter/sort that helps identify the latest updated matching issue (e.g., set project/group filter appropriately, then sort by updated date).",
+          "correct": false,
+          "error_description": "The agent clicked another \"Any\" dropdown without applying a meaningful filter or sorting by updated date to determine the latest updated issue.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Open the latest updated issue whose title contains \"better\" from the correctly filtered/sorted results.",
+          "correct": false,
+          "error_description": "The agent opened an issue that does not contain the keyword \"better\" in its title and did not verify it was the latest updated matching issue.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "On the opened issue page, check whether the issue is closed or open and report the status for the correct (latest updated, title contains \"better\") issue.",
+          "correct": false,
+          "error_description": "The agent reported the open/closed status for the wrong issue (title lacks \"better\"), so it did not answer the task as asked.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:26:15.412602+00:00"
+    },
+    "webarena::gpt_5_2::6": {
+      "taskKey": "webarena::gpt_5_2::6",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "6",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest permanent error occurs at Step 6: the agent used an overly specific Nominatim-style free-text query instead of a viable nearby-POI search method (category/nearby search, query features, or broader terms), and the later steps never successfully corrected course to find a supermarket and compute walking directions. There are no earlier violations to consider as recovered; all subsequent actions compounded the initial non-viable search approach rather than resolving it.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for \u201cPittsburgh International Airport\u201d to center the map on the airport area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the main Pittsburgh International Airport result to confirm the location and proceed with nearby hotel search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Search for nearby Hilton-branded hotels (e.g., \u201cHilton\u201d, \u201cDoubleTree\u201d, \u201cHilton Garden Inn\u201d) around the airport area.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select a Hilton-family hotel result near the airport (any valid Hilton brand) to use as the reference hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "From the hotel feature page, switch back to the map context or otherwise prepare to search for supermarkets near the hotel location.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Confirm the selected hotel location (or return to it) so subsequent POI searches are anchored near the hotel.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Search for supermarkets near the hotel using an effective query (e.g., \u201csupermarket\u201d, \u201cgrocery\u201d, or known chains) and/or use map-based query features.",
+          "correct": false,
+          "error_description": "Used an overly specific free-text query (\u201csupermarket near DoubleTree by Hilton...\u201d) that Nominatim often fails to interpret, instead of searching for \u201csupermarket\u201d (or \u201cgrocery\u201d) near the current map view or using category/nearby search.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "After getting no results, broaden the query and/or use alternative terms like \u201cgrocery\u201d, \u201cconvenience\u201d, or a known chain, and ensure the search actually executes.",
+          "correct": false,
+          "error_description": "Typed \u201csupermarket\u201d but did not execute a new search (the results page/URL did not change), so no progress was made toward finding nearby supermarkets.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Run a proper nearby POI search (execute the query) or use 'Query features' on the map to locate supermarkets around the hotel.",
+          "correct": false,
+          "error_description": "Clicked the Edit menu button, which is unrelated to finding supermarkets or computing walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Return focus to searching for supermarkets (execute a POI search or use map query tools), not editing controls.",
+          "correct": false,
+          "error_description": "Clicked into the search box but did not correct the earlier issue (still no effective nearby supermarket discovery method used).",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Search for a likely nearby supermarket (e.g., \u201cGiant Eagle\u201d) and open a result, then use Directions (from hotel to supermarket) set to walking to obtain the shortest walking distance.",
+          "correct": false,
+          "error_description": "Attempted a chain-name search but still did not proceed to open a supermarket result or compute walking directions/distance from the hotel.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If a supermarket is found, open it and use walking directions from the hotel to get the shortest walking distance; if not found, try alternate queries/zoom out before concluding.",
+          "correct": false,
+          "error_description": "Stopped after failed searches without trying workable recovery steps (e.g., zooming out, searching 'grocery', using 'Query features', or using walking directions), so the required walking distance was never determined.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:26:54.499024+00:00"
+    },
+    "webarena::gpt_5_2::68": {
+      "taskKey": "webarena::gpt_5_2::68",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "68",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "The earliest permanent error is Step 1: the agent clicked the sort dropdown but failed to actually select Price (ascending), so results were never ordered by cheapest and the agent never transitioned into inspecting products for 15+ card capacity. All later violations are repetitions/derivatives of this same unresolved execution failure, so earlier steps do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search box to search for a Nintendo Switch game card holder that can hold at least 15 cards.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Change the search results sort order to Price (ascending) so the least expensive items appear first.",
+          "correct": false,
+          "error_description": "The agent only clicked the sort dropdown but did not actually select 'Price' (and ascending) to sort by lowest price.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Select 'Price' in the sort dropdown (then ensure ascending) to sort results from lowest to highest price.",
+          "correct": false,
+          "error_description": "The agent repeated clicking the sort dropdown without choosing a sort option, making no progress toward finding the cheapest qualifying item.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "If the dropdown is open, choose 'Price'; otherwise open it and then choose 'Price', then proceed to inspect the first (cheapest) results for 15+ card capacity.",
+          "correct": false,
+          "error_description": "The agent clicked the direction toggle (ascending/descending) without first sorting by price, so it still wasn't ordering items by cheapest.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "After sorting by Price ascending, open the first few product pages and verify storage capacity is at least 15 cards, then identify the lowest-priced qualifying product.",
+          "correct": false,
+          "error_description": "The agent again clicked the sort dropdown instead of selecting 'Price' and then evaluating product listings for capacity.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Select 'Price' sorting (ascending) and then click into the cheapest product listing to confirm it holds 15+ cards.",
+          "correct": false,
+          "error_description": "The agent continued repeatedly clicking the sort dropdown with no selection and did not open any product to check capacity.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stop repeating the dropdown click; instead choose 'Price' sort and/or click a product result to check card capacity details.",
+          "correct": false,
+          "error_description": "The agent kept clicking the same sort control, resulting in a loop and no progress toward identifying the least expensive qualifying holder.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Either apply a price-ascending sort successfully or refine the query/filters, then inspect product pages for 15+ card capacity and compare prices.",
+          "correct": false,
+          "error_description": "The agent repeated the same ineffective click again and still did not sort by price or inspect any products.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Break out of the loop by selecting a sort option (Price) or clicking a product listing to verify capacity and price.",
+          "correct": false,
+          "error_description": "The agent continued the same dropdown click loop and made no attempt to verify storage capacity or identify the cheapest item.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If stuck, try an alternative (use Advanced Search, refine keywords like 'game card case 24', or open product listings directly) rather than stopping.",
+          "correct": false,
+          "error_description": "The agent stopped due to repeating the same action and never reached a product comparison or identified the least expensive holder with 15+ card capacity.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:27:40.773357+00:00"
+    },
+    "webarena::gpt_5_2::7": {
+      "taskKey": "webarena::gpt_5_2::7",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "7",
+      "keyStep": 10,
+      "failureSteps": [
+        10,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error was Step 10: the agent selected the wrong place ('Warner Hall') as the origin instead of Gates/CMU, so subsequent directions attempts were based on incorrect endpoints and never produced the needed travel-time conclusion. Earlier violations (Steps 1, 5, 7, 8, 11) were later corrected by changing queries/inputs and proceeding to the directions UI, so they do not qualify as the keyStep.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the origin location (Gates Building at CMU) into the main search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If no results are found, refine the query (e.g., add city/state or use an address) and resubmit rather than clicking an unrelated control.",
+          "correct": false,
+          "error_description": "Clicked the top search box instead of refining/submitting a corrected query after getting 'No results found'.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Type a more specific query for the Gates Building (e.g., 'Gates Center for Computer Science, Pittsburgh, PA') and submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Submit the refined search query (press enter or click the search button) to get results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Try another more reliable origin identifier (e.g., street address for Gates/CMU) in the search box and submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "After 'No results found', change to a different query (preferably an address) and submit, rather than just focusing the input.",
+          "correct": false,
+          "error_description": "Clicked into the search input again without actually submitting a new query or changing strategy.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Enter a corrected/more specific origin query and submit it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Replace the origin query with a known address for CMU/Gates (or clear the malformed query) and submit.",
+          "correct": false,
+          "error_description": "Typed an address into a different input while the URL/query became malformed (concatenated queries), indicating the agent did not properly clear/submit the search fields.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Wait for results to load and then select the correct result for the origin address.",
+          "correct": false,
+          "error_description": "Clicked the search results toggle/button while results were still 'Loading...' instead of waiting and selecting a result.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Run a clean search for the CMU/Gates origin using the address and submit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Select the most appropriate search result corresponding to the intended origin near Gates/CMU.",
+          "correct": false,
+          "error_description": "Selected 'Warner Hall' (a different building) rather than locating/selecting Gates Center for Computer Science as the origin.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "From the selected place, choose 'Directions from here' or otherwise open directions with this as the origin (ideally after correcting the origin to Gates).",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link in the footer area rather than explicitly choosing a directions action tied to the correct origin.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate back to the map or open the directions panel to compute a route from the correct origin to the police station.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Open the directions page/panel to set origin and destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Enter the origin as Gates Building/Gates Center for Computer Science (or its address) in the 'from' field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Enter the destination as a specific Pittsburgh police station (or 'Pittsburgh Bureau of Police' HQ) and then trigger route calculation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Click the 'Go' button (or equivalent) to calculate directions after filling both fields.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Ensure the travel mode is set to Car and then read the resulting travel time.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "If the route did not compute, adjust the destination to a specific station and re-run directions rather than clicking unrelated inputs.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled input/control instead of resolving why no route summary/time was shown (e.g., by selecting a destination suggestion or re-submitting).",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Click 'Go' or otherwise submit the directions form to compute the route and display travel time.",
+          "correct": false,
+          "error_description": "Clicked 'Reverse Directions' which swaps endpoints and does not address the missing/unclear route computation for the intended question.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "After reversing (if done), verify endpoints are correct (Gates -> police station) and read the car travel time from the directions results.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled input again; did not extract travel time or correct the reversed endpoints (now police station -> Gates).",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Read the displayed route duration and compare it to one hour; if not displayed, scroll/look for the route summary panel.",
+          "correct": false,
+          "error_description": "Repeated clicking the same unlabeled input instead of locating the route duration or fixing missing results.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "If duration is still not visible, change strategy (e.g., select a specific destination result, re-enter addresses, or refresh) to obtain the travel time.",
+          "correct": false,
+          "error_description": "Continued repeating the same click action without making progress toward obtaining the travel time.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Stop repeating the same action and instead retrieve the route duration from the directions results or re-run directions properly.",
+          "correct": false,
+          "error_description": "Repeated the same click again, leading to stagnation.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Take a corrective action to obtain the car travel time (e.g., re-enter endpoints, select a suggestion, or look for the itinerary panel).",
+          "correct": false,
+          "error_description": "Repeated the same click yet again; no corrective action taken.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Provide the conclusion by reading the computed car travel time and stating whether it is within one hour.",
+          "correct": false,
+          "error_description": "Stopped early due to repeating the same action and never obtained or reported the travel time needed to answer the question.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:28:32.897193+00:00"
+    },
+    "webarena::gpt_5_2::79": {
+      "taskKey": "webarena::gpt_5_2::79",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "79",
+      "keyStep": 20,
+      "failureSteps": [
+        20,
+        21
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 20: the agent clicked element [3] (sign out) instead of continuing pagination/searching orders, which cut off access to the order history and was not corrected. Step 4 does not qualify because the agent recovered by going back (Step 5) and continuing to open additional orders afterward.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the account area where order history can be accessed (e.g., click \u201cMy Account\u201d if not already there).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the order history page by clicking \u201cMy Orders.\u201d",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the most recent order (\u201cView Order\u201d) to check whether it contains body butter and note the order date if it does.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Inspect the order\u2019s item list (scroll if needed) to see whether any item is body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Return to the order list (e.g., click \u201cMy Orders\u201d) after confirming whether this order includes body butter.",
+          "correct": false,
+          "error_description": "Tried to click a non-existent element ([26]) instead of using an available navigation link (e.g., \u201cMy Orders\u201d).",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Go back to the order history page to continue checking other orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the next most recent order (\u201cView Order\u201d) and check its items for body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "After checking items, return to \u201cMy Orders\u201d to continue scanning other orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Open another order (\u201cView Order\u201d) and check whether it contains body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Return to \u201cMy Orders\u201d after checking the order contents.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Open another order (\u201cView Order\u201d) and check whether it contains body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Return to \u201cMy Orders\u201d after checking the order contents.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Open another order (\u201cView Order\u201d) and check whether it contains body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Return to \u201cMy Orders\u201d after checking the order contents.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Open another order (\u201cView Order\u201d) and check whether it contains body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to \u201cMy Orders\u201d after checking the order contents.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Use pagination (Next/Page 2) or increase orders-per-page to continue searching older orders for body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Click \u201cNext\u201d (or Page 2) to move to older orders and continue checking for body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Open an order on page 2 (\u201cView Order\u201d) and check whether it contains body butter.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "Return to \u201cMy Orders\u201d after checking the order contents so you can continue searching.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "Continue to page 2 again (or page 3) and keep opening orders until body butter is found, rather than signing out.",
+          "correct": false,
+          "error_description": "Signed out mid-task, preventing further access to order history needed to find the last body butter order.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "If signed out accidentally, sign back in and resume searching order history; otherwise provide the date once the body butter order is identified.",
+          "correct": false,
+          "error_description": "Stopped without determining the last body butter order date and did not attempt to sign back in to continue the search.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:29:37.517195+00:00"
+    },
+    "webarena::gpt_5_2::91": {
+      "taskKey": "webarena::gpt_5_2::91",
+      "dataset": "webarena",
+      "model": "gpt_5_2",
+      "taskId": "91",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 2 the agent issued an unconstrained USCIS query (missing Pittsburgh/near CMU), which put the session into the wrong geographic context and was never corrected later (subsequent steps continued operating on Rhode Island/Providence and generic endpoints). Later mistakes (layers/share/donation clicks and routing-mode clicking loop) stem from this unresolved wrong-location selection, so earlier recovered errors (e.g., step 11/21) do not qualify.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for \u201cCarnegie Mellon University\u201d in the OpenStreetMap search box to center the map on CMU.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the most relevant CMU search result in Pittsburgh to establish the starting location context.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Search for a nearby USCIS office in/near Pittsburgh (e.g., \u201cUSCIS Pittsburgh\u201d or \u201cUS Citizenship and Immigration Services Pittsburgh\u201d).",
+          "correct": false,
+          "error_description": "The agent searched for \u201cUS Citizenship and Immigration Services\u201d without constraining to Pittsburgh/near CMU, leading to irrelevant results elsewhere.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Select a USCIS result that is near CMU/Pittsburgh (or refine the query to Pittsburgh if results are far away).",
+          "correct": false,
+          "error_description": "The agent clicked a USCIS result in Johnston, Rhode Island, not near Carnegie Mellon University.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Return to the CMU/Pittsburgh area and re-run the USCIS search with a Pittsburgh constraint, then identify the nearby USCIS office address.",
+          "correct": false,
+          "error_description": "The agent opened the node details for the Rhode Island USCIS location instead of correcting back to Pittsburgh/near CMU.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use map/directions features to compute distance from CMU to the nearby USCIS office (in Pittsburgh), not open sharing tools.",
+          "correct": false,
+          "error_description": "The agent clicked into Share/Link UI, which does not help find nearby USCIS or compute walking distance to SSA.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Initiate directions or search for SSA near the selected USCIS location (after ensuring the USCIS location is correct).",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated control (likely map/zoom or UI element) instead of progressing toward directions or a constrained SSA search.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Search for \u201cSocial Security Administration\u201d near the (correct) USCIS location and then compute walking distance between them.",
+          "correct": false,
+          "error_description": "The agent searched SSA while still centered on the wrong region (Rhode Island) and without using a constrained/nearby query method.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Pick the nearest SSA result to the USCIS location currently in context (or refine query to the correct city) rather than navigating back aimlessly.",
+          "correct": false,
+          "error_description": "The agent went back instead of selecting an SSA result or refining the search to the correct area.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Use the search box to correct the geography back to Pittsburgh/CMU and then search for USCIS nearby.",
+          "correct": false,
+          "error_description": "The agent clicked a map UI element (likely layers/controls) rather than correcting the location context or searching properly.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If opening layers, close it and proceed to search/directions; otherwise directly search for USCIS Pittsburgh/near CMU.",
+          "correct": false,
+          "error_description": "The agent opened Map Layers, which is not relevant to finding nearby USCIS/SSA or computing walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Return focus to search/directions (not donations) and continue with finding correct USCIS near CMU.",
+          "correct": false,
+          "error_description": "The agent clicked \u201cMake a Donation,\u201d navigating away from the task.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Go back to OpenStreetMap to continue the task after the accidental donation-page navigation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Search for \u201cUSCIS Pittsburgh\u201d (or similar) to find the USCIS office near CMU.",
+          "correct": false,
+          "error_description": "The agent again clicked a map UI element instead of performing the needed constrained search for USCIS near CMU.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Close layers and use search/directions to locate USCIS near CMU/Pittsburgh.",
+          "correct": false,
+          "error_description": "The agent opened Map Layers again, which does not advance the task.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Search for SSA near the USCIS location using a proper nearby query or by first selecting the correct USCIS in Pittsburgh.",
+          "correct": false,
+          "error_description": "The agent used an imprecise query (\u201cSocial Security Administration near US Citizenship and Immigration Services\u201d) without having the correct USCIS location context, leading to failure.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "After no results, refine by specifying the correct city (Pittsburgh) or use directions from the USCIS point to an SSA result.",
+          "correct": false,
+          "error_description": "The agent retyped a generic SSA query without fixing the underlying issue (wrong/unclear location context).",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Submit the refined search or choose a different strategy (e.g., search \u201cSSA Providence\u201d only if Providence is intended, or return to Pittsburgh).",
+          "correct": false,
+          "error_description": "The agent clicked an unclear UI element instead of executing a meaningful refinement or selecting a result.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Use a city-specific query (or click \u2018Directions from here\u2019 on the USCIS node) rather than adding raw coordinates to a generic text query.",
+          "correct": false,
+          "error_description": "The agent entered a coordinate-laden query that is unlikely to work with Nominatim in that format and did not correct the location mismatch.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Wait for results or refine the query; do not click the Nominatim attribution link.",
+          "correct": false,
+          "error_description": "The agent clicked the \u201cOpenStreetMap Nominatim\u201d link (attribution) instead of interacting with results or refining the search.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Search for SSA near the correct USCIS location (ideally Pittsburgh) or use directions between USCIS and an SSA office.",
+          "correct": false,
+          "error_description": "The agent searched \u201cSocial Security Administration Providence RI,\u201d which is unrelated to the original goal near CMU and indicates continued wrong geography.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "If no results, broaden slightly (e.g., \u201cSocial Security Office Providence RI\u201d) or switch to directions by selecting a specific SSA location; also ensure USCIS is the correct nearby one.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated UI element instead of refining the search effectively or selecting a specific SSA destination.",
+          "recovered": true
+        },
+        {
+          "step": 22,
+          "expected_action": "Use the Directions panel to set mode to Foot and set start as the USCIS location and destination as the nearest SSA office (in the same area).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Enter a specific SSA office near the USCIS location (or at least constrain to the same city/state) so routing is local and walkable.",
+          "correct": false,
+          "error_description": "The agent entered a generic \u201cSocial Security Administration\u201d destination without selecting a nearby/local SSA office, risking routing to an arbitrary far-away match.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Select Foot (walking) routing mode before calculating the route to obtain walking distance.",
+          "correct": false,
+          "error_description": "The agent clicked the routing mode selector but did not actually choose Foot; the subsequent route remained in car mode.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "If the route is in car mode or extremely long, change to Foot and correct endpoints to local USCIS and nearest SSA, then recompute.",
+          "correct": false,
+          "error_description": "The agent repeatedly clicked the mode selector while the route stayed as a 468 km car route, indicating endpoints/mode were wrong and not corrected.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Actively switch to Foot (OSRM) and/or edit endpoints to the correct nearby SSA, then read the walking distance.",
+          "correct": false,
+          "error_description": "The agent continued clicking the same selector without changing mode or fixing endpoints, making no progress.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Stop repeating the same click; instead select Foot and correct the destination to the nearest SSA to the USCIS location.",
+          "correct": false,
+          "error_description": "The agent repeated the same ineffective click again, failing to adjust mode or locations.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Correct the route by selecting Foot and ensuring both points are in the same city near CMU, then extract walking distance.",
+          "correct": false,
+          "error_description": "The agent continued the same repeated click behavior with no corrective action.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "If stuck, change strategy: re-search for USCIS Pittsburgh and SSA Pittsburgh, select specific results, then compute walking directions between them.",
+          "correct": false,
+          "error_description": "The agent stopped after repeating the same action multiple times without ever finding the USCIS near CMU or the walking distance to the nearest SSA.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T02:30:52.158243+00:00"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+config,auroc,e_aurc,brier,delta_auroc_vs_all
+"all (macro+micro, 49 feat.)",0.7697,0.1295,0.1886,0.0
+"macro only (31 feat., micro removed)",0.7694,0.1289,0.1905,0.0003
+"micro/UQ only (18 feat., macro removed)",0.7351,0.1495,0.1994,0.0346

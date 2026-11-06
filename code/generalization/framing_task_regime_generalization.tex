@@ -1,0 +1,69 @@
+% framing_task_regime_generalization.tex — 2026-08-01
+%
+% Standalone candidate replacement for the "Task-Regime Generalization"
+% subsection in results_total/paper/EMNLP_My__Copy_/latex/sections/
+% 4_experiments.tex (around line 288-300). NOT wired into that build --
+% saved here for the author to review/paste in.
+%
+% Why this rewrite: the existing paragraph there claims Macro&Micro
+% "achieves the best AUROC in every held-out regime" and "transfers
+% consistently across task regimes." Checked against the current
+% (2026-08-01, post outer-CV-shuffle-fix) numbers in
+% code/generalization/results/cross_category_{results,summary}.csv and
+% that claim does not hold: Macro&Micro wins AUROC on only 2/5 held-out
+% categories, essentially tied with HTC (M11) on the mean (0.789 vs
+% 0.787). The real, consistent advantage is on e-AURC/Brier (selective
+% ranking + calibration), not raw AUROC. Confirmed this reading from
+% the regenerated figure (results/website_generalization_figure.png,
+% also updated 2026-08-01: title/subtitle removed, 3 weakest baselines
+% dropped, HTC/Stacked_L2/Cross-Category Ours - M&M relabeled).
+%
+% Source data: code/generalization/results/cross_category_results.csv,
+% cross_category_summary.csv (method column: ours_l2_all,
+% m11_htc_full_step; category column: devtools, ecommerce,
+% health_services, social_entertain, travel_navigate).
+
+\subsection{Task-Regime Generalization}
+\label{subsec:task_regime_generalization}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig/website_generalization_figure.pdf}
+    \caption{Task-regime generalization under key-step labels. We hold out
+    one website category for testing and train on the remaining four.
+    Cross-Category Ours - M\&M (red) is compared against HTC (orange, M11),
+    Stacked\_L2 (M13), and the muted single-signal baseline cloud, across
+    AUROC, e-AURC, and Brier score.}
+    \label{fig:task_regime_generalization}
+\end{figure*}
+
+Figure~\ref{fig:task_regime_generalization} shows a more qualified picture
+than raw discriminative power alone would suggest. On \textbf{AUROC}, the
+pooled Macro\&Micro predictor is essentially tied with HTC: mean AUROC
+across the five held-out categories is \(0.789\) vs.\ HTC's \(0.787\), and
+Macro\&Micro wins only \(2/5\) categories outright (DevTools \(0.807\) vs.\
+\(0.759\); Health Services \(0.787\) vs.\ \(0.752\)), losing on E-Commerce
+(\(0.764\) vs.\ \(0.815\)) and Travel/Navigate (\(0.802\) vs.\ \(0.812\)),
+and nearly tying on Social/Entertainment (\(0.787\) vs.\ \(0.794\)).
+Macro\&Micro's advantage is not "higher AUROC in every regime" -- that
+claim does not hold in the current data.
+
+Where the dual-level representation \emph{is} consistently ahead is
+\textbf{e-AURC and Brier score} -- metrics that penalize how reliably risk
+is ranked and calibrated, not just whether it is ranked correctly on
+average. Macro\&Micro wins e-AURC on \(3/5\) categories (mean \(0.123\)
+vs.\ HTC's \(0.135\)) and Brier on \(4/5\) (mean \(0.187\) vs.\ \(0.193\)),
+with a tighter per-category range on both (e-AURC \(0.113\)--\(0.143\),
+Brier \(0.180\)--\(0.199\)) than HTC's. We read this as evidence that the
+dual-level macro+micro representation's advantage over a purely
+generation-confidence-derived signal like HTC lies in
+\emph{selective-ranking reliability and calibration under category shift},
+not in raw separability -- a narrower and more defensible claim than
+"transfers consistently across task regimes." One plausible (unverified)
+mechanism: HTC's score is a fitted probability over token-level
+generation-confidence statistics, which may separate successes from
+failures about as well as Macro\&Micro on average, but is less directly
+probability-like as a raw signal, which could show up as worse
+calibration/selective-ranking behavior under distribution shift even when
+raw discrimination is comparable. This has not been independently
+verified and should be treated as a hypothesis, not a conclusion.

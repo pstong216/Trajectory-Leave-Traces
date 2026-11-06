@@ -1,0 +1,16 @@
+{"event": "call1", "task_key": "webarena::claude::100", "success": true, "input_tokens": 9027, "output_tokens": 363, "cached_tokens": 0, "latency_s": 4.491, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::100", "success": true, "input_tokens": 1660, "output_tokens": 91, "cached_tokens": 1536, "latency_s": 2.521, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::118", "success": true, "input_tokens": 14146, "output_tokens": 1355, "cached_tokens": 13952, "latency_s": 16.028, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::118", "success": true, "input_tokens": 2600, "output_tokens": 136, "cached_tokens": 1664, "latency_s": 2.883, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::121", "success": true, "input_tokens": 4071, "output_tokens": 366, "cached_tokens": 0, "latency_s": 4.205, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::121", "success": true, "input_tokens": 1702, "output_tokens": 89, "cached_tokens": 1280, "latency_s": 2.243, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::140", "success": true, "input_tokens": 15611, "output_tokens": 2052, "cached_tokens": 15488, "latency_s": 22.742, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::140", "success": true, "input_tokens": 3341, "output_tokens": 137, "cached_tokens": 2048, "latency_s": 2.677, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::144", "success": true, "input_tokens": 12974, "output_tokens": 2238, "cached_tokens": 0, "latency_s": 21.039, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::144", "success": true, "input_tokens": 3356, "output_tokens": 159, "cached_tokens": 1280, "latency_s": 2.714, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::147", "success": true, "input_tokens": 14775, "output_tokens": 2237, "cached_tokens": 0, "latency_s": 25.872, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::147", "success": true, "input_tokens": 3718, "output_tokens": 160, "cached_tokens": 1280, "latency_s": 2.802, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::57", "success": true, "input_tokens": 9520, "output_tokens": 992, "cached_tokens": 0, "latency_s": 11.761, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::57", "success": true, "input_tokens": 2417, "output_tokens": 124, "cached_tokens": 1792, "latency_s": 3.252, "attempts": 1}
+{"event": "call1", "task_key": "webarena::claude::69", "success": true, "input_tokens": 5651, "output_tokens": 601, "cached_tokens": 0, "latency_s": 6.408, "attempts": 1}
+{"event": "call2", "task_key": "webarena::claude::69", "success": true, "input_tokens": 2157, "output_tokens": 140, "cached_tokens": 1280, "latency_s": 2.622, "attempts": 1}

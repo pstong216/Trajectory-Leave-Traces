@@ -1,0 +1,1699 @@
+{
+  "updatedAt": "2026-08-09T05:29:55.224719+00:00",
+  "dataset": "webarena",
+  "model": "gpt_5_2_m",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::gpt_5_2_m::0": {
+      "taskKey": "webarena::gpt_5_2_m::0",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "0",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "Step 2 began repeatedly interacting with the 'DayMonthYear' period selector instead of setting the January 2023 date range and running the report, and this was never corrected in later steps. Earlier Step 0 was marked recovered and does not qualify because the agent later continued with the wrong interaction pattern that prevented the report from ever being generated.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the Bestsellers report under Reports (Sales > Bestsellers) to get top-selling products for Jan 2023.",
+          "correct": false,
+          "error_description": "Clicked an element on the dashboard (likely the Bestsellers widget) rather than opening the dedicated Bestsellers report page.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the Bestsellers report page (report_sales/bestsellers) from the dashboard widget or menu.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Set the report period to January 2023 (From/To or Day/Month/Year selectors) and then click 'Show Report' to generate results.",
+          "correct": false,
+          "error_description": "Clicked the 'DayMonthYear' period selector instead of configuring the date range for Jan 2023 and running the report.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue configuring the period/date range for January 2023 and then click 'Show Report' to display the top products.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the same period selector ('DayMonthYear') without setting Jan 2023 or showing the report.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Set the From/To fields to cover January 2023 and click 'Show Report' to load the bestseller table.",
+          "correct": false,
+          "error_description": "Again clicked the 'DayMonthYear' selector rather than entering Jan 2023 dates and generating the report.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Enter the correct January 2023 date range (From/To) and click 'Show Report' to retrieve the top-3 best-selling products.",
+          "correct": false,
+          "error_description": "Continued the same incorrect interaction with the period selector; no date range or report execution occurred.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "After setting Jan 2023, click 'Show Report' and then read the top-3 products from the generated results.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the period selector; the report was never shown and no results were obtained.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Stop only after extracting the top-3 best-selling products for January 2023 from the report output.",
+          "correct": false,
+          "error_description": "Early-stopped due to repeating the same action; the top-3 products for Jan 2023 were never retrieved.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:27:28.230403+00:00"
+    },
+    "webarena::gpt_5_2_m::110": {
+      "taskKey": "webarena::gpt_5_2_m::110",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "110",
+      "keyStep": 12,
+      "failureSteps": [
+        12,
+        13,
+        14
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "Step 12 typed 302 into an unrelated ID/status filter input instead of selecting the filtered order row, which disrupted the grid state and made the order effectively unlocatable. Earlier issues were recovered by continuing navigation/search, but this later filter/selection mismatch was not corrected and directly led to the final 0-record result and inability to cancel.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the Sales > Orders page from the dashboard navigation so the order can be searched and cancelled.",
+          "correct": false,
+          "error_description": "Clicked the Orders menu item incorrectly from the dashboard context rather than navigating to the Orders grid page.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the Orders grid search/filter controls to enter the order number 302.",
+          "correct": false,
+          "error_description": "Typed '302' into a dashboard search/input area instead of the Orders grid search field.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Submit the search/filter for order 302 within the Orders grid.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element after typing 302, without reaching the Orders grid search results.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Navigate to the Sales > Orders listing page.",
+          "correct": false,
+          "error_description": "Clicked a dashboard element rather than performing a clear navigation to the Orders listing.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Load the Sales > Orders grid page where the order can be filtered by keyword/ID.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "On the Orders grid page, locate the 'Search by keyword' field and enter 302, then run the search.",
+          "correct": false,
+          "error_description": "The agent navigated to a non-existent/incorrect URL state (404 page) instead of using the Orders grid.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Ensure the Orders grid page loads correctly (no 404) before attempting to search for order 302.",
+          "correct": false,
+          "error_description": "Still on an incorrect URL state (404 page), not the Orders grid.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Enter 302 into the 'Search by keyword' field and submit the search to filter the Orders grid.",
+          "correct": false,
+          "error_description": "Typed 302 into the keyword search field but did not clearly submit the search at this step.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Verify the filter is applied (records found) and that order 302 appears in the grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Select the row for order 302 (or open its 'View' action) to access cancellation options.",
+          "correct": false,
+          "error_description": "Clicked the 'Search' button again rather than selecting/opening the order row.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Use the grid results to select the order 302 row (checkbox) or click 'View' for that order.",
+          "correct": false,
+          "error_description": "Typed 302 again into the keyword search field instead of selecting/opening the filtered order row.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Apply the correct filters without clearing them, ensuring order 302 remains visible in the grid.",
+          "correct": false,
+          "error_description": "Clicked the 'Filters' control area (likely disrupting the current filter state) rather than selecting the order.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Set the order status filter appropriately (or avoid changing filters) and then select the order 302 row for cancellation.",
+          "correct": false,
+          "error_description": "Typed 302 into an unrelated filter input (ID filter area) instead of selecting the order row.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Click 'Cancel' for the order 302 (or open the order and choose Cancel) after confirming it is present in the grid.",
+          "correct": false,
+          "error_description": "Clicked 'Apply Filters' without ensuring the order 302 row remained visible; this led to the order disappearing from results.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "If order 302 is not found, adjust filters/search to locate it again and then cancel it.",
+          "correct": false,
+          "error_description": "Stopped because order 302 could not be found in the Orders grid (0 records), so cancellation could not be performed.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:27:38.339534+00:00"
+    },
+    "webarena::gpt_5_2_m::112": {
+      "taskKey": "webarena::gpt_5_2_m::112",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "112",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        4,
+        6,
+        7
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered issue is Step 1: the agent navigated to the Activity page instead of the Members/Project members invite page, and the subsequent steps show continued misalignment with the required invite workflow. Earlier violations were marked recovered, but the navigation/flow constraint was not actually satisfied, leading to an incorrect or incomplete invitation process despite the final stop message.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the repository page for the accessible-html-content-patterns project from the GitLab home/projects list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to the project members/invite page (project_members) to add Vinta as a guest.",
+          "correct": false,
+          "error_description": "Clicked a sidebar item that led to the Activity page instead of the Members/Project members page.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "From the project, go to the Members section (project_members) to invite a new member.",
+          "correct": false,
+          "error_description": "Clicked into the Activity section rather than the Members/Project members page.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "On the project_members page, click the 'Invite members' control to start inviting Vinta.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "In the invite form, type Vinta's username (vinta) into the member search field.",
+          "correct": false,
+          "error_description": "Started typing into the invite input but the entered value was incomplete/incorrect at this step (only partial 'vinta' entry shown).",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the suggested user entry for 'Vinta Chen (@vinta)' from the autocomplete results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Ensure the role is set to Guest (not higher) before submitting the invite.",
+          "correct": false,
+          "error_description": "Clicked the Invite members UI area without confirming/setting the role to Guest.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Click the 'Invite' button to send the invitation with the selected Guest role.",
+          "correct": false,
+          "error_description": "Clicked a different control (not the Invite submission button), so the invitation was not sent at this step.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Verify the success message and finish once Vinta is added with the Guest role.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:27:46.634961+00:00"
+    },
+    "webarena::gpt_5_2_m::113": {
+      "taskKey": "webarena::gpt_5_2_m::113",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "113",
+      "keyStep": 9,
+      "failureSteps": [
+        9,
+        12,
+        13,
+        14,
+        15
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 9 typed the new title without first fully clearing the duplicated existing text, causing the duplication to persist. Later steps (12-14) continued interacting/typing without a corrective full-clear-and-save sequence, so the agent never resolved the underlying parameter/input-state error before stopping at Step 15.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate from the admin dashboard to CMS Pages management.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element on the dashboard instead of opening CMS Pages.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue navigation toward CMS Pages (cms/page) from the dashboard.",
+          "correct": false,
+          "error_description": "Clicked another unrelated dashboard element rather than CMS Pages.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the CMS Pages list page (cms/page) where the 'Home Page' record can be selected.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Locate the row for the page titled 'Home Page' in the CMS pages grid.",
+          "correct": false,
+          "error_description": "Scrolled without selecting the 'Home Page' row yet.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Click the 'Edit' action for the 'Home Page' record.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "On the edit form, focus the 'Page Title' input field for the Home Page.",
+          "correct": false,
+          "error_description": "Scrolled down instead of interacting with the 'Page Title' field.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Type the exact new title into the 'Page Title' field, ensuring the old text is replaced/cleared.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Save the page after updating the title.",
+          "correct": false,
+          "error_description": "Clicked the 'Save' button but the subsequent state indicates the title update was not correctly finalized (later duplication error).",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Verify the 'Page Title' field value and ensure it matches exactly the requested string before proceeding.",
+          "correct": false,
+          "error_description": "Scrolled while the page title field still shows duplicated text, rather than correcting it immediately.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Clear the 'Page Title' field completely and re-enter exactly 'This is the home page!! Leave here!!'.",
+          "correct": false,
+          "error_description": "Typed the new title again without first fully clearing the duplicated existing text.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Select all text in the 'Page Title' input to prepare for full replacement.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Replace the selected text with exactly 'This is the home page!! Leave here!!'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "Confirm the input now contains exactly the requested title and then save.",
+          "correct": false,
+          "error_description": "Clicked into the input area without ensuring the field content was correct and without saving at this point.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Select all text again if needed to ensure the field is exactly the requested title.",
+          "correct": false,
+          "error_description": "Pressed Ctrl+A again without evidence the duplicated text issue was resolved; no corrective save action occurred.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Type the exact requested title into the 'Page Title' field (after full clearing/selection).",
+          "correct": false,
+          "error_description": "Typed again without confirming the field was fully cleared and correct; duplication persisted per final failure.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Save the page and ensure the 'Page Title' field matches exactly the requested string with no duplication.",
+          "correct": false,
+          "error_description": "Attempted to finish but the system reported the Page Title still contained duplicated text and required full clearing then exact set + save.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:27:57.462866+00:00"
+    },
+    "webarena::gpt_5_2_m::125": {
+      "taskKey": "webarena::gpt_5_2_m::125",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "125",
+      "keyStep": 4,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At Step 4 the agent committed to an incorrect base URL (/admin/admin/sales/order/) rather than using the required Sales > Orders navigation or a verified order URL pattern. This led to subsequent 404s (notably Step 5 and Step 10) and the agent never successfully recovered to the Orders workflow to reach the address edit screen.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the Sales > Orders section (or use the admin order search) to access the order edit screen for order #299.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element on the dashboard rather than entering the Orders area or order search.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the admin order search or go to Sales > Orders to locate order #299.",
+          "correct": false,
+          "error_description": "The agent typed '299' into a dashboard input field instead of using the Orders search workflow.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Submit the order search or navigate to the Orders grid/listing to find order #299.",
+          "correct": false,
+          "error_description": "The agent clicked a button tied to the dashboard input rather than navigating to the Orders search/results.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Proceed to Sales > Orders (or a valid order search results page) to reach the order edit screen.",
+          "correct": false,
+          "error_description": "The agent clicked another unrelated dashboard element instead of moving toward the Orders section.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the correct order edit URL or navigate through Sales > Orders to the order view/edit page.",
+          "correct": false,
+          "error_description": "The agent navigated to an incorrect base URL (/admin/admin/sales/order/) that does not lead to the order edit screen.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "If the URL is wrong, correct it by returning to Sales > Orders or using a valid order view URL for order_id=299.",
+          "correct": false,
+          "error_description": "The page loaded a 404/not-found state for the attempted order URL, and the agent did not correct the approach immediately.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Recover by navigating back to the dashboard and then using Sales > Orders or a valid order view URL pattern.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element while still on a 404 page, not clearly recovering to the Orders workflow.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the admin navigation to reach Sales > Orders (or the order search) rather than interacting with dashboard inputs.",
+          "correct": false,
+          "error_description": "The agent returned to the dashboard and again interacted with dashboard UI rather than going to Sales > Orders.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Submit the order search in the correct Orders context or navigate to Sales > Orders to locate order #299.",
+          "correct": false,
+          "error_description": "The agent typed 'order 299' into a dashboard input field, not an Orders search control.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to the order view/edit page using the correct URL structure for order_id=299 (and ensure it loads).",
+          "correct": false,
+          "error_description": "The agent used a guessed direct URL (/admin/admin/sales/order/view/order_id/299) without verifying the correct routing, leading to a 404 later.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If the order view URL returns 404, immediately switch to Sales > Orders listing/search to find the order and open its edit screen.",
+          "correct": false,
+          "error_description": "The order view URL returned a 404 page, so the agent did not reach the order edit screen.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Recover by navigating to Sales > Orders and using the order grid/search to open order #299.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element and returned to the dashboard rather than using Sales > Orders to locate the order.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Continue attempting recovery (e.g., go to Sales > Orders and search for #299) until the address edit screen is reached.",
+          "correct": false,
+          "error_description": "The agent stopped without successfully accessing the order edit screen; the 404 issue was not resolved.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:28:09.878763+00:00"
+    },
+    "webarena::gpt_5_2_m::126": {
+      "taskKey": "webarena::gpt_5_2_m::126",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "126",
+      "keyStep": 30,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "The agent never reached a successful save/verification of adding Blue for sizes S and M and instead terminated with 'Early stop: Reach max steps 30'. Earlier navigation/configuration mistakes were not corrected in a way that led to completion, but the immediate terminal cause of failure is exhausting the 30-step budget.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate from the admin dashboard to Catalog > Products to edit the Frankie Sweatshirt product.",
+          "correct": false,
+          "error_description": "Clicked an unrelated dashboard element (ID 14) instead of entering the Products catalog.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the left navigation to reach Catalog > Products (or use search) rather than typing into the dashboard scope/search field.",
+          "correct": false,
+          "error_description": "Typed 'Frankie Sweatshirt' into a dashboard search/input area rather than the Products grid search.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "After searching, click the correct result or navigate to Catalog > Products edit page for Frankie Sweatshirt.",
+          "correct": false,
+          "error_description": "Clicked another unrelated element (ID 14) without reaching the product listing.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Continue navigation toward Catalog > Products (or product edit) using the Magento menu.",
+          "correct": false,
+          "error_description": "Clicked a random element (ID 12) while still on the dashboard page.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to Catalog > Products to locate Frankie Sweatshirt.",
+          "correct": false,
+          "error_description": "Clicked element ID 14 again without making progress toward the product catalog.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Once on Catalog > Products, use the grid search to find 'Frankie Sweatshirt'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Type 'Frankie Sweatshirt' into the Products grid search box and submit/search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "From the filtered results, click Edit for the Frankie Sweatshirt configurable product (not a random other product).",
+          "correct": false,
+          "error_description": "Clicked Edit for a different product row (e.g., Deirdre Relaxed-Fit Capri) rather than the Frankie Sweatshirt configurable.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the grid search/filters to re-find 'Frankie Sweatshirt' after selecting the wrong product.",
+          "correct": false,
+          "error_description": "Opened/typed into the filter UI with 'Frankie Sweatshirt' but did not clearly correct the selection to the Frankie product edit page yet.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Apply the filter/search so the grid shows only Frankie Sweatshirt products.",
+          "correct": false,
+          "error_description": "Typed 'Frankie Sweatshirt' into a filter field (keyword) without applying the search/filter.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Apply the filters (e.g., click Apply Filters) to update the product grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Submit the grid search/filter (or ensure the grid is filtered) so Frankie Sweatshirt appears in results.",
+          "correct": false,
+          "error_description": "Typed 'Frankie' into the keyword search box, likely narrowing incorrectly and not ensuring the correct results.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Click Edit for the Frankie Sweatshirt configurable product (the one with variations by Size/Color).",
+          "correct": false,
+          "error_description": "Clicked Remove on the active filter (ID 69) instead of selecting the Frankie product to edit.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "After clearing/adjusting filters, click Edit for the Frankie Sweatshirt configurable product (ID 110 in the later URL).",
+          "correct": false,
+          "error_description": "Clicked Edit for a different product (Emma Leggings) rather than Frankie Sweatshirt.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "On the product edit page, proceed to the configurable product's 'Configurations' / 'Associated Products' area to add the new Blue color for sizes S and M.",
+          "correct": false,
+          "error_description": "Clicked 'Add Attribute' (ID 69) instead of editing configurations/associated products for Size/Color.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "If an attribute selection UI opened, close/cancel it and return to the configurable product configuration/associated products workflow.",
+          "correct": false,
+          "error_description": "Clicked 'Advanced Inventory' close/other control (ID 78) rather than returning to configurations to add Blue for S and M.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Scroll to find the configurable product configuration/associated products section (not random attribute fields).",
+          "correct": false,
+          "error_description": "Scrolled down within the product attribute form area, not toward the configurations/associated products needed for adding a new color.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Locate and edit the Size/Color configuration attributes for the configurable product, then add Blue for sizes S and M.",
+          "correct": false,
+          "error_description": "Continued scrolling through unrelated attribute fields (e.g., Stock Status/Category/Style) rather than configuration management.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Continue to the configuration/associated products section for the configurable product.",
+          "correct": false,
+          "error_description": "Scrolled further through attribute fields (Material/Sleeve/Size) instead of configuration/associated products.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Select the Color attribute value 'Blue' for the configurable product and ensure it applies to sizes S and M.",
+          "correct": false,
+          "error_description": "Scrolled through attribute dropdowns (Pattern/Climate/Color) without performing the required configuration update for sizes S and M.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Go to the configurable product's 'Configurations' tab and use 'Edit Configurations' / 'Create Product Configurations' to add Blue for sizes S and M.",
+          "correct": false,
+          "error_description": "Clicked into the configurations area but the page indicates invalid/unsaved changes; action did not resolve the invalid data and did not clearly target S and M Blue.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Proceed with 'Create Product Configurations' or 'Edit Configurations' to generate the needed Size/Color combinations (S+Blue and M+Blue).",
+          "correct": false,
+          "error_description": "Clicked 'Next' (ID 89) without ensuring the correct attribute values (Blue, sizes S and M) were selected.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "In Step 1 (Select Attributes), ensure both Size and Color are selected for configuration creation.",
+          "correct": false,
+          "error_description": "Clicked 'Next' (ID 89) from Step 1 without confirming the correct attribute selection state.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "In Step 2 (Attribute Values), select Color='Blue' and Size='S' and 'M' only.",
+          "correct": false,
+          "error_description": "Clicked a size value (ID 96) rather than selecting the intended combination of Size S and M with Color Blue.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Select Color='Blue' in the Color attribute values list.",
+          "correct": false,
+          "error_description": "Clicked a size-related option (ID 98) while still on Step 2, not selecting Blue.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Select Color='Blue' and keep only sizes S and M selected for the configuration generation.",
+          "correct": false,
+          "error_description": "Clicked Color option 'Brown' (ID 117) instead of 'Blue'.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Return to Step 2 and correct the selection to Color='Blue' and sizes S and M.",
+          "correct": false,
+          "error_description": "Clicked 'Next' (ID 89) without correcting the wrong color selection.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "On Step 3, set images/prices/quantities as needed or skip, then proceed to generate products.",
+          "correct": false,
+          "error_description": "Clicked 'Next' (ID 89) but the configuration selection appears incorrect (not Blue for S and M), so generation would be wrong.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "On Step 4 Summary, verify the generated SKUs include Blue for sizes S and M, then generate products.",
+          "correct": false,
+          "error_description": "Clicked 'Generate Products' (ID 89) without verifying the summary matches the requirement (Blue for S and M).",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "After generation, save changes and confirm the new Blue S and M SKUs exist.",
+          "correct": false,
+          "error_description": "Clicked 'Back' (ID 88) instead of saving/confirming the generated configurations.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Finalize by saving the product and ensuring Blue is added for sizes S and M.",
+          "correct": false,
+          "error_description": "Early stopped due to max steps; no successful save/verification of Blue for S and M occurred.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:28:39.286092+00:00"
+    },
+    "webarena::gpt_5_2_m::137": {
+      "taskKey": "webarena::gpt_5_2_m::137",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "137",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 clicked a generic submit link from the forums listing without ensuring it targeted the AskReddit subreddit, creating a persistent navigation/action disconnect. Later issues (Steps 3 and 5) were recovered, but the initial mis-targeting led directly to the final failure state.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the submission form for the target subreddit (AskReddit) so the post can be created there.",
+          "correct": false,
+          "error_description": "Clicked a generic 'Submit' link from the forums listing without ensuring it would target the AskReddit subreddit.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Enter the post title as 'Iphone 14' in the title field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter the post body with the exact prompt 'your opinion' in the body/textarea field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the subreddit/forum as 'AskReddit' from the forum dropdown.",
+          "correct": false,
+          "error_description": "Clicked the wrong element (likely the dropdown label) rather than selecting the AskReddit option.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Scroll only if needed to reveal the forum options, then select 'AskReddit'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the 'AskReddit' option from the forum dropdown.",
+          "correct": false,
+          "error_description": "Clicked the dropdown control again instead of choosing the AskReddit option.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Type/select 'AskReddit' in the forum selector so the post will be submitted to /f/AskReddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Confirm the forum selection and submit the post by clicking the 'Create submission' button.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Verify the post was created in /f/AskReddit with title 'Iphone 14' and body 'your opinion', then stop.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:28:46.947553+00:00"
+    },
+    "webarena::gpt_5_2_m::15": {
+      "taskKey": "webarena::gpt_5_2_m::15",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "15",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 typed the query into the map search box but did not submit or navigate to results, so the agent never reached the page state needed to obtain the ZIP. There are no earlier recovered errors because the task ended immediately after this step.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up 'Chatham University' on the map so the address/ZIP can be found.",
+          "correct": false,
+          "error_description": "The agent typed into the search input but did not submit the query or navigate to results, leaving the task incomplete at this step.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "From the search results for 'Chatham University', read the ZIP code from the listed address and stop with that ZIP.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:28:51.911078+00:00"
+    },
+    "webarena::gpt_5_2_m::161": {
+      "taskKey": "webarena::gpt_5_2_m::161",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "161",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        4,
+        7,
+        10,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0, where the agent fails to correctly locate and enter the intended gimmiethat.space GitLab repo context before editing. This initial constraint/context failure cascades into repeated mis-targeted UI actions and ultimately prevents completing car/urls.txt when the Reddit /r/cars endpoint fails.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the gimmiethat.space GitLab repository page (or search for it) to start editing files in the correct repo.",
+          "correct": false,
+          "error_description": "The agent clicked the top-level navigation item instead of initiating a search for the target repository.",
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the GitLab search box to find the gimmiethat.space project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the gimmiethat.space project from the search results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Go to the repository file browser area where you can create a new directory and add files.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Open the 'New directory' option (or equivalent) to create the car/ folder in the repo.",
+          "correct": false,
+          "error_description": "The agent clicked an 'Add to tree' control rather than directly selecting the 'New directory' action.",
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "In the 'Create New Directory' modal, enter the directory name car.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Submit the directory creation by clicking 'Create directory' after entering car.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Ensure the directory name input is correctly set to car (not an extra phrase) before creating it.",
+          "correct": false,
+          "error_description": "The agent typed 'Add car directory' into the directory name field, which is not the intended folder name.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the file browser to verify the created directory exists and then navigate into it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Open the car directory contents (or confirm the directory exists) to prepare for adding urls.txt.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "From the car directory view, choose 'New file' to create car/urls.txt.",
+          "correct": false,
+          "error_description": "The agent clicked 'Add to tree' rather than selecting 'New file' within the car directory.",
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Select 'New file' in the car directory.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 12,
+          "expected_action": "In the 'New file' form, set the filename to urls.txt.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 13,
+          "expected_action": "Choose the correct template/content editor option (or proceed) to enter the file contents for urls.txt.",
+          "correct": false,
+          "error_description": "The agent clicked the template selector area instead of proceeding to the content editor to populate urls.txt.",
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Stay in the GitLab new-file editor and fill urls.txt with the 5 most recent /r/cars post links.",
+          "correct": false,
+          "error_description": "The agent opened a new tab, leaving the GitLab editor without completing urls.txt content.",
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Open the Reddit (WebArena) /r/cars page (or search within Reddit) to retrieve the 5 most recent post URLs.",
+          "correct": false,
+          "error_description": "The agent navigated to a Reddit /r/cars 'new' URL rather than a page that can be used to extract the 5 most recent post links.",
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "If /r/cars returns 404, try an alternative Reddit endpoint or search method to locate recent car-related posts.",
+          "correct": false,
+          "error_description": "The agent encountered a 404 on /r/cars/new and did not immediately switch to a working alternative for retrieving recent posts.",
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Return to a working Reddit page and locate the most recent posts relevant to cars.",
+          "correct": false,
+          "error_description": "The agent clicked 'Forums' and ended up on a general listing, not specifically /r/cars recent posts.",
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Use the Reddit search to find the correct 'cars' forum/subreddit and then extract the 5 most recent post URLs.",
+          "correct": false,
+          "error_description": "The agent typed 'cars' into a field but did not ensure it was the correct forum/subreddit context for /r/cars.",
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "From the search results, open the correct subreddit/forum page for cars and collect the 5 most recent post links.",
+          "correct": false,
+          "error_description": "The agent searched broadly for 'cars' and then navigated away without confirming it corresponds to /r/cars recent posts.",
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "If /r/cars is 404, do not keep using /r/cars URLs; instead use the search results to gather recent post links.",
+          "correct": false,
+          "error_description": "The agent attempted to go to /r/cars again and then switched to an unrelated GitLab explore URL.",
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Stay within the Reddit/WebArena context to find recent car posts; do not use GitLab explore URLs for this task.",
+          "correct": false,
+          "error_description": "The agent landed on a GitLab 'Page Not Found' and then typed 'cars' into a GitLab search field.",
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Continue Reddit retrieval (not GitLab) to obtain 5 recent car post URLs.",
+          "correct": false,
+          "error_description": "The agent performed a GitLab search for 'cars' and found no matching projects, which is unrelated to the required Reddit post links.",
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Navigate back to the Reddit/WebArena interface to continue collecting car post URLs.",
+          "correct": false,
+          "error_description": "The agent went to the WebArena home page and clicked 'Reddit' without ensuring it would lead to /r/cars recent posts.",
+          "recovered": null
+        },
+        {
+          "step": 24,
+          "expected_action": "Locate the specific 'cars' forum/subreddit within the forums list (or use search) to access recent posts.",
+          "correct": false,
+          "error_description": "The agent opened the forums list but did not find/select the 'cars' forum; it instead used Ctrl+F later.",
+          "recovered": null
+        },
+        {
+          "step": 25,
+          "expected_action": "Use Ctrl+F to find the 'cars' forum entry and open it.",
+          "correct": false,
+          "error_description": "The agent typed 'cars' into the page search field but did not actually open the cars forum entry.",
+          "recovered": null
+        },
+        {
+          "step": 26,
+          "expected_action": "Use the Reddit search results to extract the 5 most recent car-related post URLs.",
+          "correct": false,
+          "error_description": "The agent returned to the Reddit search results but did not proceed to collect the 5 most recent post links for urls.txt.",
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Return to GitLab and complete car/urls.txt by pasting the 5 most recent /r/cars post URLs, then save the file.",
+          "correct": false,
+          "error_description": "The agent stopped with an inability to retrieve /r/cars recent links due to 404, and did not complete urls.txt in the repo.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:08.950851+00:00"
+    },
+    "webarena::gpt_5_2_m::164": {
+      "taskKey": "webarena::gpt_5_2_m::164",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "164",
+      "keyStep": 4,
+      "failureSteps": [
+        4
+      ],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "No violations were detected in the violation report, and the agent ended with a stop message after only 5 steps. With no unrecovered errors to attribute, the failure is best explained as reaching the task termination condition/limited interaction budget rather than a specific agent mistake.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the a11yproject.com project page from the GitLab home/projects list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Navigate to the Issues list for the a11yproject.com project.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the issues search/filter to find the specific issue titled \"404 for many URLs\" (likely #1534).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the issue entry for \"404 for many URLs\" (#1534) from the filtered results.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Verify assignment status and, if not assigned to the user, assign the issue to yourself.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:14.527635+00:00"
+    },
+    "webarena::gpt_5_2_m::21": {
+      "taskKey": "webarena::gpt_5_2_m::21",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "21",
+      "keyStep": 5,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "failureCause": "System:EnvironmentError",
+      "notes": "Step 5 navigated to an incorrect invoices URL that led to a 404, and the agent did not successfully recover to the Invoices listing afterward. Because the environment returned 404 for the expected navigation path and the agent ultimately could not retrieve the grand total, the failure is best attributed to an environment/navigation state error rather than a single recoverable action mistake.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the Magento admin navigation or search to reach the Invoices listing page where invoice 000000002 can be found.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the global search/input field (or the relevant navigation control) to start searching for invoice 000000002.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element (scope/search UI area) instead of clearly focusing the search control for invoice lookup.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Type the invoice identifier (000000002) into the focused search field.",
+          "correct": false,
+          "error_description": "The agent typed 'invoices' rather than the specific invoice number 000000002.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Submit the search or navigate to the Invoices grid results page.",
+          "correct": false,
+          "error_description": "The agent clicked a button without ensuring the search query was submitted correctly for invoice 000000002.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to the Invoices section (Sales > Invoices) or open the invoice search results.",
+          "correct": false,
+          "error_description": "The agent continued clicking unrelated UI elements and did not reach the Invoices listing/results.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Open the correct Invoices listing page (Sales > Invoices) to locate invoice 000000002.",
+          "correct": false,
+          "error_description": "The agent navigated to an incorrect URL path (later leading to 404), rather than the proper Invoices listing.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "If the direct invoices URL fails (404), return to the dashboard and use the left navigation to reach Sales > Invoices.",
+          "correct": false,
+          "error_description": "The agent landed on a 404 page at /admin/admin/sales/invoice/ instead of recovering immediately via correct navigation.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Recover from the 404 by using the Magento menu to go to Sales > Invoices (not by continuing to click random elements).",
+          "correct": false,
+          "error_description": "The agent clicked within the 404 page context and did not successfully reach the Invoices listing.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Return to the dashboard and use the Sales menu to open the Invoices grid.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated menu item and did not directly open Sales > Invoices.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to Sales > Invoices (not Orders) so the invoice grid can be searched for 000000002.",
+          "correct": false,
+          "error_description": "The agent navigated to Sales > Order page URL (/sales/order/) instead of Invoices.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "From the Orders page, switch to the Invoices page (Sales > Invoices) or use a reliable search within invoices.",
+          "correct": false,
+          "error_description": "The agent remained on the Orders area and did not switch to Invoices.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the Sales menu to open Sales > Invoices.",
+          "correct": false,
+          "error_description": "The agent clicked an element that returned to the dashboard rather than opening the Invoices grid.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Focus the global search field and enter invoice number 000000002.",
+          "correct": false,
+          "error_description": "The agent typed into the wrong input context (global search not properly targeted for invoice lookup).",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Submit the search for invoice 000000002 and open the matching invoice record to read its grand total.",
+          "correct": false,
+          "error_description": "The agent did not successfully submit and open invoice results; it continued interacting without reaching invoice details.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Ensure the search is submitted and results are displayed, or navigate directly to Sales > Invoices to find invoice 000000002.",
+          "correct": false,
+          "error_description": "The agent clicked again without achieving invoice results or navigating to the Invoices grid.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Press Enter/submit the search query for invoice 000000002.",
+          "correct": false,
+          "error_description": "The agent pressed Enter in a context that did not lead to invoice results or invoice detail retrieval.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "If invoice lookup still fails, use alternative navigation (Sales > Invoices) or a direct invoice view URL pattern to retrieve grand total.",
+          "correct": false,
+          "error_description": "The agent stopped without successfully retrieving the grand total; the earlier 404/navigation failure was not resolved.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:27.042123+00:00"
+    },
+    "webarena::gpt_5_2_m::3": {
+      "taskKey": "webarena::gpt_5_2_m::3",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "3",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 permanently derailed the task by clicking an unrelated UI control instead of opening the directions/routing interface. Subsequent steps repeatedly failed to enter the correct directions workflow (often landing in notes/share/zoom or place detail pages), and there is no evidence of successfully recovering to obtain walking and driving travel times before the max-step stop.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the directions/routing interface on the map so the agent can compute walking and driving travel times between the two named places.",
+          "correct": false,
+          "error_description": "Clicked an unrelated button (likely Edit) instead of starting directions/routing.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search box to find the starting location 'Randyland' and select the correct result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Select the correct 'Randyland' search result (the one in Pittsburgh) to set the start point.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Return to the map/directions UI after selecting Randyland, then search for 'Carnegie Mellon University' to set the destination.",
+          "correct": false,
+          "error_description": "Navigated to the Randyland node details page rather than proceeding to directions setup.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "From the Randyland place page, continue to the directions workflow (set start and then destination).",
+          "correct": false,
+          "error_description": "Clicked an unrelated element (Zoom/other control) on the node page instead of starting directions.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the search box to enter 'Carnegie Mellon University' to set the destination.",
+          "correct": false,
+          "error_description": "Typed the destination into the page but did not successfully trigger the intended search/directions flow.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the correct 'Carnegie Mellon University' result to set the destination.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Proceed to the directions/routing interface to compute walking and driving times from Randyland to CMU.",
+          "correct": false,
+          "error_description": "Navigated to the CMU relation details page instead of starting routing.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "From the CMU place page, continue to directions/routing (choose walking and driving, then read travel times).",
+          "correct": false,
+          "error_description": "Clicked an unrelated control (Zoom/other) rather than opening directions.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Avoid entering map note/edit workflows; instead open directions/routing to get travel times.",
+          "correct": false,
+          "error_description": "Clicked into 'New Note' (map editing) instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Exit the note workflow and return to the map directions/routing UI.",
+          "correct": false,
+          "error_description": "Continued interacting within the note workflow rather than switching to directions.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the map UI to access directions/routing (e.g., 'Directions from here/to here') for both walking and driving.",
+          "correct": false,
+          "error_description": "Clicked a random map control (likely zoom) and did not access directions.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Open the directions/routing panel rather than the share/export UI.",
+          "correct": false,
+          "error_description": "Clicked 'Share' controls instead of directions/routing.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Navigate back to the main map and then open directions/routing between the two points.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element (not directions).",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Open directions/routing (not map key) to compute walking and driving times.",
+          "correct": false,
+          "error_description": "Clicked the map key area rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Access directions/routing from the map interface.",
+          "correct": false,
+          "error_description": "Clicked zoom-related UI instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Open directions/routing between Randyland and CMU.",
+          "correct": false,
+          "error_description": "Clicked map key/other UI; no routing initiated.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Open directions/routing and select travel mode (walking).",
+          "correct": false,
+          "error_description": "Clicked another unrelated control (not directions).",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Open directions/routing rather than map layers/settings.",
+          "correct": false,
+          "error_description": "Clicked map layers/settings instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Return to directions/routing UI to compute walking and driving times.",
+          "correct": false,
+          "error_description": "Clicked zoom/other control; routing not started.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Open directions/routing between the two locations.",
+          "correct": false,
+          "error_description": "Clicked map key/share-related UI; no directions.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Open directions/routing and read walking time.",
+          "correct": false,
+          "error_description": "Clicked another unrelated control; still no routing.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Open directions/routing rather than zooming out.",
+          "correct": false,
+          "error_description": "Clicked zoom out; did not access directions.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Open directions/routing UI (not share/HTML/Geo URI) to compute travel times.",
+          "correct": false,
+          "error_description": "Clicked share/Geo URI area instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Open directions/routing between Randyland and CMU.",
+          "correct": false,
+          "error_description": "Clicked map key/other UI; routing not initiated.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Exit note workflow and go to directions/routing.",
+          "correct": false,
+          "error_description": "Clicked within 'New Note' workflow again instead of directions.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Open directions/routing between the two points.",
+          "correct": false,
+          "error_description": "Clicked zoom/other control; no routing.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Open directions/routing UI to compute walking and driving times.",
+          "correct": false,
+          "error_description": "Clicked share/HTML/Geo URI area rather than directions.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Open directions/routing UI.",
+          "correct": false,
+          "error_description": "Clicked zoom/other control; routing not started.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Open directions/routing UI.",
+          "correct": false,
+          "error_description": "Clicked share/HTML/Geo URI area; no directions.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "If directions were opened, read walking and driving times and compute the difference; otherwise continue attempting to reach directions.",
+          "correct": false,
+          "error_description": "Agent stopped early without obtaining walking/driving travel times; directions were never successfully used.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:43.545597+00:00"
+    },
+    "webarena::gpt_5_2_m::69": {
+      "taskKey": "webarena::gpt_5_2_m::69",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "69",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 0 clicked an unrelated map link instead of opening the directions interface. The violation was marked [RECOVERED], but the action log shows no subsequent navigation to a directions UI\u2014only typing the two locations\u2014so the initial disconnect likely prevented correct route computation, making the final time unreliable.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the directions page (or open the directions UI) to start a route query between Pittsburgh, PA and Philadelphia, PA.",
+          "correct": false,
+          "error_description": "Clicked an unrelated 'where is this?' link on the map instead of going to the directions interface.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Enter 'Pittsburgh, PA' into the origin input field for directions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter 'Philadelphia, PA' into the destination input field for directions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Read the car route travel time from the directions results and report the total time.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:49.149441+00:00"
+    },
+    "webarena::gpt_5_2_m::89": {
+      "taskKey": "webarena::gpt_5_2_m::89",
+      "dataset": "webarena",
+      "model": "gpt_5_2_m",
+      "taskId": "89",
+      "keyStep": 2,
+      "failureSteps": [
+        2
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "Step 2 repeatedly clicked the same result index without confirming navigation to the correct Echo Dot 3rd generation listing, leading to an unrecovered failure to reach a page with customer reviews. Earlier steps do not qualify because the only flagged issue is the unrecovered parameter/index error at Step 2.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search to look up the specific product page for the Amazon Echo Dot 3rd generation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the search results page, click the listing that matches 'Echo Dot 3rd generation' to open its product detail page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "If the first click did not open the correct product, select the correct 'Echo Dot 3rd generation' result from the updated results list.",
+          "correct": false,
+          "error_description": "The agent clicked the same result index again without evidence it had navigated to the correct product, risking selecting an incorrect item.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "On the product page, navigate to the Reviews section or check whether any customer reviews exist for this listing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "If no customer reviews are present, report that there are no reviews to summarize; otherwise, summarize the available customer reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:29:55.224685+00:00"
+    }
+  }
+}

@@ -1,0 +1,2002 @@
+{
+  "updatedAt": "2026-08-12T03:17:32.744106+00:00",
+  "dataset": "webarena",
+  "model": "gptnano_m",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::gptnano_m::103": {
+      "taskKey": "webarena::gptnano_m::103",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "103",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "At step 0 the agent clicked Add to Cart for the currently viewed product without first comparing per-unit prices across the open tabs, committing to an incorrect strategy that directly caused the failure. Step 1 compounded the issue by stopping without verification, but it does not supersede step 0 because there is no evidence in the action log that the initial comparison omission was ever recognized or corrected.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Determine the lowest per-unit price among the products in the open tabs (by checking each tab\u2019s unit/quantity and price) and only then click \u201cAdd to Cart\u201d on that lowest-per-unit item.",
+          "correct": false,
+          "error_description": "The agent added the currently viewed candle product to the cart without comparing per-unit prices across the open tabs, so it may not be the lowest per-unit option.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Wait for the add-to-cart action to complete and then navigate to the cart (or verify cart contents) to ensure the lowest per-unit item was added, correcting course if the wrong item was added.",
+          "correct": false,
+          "error_description": "The agent stopped while the page still showed \u201cAdding...\u201d and without verifying the cart or confirming that the lowest per-unit product from all open tabs was selected.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:00:50.332062+00:00"
+    },
+    "webarena::gptnano_m::107": {
+      "taskKey": "webarena::gptnano_m::107",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "107",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "KeyStep is Step 0: the agent immediately typed a guessed price (27.00) without first reading the current price or reliably overwriting the field, introducing an incorrect/possibly concatenated value that was never corrected later. Subsequent steps repeat the same wrong-parameter typing and never successfully perform a select-all/clear-and-overwrite plus verification, so no earlier violation is genuinely recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Read the current Price value and then overwrite it with the new price that is $5 lower.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 without first confirming the current price, so it may not represent a $5 reduction and may append rather than replace.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "If the price field did not overwrite cleanly, select-all/clear the field and enter the correct reduced price once.",
+          "correct": false,
+          "error_description": "The agent redundantly typed 27.00 again, likely appending/duplicating instead of fixing the field or ensuring a $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Use a reliable overwrite method (Ctrl+A then type) or clear the field, then proceed to save.",
+          "correct": false,
+          "error_description": "The agent again typed 27.00 without clearing/selecting the existing value, repeating the same ineffective action.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Focus the Price input in preparation for select-all/overwrite and then enter the correct reduced price.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "After focusing, select-all/clear and enter the correct reduced price once.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again instead of using a clear/overwrite action, continuing to risk concatenation and not verifying $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Stop retyping and instead clear the field (Ctrl+A/Delete) then type the correct reduced price.",
+          "correct": false,
+          "error_description": "The agent repeated the same typing action again, compounding the likely malformed value.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Issue a properly formatted keyboard action (e.g., press Ctrl+A) to select the entire Price field content.",
+          "correct": false,
+          "error_description": "The agent produced an invalidly formatted action (tooling/format error), so no corrective keypress occurred.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Press Ctrl+A (or otherwise clear) and then type the corrected reduced price.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again without clearing/selecting, failing to correct the malformed field.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the correct action syntax to press Ctrl+A on the Price field.",
+          "correct": false,
+          "error_description": "Another formatting/tooling error prevented the intended Ctrl+A action from executing.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Focus the Price field so a subsequent Ctrl+A/clear action will apply to it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 10,
+          "expected_action": "Press Ctrl+A (or clear) and enter the correct reduced price once, then save.",
+          "correct": false,
+          "error_description": "The agent again typed 27.00 without clearing, repeating the ineffective approach.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If still not overwritten, perform select-all/clear on the Price field.",
+          "correct": false,
+          "error_description": "The agent only clicked the Price field again, not performing the needed clear/overwrite or saving.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Clear/select-all the Price field and type the correct reduced price once.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again without clearing, continuing the same failure mode.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Click the main Save button to persist the corrected price after ensuring the field is correct.",
+          "correct": false,
+          "error_description": "The agent clicked the Save dropdown (Select) instead of saving, without having reliably corrected the price field.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Choose 'Save' (or 'Save & Close') from the dropdown to persist changes, assuming the price is correctly set.",
+          "correct": false,
+          "error_description": "The agent clicked back into the Price field rather than selecting a save option, making no progress toward completion.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Clear/select-all the Price field and enter the correct reduced price once, then save.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again without clearing, still not ensuring a valid $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Click Save to persist the updated price after verifying it is correct.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Wait for confirmation of save success or resolve any validation errors shown after saving.",
+          "correct": false,
+          "error_description": "Instead of checking for a success message or errors, the agent clicked the Price field again.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "If save failed due to malformed price, clear/select-all and correct the Price field, then save again.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again without clearing, likely worsening the malformed value.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Check for save confirmation or errors; if none, stop because the task is complete.",
+          "correct": false,
+          "error_description": "The agent clicked a container/div (Top/Bottom area) rather than verifying save status or completing the task.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Locate the Price field and verify its current value (and/or the original price) to ensure it is exactly $5 lower.",
+          "correct": false,
+          "error_description": "The agent scrolled without verifying the price value or confirming the $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Inspect the Price field value and correct it via select-all/overwrite if needed.",
+          "correct": false,
+          "error_description": "The agent clicked the SKU field (not the Price field), not progressing toward correcting/verifying the price.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Keep the Price field in view and verify/correct it, then save if changes were made.",
+          "correct": false,
+          "error_description": "The agent scrolled again instead of verifying/correcting the price or saving.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "If the Price field is incorrect, clear/select-all and enter the correct reduced price once.",
+          "correct": false,
+          "error_description": "The agent typed 27.00 again without clearing, continuing the same ineffective behavior.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Use Advanced Pricing only if needed; otherwise focus on correcting the main Price field and saving.",
+          "correct": false,
+          "error_description": "The agent opened Advanced Pricing unnecessarily instead of fixing the main Price field and ensuring a $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Do not change Special Price unless required; instead correct the main Price field to be $5 lower and save.",
+          "correct": false,
+          "error_description": "The agent edited Special Price (27.00) rather than the product's main Price, which does not reliably satisfy 'reduce the price by $5'.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Close Advanced Pricing and then save only after the correct main Price is set and verified.",
+          "correct": false,
+          "error_description": "The agent clicked Done to close the modal without having corrected/verified the main Price as $5 lower.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Click Save and confirm success after ensuring the main Price is correctly reduced by $5.",
+          "correct": false,
+          "error_description": "The agent clicked Save again without evidence the main Price was correctly set (it was repeatedly malformed by repeated typing).",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Verify the save result (success message) and confirm the Price field shows the correct reduced value.",
+          "correct": false,
+          "error_description": "The agent clicked Save again instead of verifying outcome or correcting the underlying price field issue.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Stop once a success message appears and the Price is confirmed $5 lower; otherwise correct the Price field properly.",
+          "correct": false,
+          "error_description": "The agent continued clicking Save repeatedly without verifying success or fixing the price entry method.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Complete the task by ensuring the price is correctly reduced by $5 and saved, then stop.",
+          "correct": false,
+          "error_description": "The agent stopped due to max steps without successfully verifying/correcting and saving a $5 price reduction.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:02:00.236337+00:00"
+    },
+    "webarena::gptnano_m::109": {
+      "taskKey": "webarena::gptnano_m::109",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "109",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 4: the agent clicked an ambiguous/duplicate suggestion link (\u201c...z50\u201d) instead of the exact #zc50 product entry, sending navigation into a loop that never reached the correct product detail page. There is no evidence in later steps that it recognized and corrected this by returning to results and opening/verifying the #zc50 page, so subsequent clicks only compounded the wrong-target navigation.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click into the site search box to prepare to enter the product name.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Type the full product name (and optionally the brand) into the search box and submit the search.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "From the search results, refine the query or click the result that exactly matches \u201cHawaiian Bamboo Orchid Roots #zc50\u201d.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the exact product result \u201cHawaiian Bamboo Orchid Roots #zc50\u201d to open its product detail page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Recognize the navigation did not open the product page and return to the results that show \u201cHawaiian Bamboo Orchid Roots #zc50\u201d (or re-run the refined search) rather than clicking ambiguous query suggestions.",
+          "correct": false,
+          "error_description": "The agent clicked a duplicate/ambiguous suggestion link (\u201chawaiian bamboo orchid roots z50\u201d) instead of ensuring it opened the actual product detail page for #zc50.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Click \u201cHawaiian Bamboo Orchid Roots #zc50\u201d and verify the URL/title changes to the product detail page before proceeding to add it to the wish list.",
+          "correct": false,
+          "error_description": "Although it clicked the correct-looking result, it failed to confirm it reached the product page and continued looping between search result pages.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stop re-clicking search-result links and instead open the product detail page for #zc50 (or use back/refresh and click the correct product once) and verify the product title on the page.",
+          "correct": false,
+          "error_description": "The agent again clicked an ambiguous \u201cz50\u201d link, continuing the loop without reaching the product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Once on the correct product detail page for \u201cHawaiian Bamboo Orchid Roots #zc50\u201d, click \u201cAdd to Wish List\u201d.",
+          "correct": false,
+          "error_description": "The agent clicked the product link again but still did not verify arrival on the product detail page or attempt to add to the wish list.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Avoid clicking unrelated/ambiguous results and instead ensure the exact #zc50 product page is opened (checking title/URL) before adding to wish list.",
+          "correct": false,
+          "error_description": "The agent clicked another ambiguous \u201cz50\u201d link, which ultimately led toward an unrelated Nikon Z50 monopod product page.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Click only the exact \u201cHawaiian Bamboo Orchid Roots #zc50\u201d product entry and confirm the product detail page loads.",
+          "correct": false,
+          "error_description": "The agent clicked an image element (not the clearly labeled product link), resulting in navigation to the wrong product page.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If the loaded product is incorrect, go back to search results and open the correct \u201cHawaiian Bamboo Orchid Roots #zc50\u201d page, then click \u201cAdd to Wish List\u201d.",
+          "correct": false,
+          "error_description": "The agent stopped on an unrelated product page instead of navigating back to the correct product and adding it to the wish list.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:02:57.308773+00:00"
+    },
+    "webarena::gptnano_m::110": {
+      "taskKey": "webarena::gptnano_m::110",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "110",
+      "keyStep": 9,
+      "failureSteps": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "At step 9 the agent reverted to an ambiguous keyword search ('302') instead of switching to the reliable increment-ID pattern (e.g., 000000302) or structured Filters, and it never successfully corrected course afterward (it even opened the wrong order and later got stuck on malformed goto actions). Earlier violations (steps 4, 5, 7) do not qualify because the agent did change inputs/clicks afterward and continued attempting alternative interactions, indicating those specific mistakes were not the permanent blocker.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales > Orders to locate order 302 for cancellation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the first click did not navigate, retry opening Sales > Orders or click Sales then Orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Open the Sales menu (if needed) to ensure the Orders link is actionable.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click Orders under Sales to reach the orders grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Use the orders grid search/filter to search for order number 302 (ideally as the increment ID format used by Magento, e.g., 000000302).",
+          "correct": false,
+          "error_description": "Typed '302' into the keyword search without clearing the existing active keyword filter (000000307), causing the filter to become a concatenation and not a clean search for order 302.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "After applying a correct filter for order 302, open the matching order via the View link.",
+          "correct": false,
+          "error_description": "Clicked View for order 000000307 (shown in results) rather than locating and opening order 302.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "If the wrong order was opened or the filter is wrong, return and remove/clear the incorrect filter to restart the search for 302.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Enter the correct order identifier for 302 (likely 000000302) and execute search.",
+          "correct": false,
+          "error_description": "Entered an implausible/incorrect keyword '0000000307302' instead of the expected increment ID format for order 302 (e.g., 000000302).",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Clear the incorrect filter and retry with the correct order number format.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "Search for order 302 using the correct increment ID format (e.g., 000000302) and then open it.",
+          "correct": false,
+          "error_description": "Typed '302' again (ambiguous) without using the known increment ID pattern, increasing the chance of no results or wrong matches.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If '302' yields no results, adjust to the increment ID format (000000302) or use Filters to search by Order Number/ID explicitly.",
+          "correct": false,
+          "error_description": "Removed the keyword filter instead of refining it to the correct order number format or using structured filters to find order 302.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Open the order that corresponds to 302 (not an unrelated order) once search results are shown.",
+          "correct": false,
+          "error_description": "Opened order 000000299 from the grid, which is unrelated to the target order 302.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "On the order view page for order 302, click Cancel to cancel the order (and confirm if prompted).",
+          "correct": false,
+          "error_description": "Navigated back from order #000000299 instead of canceling (and it was the wrong order anyway).",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Return to the orders grid and search specifically for order 302 using correct filters/format.",
+          "correct": false,
+          "error_description": "Clicked the page-size Select control (or similar grid control) rather than focusing on searching for order 302.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Use the search box or Filters to locate order 302 (preferably 000000302) and run the search.",
+          "correct": false,
+          "error_description": "Typed '302' again without switching to a more reliable search method (increment ID format or Filters), continuing the unproductive approach.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Execute the search and then open the correct order 302 from results.",
+          "correct": false,
+          "error_description": "Clicked Search but still relied on the ambiguous keyword '302', which previously produced 0 records and did not progress toward locating order 302.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "If search still fails, try an alternative valid approach: use Filters for Order Number, try increment ID 000000302, or navigate to the correct direct URL on the same host.",
+          "correct": false,
+          "error_description": "Produced an invalid action format and an incorrect domain ('luma.com') instead of issuing a properly formatted goto to the current site host for order 302.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Recover from the formatting error by issuing a correctly formatted action, e.g., goto to http://18.116.169.131:7780/admin/sales/order/view/order_id/302/ (or use Filters).",
+          "correct": false,
+          "error_description": "Repeated the same invalidly formatted action (and wrong domain), failing to recover from the parse error.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Issue a correctly formatted goto action with the correct host, or revert to using the Filters UI to find order 302.",
+          "correct": false,
+          "error_description": "Repeated the invalid action format a third time, still not navigating or using UI filters to locate order 302.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "After correcting action formatting, proceed to locate order 302 and click Cancel on its order view page.",
+          "correct": false,
+          "error_description": "Stopped due to repeated action-parse failures without canceling order 302.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:03:59.967212+00:00"
+    },
+    "webarena::gptnano_m::13": {
+      "taskKey": "webarena::gptnano_m::13",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "13",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 0 the agent prematurely stopped and guessed a customer name without navigating to any report/orders grid to compute and verify the 5th-highest order count. There were no earlier steps and no subsequent actions to correct or validate the guess, so the error was unrecovered and directly caused the failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to a report or orders grid that can aggregate order counts by customer (e.g., Reports \u2192 Sales \u2192 Orders or Customers report), sort customers by total number of orders, and identify the 5th-highest customer.",
+          "correct": false,
+          "error_description": "The agent stopped immediately on the dashboard and guessed a customer name without performing any navigation, filtering, aggregation, or verification of order counts.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:04:41.355901+00:00"
+    },
+    "webarena::gptnano_m::144": {
+      "taskKey": "webarena::gptnano_m::144",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "144",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 1: the agent clicked an unlabeled/generic image element instead of the actual product title/link needed to open the correct product detail page and reach reviews, and it never demonstrated recovery (Steps 2\u20133 repeat the same ineffective click). Later formatting/parsing failures (Steps 7\u20139) also blocked progress, but they occur after the agent was already off-track from the initial wrong-target click; Step 4 does not qualify because it did not introduce an irreversible new failure and was not the earliest unrecovered error.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the product name into the site search box and submit the search to locate the product listing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "From the search results, switch to a list view or click the actual product title/link for the correct item (not a generic image) to open its product page and access reviews.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled product image in an enormous results set, which did not navigate to a specific product page and provided no progress toward finding the correct item/reviews.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Recognize the prior click did not open a product page and instead refine the search (e.g., use filters, list view, or click a product name link) to reach the correct product detail page.",
+          "correct": false,
+          "error_description": "Repeated the same ineffective click on the same image, remaining stuck on the results page.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Change strategy to reach the product detail page (use list view, sort/relevance, filter by category like Video Games, or click a product name link).",
+          "correct": false,
+          "error_description": "Clicked the same image again, still not navigating to any product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Refine the query or use category filters (e.g., Video Games) rather than re-submitting the same search, to narrow results and find the exact product listing.",
+          "correct": false,
+          "error_description": "Clicked the Search button without changing the query/filters, which just reloaded the same broad results and did not help locate the product.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Use Advanced Search to narrow down the product listing when basic search results are too broad.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Fill Advanced Search fields (product name or partial name) and submit the advanced search to find the product listing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "After getting no results, click 'Modify your search' and broaden the query (e.g., use a shorter partial name like 'Racing Wheel Overdrive' or 'Overdrive wheel') to find the product page.",
+          "correct": false,
+          "error_description": "Produced an invalid/unparseable action instead of interacting with the page (e.g., clicking 'Modify your search' or editing the search fields).",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Correct the action formatting and actually click 'Modify your search' (or navigate back) to adjust the advanced search criteria and rerun the search.",
+          "correct": false,
+          "error_description": "Again output an unparseable action, so no corrective navigation or search refinement occurred.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Execute a properly formatted UI action to modify the search (or return to the advanced search form) and broaden the query to locate the product listing.",
+          "correct": false,
+          "error_description": "A third unparseable action prevented any further progress; the agent remained stuck on the empty results page.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "After fixing action formatting, continue by locating the product page, opening reviews, filtering to 1-star, collecting review titles, then posting them to r/games with the specified title.",
+          "correct": false,
+          "error_description": "Stopped due to repeated action-parsing failures before reaching the product page, collecting review titles, or posting to Reddit.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:05:23.653753+00:00"
+    },
+    "webarena::gptnano_m::157": {
+      "taskKey": "webarena::gptnano_m::157",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "157",
+      "keyStep": 18,
+      "failureSteps": [
+        18,
+        19,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 18 the agent entered \"convexegg\" but failed to select the required suggestion/chip, so convexegg was never added as an invitee; subsequent Invite clicks could not add them and the agent never corrected this. Earlier violations (steps 0\u201317) were navigational/interaction misclicks that were later overcome by eventually reaching the invite flow and successfully inviting primer.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the \u201cNew project\u201d link to start creating a new project.",
+          "correct": false,
+          "error_description": "Clicked the sort-by \u201cName\u201d button instead of initiating project creation.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click \u201cNew project\u201d to begin creating the repository.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Choose \u201cCreate from template\u201d to use the Android project template.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the Android built-in template by clicking its \u201cUse template\u201d control.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Enter the project name \u201cweb_agent_android_xl\u201d, ensure visibility is Private, and submit creation.",
+          "correct": false,
+          "error_description": "Only typed the project name (with newline) and did not explicitly verify Private or click the create/use-template submission button (creation proceeded implicitly but the step itself didn\u2019t complete the expected submission/verification).",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Wait for the import to finish (or refresh once) and then proceed to project settings/members to add users.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Navigate to the project\u2019s Members page (or use \u201cInvite members\u201d) to add primer, convexegg, and abishek.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled button on the project page instead of going directly to Members/Invite members.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "Go to \u201cMembers\u201d (Project information \u2192 Members) to invite the required users.",
+          "correct": false,
+          "error_description": "Clicked \u201cProject information\u201d which led into the Activity area rather than selecting \u201cMembers\u201d.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Click \u201cMembers\u201d in the Project information section to open the members management page.",
+          "correct": false,
+          "error_description": "Clicked \u201cRepository\u201d instead of \u201cMembers\u201d, diverting away from the membership task.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "From the repository view, navigate back to Project information \u2192 Members (or Settings \u2192 Members).",
+          "correct": false,
+          "error_description": "Clicked \u201cCommits\u201d (or another repository navigation item) instead of going to Members.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Navigate to the Members page to invite primer, convexegg, and abishek.",
+          "correct": false,
+          "error_description": "Clicked \u201cCommits\u201d again, continuing to browse repository pages rather than managing members.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Navigate to the Members page to invite the specified users.",
+          "correct": false,
+          "error_description": "Clicked \u201cTags\u201d (repository navigation) instead of going to Members.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate to Project information \u2192 Members to add users.",
+          "correct": false,
+          "error_description": "Clicked \u201cProject information\u201d which returned to Activity rather than selecting \u201cMembers\u201d.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Click \u201cMembers\u201d to open the project members page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Click \u201cInvite members\u201d to open the invite form.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "In the invite form, add user \u201cprimer\u201d (select the suggested account) and keep the desired role, then continue adding others or invite.",
+          "correct": false,
+          "error_description": "Typed \u201cprimer\u201d but did not select the suggested user entry, so it wasn\u2019t actually added to the invite list at this point.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Select the \u201cprimer\u201d suggestion from the dropdown so it becomes a chosen invitee.",
+          "correct": false,
+          "error_description": "Clicked back into the input while it was still searching instead of selecting a result.",
+          "recovered": true
+        },
+        {
+          "step": 17,
+          "expected_action": "Click the \u201cPrimer / primer\u201d suggestion to add it as an invitee.",
+          "correct": false,
+          "error_description": "Clicked the input again rather than clicking the visible \u201cPrimer primer\u201d suggestion button.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "After selecting primer, add \u201cconvexegg\u201d as another invitee (select suggestion) before inviting, or invite primer first then repeat for convexegg.",
+          "correct": false,
+          "error_description": "Typed \u201cconvexegg\u201d into the field without first confirming/keeping primer selected and without selecting a convexegg suggestion; this led to inviting only primer later.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Ensure both primer and convexegg are selected as invitees (or at least convexegg if inviting separately), then click \u201cInvite\u201d.",
+          "correct": false,
+          "error_description": "Clicked \u201cInvite\u201d when only \u201cPrimer\u201d was selected; convexegg was not added/invited.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Invite the remaining missing users (convexegg and abishek) by opening the invite form again.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 21,
+          "expected_action": "Add \u201cconvexegg\u201d in the invite field (select the correct suggestion) and/or add \u201cabishek\u201d as well before inviting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 22,
+          "expected_action": "Select the \u201cabishek\u201d user suggestion (if needed) and click \u201cInvite\u201d to add them.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 23,
+          "expected_action": "Verify the member was added; if any required users are still missing (convexegg), invite them next.",
+          "correct": false,
+          "error_description": "Clicked \u201cInvite\u201d with an empty invitee list (error shown: \u201cPlease add members to invite\u201d) instead of inviting the remaining missing user convexegg.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Type and select \u201cconvexegg\u201d in the invite field (not the role dropdown) to add them as an invitee.",
+          "correct": false,
+          "error_description": "Clicked the role dropdown instead of adding/selecting the missing user convexegg.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Add \u201cconvexegg\u201d as an invitee and then click \u201cInvite\u201d.",
+          "correct": false,
+          "error_description": "Clicked \u201cInvite\u201d again without adding any member, repeating the same blocking error state.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Click into the invite input and type/select \u201cconvexegg\u201d from suggestions.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 27,
+          "expected_action": "Type \u201cconvexegg\u201d and select the correct suggestion (or otherwise add them) rather than interacting with a loading indicator.",
+          "correct": false,
+          "error_description": "Clicked the \u201cSearching...\u201d control instead of entering/selecting the missing user convexegg.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Click \u201cInvite\u201d only after convexegg is selected as an invitee.",
+          "correct": false,
+          "error_description": "Clicked \u201cInvite\u201d while only Abishek was selected/visible and convexegg was still not invited.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Confirm Abishek was added and then invite convexegg (the remaining required member).",
+          "correct": false,
+          "error_description": "Clicked \u201cInvite\u201d again without adding convexegg; the members count still showed 2, indicating the required third member was not added.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Invite convexegg successfully (or verify all three members are present) before stopping.",
+          "correct": false,
+          "error_description": "Stopped with the task incomplete: convexegg was never added and the project still showed only 2 members (byteblaze and primer).",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:06:50.373343+00:00"
+    },
+    "webarena::gptnano_m::16": {
+      "taskKey": "webarena::gptnano_m::16",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "16",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "KeyStep 2 is the earliest permanent error: the agent abandoned initiating the directions/routing workflow from the required start point (MIT) and instead began unrelated searches, and the action log shows no later successful return to a proper directions setup. All later violations are downstream flailing (random UI clicks and corrupted searches) that never re-established routing, so earlier errors were not actually recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to find the starting location (MIT) so routing can later be computed from it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Select the correct MIT search result to open its place page and enable directions options.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Initiate routing (e.g., click 'Directions from here' or open the directions panel) from MIT rather than starting a new unrelated search immediately.",
+          "correct": false,
+          "error_description": "The agent navigated away to search for Harvard instead of starting the directions workflow from the required starting point (MIT).",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "If collecting waypoints first, pick the correct Harvard University result (ideally the main Cambridge campus) and note it for routing.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Proceed to set up directions (from MIT to Harvard) or at least capture Harvard as a waypoint and then move to the next waypoint.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the correct Boston Logan International Airport result to use as the final waypoint.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the directions interface (e.g., 'Directions from here/to here') to compute travel times between the locations.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated tag/link on the airport way page instead of using the available directions controls to start routing.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Click 'Directions from here' or 'Directions to here' (or otherwise open the routing panel) from the airport page.",
+          "correct": false,
+          "error_description": "The agent clicked the generic map/control area rather than selecting a directions action to compute routes.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Use the directions controls or return to the map with the directions sidebar open, not click random UI elements.",
+          "correct": false,
+          "error_description": "The agent clicked an input/control without establishing a directions workflow, making no progress toward computing travel times.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "From the map, open the directions panel and set MIT as the start, then add Harvard and Logan as stops to compare total travel times/order.",
+          "correct": false,
+          "error_description": "The agent clicked 'Where is this?' which triggers reverse-geocoding, not routing or waypoint setup.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Enter a clean search query for MIT in the main search box (not mixed with coordinates) or directly open directions and set MIT as start.",
+          "correct": false,
+          "error_description": "The agent typed MIT into the wrong context (the reverse-geocode/search page) without clearing the coordinate query, leading to malformed searches.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If search results are loading/empty, retry by clearing the query and searching MIT normally, or go back to the MIT relation already found earlier.",
+          "correct": false,
+          "error_description": "The agent again used 'Where is this?' instead of correcting the query or returning to the previously successful MIT page.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the correct search input (main search box) with a clean MIT query, then proceed to directions setup.",
+          "correct": false,
+          "error_description": "The agent typed into the wrong input field, further corrupting the query string rather than performing a clean MIT search.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Recognize the malformed query (coordinates concatenated with text), clear it, and redo the MIT search or navigate back to the earlier MIT result page.",
+          "correct": false,
+          "error_description": "The agent continued typing into the already malformed query, producing 'No results found' and not resetting to a valid search/directions flow.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Clear the search box entirely and submit a fresh query like 'MIT Cambridge MA' or return to relation/65066, then open directions.",
+          "correct": false,
+          "error_description": "The agent typed a space into the corrupted query instead of clearing/resetting it, so the search remained broken.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Perform a clean MIT search (or use the already known MIT relation URL) and then compute routes between MIT\u2013Harvard\u2013Logan to compare orders.",
+          "correct": false,
+          "error_description": "The agent kept appending 'Massachusetts Institute of Technology' to the corrupted coordinate query, ensuring continued 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Recover by navigating back to the earlier successful MIT page and using the directions feature to compute travel times for both possible orders, then choose the minimum.",
+          "correct": false,
+          "error_description": "The agent stopped without attempting a viable recovery (e.g., returning to relation/65066 or using directions controls) and thus never computed the optimal route.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:08:04.864905+00:00"
+    },
+    "webarena::gptnano_m::22": {
+      "taskKey": "webarena::gptnano_m::22",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "22",
+      "keyStep": 3,
+      "failureSteps": [
+        3
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 3 the agent prematurely stopped after observing the order was canceled, misassessing that the task was complete instead of reporting the status ('Canceled') and explaining that no delivery date applies. There are no earlier violations in the report, so no recovered errors qualify as the root cause.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the account area (or orders area) to find the most recent order details and shipping status.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the 'My Orders' page to view the list of orders and identify the latest one.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Select the most recent order from the order history (typically the top entry) by clicking 'View Order' to see its status and delivery/shipping information.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Read and report the order status and any shipment/delivery estimate (or state that no arrival date applies if the order is canceled), then respond to the user instead of stopping.",
+          "correct": false,
+          "error_description": "The agent stopped after seeing the order was canceled and did not provide the requested status and arrival information (e.g., 'Canceled' and therefore no delivery date).",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:08:44.388618+00:00"
+    },
+    "webarena::gptnano_m::24": {
+      "taskKey": "webarena::gptnano_m::24",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "24",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "KeyStep 0: the agent committed to an incorrect strategy by searching for \"tea cafe University of Pittsburgh\" instead of first locating/centering on the University of Pittsburgh, which prevented establishing a correct origin context and cascaded into arbitrary/incorrect routing and a wrong final POI with no walking distance. No later step shows a clean reset (clear search, select the correct Pitt result, then search nearby and compute Foot distance), so earlier errors were never genuinely recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for \u201cUniversity of Pittsburgh\u201d (not tea cafe yet) to center the map on the correct starting location.",
+          "correct": false,
+          "error_description": "Searched for \u201ctea cafe University of Pittsburgh\u201d instead of first locating the University of Pittsburgh, leading to no results and no proper map context.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "After no results, change the query to \u201cUniversity of Pittsburgh\u201d to find the campus location.",
+          "correct": false,
+          "error_description": "Changed the query to a generic \u201ctea cafe\u201d search without anchoring to Pittsburgh, which is unlikely to return useful results.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Search specifically for \u201cUniversity of Pittsburgh\u201d (or \u201cPittsburgh, PA\u201d) to get the correct place result.",
+          "correct": false,
+          "error_description": "Entered an even broader query (\u201ctea\u201d), further reducing the chance of finding the correct location.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Replace the query with \u201cUniversity of Pittsburgh\u201d and select the correct result.",
+          "correct": false,
+          "error_description": "Typed \u201ccafe\u201d into the same search box, compounding the query string and not moving toward locating the university.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Clear the search box and search for \u201cUniversity of Pittsburgh\u201d only.",
+          "correct": false,
+          "error_description": "Typed \u201cUniversity of Pittsburgh\u201d but did not clear the prior malformed query, resulting in a corrupted combined query.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Fix the corrupted query by clearing it and re-searching \u201cUniversity of Pittsburgh\u201d.",
+          "correct": false,
+          "error_description": "Repeated typing \u201cUniversity of Pittsburgh\u201d again without clearing, further corrupting the query and keeping results empty.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stop adding text and instead clear the query field or navigate back to the main search to restart cleanly.",
+          "correct": false,
+          "error_description": "Clicked \u201cWhere is this?\u201d which uses the current map center (wrong region) rather than locating University of Pittsburgh.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Return to searching for \u201cUniversity of Pittsburgh\u201d and select the Pittsburgh, PA result to recenter the map.",
+          "correct": false,
+          "error_description": "Typed \u201cUniversity of Pittsburgh\u201d into the coordinate-based search context without correcting the map location; it did not lead to selecting the university result.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Wait for results and click the \u201cUniversity of Pittsburgh\u201d result (Pittsburgh, PA) to center the map there.",
+          "correct": false,
+          "error_description": "Typed \u201cUniversity of Pittsburgh\u201d again, appending to an existing coordinate query instead of selecting a valid result.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Go back and perform a clean search for \u201cUniversity of Pittsburgh\u201d (or \u201cPittsburgh, PA\u201d) and select it.",
+          "correct": false,
+          "error_description": "Clicked a button that navigated to Directions despite having no valid university location or tea cafe destination identified.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "In Directions, set mode to Foot and enter start as \u201cUniversity of Pittsburgh\u201d and destination as the chosen tea cafe near it.",
+          "correct": false,
+          "error_description": "Clicked the routing engine dropdown without first establishing correct start/destination locations; also the map was still centered incorrectly.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Select \u201cFoot (OSRM)\u201d from the dropdown.",
+          "correct": false,
+          "error_description": "Clicked the dropdown again but did not actually select Foot mode or proceed to fill fields correctly.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Click the start field and type/select \u201cUniversity of Pittsburgh\u201d.",
+          "correct": false,
+          "error_description": "Clicked the destination field prematurely without having set the start location or ensuring the correct city context.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Click the start field (first input) to set the origin as University of Pittsburgh.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Type \u201cUniversity of Pittsburgh\u201d and select the correct autocomplete/result in Pittsburgh, PA.",
+          "correct": false,
+          "error_description": "Typed the university name but did not select/confirm a specific result, so routing could use an unintended location.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Click the destination field and enter a nearby tea cafe (or search for tea cafes near the university first).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 16,
+          "expected_action": "Type a specific destination tea cafe near University of Pittsburgh (or use search results to pick one).",
+          "correct": false,
+          "error_description": "Clicked the destination field again without entering/selecting a destination, making no progress.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Enter the destination (tea cafe) or use a POI search near the university to choose one.",
+          "correct": false,
+          "error_description": "Clicked an unrelated control (likely reverse/other input) instead of specifying the destination tea cafe.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Type the destination tea cafe name/address (near Pitt) into the destination field and select it.",
+          "correct": false,
+          "error_description": "Clicked the destination field again but still did not provide a valid destination selection.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Search for tea cafes near the already-set origin (University of Pittsburgh) or type a known nearby tea cafe as destination.",
+          "correct": false,
+          "error_description": "Entered a generic destination \u201ctea cafe\u201d rather than selecting a specific nearby tea cafe, which can resolve to an arbitrary far-away place.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Ensure routing mode is Foot and verify the route is local (a few km at most), otherwise correct origin/destination selections.",
+          "correct": false,
+          "error_description": "Clicked the mode dropdown after a clearly incorrect long-distance car route (618 km) appeared, but did not correct the underlying wrong destination/origin selection.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Fix the destination to a tea cafe near Pittsburgh (not New York/New Jersey) and re-run directions on Foot.",
+          "correct": false,
+          "error_description": "Clicked another control (likely add via/other input) instead of correcting the incorrect long-distance route endpoints.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Switch to Foot mode and correct both endpoints to be in Pittsburgh (University of Pittsburgh to nearby tea cafe).",
+          "correct": false,
+          "error_description": "Clicked the routing mode dropdown again but did not select Foot or correct the endpoints; the route remained incorrect.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Edit the destination field to a specific nearby tea cafe and select the correct result.",
+          "correct": false,
+          "error_description": "Clicked another unrelated control rather than editing the destination to a nearby tea cafe.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Correct the route by setting origin to University of Pittsburgh and destination to the nearest tea cafe, then read the walking distance.",
+          "correct": false,
+          "error_description": "Clicked the mode dropdown again without fixing the incorrect route or extracting a walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Provide the nearest tea cafe to University of Pittsburgh and the walking distance from the university to it (from Foot directions).",
+          "correct": false,
+          "error_description": "Stopped with an arbitrary tea cafe (Earnest Tea Cafe, 6010 8th Avenue) and no walking distance; it is not established as nearest to University of Pittsburgh.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:09:50.625827+00:00"
+    },
+    "webarena::gptnano_m::49": {
+      "taskKey": "webarena::gptnano_m::49",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "49",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        3
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error is Step 0: the agent clicked the project breadcrumb/name instead of navigating to the repository\u2019s commit history, and there is no later evidence it recognized this and corrected course. Subsequent steps (using global search in Step 1 and stopping in Step 3) compound the same flawed approach rather than recovering by opening the commits list and applying author/date filtering.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the repository\u2019s commit history (e.g., click \u201cCommits\u201d under Repository) to later filter by author and date.",
+          "correct": false,
+          "error_description": "Clicked the project breadcrumb/name (\u201cAa11yproject.com\u201d) instead of opening the repository commit list.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the Commits page and use GitLab\u2019s commit filters (author=kilian and date=2023-03-05) or otherwise locate commits on that date by that author.",
+          "correct": false,
+          "error_description": "Used the global/project search box with a free-text query rather than going to the commits list and applying proper author/date filtering.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "From search results, switch to the Commits list or directly open Repository \u2192 Commits and then filter by author/date to count commits on 2023-03-05.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Abandon search (which returned 0) and instead use the repository commit history with author/date filtering (or browse the 2023-03-05 commits and count those by kilian).",
+          "correct": false,
+          "error_description": "Stopped after a zero-result search instead of switching to commit history/date navigation to compute the number of commits by kilian on 3/5/2023.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:10:45.702412+00:00"
+    },
+    "webarena::gptnano_m::62": {
+      "taskKey": "webarena::gptnano_m::62",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "62",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "Step 0 is the earliest violation: using go_back navigated away from the GitLab Projects context instead of exploring/filtering public projects, and there is no later evidence the agent recognized this and returned to GitLab. Subsequent steps compound the off-task drift (classifieds.com) rather than correcting it, so earlier errors were not recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Stay on the GitLab Projects page and use the Explore/All/Public filters or pagination to view all public projects.",
+          "correct": false,
+          "error_description": "The agent used go_back from the GitLab Projects listing, which navigated away from the relevant page instead of exploring/filtering to see public projects.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "From about:blank, navigate back to the GitLab instance (or use the browser back/URL) to return to the Projects/Explore page and continue listing public projects.",
+          "correct": false,
+          "error_description": "The agent produced an unrelated plan about finding a cheapest dark colored guitar and going to classifieds.com, which is off-task and not a valid browser action.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Go to the GitLab Projects/Explore page URL (or use back) to access and list public projects.",
+          "correct": false,
+          "error_description": "The agent navigated to http://classifieds.com, which is unrelated to the GitLab task of viewing public projects.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Return to the GitLab site and continue browsing/filtering to ensure all public projects are visible (e.g., Explore > Projects > Public, paginate).",
+          "correct": false,
+          "error_description": "The agent stopped on an unrelated 'Under Construction' page for classifieds.com and did not attempt to return to GitLab to complete the task.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:11:17.685572+00:00"
+    },
+    "webarena::gptnano_m::70": {
+      "taskKey": "webarena::gptnano_m::70",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "70",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "failureCause": "Reflection:OutcomeMisinterpretation",
+      "notes": "At step 6 the agent treated clicking the Status dropdown as if it had actually set Status=Canceled, and never corrected this; subsequent steps applied/exported an unfiltered dataset and ended with an unsupported answer. Earlier issues at steps 0\u20132 were recovered because the agent later reached the orders/filter workflow, so they did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate toward order/cancellation data (e.g., Sales > Orders or Reports) rather than opening Advanced Reporting from the dashboard.",
+          "correct": false,
+          "error_description": "Clicked the Advanced Reporting menu item, which is not the most direct path to finding the customer with the most canceled orders.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "If pursuing Advanced Reporting, click into the Advanced Reporting page and look for order status/cancellation metrics; otherwise pivot to Sales > Orders.",
+          "correct": false,
+          "error_description": "Clicked the 'Go to Advanced Reporting' link but did not navigate away from the dashboard or make progress toward cancellations.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Recognize the Advanced Reporting link isn't working and switch to Sales > Orders to analyze canceled orders by customer.",
+          "correct": false,
+          "error_description": "Repeated the same click on 'Go to Advanced Reporting' again without any change in state or progress.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Open the Sales menu to access Orders where order statuses (including Canceled) can be filtered and analyzed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Click Sales > Orders to reach the orders grid for filtering by status and aggregating cancellations by customer.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Open Filters and set Status = Canceled (and remove unnecessary date filters) to view canceled orders for counting by customer.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the Status filter value 'Canceled' from the dropdown (not just click the dropdown) and then apply filters.",
+          "correct": false,
+          "error_description": "Only clicked the Status dropdown; there is no evidence the agent selected 'Canceled', so the filter likely remained unchanged.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Click Apply Filters after confirming Status is set to Canceled, then use the resulting grid to count cancellations per customer.",
+          "correct": false,
+          "error_description": "Applied filters without having set Status=Canceled, so the resulting grid was not a cancellations-only dataset.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "With canceled orders filtered, sort/group by customer (or export) and compute which customer appears most frequently among canceled orders.",
+          "correct": false,
+          "error_description": "Clicked Export instead of analyzing cancellations; the grid shown still included non-canceled statuses (e.g., 'Pending'), indicating the wrong dataset.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "If exporting, proceed with export only after ensuring the grid is filtered to canceled orders; otherwise cancel export and fix filters.",
+          "correct": false,
+          "error_description": "Triggered an export action while still not having a cancellations-only view, so the export would not answer 'most cancellations'.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Return to the orders grid, ensure authentication is maintained, correctly filter Status=Canceled, then count cancellations per customer and report the top customer name.",
+          "correct": false,
+          "error_description": "Ended on a login page (session lost during export) and stopped with 'Sarah Miller' without actually computing who has the most cancellations.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:11:57.854615+00:00"
+    },
+    "webarena::gptnano_m::80": {
+      "taskKey": "webarena::gptnano_m::80",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "80",
+      "keyStep": 20,
+      "failureSteps": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 20 the agent executed Search without having set the required May 2023 date-range parameters, and subsequent steps continued applying/resetting incorrect or mis-scoped filters (wrong fields/page) without ever reaching a correct shop-wide filtered count. Earlier violations (steps 0\u201317) were detours but were later corrected when the agent navigated into the reporting/reviews area, so they did not permanently block completion.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to a reviews listing/report (e.g., Marketing \u2192 User Content \u2192 All Reviews or Reports \u2192 Reviews) where reviews can be filtered by date to count May 2023 reviews.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d from the dashboard, which is not the most direct path to counting reviews in May 2023.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "If Advanced Reporting doesn\u2019t open, switch to the Reviews area via Marketing \u2192 User Content \u2192 All Reviews or Reports \u2192 Reviews.",
+          "correct": false,
+          "error_description": "Repeatedly clicked \u201cGo to Advanced Reporting\u201d again without changing approach after no navigation occurred.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the left nav to open All Reviews or a Reviews report rather than unrelated links.",
+          "correct": false,
+          "error_description": "Clicked the \u201chere\u201d link which led to system configuration, unrelated to counting reviews.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Return to the dashboard and navigate to Reviews (All Reviews or Reports \u2192 Reviews) to filter by May 2023.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Open Marketing \u2192 User Content \u2192 All Reviews (or Reports \u2192 Reviews) to access review data and date filters.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d again instead of going to the Reviews section.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Stop retrying Advanced Reporting and go to Reviews listing/report to filter May 2023.",
+          "correct": false,
+          "error_description": "Repeated the same ineffective click on \u201cGo to Advanced Reporting.\u201d",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Navigate to Reviews listing/report rather than configuration/advanced reporting links.",
+          "correct": false,
+          "error_description": "Clicked \u201chere\u201d again, returning to system configuration instead of reviews.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "From system config, go back and use the menu to reach Reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Use Marketing \u2192 User Content \u2192 All Reviews or Reports \u2192 Reviews to count May 2023 reviews.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d again instead of navigating to Reviews.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to Reviews listing/report and apply a May 2023 date filter.",
+          "correct": false,
+          "error_description": "Clicked \u201chere\u201d again, leading away from the needed Reviews pages.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "Recognize the config page is irrelevant and navigate to Reviews via the menu.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 11,
+          "expected_action": "Open Reviews (All Reviews or Reports \u2192 Reviews) and filter by May 2023.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d yet again instead of going to Reviews.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Navigate to Reviews listing/report rather than system config links.",
+          "correct": false,
+          "error_description": "Clicked \u201chere\u201d again, continuing the detour into configuration.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Leave configuration and go to Reviews listing/report.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 14,
+          "expected_action": "Use the menu to open Reports \u2192 Reviews (By Customers/By Products) or Marketing \u2192 All Reviews.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d again instead of navigating to Reviews.",
+          "recovered": true
+        },
+        {
+          "step": 15,
+          "expected_action": "Navigate to Reviews listing/report and apply May 2023 date filters.",
+          "correct": false,
+          "error_description": "Clicked \u201chere\u201d again, returning to configuration rather than reviews.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Go back and use the Reports/Marketing menu to reach Reviews.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Open Reports \u2192 Reviews (By Customers/By Products) or Marketing \u2192 All Reviews to count May 2023 reviews.",
+          "correct": false,
+          "error_description": "Clicked \u201cGo to Advanced Reporting\u201d again instead of going to Reviews.",
+          "recovered": true
+        },
+        {
+          "step": 18,
+          "expected_action": "Click Reports in the left navigation to access Reviews reports.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 19,
+          "expected_action": "From the Reports menu, choose Reviews \u2192 By Customers or By Products to access review reporting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 20,
+          "expected_action": "On the Customer Reviews Report, use appropriate filters (or switch to a review list) to isolate reviews created in May 2023 and read the resulting count.",
+          "correct": false,
+          "error_description": "Clicked Search without setting any date range filter, so it did not progress toward counting May 2023 reviews.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Set a date range for May 2023 (Created from 2023-05-01 to 2023-05-31) or navigate to All Reviews where Created date can be filtered, then run Search and read total records.",
+          "correct": false,
+          "error_description": "Clicked Reset Filter instead of applying a May 2023 date filter.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "If needing review-level dates, open a review list (All Reviews) or a report that supports date range filtering, then apply May 2023 filters.",
+          "correct": false,
+          "error_description": "Clicked \u201cShow Reviews\u201d for a specific customer, which is not a shop-wide May 2023 review count and narrows scope incorrectly.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use the Created date filter fields (from/to) on the All Reviews grid (shop-wide) and then read the total number of matching reviews for May 2023.",
+          "correct": false,
+          "error_description": "Entered a date into an incorrect/undefined control (likely not the Created-from field) on a single-customer reviews grid, not the shop-wide review list.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Open the correct Created-from and Created-to date pickers/inputs and set them to 2023-05-01 and 2023-05-31, then click Search.",
+          "correct": false,
+          "error_description": "Clicked a date selector but did not proceed to correctly set both from/to filters and run a search for May 2023.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Type 2023-05-01 into the Created-from field (not review_id) and 2023-05-31 into Created-to, then click Search.",
+          "correct": false,
+          "error_description": "Typed 2023-05-01 into the wrong input (appears to be review_id or another filter), causing an incorrect filter query.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Fix the filters to use Created date range for May 2023 and ensure the grid shows the correct total count.",
+          "correct": false,
+          "error_description": "Clicked Reset Filter after producing a zero-result state, without switching to the correct shop-wide review grid or applying correct date filters.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Navigate to Marketing \u2192 User Content \u2192 All Reviews (shop-wide) and apply Created date range May 2023, then read the total count.",
+          "correct": false,
+          "error_description": "Clicked Reset Filter again, repeating an unproductive action and staying on the wrong scoped page.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Apply Created-from 2023-05-01 and Created-to 2023-05-31 on the correct grid and click Search to get the count.",
+          "correct": false,
+          "error_description": "Again typed 2023-05-01 into the wrong field, continuing incorrect filtering.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Enter 2023-05-31 into the Created-to field (paired with Created-from 2023-05-01) and click Search, then read the resulting total number of reviews.",
+          "correct": false,
+          "error_description": "Typed 2023-05-31 into an undefined/wrong control and still did not execute a correct May 2023 date-range search or obtain the shop-wide count.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "After applying correct May 2023 filters on the shop-wide reviews grid, read the total number of matching reviews and report it.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without ever reaching a correct shop-wide May 2023 review count.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:15:08.501908+00:00"
+    },
+    "webarena::gptnano_m::93": {
+      "taskKey": "webarena::gptnano_m::93",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "93",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        7
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 3 the agent began a non-progressing loop by clicking the search box without refining/submitting a query, and there is no later evidence it recognized and corrected this (it never successfully executed a refined search to reach relevant products/reviews). Step 1 was corrected by going back, and step 6\u2019s incomplete advanced-search entry did not recover the earlier lack of an executed refined search, leading to the premature stop at step 7.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search to look up products related to the brand term \"EYZUTAK\" as a starting point to find the relevant phone case product pages.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Inspect the search results and, if any result appears to be an EYZUTAK phone case, open that product; otherwise refine the query (e.g., add \"case\"/\"phone case\") rather than opening unrelated items.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated product (a table lamp) that does not match EYZUTAK phone cases, instead of refining the search toward phone cases.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Return to the search results (or otherwise navigate back) since the opened product is not an EYZUTAK phone case and does not help identify complaining customers.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Refine the search query (e.g., \"EYZUTAK case\" or \"EYZUTAK phone case\") and submit the search to find the correct product listing(s).",
+          "correct": false,
+          "error_description": "The agent only clicked into the search box without entering a refined query or submitting a new search, making no progress toward finding EYZUTAK phone cases.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Type a refined query in the search box and execute the search (or use filters/categories like Cell Phones & Accessories) to locate EYZUTAK phone cases.",
+          "correct": false,
+          "error_description": "The agent again clicked the search box without changing the query or running a new search, repeating the non-progressing action.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use Advanced Search (or category navigation) to target EYZUTAK phone cases if basic search results are irrelevant.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Enter a targeted advanced-search query (ideally just \"EYZUTAK\" or \"EYZUTAK case\") and then submit the advanced search form to retrieve matching products.",
+          "correct": false,
+          "error_description": "The agent typed into the Product Name field but did not submit the advanced search (no click on a search/submit button is shown), so the action is incomplete at this step.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "From the advanced search results, verify whether any EYZUTAK phone case products exist; if none, broaden the query (e.g., search \"EYZUTAK\" only, try SKU/description fields, or browse Cell Phones & Accessories) before concluding, and if products exist, open them and extract reviewer/customer names complaining about quality.",
+          "correct": false,
+          "error_description": "The agent stopped after seeing results that still showed unrelated items, without trying broader queries or alternative navigation to confirm whether EYZUTAK phone cases exist and without reaching any review/complaint data.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:16:05.684147+00:00"
+    },
+    "webarena::gptnano_m::94": {
+      "taskKey": "webarena::gptnano_m::94",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "94",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 3: the agent clicked a query-suggestion ('ugreen lightning to 300mm cable') instead of opening the actual product detail page, sending it into a loop of wrong targets and preventing access to the rating. Step 1 does not qualify because the agent later changed actions and continued searching, but from Step 3 onward it never successfully navigated to a product page to recover.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Enter the product name into the search box and submit the search to find the product page that contains the rating.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the search result that most directly matches the exact product name (Ugreen lightning to 3.5mm cable) to reach its product detail page.",
+          "correct": false,
+          "error_description": "Clicked a query-suggestion link ('ugreen lightning to 35mm cable') instead of selecting the exact product result ('Ugreen lightning to 3.5mm cable') or opening a product page.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the 'Ugreen lightning to 3.5mm cable' result to open the product detail page and locate the rating.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "From the search results, open the product detail page for 'Ugreen lightning to 3.5mm cable' (not alternate query links) to find the rating.",
+          "correct": false,
+          "error_description": "Clicked another query-suggestion ('ugreen lightning to 300mm cable') which diverted away from opening the target product page.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Click the 'Ugreen lightning to 3.5mm cable' result and stay on the product detail page to read the rating.",
+          "correct": false,
+          "error_description": "Clicked 'Ugreen lightning to 3.5mm cable' but it only navigated back to the generic search results page rather than opening a product detail page with rating information.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Click the actual product title link (or switch to List view) to open the product detail page and then read the rating.",
+          "correct": false,
+          "error_description": "Clicked an image element in the results without reaching a product detail page; remained stuck on the same search results view.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the product detail page for the exact item (via the product title link) and locate the star rating/review rating value.",
+          "correct": false,
+          "error_description": "Clicked a query-suggestion link again ('ugreen lightning to 35mm cable') instead of opening the target product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Click the product title 'Ugreen lightning to 3.5mm cable' to open its product page and find the rating.",
+          "correct": false,
+          "error_description": "Clicked 'Ugreen lightning to 3.5mm cable' but it routed back to the search results for that query rather than opening a product detail page.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Stop toggling between query pages and instead open the product detail page (try List view, different result entry, or refine search) to access the rating.",
+          "correct": false,
+          "error_description": "Clicked the 'ugreen lightning to 300mm cable' query-suggestion again, continuing the loop between search queries.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Open the product detail page for 'Ugreen lightning to 3.5mm cable' and read the rating value shown on that page.",
+          "correct": false,
+          "error_description": "Clicked 'Ugreen lightning to 3.5mm cable' again but only returned to the search results page, not a product detail page with rating.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Change strategy (e.g., click List view, click the product title not suggestions, or use Advanced Search) to reach the product page and obtain the rating.",
+          "correct": false,
+          "error_description": "Repeated the same action of clicking the 'ugreen lightning to 300mm cable' suggestion, making no progress toward finding the rating.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Navigate to the product detail page for the exact item and extract the rating, then round to the nearest whole number.",
+          "correct": false,
+          "error_description": "Repeatedly clicked 'Ugreen lightning to 3.5mm cable' from the suggestion list, which kept returning to search results instead of opening the product page.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "If stuck in search-result loops, use a different navigation path (List view, pagination, or Advanced Search) to open the product detail page and read the rating.",
+          "correct": false,
+          "error_description": "Stopped due to repeating the same ineffective navigation loop and never reached a product detail page containing the rating.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:16:55.877316+00:00"
+    },
+    "webarena::gptnano_m::98": {
+      "taskKey": "webarena::gptnano_m::98",
+      "dataset": "webarena",
+      "model": "gptnano_m",
+      "taskId": "98",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2
+      ],
+      "failureCause": "Action:FormatError",
+      "notes": "At step 0 the agent attempted a reasonable action (press Ctrl+L) but used an invalid action format, so no browser action executed and progress never began. Steps 1 and 2 repeat/compound this unrecovered formatting failure (another rejected action, then stopping without performing navigation/sort/upvote), so earlier errors were not corrected and step 0 is the earliest permanent blocker.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to r/books (e.g., focus the address bar and enter https://www.reddit.com/r/books/ or use the subreddit search) so the agent can access the newest post there.",
+          "correct": false,
+          "error_description": "No valid browser action was executed; the agent output was rejected due to incorrect action formatting, so it did not actually navigate toward r/books.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Retry with a correctly formatted action (e.g., ```press [Ctrl+L]``` then type the r/books URL and press Enter) to reach the books subreddit.",
+          "correct": false,
+          "error_description": "The agent again failed to issue a correctly formatted action, so it still made no progress toward opening r/books.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "After reaching r/books, switch to the 'New' sort, identify the topmost (newest) post, and click its upvote button.",
+          "correct": false,
+          "error_description": "The agent stopped and only provided a URL without navigating, sorting by New, or upvoting any post.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass2",
+      "updatedAt": "2026-08-12T03:17:32.744069+00:00"
+    }
+  }
+}

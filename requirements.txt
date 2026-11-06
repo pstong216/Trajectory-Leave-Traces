@@ -1,0 +1,12 @@
+# Analysis / training (everything under code/ and case_study/)
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+matplotlib>=3.7
+pyarrow>=12.0          # reads data/*/*/htc_step_features.parquet
+lightgbm>=4.0          # one of the comparison model families in train_risk_model_temp_sca.py
+
+# Upstream feature pipeline only (pipeline/, not needed to reproduce the paper)
+# torch>=2.0
+# sentence-transformers>=3.0

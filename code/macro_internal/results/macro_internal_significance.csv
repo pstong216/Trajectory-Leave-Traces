@@ -1,0 +1,10 @@
+comparison,metric,mean_diff,n,n_worse,t_test_p,wilcoxon_p
+macro_internal_minus_macro,auroc,-0.0033,8,4,0.6543,0.8438
+macro_internal_minus_macro,e_aurc,-0.0003,8,4,0.9739,1.0
+macro_internal_minus_macro,brier,-0.0028,8,4,0.4698,0.5469
+macro_internal_minus_htc_only,auroc,0.0103,8,2,0.4119,0.3125
+macro_internal_minus_htc_only,e_aurc,-0.0022,8,2,0.7708,0.7422
+macro_internal_minus_htc_only,brier,-0.0033,8,2,0.3597,0.3672
+macro_minus_htc_only,auroc,0.0136,8,1,0.4552,0.1484
+macro_minus_htc_only,e_aurc,-0.0019,8,3,0.8754,0.4609
+macro_minus_htc_only,brier,-0.0006,8,3,0.9286,0.6406

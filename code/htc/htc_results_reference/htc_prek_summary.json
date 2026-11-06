@@ -1,0 +1,32 @@
+[
+  {
+    "method": "RF-all (HTC subset)",
+    "n_predictions": 4205,
+    "overall_auroc": 0.6873,
+    "mean_perk_auroc": 0.6803,
+    "per_source_auroc": {
+      "mind2web/qwen30b": 0.7056,
+      "webarena/gpt_5_2": 0.6187
+    }
+  },
+  {
+    "method": "HTC-Full",
+    "n_predictions": 3319,
+    "overall_auroc": 0.5451,
+    "mean_perk_auroc": 0.3756,
+    "per_source_auroc": {
+      "mind2web/qwen30b": 0.2982,
+      "webarena/gpt_5_2": 0.4529
+    }
+  },
+  {
+    "method": "HTC-Reduced",
+    "n_predictions": 3319,
+    "overall_auroc": 0.542,
+    "mean_perk_auroc": 0.4211,
+    "per_source_auroc": {
+      "mind2web/qwen30b": 0.4016,
+      "webarena/gpt_5_2": 0.4407
+    }
+  }
+]

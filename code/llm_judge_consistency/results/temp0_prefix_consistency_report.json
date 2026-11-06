@@ -1,0 +1,28 @@
+{
+  "n_items": 150,
+  "n_items_excluded_n_steps_mismatch": 0,
+  "total_steps": 2479,
+  "pairwise": {
+    "temp0_pass1_vs_temp0_pass2": {
+      "macro_agreement": 0.7739250475261438,
+      "micro_agreement": 0.7486889874949576
+    },
+    "temp0_pass1_vs_temp0_pass3": {
+      "macro_agreement": 0.8199723753140133,
+      "micro_agreement": 0.7983057684550222
+    },
+    "temp0_pass2_vs_temp0_pass3": {
+      "macro_agreement": 0.8011062535667128,
+      "micro_agreement": 0.7736990722065349
+    }
+  },
+  "all_agree": {
+    "macro": 0.697501838203435,
+    "micro": 0.6603469140782574
+  },
+  "per_pass_agreement_with_median": {
+    "temp0_pass1": 0.8963955846367221,
+    "temp0_pass2": 0.8775294628894218,
+    "temp0_pass3": 0.9235767906772913
+  }
+}

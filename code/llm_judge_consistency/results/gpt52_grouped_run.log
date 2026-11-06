@@ -1,0 +1,612 @@
+Deployment : gpt-5.2
+Pass tags  : ['gpt52_pass1', 'gpt52_pass2', 'gpt52_pass3']  (grouped by task for cache locality)
+Manifest   : <ROOT>/annotation/result_consistency/sample_150.json  (150 items)
+
+[claude] task_id=100  (6 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=118  (18 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=121  (6 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=140  (31 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=144  (31 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=147  (31 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=57  (12 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=69  (9 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] SKIP (already done)
+[claude] task_id=91  (29 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] SKIP (already done)
+  [gpt52_pass3] call1...call2...  keyStep=15  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=100  (4 steps)
+  [gpt52_pass1] SKIP (already done)
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=System:EnvironmentError
+[claude_m] task_id=104  (18 steps)
+  [gpt52_pass1] call1...call2...  keyStep=17  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=17  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=17  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=121  (5 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=161  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+[claude_m] task_id=31  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=12  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=9  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=36  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=58  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=System:EnvironmentError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+[claude_m] task_id=65  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[claude_m] task_id=88  (19 steps)
+  [gpt52_pass1] call1...call2...  keyStep=18  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass3] call1...call2...  keyStep=18  cause=Reflection:ProgressMisassessment
+[gpt_5_2] task_id=103  (2 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+[gpt_5_2] task_id=12  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=24  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:OutcomeMisinterpretation
+[gpt_5_2] task_id=140  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=8  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=8  cause=Action:ParameterError
+[gpt_5_2] task_id=142  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=13  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=13  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=13  cause=Memory:RetrievalFailure
+[gpt_5_2] task_id=144  (8 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Action:FormatError
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Action:FormatError
+[gpt_5_2] task_id=146  (16 steps)
+  [gpt52_pass1] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=12  cause=Action:ParameterError
+[gpt_5_2] task_id=38  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Action:ParameterError
+[gpt_5_2] task_id=44  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Action:ParameterError
+[gpt_5_2] task_id=6  (12 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Action:ParameterError
+[gpt_5_2] task_id=68  (10 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:PlanningActionDisconnect
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:PlanningActionDisconnect
+[gpt_5_2] task_id=7  (26 steps)
+  [gpt52_pass1] call1...call2...  keyStep=10  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=17  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=16  cause=Reflection:ProgressMisassessment
+[gpt_5_2] task_id=79  (22 steps)
+  [gpt52_pass1] call1...call2...  keyStep=20  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=20  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=20  cause=Action:ParameterError
+[gpt_5_2] task_id=91  (30 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:ConstraintIgnorance
+[gpt_5_2_m] task_id=0  (8 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[gpt_5_2_m] task_id=110  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=14  cause=System:EnvironmentError
+[gpt_5_2_m] task_id=112  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=8  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+[gpt_5_2_m] task_id=113  (16 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Action:ParameterError
+[gpt_5_2_m] task_id=125  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=10  cause=Reflection:CausalMisattribution
+  [gpt52_pass2] call1...call2...  keyStep=9  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[gpt_5_2_m] task_id=126  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=23  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=23  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=23  cause=Action:ParameterError
+[gpt_5_2_m] task_id=137  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass2] call1...    [attempt 1/8] Error: HTTPSConnectionPool(host='<your-resource>.services.ai.azure.com', port=443): Read timed out. (read timeout=120)
+call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:ParameterError
+[gpt_5_2_m] task_id=15  (2 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=System:StepLimitExhaustion
+[gpt_5_2_m] task_id=161  (28 steps)
+  [gpt52_pass1] call1...call2...  keyStep=13  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=13  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+[gpt_5_2_m] task_id=164  (5 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=System:EnvironmentError
+[gpt_5_2_m] task_id=21  (17 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Reflection:CausalMisattribution
+  [gpt52_pass2] call1...call2...  keyStep=14  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Reflection:CausalMisattribution
+[gpt_5_2_m] task_id=3  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Action:PlanningActionDisconnect
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+[gpt_5_2_m] task_id=69  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=System:StepLimitExhaustion
+[gpt_5_2_m] task_id=89  (5 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:ParameterError
+[gptnano] task_id=11  (1 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=12  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=128  (25 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:ParameterError
+[gptnano] task_id=152  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=156  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+[gptnano] task_id=164  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Action:FormatError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:FormatError
+[gptnano] task_id=24  (19 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...    [attempt 1/8] Error: HTTPSConnectionPool(host='<your-resource>.services.ai.azure.com', port=443): Read timed out. (read timeout=120)
+call2...  keyStep=3  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+[gptnano] task_id=39  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=11  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=11  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=52  (23 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+[gptnano] task_id=55  (3 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=63  (1 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=65  (20 steps)
+  [gpt52_pass1] call1...call2...  keyStep=16  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=16  cause=Action:FormatError
+  [gpt52_pass3] call1...call2...  keyStep=16  cause=Action:FormatError
+[gptnano] task_id=67  (11 steps)
+  [gpt52_pass1] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=85  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+[gptnano] task_id=99  (17 steps)
+  [gpt52_pass1] call1...call2...  keyStep=10  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=10  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Action:ParameterError
+[gptnano_m] task_id=103  (2 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+[gptnano_m] task_id=107  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:ParameterError
+[gptnano_m] task_id=109  (11 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Action:ParameterError
+[gptnano_m] task_id=110  (20 steps)
+  [gpt52_pass1] call1...call2...  keyStep=10  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=9  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=10  cause=Reflection:ProgressMisassessment
+[gptnano_m] task_id=13  (1 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:Hallucination
+[gptnano_m] task_id=144  (11 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:ParameterError
+[gptnano_m] task_id=157  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=15  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=18  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=18  cause=Action:ParameterError
+[gptnano_m] task_id=16  (17 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+[gptnano_m] task_id=22  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+[gptnano_m] task_id=24  (26 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=10  cause=Reflection:ProgressMisassessment
+[gptnano_m] task_id=49  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:ParameterError
+[gptnano_m] task_id=62  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+[gptnano_m] task_id=70  (11 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Reflection:OutcomeMisinterpretation
+[gptnano_m] task_id=80  (31 steps)
+  [gpt52_pass1] call1...    [attempt 1/8] Error: HTTPSConnectionPool(host='<your-resource>.services.ai.azure.com', port=443): Read timed out. (read timeout=120)
+call2...  keyStep=20  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=20  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=20  cause=Reflection:ProgressMisassessment
+[gptnano_m] task_id=93  (8 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+[gptnano_m] task_id=94  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Action:ParameterError
+[gptnano_m] task_id=98  (3 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Action:FormatError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:FormatError
+[kimi] task_id=107  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=System:ToolExecutionError
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Action:PlanningActionDisconnect
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=System:ToolExecutionError
+[kimi] task_id=123  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=7  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=7  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=7  cause=Memory:RetrievalFailure
+[kimi] task_id=125  (29 steps)
+  [gpt52_pass1] call1...call2...  keyStep=7  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Planning:ImpossibleAction
+  [gpt52_pass3] call1...call2...  keyStep=7  cause=Reflection:OutcomeMisinterpretation
+[kimi] task_id=13  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=15  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=15  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=15  cause=Reflection:ProgressMisassessment
+[kimi] task_id=140  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=18  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=18  cause=Action:FormatError
+  [gpt52_pass3] call1...call2...  keyStep=18  cause=Action:FormatError
+[kimi] task_id=157  (26 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=25  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=25  cause=Reflection:ProgressMisassessment
+[kimi] task_id=158  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=12  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=12  cause=Action:ParameterError
+[kimi] task_id=159  (21 steps)
+  [gpt52_pass1] call1...call2...  keyStep=17  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=20  cause=System:StepLimitExhaustion
+  [gpt52_pass3] call1...call2...  keyStep=17  cause=Action:ParameterError
+[kimi] task_id=21  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Action:PlanningActionDisconnect
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:PlanningActionDisconnect
+[kimi] task_id=33  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[kimi] task_id=47  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=5  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[kimi] task_id=51  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+[kimi] task_id=52  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=10  cause=System:ToolExecutionError
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+[kimi] task_id=56  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=20  cause=Action:PlanningActionDisconnect
+  [gpt52_pass2] call1...call2...  keyStep=20  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=11  cause=Reflection:ProgressMisassessment
+[kimi] task_id=58  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=12  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=10  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=12  cause=Action:ParameterError
+[kimi] task_id=6  (25 steps)
+  [gpt52_pass1] call1...call2...  keyStep=22  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=22  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=20  cause=Reflection:ProgressMisassessment
+[kimi] task_id=83  (29 steps)
+  [gpt52_pass1] call1...call2...  keyStep=28  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=15  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=15  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=107  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=11  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=127  (27 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+[kimi_m] task_id=136  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=19  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=20  cause=Action:ParameterError
+[kimi_m] task_id=137  (12 steps)
+  [gpt52_pass1] call1...call2...  keyStep=11  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=11  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=140  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=29  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=29  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=28  cause=Reflection:OutcomeMisinterpretation
+[kimi_m] task_id=145  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=8  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=153  (2 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=162  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=20  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=14  cause=Action:FormatError
+[kimi_m] task_id=25  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=9  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=9  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=12  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=40  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=52  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=7  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Planning:InefficientPlanning
+[kimi_m] task_id=59  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=6  (28 steps)
+  [gpt52_pass1] call1...call2...  keyStep=27  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=27  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=27  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=65  (16 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=74  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=76  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=29  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=29  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[kimi_m] task_id=88  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=107  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=110  (8 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+[qwen30b] task_id=115  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=125  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+[qwen30b] task_id=137  (10 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:ParameterError
+[qwen30b] task_id=138  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=158  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:ConstraintIgnorance
+[qwen30b] task_id=160  (14 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Memory:OverSimplification
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+[qwen30b] task_id=2  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+[qwen30b] task_id=24  (15 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=8  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=8  cause=Action:ParameterError
+[qwen30b] task_id=25  (2 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=37  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=50  (8 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Action:ParameterError
+[qwen30b] task_id=59  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:OutcomeMisinterpretation
+[qwen30b] task_id=6  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass2] call1...    [attempt 1/8] Error: HTTPSConnectionPool(host='<your-resource>.services.ai.azure.com', port=443): Read timed out. (read timeout=120)
+call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+[qwen30b] task_id=67  (4 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Planning:InefficientPlanning
+[qwen30b] task_id=77  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=86  (3 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=88  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+[qwen30b] task_id=90  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:ConstraintIgnorance
+[qwen30b] task_id=97  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Action:ParameterError
+[qwen30b_m] task_id=107  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Action:ParameterError
+[qwen30b_m] task_id=113  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=4  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=4  cause=Action:ParameterError
+[qwen30b_m] task_id=12  (31 steps)
+  [gpt52_pass1] call1...call2...  keyStep=7  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=7  cause=Action:ParameterError
+[qwen30b_m] task_id=121  (5 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Action:FormatError
+  [gpt52_pass2] call1...call2...  keyStep=4  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:OutcomeMisinterpretation
+[qwen30b_m] task_id=134  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Action:ParameterError
+[qwen30b_m] task_id=150  (6 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:PlanningActionDisconnect
+[qwen30b_m] task_id=151  (9 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Planning:InefficientPlanning
+[qwen30b_m] task_id=156  (10 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Reflection:ProgressMisassessment
+[qwen30b_m] task_id=160  (12 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+[qwen30b_m] task_id=24  (10 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=1  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=1  cause=Planning:ConstraintIgnorance
+[qwen30b_m] task_id=27  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=1  cause=Memory:RetrievalFailure
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=0  cause=Action:ParameterError
+[qwen30b_m] task_id=33  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=2  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+  [gpt52_pass3] call1...call2...  keyStep=2  cause=Memory:RetrievalFailure
+[qwen30b_m] task_id=38  (14 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Action:ParameterError
+[qwen30b_m] task_id=51  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass2] call1...call2...  keyStep=0  cause=Planning:InefficientPlanning
+  [gpt52_pass3] call1...call2...  keyStep=7  cause=Action:ParameterError
+[qwen30b_m] task_id=65  (13 steps)
+  [gpt52_pass1] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=5  cause=Reflection:ProgressMisassessment
+[qwen30b_m] task_id=75  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+  [gpt52_pass2] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=Reflection:ProgressMisassessment
+[qwen30b_m] task_id=90  (21 steps)
+  [gpt52_pass1] call1...call2...  keyStep=3  cause=Planning:ConstraintIgnorance
+  [gpt52_pass2] call1...call2...  keyStep=5  cause=Reflection:OutcomeMisinterpretation
+  [gpt52_pass3] call1...call2...  keyStep=3  cause=Planning:ConstraintIgnorance
+[qwen30b_m] task_id=97  (7 steps)
+  [gpt52_pass1] call1...call2...  keyStep=6  cause=System:StepLimitExhaustion
+  [gpt52_pass2] call1...call2...  keyStep=3  cause=Action:ParameterError
+  [gpt52_pass3] call1...call2...  keyStep=6  cause=System:StepLimitExhaustion
+
+[gpt52_pass1] success=140 skipped=10 errors=0
+[gpt52_pass2] success=141 skipped=9 errors=0
+[gpt52_pass3] success=142 skipped=8 errors=0

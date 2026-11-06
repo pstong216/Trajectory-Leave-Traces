@@ -1,0 +1,2114 @@
+{
+  "updatedAt": "2026-08-12T04:16:09.561227+00:00",
+  "dataset": "webarena",
+  "model": "qwen30b",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::qwen30b::107": {
+      "taskKey": "webarena::qwen30b::107",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "107",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 1 the agent entered a hard-coded price without first reading the current price, computing minus $5, or taking any action to save/apply the change; the subsequent steps show no recognition or correction, only repeated re-typing until early stop. There are no earlier violations, and later errors are downstream repetitions of the same unresolved failure to validate and finalize the update.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click into the Price input field to prepare to edit the product price.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Read the current price value, compute current minus $5, enter the new price, and then click Save.",
+          "correct": false,
+          "error_description": "The agent typed a hard-coded value (27.00) without confirming the current price or saving the change.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "If the price was entered incorrectly or not applied, adjust the value once (based on current price minus $5) and click Save.",
+          "correct": false,
+          "error_description": "The agent redundantly re-typed the same value into the Price field instead of proceeding to Save or verifying the needed $5 reduction.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Stop repeating input; verify the price field value and click the Save button to apply the $5 reduction.",
+          "correct": false,
+          "error_description": "The agent continued repeating the same typing action and still did not save the product.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Click Save to persist the updated price after ensuring it reflects a $5 decrease from the original.",
+          "correct": false,
+          "error_description": "The agent again re-entered the same price value rather than saving or validating the required $5 decrease.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Click Save (or otherwise finalize the edit) and confirm the product price update succeeded.",
+          "correct": false,
+          "error_description": "The agent repeated the same typing action for a fifth time and never attempted to save/confirm the change.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "If stuck, change strategy (e.g., click Save, refresh, or verify current price) rather than repeating the same input action.",
+          "correct": false,
+          "error_description": "The agent stopped due to repeating the same action and did not complete the task of reducing the price by $5 and saving.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T03:58:32.707323+00:00"
+    },
+    "webarena::qwen30b::110": {
+      "taskKey": "webarena::qwen30b::110",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "110",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 1 the agent failed to verify whether navigation to the Orders grid had occurred after the initial click and instead scrolled on the dashboard, losing the chance to correct course early. Subsequent violations (steps 2\u20136) are repetitions of the same misassessment/loop without any evidence of recovery, so earlier errors do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales > Orders to locate order #302 for cancellation.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the Orders page did not open, retry by clicking Sales first (to expand) and then click Orders, or wait for navigation to complete.",
+          "correct": false,
+          "error_description": "The agent scrolled on the dashboard instead of ensuring navigation to the Orders grid (no evidence the click in step 0 succeeded).",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the Orders link (or expand Sales then click Orders) to open the Orders grid.",
+          "correct": false,
+          "error_description": "The agent clicked Orders again but remained on the dashboard, indicating it did not verify whether the click triggered navigation or try an alternative (e.g., click Sales first, wait, or open Orders via direct URL).",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Recognize repeated failure to navigate and change strategy (e.g., click Sales to expand, then Orders; or use the Orders URL; or refresh).",
+          "correct": false,
+          "error_description": "The agent repeated the same click on Orders without any change in approach despite no page transition.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Switch tactics to reach the Orders grid (expand Sales, use search/quick find if available, or directly navigate to the orders index page).",
+          "correct": false,
+          "error_description": "The agent continued clicking Orders with no evidence of navigation, compounding the loop.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Stop repeating the same action and attempt a different navigation method to reach order management.",
+          "correct": false,
+          "error_description": "The agent again clicked Orders and stayed on the dashboard, failing to progress toward canceling order 302.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Attempt an alternative recovery action (e.g., click Sales then Orders, reload, or open the Orders page directly) and proceed to search for order 302.",
+          "correct": false,
+          "error_description": "The agent repeated the same ineffective click yet again, with no recovery attempt.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "After reaching the Orders grid, search/filter for order #302, open it, and use the Cancel action (confirming any prompts).",
+          "correct": false,
+          "error_description": "The agent stopped due to repeating the same action and never reached the Orders grid or performed the cancellation.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T03:59:10.282304+00:00"
+    },
+    "webarena::qwen30b::115": {
+      "taskKey": "webarena::qwen30b::115",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "115",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failureCause": "Memory:RetrievalFailure",
+      "notes": "At step 1 the agent began repeating the same ineffective click despite no navigation, failing to retrieve/act on the need to change approach (e.g., Sales\u2192Orders, refresh, direct URL). There is no evidence in later steps of recognizing the lack of progress or switching strategy, so the error remained unresolved and led directly to the early stop; step 0 is not a qualifying violation.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales > Orders to open the orders grid so order #307 can be located and edited/updated with tracking information.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the click did not navigate, try an alternative navigation method (e.g., click the parent Sales menu first, then Orders, or open Orders via direct URL) to reach the orders grid.",
+          "correct": false,
+          "error_description": "The agent repeated the same click on the Orders link despite no page change, making no progress toward reaching the orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Change strategy to reach the Orders page (click Sales then Orders, refresh, or use a direct Orders URL) instead of repeating the same ineffective click.",
+          "correct": false,
+          "error_description": "The agent again repeated the same ineffective click on Orders and remained on the dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Attempt a different action to access order management (e.g., click Sales menu, use search/quick find if available, or navigate directly to the orders grid URL).",
+          "correct": false,
+          "error_description": "The agent continued repeating the same click without addressing why navigation was not occurring.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Stop repeating the same action and troubleshoot navigation (ensure menu expanded, click Sales first, or open Orders in a new navigation path) to proceed to updating order #307.",
+          "correct": false,
+          "error_description": "The agent persisted with the same Orders click and did not attempt any troubleshooting or alternate navigation.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Continue by reaching the Orders grid, opening order #307, creating/locating the shipment, and adding DHL tracking number 24353446464, then saving.",
+          "correct": false,
+          "error_description": "The agent stopped early after repeating the same action multiple times and never reached the Orders page to update the order.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T03:59:49.338246+00:00"
+    },
+    "webarena::qwen30b::125": {
+      "taskKey": "webarena::qwen30b::125",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "125",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 1 the agent failed to recognize that clicking the same Orders link was not producing navigation and did not switch tactics; this lack of progress assessment led to repeated identical clicks and eventual early stop. Step 0 does not qualify because it is the first attempt and could have been recovered by changing strategy, but no later evidence shows recovery from the step-1 error.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Sales > Orders to open the orders grid so order #299 can be located and edited.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the click did not navigate, try an alternative navigation method (e.g., click Sales first to expand, then click Orders, or wait/refresh) to reach the orders grid.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the same Orders link without any navigation change or alternative approach after it apparently failed to load the Orders page.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Change strategy to reach the Orders page (click Sales menu, use direct URL for sales/order, or check for blocked popups/loading) instead of repeating the same click.",
+          "correct": false,
+          "error_description": "Continued repeating the same ineffective click on Orders, making no progress toward opening the orders list.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Attempt a different action to access the orders grid (e.g., click Sales then Orders, or use search/quick find if available) and confirm page navigation.",
+          "correct": false,
+          "error_description": "Again repeated the same click with no evidence of navigation or troubleshooting, remaining stuck on the dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Recover by using an alternate navigation path or direct URL to the Orders grid, then search for order #299.",
+          "correct": false,
+          "error_description": "Persisted with the same non-working click instead of switching tactics to reach the Orders grid.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "If still unable to navigate, attempt a different approach (refresh, open Sales menu, direct URL) rather than stopping, since the task is incomplete.",
+          "correct": false,
+          "error_description": "Stopped due to repeating the same action; the agent never reached the Orders grid or edited order #299's address.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:00:23.310463+00:00"
+    },
+    "webarena::qwen30b::137": {
+      "taskKey": "webarena::qwen30b::137",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "137",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 1: the agent typed the title into the wrong field (likely the body textarea), leaving the required title field empty and putting the form into an invalid state that was never corrected. Later repeated clicks on missing element [14] (Steps 4\u20138) compounded the failure, but there is no evidence in the action log that the agent ever fixed the title-field mistake or adapted its element targeting, so Step 1 remains the first unrecovered violation.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the submission creation page (Submit) to start a new post in an appropriate subreddit.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Fill in the post title field with something like \"iPhone 14\" (or a discussion-oriented title) rather than typing into the body first.",
+          "correct": false,
+          "error_description": "Typed the title into a textarea (likely the body) instead of the dedicated title input field, risking an invalid/empty title.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Enter the discussion prompt \"your opinion\" into the post body text area (and ensure the title field is filled).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select a relevant subreddit from the 'Choose one\u2026' dropdown/list (e.g., a tech/Apple/iPhone-related forum) before submitting.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "After the dropdown UI changed, re-locate the subreddit selector element (now different/missing) and choose a subreddit, then proceed to submit.",
+          "correct": false,
+          "error_description": "Repeatedly attempted to click element [14] even though it no longer existed after the UI changed, making no progress toward selecting a subreddit or submitting.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Identify the current subreddit selection control (or any required fields/errors) and complete subreddit selection or move to the submit button.",
+          "correct": false,
+          "error_description": "Again attempted to click a non-existent element [14] instead of adapting to the updated page structure.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Stop repeating the failed click and instead inspect available elements (inputs/buttons) to select a subreddit and submit the post.",
+          "correct": false,
+          "error_description": "Continued the same invalid click on missing element [14], failing to recover or try an alternative action.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the visible controls (title input, subreddit selector, create submission button) to complete the form and submit.",
+          "correct": false,
+          "error_description": "Persisted with the same failed click on element [14] rather than submitting or fixing missing required fields.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "If subreddit selection is already set, click 'Create submission'; otherwise select a subreddit using the currently visible UI.",
+          "correct": false,
+          "error_description": "Kept attempting to click the missing element [14] instead of proceeding with submission or correcting form fields.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Submit the post (or, if blocked, correct the title/subreddit fields) rather than stopping due to repeated failed actions.",
+          "correct": false,
+          "error_description": "Stopped without submitting the discussion post; the agent never recovered from the repeated invalid element interaction and earlier title-field mistake.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:01:01.770640+00:00"
+    },
+    "webarena::qwen30b::138": {
+      "taskKey": "webarena::qwen30b::138",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "138",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 1 the agent clicked the wrong search result, landing in an individual thread instead of the r/sports forum listing; the action log shows no later navigation back to the forum page, so the mistake was never resolved and all subsequent actions occurred in the wrong context. There are no earlier violations to consider as recovered, and steps 2\u20138 are downstream consequences of being on the wrong page (posting comments instead of creating a new forum post).",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to navigate to the r/sports forum (e.g., search for r/sports or sports).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the search result that leads to the /f/sports forum page (not an individual comment or unrelated result).",
+          "correct": false,
+          "error_description": "The agent clicked a search result that opened a specific submission/comment thread instead of navigating to the /f/sports forum listing.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Click the global 'Submit' link/button to create a new post in /f/sports (or otherwise start a new submission flow), not interact with the comment form on an existing post.",
+          "correct": false,
+          "error_description": "The agent clicked 'Post' on the comment composer of an existing submission, initiating a comment action rather than creating a new forum post.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Navigate to the submission creation page and enter an appropriate post title about running shoe recommendations under $100.",
+          "correct": false,
+          "error_description": "The agent typed the intended post title into the comment textarea on an existing thread instead of a new-post title field.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Fill the body text field for the new post (or, if still on the wrong page, back out and go to 'Submit' to start a new submission).",
+          "correct": false,
+          "error_description": "The agent clicked back into the same comment textarea rather than moving to a new-post form or correcting navigation.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Enter the post body content (question asking for running shoe recommendations under $100) into the new-post body field.",
+          "correct": false,
+          "error_description": "The agent typed the body question into the comment textarea, appending it to the title text, instead of using a new-post submission form.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Submit the new post to /f/sports using the submit button on the new-post form.",
+          "correct": false,
+          "error_description": "The agent clicked 'Post' again, which submits a comment on the existing thread rather than creating a new post in /f/sports.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Verify the new post appears in /f/sports (or, if a comment was posted by mistake, delete it and then create a proper new submission via 'Submit').",
+          "correct": false,
+          "error_description": "The agent clicked 'Post' yet again, continuing the mistaken comment-submission flow instead of correcting to create a new forum post.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Confirm that a new post (not a comment) was submitted to /f/sports and that it asks for running shoe recommendations under $100.",
+          "correct": false,
+          "error_description": "The agent stopped after successfully submitting a comment on an unrelated existing post; it did not create a new post in r/sports as required.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:01:42.748178+00:00"
+    },
+    "webarena::qwen30b::158": {
+      "taskKey": "webarena::qwen30b::158",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "158",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At step 0 the agent proceeded to map search using an undefined placeholder (\u201cAmanda Kim\u2019s city\u201d) without first obtaining the actual destination city from customer data or asking the user, so all subsequent routing attempts were impossible. Later steps only repeated or compounded this missing-information issue and never showed evidence of retrieving the city or switching strategy, so no earlier violation was recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Identify Amanda Kim\u2019s city from the e-commerce/customer system (or ask for it if not available) rather than searching OpenStreetMap with an unknown placeholder.",
+          "correct": false,
+          "error_description": "The agent typed a vague placeholder (\u201cAmanda Kim\u2019s city\u201d) into an OpenStreetMap input without first obtaining the actual destination city.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "If using the map search, submit a real place query (once the customer\u2019s city is known) or navigate to the customer record source to find Amanda Kim\u2019s city.",
+          "correct": false,
+          "error_description": "Pressed Enter to search an undefined placeholder query, which cannot yield a valid destination.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Use a directions feature (routing) with two concrete endpoints (Allentown, PA and Amanda Kim\u2019s actual city) instead of a single combined free-text query.",
+          "correct": false,
+          "error_description": "Entered a combined phrase (\u201cAllentown, PA to Amanda Kim\u2019s city\u201d) into the search box, which is not a valid geocodable destination and not the routing workflow.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "After seeing 'No results found', change strategy: obtain the actual city name (from customer data) and/or open the routing panel ('Directions') and enter start/end locations separately.",
+          "correct": false,
+          "error_description": "Repeated the same placeholder search (\u201cAmanda Kim\u2019s city\u201d) despite 'No results found' and did not switch to directions or retrieve the missing city information.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Clear the search field and either search for a real city name or navigate away to find Amanda Kim\u2019s address/city, then return to compute directions.",
+          "correct": false,
+          "error_description": "Repeated the same non-actionable placeholder query again, further corrupting the URL/query string and making no progress.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Stop repeating the failed search and instead use the 'Directions from here/to here' controls or another source to determine Amanda Kim\u2019s city.",
+          "correct": false,
+          "error_description": "Continued repeating the identical placeholder search with no adjustment after multiple failures.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Recover by changing approach: locate Amanda Kim\u2019s city from customer records and then compute a route from Allentown, PA using the routing UI.",
+          "correct": false,
+          "error_description": "Again repeated the same placeholder search; no recovery attempt was made.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use a different action (open directions panel, clear query, search a real location, or access customer data) to progress toward route and driving time.",
+          "correct": false,
+          "error_description": "Repeated the same placeholder query yet again, demonstrating a stuck loop.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "If unable to access Amanda Kim\u2019s city, ask the user for the city or switch to the correct system/page that contains the customer\u2019s address, then compute directions.",
+          "correct": false,
+          "error_description": "Stopped due to repeating the same failed action and never obtained the destination city or produced a route/driving time.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:02:26.538283+00:00"
+    },
+    "webarena::qwen30b::160": {
+      "taskKey": "webarena::qwen30b::160",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "160",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest permanent error is Step 2: the agent used an overly specific search query and did not pivot to locating and editing the existing Cronus Yoga Pant product/variant, committing to the wrong workflow. Subsequent steps (3\u20136) continued new-product creation and later steps (8\u201312) repeated an invalid click, but there is no evidence in the action log that the agent recognized and corrected the initial wrong-plan choice, so earlier violations do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the product/inventory management area (e.g., Catalog > Products) to locate the Cronus yoga pants item to update its stock.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the Products grid under Catalog so the item can be searched and edited.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Search for the existing 'Cronus Yoga Pant' product (ideally by SKU or name) and then open it for editing rather than creating a new product.",
+          "correct": false,
+          "error_description": "Used an overly specific keyword query including color and size, which is unlikely to match the existing configurable product/variant naming and did not proceed to open an existing product.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "After filtering, click the matching existing product row (Edit) or adjust/clear filters to find the correct existing product.",
+          "correct": false,
+          "error_description": "Clicked 'Add Product' to create a new product instead of locating and editing the existing Cronus yoga pants item to update stock.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "If already in the new product form (even though it\u2019s the wrong path), back out and return to the Products grid to edit the existing product/variant stock.",
+          "correct": false,
+          "error_description": "Started entering details for a new product (product name) rather than updating stock for the received inventory on an existing item.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Return to the existing product and update its inventory quantity (or the specific size/color variant) by +5 or set to the correct on-hand amount.",
+          "correct": false,
+          "error_description": "Entered a price for a newly created product, which is unrelated to the task of updating stock for received items.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Update the stock quantity for the correct existing SKU/variant (blue, size 33) and prepare to save the change.",
+          "correct": false,
+          "error_description": "Entered quantity '5' on a new product creation page instead of adjusting inventory for the existing Cronus yoga pants variant.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Save the inventory update (e.g., click Save or Save & Close) after ensuring the correct existing product/variant is being edited.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Click the appropriate visible save option (e.g., 'Save & Close') from the opened Save dropdown, or click 'Save' directly.",
+          "correct": false,
+          "error_description": "Attempted to click a non-existent element id [84] instead of selecting one of the visible save options (Save & New / Save & Duplicate / Save & Close) or clicking Save.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Recover by selecting a valid save option from the dropdown (likely 'Save & Close') or clicking the 'Save' button.",
+          "correct": false,
+          "error_description": "Repeated the same invalid click on element [84] rather than choosing an available save action.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Stop repeating the failed click and instead click 'Save' or 'Save & Close' to commit the inventory change (or back out to edit the correct existing product).",
+          "correct": false,
+          "error_description": "Continued repeating the invalid click on a non-existent element, making no progress.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use a different valid interaction (click 'Save', 'Save & Close', or navigate back to Products grid) to proceed.",
+          "correct": false,
+          "error_description": "Again attempted the same invalid click on [84], failing to recover or progress.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Recover by clicking a visible save option or abandoning new product creation and editing the correct existing product/variant stock.",
+          "correct": false,
+          "error_description": "Repeated the invalid click yet again; no recovery attempt was made.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If stuck, stop and reassess by navigating back to Catalog > Products and editing the existing Cronus yoga pants variant to update stock, then save.",
+          "correct": false,
+          "error_description": "Stopped due to repeated identical failed actions without completing the stock update on the correct existing product/variant.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:03:19.335158+00:00"
+    },
+    "webarena::qwen30b::2": {
+      "taskKey": "webarena::qwen30b::2",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "2",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "failureCause": "Memory:RetrievalFailure",
+      "notes": "At step 2 the agent began an unrecovered loop, repeatedly clicking the same 'All Reviews' item without checking whether navigation occurred or switching to an alternative path, which permanently prevented reaching the reviews grid to search/count 'best'. Step 0\u2019s wrong menu click does not qualify because the agent moved on from it and it did not irreversibly block progress.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Marketing \u2192 User Content \u2192 All Reviews (or Pending Reviews) to access the reviews grid where review text can be searched for the term \"best\".",
+          "correct": false,
+          "error_description": "Clicked the top-level Content menu, which is unrelated to finding and searching product reviews for a keyword.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Click Marketing \u2192 All Reviews to open the reviews list/grid page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "If the click did not navigate, try an alternative navigation method (e.g., expand Marketing first, open All Reviews in a new page, or wait/retry once) and confirm the URL changes to the reviews grid.",
+          "correct": false,
+          "error_description": "Repeatedly clicked All Reviews without any evidence of navigation or troubleshooting why the page was not changing.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Change approach to reach the reviews grid (e.g., click Marketing to expand, then All Reviews; or use Reports \u2192 Reviews; or directly load the All Reviews URL) instead of repeating the same click.",
+          "correct": false,
+          "error_description": "Continued repeating the same All Reviews click with no progress toward opening the reviews grid or searching for \"best\".",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Attempt a different navigation path or diagnose UI state (menu not expanded, overlay, permissions) to actually open the reviews page.",
+          "correct": false,
+          "error_description": "Again repeated the All Reviews click; no new action to resolve the lack of navigation.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Once on the reviews grid, use the grid filters/search to find reviews containing \"best\" and count the matching results; if not on the grid, take a different action to get there.",
+          "correct": false,
+          "error_description": "Still stuck on the dashboard and repeating the All Reviews click, never reaching the reviews grid to perform the keyword count.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Continue with a new strategy to access reviews and compute the count, rather than stopping due to repeated actions.",
+          "correct": false,
+          "error_description": "Stopped early after repeating the same ineffective click sequence, without obtaining the number of reviews mentioning \"best\".",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:04:15.263355+00:00"
+    },
+    "webarena::qwen30b::24": {
+      "taskKey": "webarena::qwen30b::24",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "24",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "The earliest permanent error is Step 0: the agent typed \"University of Pittsburgh\" into the wrong input field, so the initial map search never executed and the agent never properly anchored the task to the correct location. There is no later evidence in the action log that the agent corrected this by using the main search box and selecting the university result, so subsequent direction-setting and repeated clicks could not recover.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to find and open the map location for \u201cUniversity of Pittsburgh\u201d (Pittsburgh, PA).",
+          "correct": false,
+          "error_description": "Typed into the wrong input field (not the main search box), so no search was executed.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Submit the search for \u201cUniversity of Pittsburgh\u201d (e.g., press Enter in the search box or click the search button) and select the correct result in Pittsburgh.",
+          "correct": false,
+          "error_description": "Clicked an unlabeled link/button that navigated to Directions without first locating the university on the map/search results.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "In Directions, set the start point to \u201cUniversity of Pittsburgh\u201d and the end point to a specific nearby tea cafe (or first search the map for tea cafes near the university).",
+          "correct": false,
+          "error_description": "Entered \u201ctea cafe\u201d into the start field instead of setting the start to University of Pittsburgh or performing a proper nearby search.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "If using Directions, focus the correct input (start or destination) and enter a concrete place name/address, then choose from autocomplete results.",
+          "correct": false,
+          "error_description": "Clicked an icon/image (likely a marker/locator) rather than selecting an autocomplete result or properly setting start/destination.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Enter \u201cUniversity of Pittsburgh\u201d into the start field and select the correct autocomplete result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Enter the tea cafe (destination) into the destination field (or use search to identify the nearest tea cafe first), then select the correct autocomplete result.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Select a valid destination via autocomplete (or enter a known nearby tea cafe) and ensure both endpoints are resolved to actual places.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 7,
+          "expected_action": "Switch the routing mode to Foot (walking) and trigger route calculation so the UI shows walking distance.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "After setting Foot mode, read the displayed walking distance/time from the directions panel (or click the route/Go control if required).",
+          "correct": false,
+          "error_description": "Clicked an unrelated button (welcome/start mapping control) instead of extracting the walking distance or triggering route calculation.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Click the route calculation/Go button (if present) or read the computed walking distance from the directions results area.",
+          "correct": false,
+          "error_description": "Clicked into an extra input field (likely \u201cvia\u201d/additional field) rather than calculating the route or reading the distance.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If the route is not computed, trigger calculation (e.g., press Enter in an endpoint field) and then capture the walking distance shown.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the same extra input field without progressing toward computing or reading the walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Stop interacting with the extra field and instead compute the route or read the distance from the results panel.",
+          "correct": false,
+          "error_description": "Continued repeating the same unproductive click action, indicating the agent was stuck.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Recover by changing strategy: re-enter endpoints, select autocomplete results, press Enter, or use the main map search to find the nearest tea cafe and then request walking directions.",
+          "correct": false,
+          "error_description": "No recovery attempt; repeated the same click again instead of changing approach.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Extract the walking distance once the route is displayed, or if not displayed, explicitly trigger route calculation and verify endpoints resolved.",
+          "correct": false,
+          "error_description": "Still stuck clicking the same field; did not obtain distance or confirm the nearest tea cafe.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Provide the nearest tea cafe name and the walking distance from University of Pittsburgh after successfully computing the walking route.",
+          "correct": false,
+          "error_description": "Stopped early due to repeating the same action and never produced the nearest tea cafe or walking distance.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:05:01.972257+00:00"
+    },
+    "webarena::qwen30b::25": {
+      "taskKey": "webarena::qwen30b::25",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "25",
+      "keyStep": 1,
+      "failureSteps": [
+        1
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 1 the agent prematurely concluded the repository could not be found and stopped after only one search attempt, without trying alternative queries or verifying namespace/source, making the failure permanent. There were no earlier violations in the log, so no recovered errors qualify.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the global search to locate the kkroening/ffmpeg-python project (or confirm it is unavailable on this GitLab instance) before attempting to view its issues.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the project search returns no results, try alternative queries (e.g., \"ffmpeg-python\"), check whether this environment mirrors GitHub or only contains local projects, and only then conclude the repository is unavailable; if found, navigate to Issues and filter by question-related labels.",
+          "correct": false,
+          "error_description": "The agent stopped immediately after a single search query returned no matching projects, without trying alternative searches or verifying whether the target repository exists in this GitLab environment under a different namespace/source.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:05:41.891001+00:00"
+    },
+    "webarena::qwen30b::37": {
+      "taskKey": "webarena::qwen30b::37",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "37",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Memory:RetrievalFailure",
+      "notes": "KeyStep is Step 2: the agent opened the first 'View Order' without using the task constraint (Feb 2023/artificial plants) to select the correct order, and the subsequent actions show no evidence of recognizing this mismatch and switching to a different order/date. All later violations are repetitions of the same failure to retrieve/apply the Feb 2023 constraint (looping on the same order), so earlier steps do not qualify as recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the account area (or otherwise navigate to order history) to find purchases from Feb 2023 and locate the artificial plants order.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Go to 'My Orders' to view order history and filter/identify the Feb 2023 order containing artificial plants.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Select an order likely from Feb 2023 (or otherwise navigate pages/sort) and open its details to check for artificial plants and their color configuration.",
+          "correct": false,
+          "error_description": "Clicked the first 'View Order' without checking the order date or whether it corresponded to Feb 2023 / artificial plants.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "On the order detail page, verify the order date and items; if not Feb 2023/artificial plants, return to order history and choose a different (Feb 2023) order.",
+          "correct": false,
+          "error_description": "Went back immediately without extracting item details or using the order date (May 17, 2023) to decide the next correct order to open.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Choose a different order (ideally one from Feb 2023) rather than reopening the same May 2023 canceled order.",
+          "correct": false,
+          "error_description": "Reclicked the same 'View Order' entry, returning to order #170 again.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "If already on the wrong order, navigate back and select a different order entry (or paginate) to reach Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Went back again without changing strategy (still not selecting a different order or searching for Feb 2023).",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open a different order (not the first one) and look for Feb 2023 date and artificial plants item details.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' yet again instead of selecting another order/date.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Use the order detail page to identify items and their options (color configuration) or return and pick a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again without inspecting items/options or moving toward Feb 2023 orders.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Select a different order (or navigate to older pages) to find Feb 2023 purchases.",
+          "correct": false,
+          "error_description": "Repeatedly clicked the same 'View Order' link, looping on order #170.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Stop looping and either inspect the order items/options or return and choose a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again without any new action to locate the Feb 2023 artificial plants order.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Navigate to a different order entry (e.g., second/third 'View Order') or paginate to reach Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, continuing the loop.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Inspect order items for artificial plants and their color configuration, or return and open a different (Feb 2023) order.",
+          "correct": false,
+          "error_description": "Went back again without inspecting items/options or selecting a different order.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Open a different order or use navigation/search to find Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again instead of changing to another order/date.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Use the order page to gather needed product option info or return and open a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again; no progress toward identifying Feb 2023 artificial plants or their color configuration.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Select a different order (or paginate) to locate Feb 2023 purchases.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, remaining stuck on order #170.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Inspect items/options or return and choose a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again without any new investigative step or different order selection.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Open a different order entry or navigate to older orders to reach Feb 2023.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, continuing the unproductive loop.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Extract relevant product details (including color configuration) if present, or return and open a different Feb 2023 order.",
+          "correct": false,
+          "error_description": "Went back again without extracting details or changing which order is opened.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Choose a different order or paginate/search for Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again instead of navigating to Feb 2023.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Inspect order items/options or return and open a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again; still no attempt to locate Feb 2023 artificial plants order.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Open a different order entry (not order #170) or navigate to older pages to find Feb 2023.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, repeating the loop.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Use the order detail page to find the artificial plants item and read its color configuration, or return and open a different Feb 2023 order.",
+          "correct": false,
+          "error_description": "Went back again without inspecting items/options or selecting a different order.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Select a different order or paginate to reach Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, staying stuck on the same May 2023 canceled order.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Inspect items/options or return and open a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again without any progress toward the Feb 2023 artificial plants color configuration.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Open a different order entry or navigate to older orders to find Feb 2023 purchases.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, continuing the loop.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Extract the needed product option info or return and open a different Feb 2023 order.",
+          "correct": false,
+          "error_description": "Went back again without extracting details or changing approach.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Select a different order (or paginate/search) to locate the Feb 2023 artificial plants order.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again instead of navigating to Feb 2023 orders.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Inspect items/options for artificial plants color configuration or return and open a different Feb 2023 order.",
+          "correct": false,
+          "error_description": "Went back again; no new action to find the correct order or read color configuration.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Open a different order entry or navigate to older pages to reach Feb 2023 orders.",
+          "correct": false,
+          "error_description": "Clicked the same first 'View Order' again, remaining stuck on order #170.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Stop looping and either inspect the order items/options or open a different order from Feb 2023.",
+          "correct": false,
+          "error_description": "Went back again without changing strategy or making progress toward the Feb 2023 artificial plants details.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Before stopping, attempt a different navigation path (select another order, paginate, or use search) to find the Feb 2023 artificial plants order and read its color configuration.",
+          "correct": false,
+          "error_description": "Stopped due to max steps after repeatedly looping between the same order history entry and order #170 without locating the Feb 2023 artificial plants order.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:06:37.697987+00:00"
+    },
+    "webarena::qwen30b::50": {
+      "taskKey": "webarena::qwen30b::50",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "50",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "The earliest permanent error is Step 2: the agent clicked \u201cAdd New Customer\u201d instead of initiating a search/filter for phone 8015551212, and the subsequent steps show no evidence of recognizing this mistake or switching to the required grid search workflow. Later violations (Steps 3\u20137) are repetitions/continuations of the same uncorrected loop rather than new independent root causes.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the customer list by opening Customers \u2192 All Customers so you can search for the phone number.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click \u201cAll Customers\u201d under the Customers menu to open the customer grid.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the customer grid search/filters to search for phone number 8015551212 (e.g., click Filters or Search by keyword and enter the phone).",
+          "correct": false,
+          "error_description": "Clicked \u201cAdd New Customer\u201d instead of searching/filtering the existing customer list for the given phone number.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Return to the customer grid and search/filter by phone number 8015551212 to find the matching customer record.",
+          "correct": false,
+          "error_description": "Went back from the new customer form without performing any search for the phone number.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Enter 8015551212 into the grid\u2019s search/filters (preferably the Phone filter) and run the search, then open the matching customer to read name and email.",
+          "correct": false,
+          "error_description": "Clicked \u201cAdd New Customer\u201d again instead of using the available search box/filters on the customer grid.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Navigate back to the customer grid and perform a phone-number search/filter for 8015551212.",
+          "correct": false,
+          "error_description": "Returned to the grid via Back but still did not initiate any search/filter action for the phone number.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Use the customer grid search/filters to locate the customer with phone 8015551212 and open the record to obtain name and email.",
+          "correct": false,
+          "error_description": "Clicked \u201cAdd New Customer\u201d yet again, repeating the same unproductive navigation loop instead of searching.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Stop looping and instead go back to the customer grid to search/filter by phone 8015551212, then open the result to read the customer name and email.",
+          "correct": false,
+          "error_description": "Stopped due to repeating the same actions; never used the grid search/filters to find the customer by phone number, so the task could not be completed.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:07:42.898035+00:00"
+    },
+    "webarena::qwen30b::59": {
+      "taskKey": "webarena::qwen30b::59",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "59",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 1 the agent repeated the same 'All Reviews' click without verifying any navigation/state change, indicating a failure to recognize it was stuck; this was never corrected and led directly to the later repetition and early stop. There are no earlier violations, and subsequent steps are continuations of the same unrecovered stuck-loop rather than new independent causes.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to Marketing \u2192 User Content \u2192 All Reviews (or another review/feedback area) to find negative reviews mentioning \u201cstyle\u201d for Zoe products.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "If the click did not navigate, try an alternative navigation method (e.g., click Marketing first, then All Reviews, or open All Reviews in a new page) and confirm the URL changes to a reviews grid.",
+          "correct": false,
+          "error_description": "The agent repeated the same click on \u201cAll Reviews\u201d without verifying navigation or changing approach after it clearly did not move off the dashboard.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Recognize being stuck on the dashboard and switch strategy (e.g., click Marketing menu, then All Reviews; or use Reports \u2192 Reviews; or search within admin) to reach the reviews list.",
+          "correct": false,
+          "error_description": "The agent continued clicking \u201cAll Reviews\u201d again despite no state change, making no progress toward locating unhappy Zoe style feedback.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Stop repeating the same action and instead reach the reviews grid, then filter/sort for Zoe products and complaints about style (lowest rating/negative keywords).",
+          "correct": false,
+          "error_description": "The agent kept repeating the same ineffective click and never reached the reviews page needed to identify the most unhappy customer.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate successfully to reviews, identify the worst style-related review for Zoe, then pivot to Customers \u2192 All Customers to retrieve that reviewer\u2019s email address.",
+          "correct": false,
+          "error_description": "The agent again repeated the same click without any navigation or progress toward extracting the customer email.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "After reaching the relevant review and customer record, output the customer\u2019s email address; if stuck, attempt a different navigation path rather than stopping.",
+          "correct": false,
+          "error_description": "The agent stopped due to repeating the same action and never reached any page containing review details or customer email information.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:08:20.438668+00:00"
+    },
+    "webarena::qwen30b::6": {
+      "taskKey": "webarena::qwen30b::6",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "6",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "At step 1 the agent typed into the wrong/uncleared search field, causing queries to be concatenated/malformed and yielding persistent no-result states; the action log shows the agent never reset/cleared or successfully selected any result afterward, so the error was not resolved. Later steps are repetitions/compounding of the same input-parameter mistake rather than new independent causes, and no earlier recovered violations exist.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for a Hilton-branded hotel near Pittsburgh International Airport (PIT) using a clean, location-specific query (e.g., \"Hilton Pittsburgh International Airport\" or \"Hilton PIT\").",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Refine the search to a more precise query and ensure it replaces (not appends to) the previous query, then submit it once.",
+          "correct": false,
+          "error_description": "The agent typed into a different search box without clearing/replacing properly, leading to malformed/concatenated queries and repeated no-result states.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Clear the search field and run a single well-formed query like \"Hilton Pittsburgh PA\" or \"Hilton Pittsburgh International Airport\" and then select a result if returned.",
+          "correct": false,
+          "error_description": "The agent continued typing additional queries that appended into the URL/query string instead of resetting, compounding the malformed search.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Stop repeating searches and instead reset the query (clear field) or search for the airport first (\"Pittsburgh International Airport\") to anchor the map, then search nearby for hotels.",
+          "correct": false,
+          "error_description": "The agent kept retyping similar queries without clearing or changing strategy after repeated 'No results found'.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Recover by clearing the search box and using a simpler query (e.g., \"Pittsburgh International Airport\"), then use map-based nearby search for 'Hilton' or 'hotel'.",
+          "correct": false,
+          "error_description": "The agent continued the same ineffective pattern, further bloating the query string.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Switch approach: search for \"Pittsburgh International Airport\" (PIT) to center the map correctly, then search for \"Hilton\" near that location.",
+          "correct": false,
+          "error_description": "No strategy change; repeated typing caused continued malformed queries and no results.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "If Nominatim returns no results, try searching for a known nearby Hilton property name (e.g., \"Hilton Garden Inn Pittsburgh Airport\") or search 'Hilton Garden Inn' near PIT.",
+          "correct": false,
+          "error_description": "The agent did not try a specific Hilton property name and continued appending generic queries.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Clear the query and try a specific brand/property query (e.g., \"Hilton Garden Inn Pittsburgh Airport\"), then click the returned result to open the place page.",
+          "correct": false,
+          "error_description": "The agent repeated the same generic query pattern and did not clear the field, preventing meaningful search results.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "After repeated failures, verify the map is in the correct region (Pittsburgh, PA) by searching for the airport/city and selecting it from results.",
+          "correct": false,
+          "error_description": "The agent did not re-center to Pittsburgh and continued issuing malformed searches.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Reset and search for \"Pittsburgh, PA\" or \"Pittsburgh International Airport\" to confirm location context, then proceed to hotel search.",
+          "correct": false,
+          "error_description": "The agent continued repetitive typing without resetting or validating location context.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Use a clean query and submit once; if still no results, broaden to 'hotel' near PIT and then filter for Hilton-branded options.",
+          "correct": false,
+          "error_description": "The agent kept appending queries and never moved to a broader or map-based discovery method.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Change tactics: search for the airport, then use 'Query features' or browse nearby POIs for hotels/supermarkets.",
+          "correct": false,
+          "error_description": "The agent did not use available map tools (e.g., Query features) and stayed stuck in repeated search typing.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Recover by clearing the search and using a single, correct query; then select a result to get the hotel name and location.",
+          "correct": false,
+          "error_description": "The agent continued the same loop and did not obtain any hotel result to proceed with distance measurement.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "If Hilton-specific search fails, search for 'Hilton' in Pittsburgh generally, pick any Hilton, then compute walking distance to nearest supermarket.",
+          "correct": false,
+          "error_description": "The agent did not successfully retrieve any Hilton listing and kept issuing malformed searches.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Stop repeating and instead correct the query input behavior (clear field) or reload the map to reset the search state.",
+          "correct": false,
+          "error_description": "The agent did not reset the state and continued appending queries.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Search for a specific Hilton property near PIT (e.g., \"DoubleTree Pittsburgh Airport\" or \"Hilton Garden Inn Pittsburgh Airport\") and open its details.",
+          "correct": false,
+          "error_description": "The agent did not try specific property names and remained stuck in the same generic query loop.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Once a hotel is found, use directions (walking) from the hotel to the nearest supermarket and record the shortest walking distance.",
+          "correct": false,
+          "error_description": "The agent still had not found a hotel and thus could not proceed to routing/distance calculation.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Recover by first locating PIT, then searching nearby for supermarkets and Hilton hotels using map exploration rather than repeated text search.",
+          "correct": false,
+          "error_description": "No recovery attempt; continued repetitive malformed searches.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Clear the query and search for \"Pittsburgh International Airport\" to anchor the map; then search for Hilton properties nearby.",
+          "correct": false,
+          "error_description": "The agent continued the same ineffective typing pattern without clearing or anchoring to the airport.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "If search continues failing, use alternative keywords like 'hotel' or 'Hilton Garden Inn' and ensure the query is not concatenated.",
+          "correct": false,
+          "error_description": "The agent did not ensure a clean query and did not broaden/adjust effectively.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Reset the search state (clear field/reload) and run one clean query; then click a result to proceed.",
+          "correct": false,
+          "error_description": "The agent never reset and remained trapped in the loop of appending queries.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "After obtaining a Hilton hotel, use 'Directions from here' to a supermarket with walking mode and capture the shortest walking distance.",
+          "correct": false,
+          "error_description": "The agent still had no hotel result and thus could not compute any walking distance.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Try searching for 'supermarket near Pittsburgh International Airport' only after successfully identifying a Hilton hotel location.",
+          "correct": false,
+          "error_description": "The agent continued searching for Hilton without fixing the underlying query concatenation issue.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Use a specific Hilton property name query and select it from results; avoid repeated submissions that bloat the query string.",
+          "correct": false,
+          "error_description": "The agent repeated the same generic query and did not select any result (none appeared).",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Recover by changing approach (search PIT first, then browse nearby hotels) rather than continuing identical searches.",
+          "correct": false,
+          "error_description": "No meaningful change in approach; continued looping.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "If Nominatim yields no results, use map browsing/zooming to Pittsburgh area and click hotel POIs, then identify Hilton-branded one.",
+          "correct": false,
+          "error_description": "The agent did not attempt map browsing/zooming or POI selection and kept typing queries.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Reset and run a clean query; then proceed to routing once a hotel is identified.",
+          "correct": false,
+          "error_description": "The agent remained stuck with malformed searches and made no progress toward identifying a hotel or computing distances.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Stop the loop and attempt a different query or tool (e.g., 'Query features' on the airport area) to find hotels/supermarkets.",
+          "correct": false,
+          "error_description": "The agent continued the same loop and did not use alternative tools.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Wait for results to load and then interact with them (click a result) if any appear; otherwise reset and change strategy.",
+          "correct": false,
+          "error_description": "Despite a brief 'Loading...' state, the agent continued typing again instead of waiting/selecting or resetting strategically.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "After persistent no-results, reload/reset and search for PIT first, then search for a specific Hilton property name nearby.",
+          "correct": false,
+          "error_description": "The agent continued repeating the same query pattern and did not recover.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "If unable to find results on OSM, switch to another reliable source or at minimum provide a best-effort answer using known Hilton properties and then compute distance via routing tools.",
+          "correct": false,
+          "error_description": "The agent stopped due to max steps without ever identifying a Hilton hotel or calculating walking distance to a supermarket.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:09:24.383185+00:00"
+    },
+    "webarena::qwen30b::67": {
+      "taskKey": "webarena::qwen30b::67",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "67",
+      "keyStep": 1,
+      "failureSteps": [
+        1,
+        2,
+        3
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At step 1 the agent clicked a suggested query that did not constrain results to actual Xbox controller models or the 2020\u20132021 release window, putting it onto an unfiltered path it never corrected. Later steps (2\u20133) continued on that broad results page and ended on accessories, with no evidence of recognizing and fixing the missing filtering/model-identification requirement.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the site search (or navigate to Video Games) to find Xbox controller products/models relevant to 2020\u20132021 releases.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Refine the search toward actual controller models (e.g., 'Xbox Wireless Controller Series X', 'Xbox Elite Series 2', '20th Anniversary') and/or filter within the Video Games category rather than broadening the query.",
+          "correct": false,
+          "error_description": "Clicked a suggested query ('XBox controllers 2020-2021') that massively broadened results and did not apply any meaningful filtering toward actual controller models released in 2020\u20132021.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Apply relevant filters/sorting (category=Video Games, product type=controller) or open product pages for actual controllers and identify model names and release timeframe (2020\u20132021).",
+          "correct": false,
+          "error_description": "Only scrolled on an extremely large, unfiltered results page instead of narrowing results or inspecting specific controller model pages to answer the 'most recent models released between 2020\u20132021' question.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Select actual Xbox controller model listings (not accessories like skins/cases), open their pages, and compile the most recent controller models released in 2020\u20132021.",
+          "correct": false,
+          "error_description": "Stopped on accessory products (a controller skin and a protection case) rather than identifying Xbox controller models and their 2020\u20132021 releases.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:12:43.921040+00:00"
+    },
+    "webarena::qwen30b::77": {
+      "taskKey": "webarena::qwen30b::77",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "77",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Memory:RetrievalFailure",
+      "notes": "The earliest permanent error is at step 0: the agent failed to retrieve/act on the core task requirement (search for \u201cchairs\u201d then sort by ascending price) and instead began unrelated category navigation. There is no evidence later that it recognized this mistake and corrected course (it repeatedly re-entered the same navigation/filter loop), so earlier steps cannot be considered recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Search for \u201cchairs\u201d using the search box (or navigate to a chairs category) to reach a chairs results page that can be sorted by price.",
+          "correct": false,
+          "error_description": "Clicked the top-level \u201cHome & Kitchen\u201d category instead of initiating a search for \u201cchairs\u201d.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search bar to search for \u201cchairs\u201d or apply a filter/category that specifically yields chair products, then prepare to sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked into \u201cFurniture\u201d without confirming it would lead to chair listings or using the search for \u201cchairs\u201d.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Select a chairs-related subcategory (or use search) and then use the sort dropdown to sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cLiving Room Furniture\u201d rather than narrowing to chairs or sorting by price.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "If already in Furniture, choose a chairs subcategory (e.g., chairs/dining chairs/office chairs) or search for \u201cchairs\u201d.",
+          "correct": false,
+          "error_description": "Clicked \u201cAccent Furniture\u201d (not explicitly chairs) and still did not sort by price.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "On the product listing page, set sorting to Price ascending (and/or filter to chairs).",
+          "correct": false,
+          "error_description": "Applied a price-range filter ($1,000-$1,999) instead of sorting chairs by ascending price.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the sort dropdown to choose \u201cPrice\u201d and ensure ascending order, while staying within chair listings.",
+          "correct": false,
+          "error_description": "Further narrowed price to $1,000-$1,099.99 rather than sorting chairs by ascending price.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Return to a chairs results page and apply sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked a product image to open a product detail page, which does not accomplish listing chairs sorted by price.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Navigate back to the chairs listing/results page and apply Price ascending sort.",
+          "correct": false,
+          "error_description": "Clicked breadcrumb \u201cHome & Kitchen\u201d from a non-chair product page, resetting context instead of returning to chair listings and sorting.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Search for \u201cchairs\u201d from the header search box and then sort results by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cFurniture\u201d again instead of searching for \u201cchairs\u201d and sorting by price.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Use search for \u201cchairs\u201d or select a chairs category, then sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cLiving Room Furniture\u201d again; still not targeting chairs or sorting by price.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Identify a chairs subcategory or use search, then apply Price ascending sort.",
+          "correct": false,
+          "error_description": "Clicked \u201cAccent Furniture\u201d again, continuing down an irrelevant path.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Stop drilling into unrelated filters and instead search for \u201cchairs\u201d and sort by Price ascending.",
+          "correct": false,
+          "error_description": "Applied the $1,000-$1,999 price filter again rather than sorting chair listings.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Use the sort dropdown to set Price ascending on a chairs listing page.",
+          "correct": false,
+          "error_description": "Opened a product detail page from the filtered list instead of sorting chair listings.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Go back to the chairs results page and sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cHome & Kitchen\u201d top navigation, restarting navigation rather than returning to chairs listings and sorting.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Search for \u201cchairs\u201d and then sort results by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cFurniture\u201d again instead of searching for chairs and sorting.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Select a chairs category or search for \u201cchairs\u201d, then sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cLiving Room Furniture\u201d again; still not chairs-specific and no sorting.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Use search or a chairs subcategory and apply Price ascending sort.",
+          "correct": false,
+          "error_description": "Clicked \u201cAccent Furniture\u201d again, repeating the same irrelevant navigation.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Stop filtering by arbitrary price ranges and instead sort chair listings by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked the $1,000-$1,999 price filter again, which is not the requested sort.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Use the sort dropdown to set Price ascending on the chairs listing page.",
+          "correct": false,
+          "error_description": "Opened a product detail page again instead of sorting chair listings.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "Return to the chairs results page and apply Price ascending sort.",
+          "correct": false,
+          "error_description": "Clicked \u201cHome & Kitchen\u201d again, restarting navigation rather than fixing the missing chairs query and sort.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Search for \u201cchairs\u201d and sort results by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cFurniture\u201d again instead of searching for chairs and sorting.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Navigate to chairs listings (via search or category) and sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cLiving Room Furniture\u201d again; still not chairs-focused and no sorting.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "Use search for \u201cchairs\u201d or a chairs subcategory and then sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cAccent Furniture\u201d again, continuing the loop.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Apply Price ascending sort on chair listings (not apply a price filter).",
+          "correct": false,
+          "error_description": "Clicked the $1,000-$1,999 price filter again rather than sorting chairs by ascending price.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Use the sort dropdown to choose Price and ensure ascending order on the chairs results page.",
+          "correct": false,
+          "error_description": "Opened a product detail page again instead of sorting chair listings.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Return to the chairs listing page and apply Price ascending sort.",
+          "correct": false,
+          "error_description": "Clicked \u201cHome & Kitchen\u201d again, restarting navigation without ever searching for chairs or sorting.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Search for \u201cchairs\u201d and sort results by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cFurniture\u201d again instead of searching for chairs and sorting.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Go to a chairs listing (via search or category) and sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cLiving Room Furniture\u201d again; still not chairs-specific and no sorting.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Use search for \u201cchairs\u201d or a chairs subcategory and then sort by Price ascending.",
+          "correct": false,
+          "error_description": "Clicked \u201cAccent Furniture\u201d again, repeating the same incorrect path.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "Apply Price ascending sort on chair listings rather than filtering by a high price range.",
+          "correct": false,
+          "error_description": "Clicked the $1,000-$1,999 price filter again, not the requested ascending price sort for chairs.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "On the chairs results page, set the sort dropdown to \u201cPrice\u201d and ensure ascending order, then present the resulting chair listings.",
+          "correct": false,
+          "error_description": "Stopped due to max steps without ever reaching chair listings sorted by ascending price.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:13:28.584225+00:00"
+    },
+    "webarena::qwen30b::86": {
+      "taskKey": "webarena::qwen30b::86",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "86",
+      "keyStep": 2,
+      "failureSteps": [],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "No violation remained unrecovered: although Step 0 clicked \"My Cart\" (a detour), the agent recovered by Step 1 searching for \"discounted items\" and by Step 2 reaching a page that displays discounted items. The final stop indicates task completion, so there is no permanent error step driving failure.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Scan the homepage product listings for visible discount percentages or navigate to a sale/discount section rather than opening the cart.",
+          "correct": false,
+          "error_description": "Clicked \"My Cart\" which is unrelated to finding discounted items and diverted away from browsing discounted products.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the search box to look for sale/discount-related terms (e.g., \"discount\", \"sale\") or return to browsing the homepage listings for discount labels.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Identify and report the discounted items shown on the results page (items with percentage-off labels).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:14:25.962687+00:00"
+    },
+    "webarena::qwen30b::88": {
+      "taskKey": "webarena::qwen30b::88",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "88",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "failureCause": "Reflection:ProgressMisassessment",
+      "notes": "At step 0 the agent clicked the same 'Themes' item without verifying any page/state change and failed to recognize lack of progress, initiating a loop that was never corrected. Later steps only repeat the same ineffective action and do not show any recognition or successful pivot, so earlier errors were not recovered.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate toward a storefront preview of the Blank theme (e.g., open Content \u2192 Design \u2192 Configuration/Themes or open the storefront URL) rather than repeatedly clicking the same menu item without page change.",
+          "correct": false,
+          "error_description": "Clicked the 'Themes' menu item but did not verify navigation or switch strategy when the URL/page did not change, making no progress toward previewing the Blank theme.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "If the first click did not navigate, try an alternative path (e.g., click Content \u2192 Configuration, Stores \u2192 Configuration \u2192 General \u2192 Design, or open the storefront in a new tab) to reach theme preview.",
+          "correct": false,
+          "error_description": "Repeated the same click on 'Themes' despite no state change, instead of trying another navigation route to preview the theme.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Change approach by selecting a different relevant admin section (Design Configuration/Themes list) or directly opening the frontend to preview the theme.",
+          "correct": false,
+          "error_description": "Again clicked 'Themes' with no resulting navigation, continuing a non-progressing loop.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Stop repeating the same action and attempt a different click target or direct URL to reach the theme configuration/preview.",
+          "correct": false,
+          "error_description": "Continued clicking 'Themes' without any evidence of navigation or troubleshooting (e.g., waiting, expanding menus, or using another menu path).",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Use a different navigation path or open the storefront to actually preview the Blank theme, confirming the theme applied to the store view.",
+          "correct": false,
+          "error_description": "Repeated the same ineffective click yet again, failing to progress toward previewing the Blank theme.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "After multiple failed attempts, pivot to a new strategy (different menu path or direct frontend preview) rather than stopping due to repetition.",
+          "correct": false,
+          "error_description": "Stopped after repeating the same action multiple times without attempting any alternative method to preview the Magento Blank theme.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:14:54.186983+00:00"
+    },
+    "webarena::qwen30b::90": {
+      "taskKey": "webarena::qwen30b::90",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "90",
+      "keyStep": 2,
+      "failureSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "At step 2 the agent issued an unconstrained generic query (\u201chotel\u201d) instead of searching for hotels near the already-selected Carnegie Music Hall location, causing the context to jump away and derailing the task. There is no evidence in later steps that the agent recognized this and re-centered/refined the query; subsequent repeated clicks (steps 3\u20137) never corrected the location constraint, so the step-2 error remained permanent.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to look up \u201cCarnegie Music Hall\u201d and submit the query to center the map on the venue.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the correct search result for Carnegie Music Hall in Pittsburgh to focus the map on that location.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Search for hotels near the currently centered Carnegie Music Hall location (e.g., query \u201chotel near Carnegie Music Hall Pittsburgh\u201d or use nearby/amenity search while keeping the map centered).",
+          "correct": false,
+          "error_description": "The agent searched for the generic term \u201chotel\u201d without constraining it to the Carnegie Music Hall area, causing results/map to jump to unrelated places.",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Recognize the search results are not near Pittsburgh and refine the query/backtrack to search for hotels near Carnegie Music Hall (or re-center on the hall and then search).",
+          "correct": false,
+          "error_description": "The agent clicked the search input (or an unrelated control) instead of correcting the off-location hotel search or returning to the Carnegie Music Hall area.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Enter a location-specific hotel query (e.g., \u201chotel near Carnegie Music Hall Pittsburgh\u201d) or navigate back to the Carnegie Music Hall page/map view and then search nearby hotels.",
+          "correct": false,
+          "error_description": "Repeatedly clicking the same input/control made no progress toward finding hotels near Carnegie Music Hall.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Change strategy by refining the search query or re-centering the map on Carnegie Music Hall before searching for hotels.",
+          "correct": false,
+          "error_description": "The agent continued the same unproductive click action instead of adjusting the query or map location.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Select a relevant nearby hotel result in Pittsburgh (after correcting the query) or use map features to query amenities around the hall.",
+          "correct": false,
+          "error_description": "The agent again repeated the same click without fixing the incorrect search context (still not near Carnegie Music Hall).",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Refine the search to Pittsburgh/Carnegie Music Hall and identify at least one hotel around the venue from results or map POIs.",
+          "correct": false,
+          "error_description": "The agent kept clicking the same element, failing to recover from the earlier mistake and not progressing toward identifying a nearby hotel.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "If stuck, stop only after attempting a corrective action (re-center on Carnegie Music Hall and run a constrained hotel search) and extracting a hotel name near the hall.",
+          "correct": false,
+          "error_description": "The agent stopped due to repeating the same action and never identified any hotel around Carnegie Music Hall.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:15:33.440271+00:00"
+    },
+    "webarena::qwen30b::97": {
+      "taskKey": "webarena::qwen30b::97",
+      "dataset": "webarena",
+      "model": "qwen30b",
+      "taskId": "97",
+      "keyStep": 3,
+      "failureSteps": [
+        3,
+        5
+      ],
+      "failureCause": "Action:ParameterError",
+      "notes": "KeyStep is Step 3: the agent typed the new bio text without clearing/replacing the existing biography, creating duplicated content that was then saved. Step 1 does not qualify because the agent later navigated correctly and reached the bio editor, recovering from the mistaken dark mode toggle.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Open the user menu (or go directly to profile/settings) to find where the biography can be edited.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click a relevant destination such as Profile, My account, or User settings to reach a page that exposes an Edit biography option.",
+          "correct": false,
+          "error_description": "Clicked the Dark mode toggle instead of navigating to Profile/My account/User settings to edit the bio.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "From the account/settings area, click the Edit biography link to open the biography editor.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Replace the existing biography text with exactly \"Seeking SDE positions\" (without duplicating existing content) in the textarea.",
+          "correct": false,
+          "error_description": "Typed \"Seeking SDE positions\" without clearing the existing biography content (which already contained that phrase), causing duplication.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "Click Save to submit the updated biography after verifying the textarea contains exactly the desired text.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Verify the saved biography matches exactly \"Seeking SDE positions\" and, if duplicated, correct it and save again before stopping.",
+          "correct": false,
+          "error_description": "Stopped after the update message even though the textarea shows duplicated biography text (\"...Seeking SDE positionsSeeking SDE positions\").",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.2_gpt52_pass1",
+      "updatedAt": "2026-08-12T04:16:09.561203+00:00"
+    }
+  }
+}

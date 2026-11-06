@@ -1,0 +1,1050 @@
+{
+  "updatedAt": "2026-08-09T05:24:45.189255+00:00",
+  "dataset": "webarena",
+  "model": "claude_m",
+  "sourceFiles": [
+    "azure_annotated"
+  ],
+  "items": {
+    "webarena::claude_m::100": {
+      "taskKey": "webarena::claude_m::100",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "100",
+      "keyStep": 3,
+      "failureSteps": [],
+      "failureCause": "System:StepLimitExhaustion",
+      "notes": "No violations were detected in the violation report, and the trajectory ends immediately after the status is set successfully. Therefore there is no unrecovered agent error to attribute; the only applicable classification is step-budget related, with keyStep at the last step.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the user avatar/status area to open the status editing menu.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Click the 'Edit status' button to open the status editor.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "In the status editor, select the option to set the status to 'Enjoying life' and submit it.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Confirm the status change succeeded and end the task.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:23:22.252371+00:00"
+    },
+    "webarena::claude_m::104": {
+      "taskKey": "webarena::claude_m::104",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "104",
+      "keyStep": 0,
+      "failureSteps": [
+        0
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "Step 0 contains an unrecovered navigation ambiguity (clicked an account/My Account link without clear context toward order history). Earlier recovered violations were corrected later and did not permanently block progress, but this initial misnavigation was the first permanent error that set the agent on an unreliable path.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the account area (e.g., My Account) to access prior orders for reordering.",
+          "correct": false,
+          "error_description": "Clicked the My Account link but the step context shows the agent started from the homepage; the action is ambiguous and not clearly the intended navigation toward order history.",
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the 'My Orders' section from the account page to view past orders.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Locate the specific canceled order from summer 2022 (June 30, 2022) by scanning the order history list.",
+          "correct": false,
+          "error_description": "Scrolled without selecting or filtering toward the target order date/order id, making it unlikely the correct order would be found efficiently.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Use pagination/selection to reach the page containing the June 30, 2022 canceled order.",
+          "correct": false,
+          "error_description": "Clicked a page number (Page 2) rather than directly targeting the June 30, 2022 order; this is likely misaligned with the goal.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Continue navigating order history pages to reach the order dated June 30, 2022.",
+          "correct": false,
+          "error_description": "Scrolled down on page 2 instead of selecting the most relevant order/date or using a more direct approach.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Select the appropriate order entry (or reorder button) once the June 30, 2022 order is visible.",
+          "correct": false,
+          "error_description": "Clicked a page navigation control (Page 3) rather than selecting the target order.",
+          "recovered": true
+        },
+        {
+          "step": 6,
+          "expected_action": "Select the canceled order that matches the target date (June 30, 2022) from the order list.",
+          "correct": false,
+          "error_description": "Clicked 'My Orders' item (View Order) that led away from the target order date.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "From the order details page, click 'Reorder' for the specific canceled order that matches June 30, 2022.",
+          "correct": false,
+          "error_description": "Opened order #000000172 (August 12, 2022) and then clicked 'My Account' instead of proceeding with reorder for the June 30, 2022 order.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Return to order history and navigate directly to the June 30, 2022 canceled order.",
+          "correct": false,
+          "error_description": "Jumped to order view order_id/149 without confirming it matched the June 30, 2022 target.",
+          "recovered": true
+        },
+        {
+          "step": 9,
+          "expected_action": "Verify the order date matches June 30, 2022; if not, go back and continue searching.",
+          "correct": false,
+          "error_description": "Opened order #000000149 (July 25, 2022), which does not match the target June 30, 2022 order.",
+          "recovered": true
+        },
+        {
+          "step": 10,
+          "expected_action": "If the order is the correct one, click 'Reorder'; otherwise, navigate back to order history to find the correct date.",
+          "correct": false,
+          "error_description": "Navigated away to order history page 3 instead of continuing the search efficiently for June 30, 2022.",
+          "recovered": true
+        },
+        {
+          "step": 11,
+          "expected_action": "Use pagination to reach the page containing the June 30, 2022 order.",
+          "correct": false,
+          "error_description": "Scrolled on page 3 without selecting the target order/date.",
+          "recovered": true
+        },
+        {
+          "step": 12,
+          "expected_action": "Select the order entry that corresponds to June 30, 2022 (or click 'Reorder' if already on that order).",
+          "correct": false,
+          "error_description": "Clicked a 'View Order' entry that did not correspond to the June 30, 2022 target.",
+          "recovered": true
+        },
+        {
+          "step": 13,
+          "expected_action": "Navigate to the page where the June 30, 2022 order appears, then open that order.",
+          "correct": false,
+          "error_description": "Clicked 'View Order' from page 4 without evidence it was the June 30, 2022 order.",
+          "recovered": true
+        },
+        {
+          "step": 14,
+          "expected_action": "On the June 30, 2022 canceled order details page, click 'Reorder'.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 15,
+          "expected_action": "Click 'Reorder' on the June 30, 2022 canceled order page to add the item back to the cart.",
+          "correct": false,
+          "error_description": "Scrolled up instead of clicking the 'Reorder' control.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "Click 'Reorder' on the June 30, 2022 canceled order page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "Confirm the item was added to the cart and proceed to checkout if needed.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:23:33.769886+00:00"
+    },
+    "webarena::claude_m::121": {
+      "taskKey": "webarena::claude_m::121",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "121",
+      "keyStep": 4,
+      "failureSteps": [
+        4
+      ],
+      "failureCause": "Action:PlanningActionDisconnect",
+      "notes": "Step 4 is the earliest unrecovered violation: the agent stopped after typing without an explicit subscribe submission action, so the confirmation could not be reliably produced. Earlier step scroll inefficiencies (Steps 0-2) were recovered by eventually reaching the email input, so they do not qualify as the permanent cause.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Scroll only as needed to reach the newsletter signup section on the page.",
+          "correct": false,
+          "error_description": "The agent scrolled down without first locating the newsletter signup area, wasting steps on product listings.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "Continue navigating toward the 'Sign Up for Our Newsletter' section rather than browsing product results.",
+          "correct": false,
+          "error_description": "The agent kept scrolling through product items instead of moving directly to the newsletter form.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Find and focus the newsletter email input labeled 'Sign Up for Our Newsletter' and prepare to enter an email.",
+          "correct": false,
+          "error_description": "The agent scrolled further down and did not yet interact with the newsletter signup form.",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Type the provided email address into the newsletter email input field.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "Submit the newsletter subscription and verify the confirmation message 'Thank you for your subscription.'",
+          "correct": false,
+          "error_description": "The agent stopped immediately after typing without showing an explicit click on the 'Subscribe' button in the provided steps.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:23:40.124823+00:00"
+    },
+    "webarena::claude_m::161": {
+      "taskKey": "webarena::claude_m::161",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "161",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The earliest unrecovered violation is Step 0: the agent clicked an unrelated element instead of opening the target GitLab repository, and the subsequent actions show a sustained detour into unrelated WebArena/forum navigation rather than returning to perform the required GitLab directory/file edits. Earlier issues are not recoverable because the overall approach/plan never reorients back to the GitLab task, culminating in Step 30 stopping at the step limit without creating car/urls.txt.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the gimmiethat.space GitLab project repository page (byteblaze/gimmiethat.space) to edit its files.",
+          "correct": false,
+          "error_description": "Clicked an unrelated element on the GitLab landing/projects list instead of directly opening the target repository.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Use the GitLab search to find and open the byteblaze/gimmiethat.space project.",
+          "correct": false,
+          "error_description": "Typed the repository name into the search field but did not ensure the correct search context/selection before proceeding.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "Select the search result for gimmiethat.space to open the repository.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Click the gimmiethat.space project result to open the repository.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "In the repository, create a new directory named car.",
+          "correct": false,
+          "error_description": "Opened a new tab (likely wrong navigation) instead of starting the directory creation in the repo.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Stay within the GitLab repository UI to create the car folder and edit files.",
+          "correct": false,
+          "error_description": "Navigated to an unrelated WebArena URL (port 9999) rather than continuing GitLab file operations.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "If a chosen URL is invalid, return to the GitLab repo page to continue the required file changes.",
+          "correct": false,
+          "error_description": "Went to a 404 page for /r/cars and then redirected to another unrelated site.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Return to GitLab to create the car directory and urls.txt; do not browse unrelated forums.",
+          "correct": false,
+          "error_description": "Clicked into the Reddit section of WebArena, which is unrelated to the GitLab repo task.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Collect the 5 most recent car post links only if the task required it; otherwise return to GitLab immediately.",
+          "correct": false,
+          "error_description": "Scrolled through forums instead of performing the required GitLab directory/file creation.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Navigate to the correct car-related forum/topic only if needed for link collection, then return to GitLab.",
+          "correct": false,
+          "error_description": "Continued browsing forums and changed to another port URL, still not returning to GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "If the /f/cars page does not exist, find the correct forum/topic or return to GitLab.",
+          "correct": false,
+          "error_description": "Tried to open /f/cars which returned 404, then went back to home rather than fixing the GitLab task.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Use the forum search to find car-related posts only if required, but ensure GitLab edits are performed to create car/urls.txt.",
+          "correct": false,
+          "error_description": "Searched for 'cars' in WebArena instead of creating the car folder in the GitLab repository.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "From the search results, identify the 5 most recent car post URLs (if the task required link collection).",
+          "correct": false,
+          "error_description": "Navigated to a search results page but did not yet capture the required 5 most recent links for writing into GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Open the correct post listing pages to gather the 5 most recent car post links, then return to GitLab.",
+          "correct": false,
+          "error_description": "Attempted to open /f/Cars (wrong casing/path) and then redirected to search with sort=new.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Use sort=new results to select the 5 most recent car posts and record their URLs.",
+          "correct": false,
+          "error_description": "Clicked into a result rather than systematically collecting the top 5 most recent post URLs.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "Return to the car post listing/search results to continue collecting the remaining recent URLs.",
+          "correct": false,
+          "error_description": "Opened an external article (uef.fi) and then went back, wasting steps and still not returning to GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 16,
+          "expected_action": "Continue collecting the 5 most recent car post URLs from the sorted results.",
+          "correct": false,
+          "error_description": "Returned to the search results but did not progress toward recording 5 URLs for GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 17,
+          "expected_action": "Select the next most recent car post and capture its URL.",
+          "correct": false,
+          "error_description": "Scrolled rather than capturing URLs; no evidence of storing the required 5 links.",
+          "recovered": false
+        },
+        {
+          "step": 18,
+          "expected_action": "Click the next relevant post from the sorted results to capture its URL.",
+          "correct": false,
+          "error_description": "Clicked a result but still did not record URLs for later writing into GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 19,
+          "expected_action": "On the post page, copy the post's canonical URL (short URL) for later inclusion in urls.txt.",
+          "correct": false,
+          "error_description": "Went back without capturing/storing the post URL.",
+          "recovered": false
+        },
+        {
+          "step": 20,
+          "expected_action": "Continue selecting posts from the sorted results until 5 URLs are collected.",
+          "correct": false,
+          "error_description": "Returned to search results and hovered instead of collecting and storing URLs.",
+          "recovered": false
+        },
+        {
+          "step": 21,
+          "expected_action": "Click the next post to capture its URL.",
+          "correct": false,
+          "error_description": "Clicked a result but did not capture/store the URL for later GitLab editing.",
+          "recovered": false
+        },
+        {
+          "step": 22,
+          "expected_action": "On the post page, capture the short/canonical URL for later inclusion in urls.txt.",
+          "correct": false,
+          "error_description": "Went back without recording the URL.",
+          "recovered": false
+        },
+        {
+          "step": 23,
+          "expected_action": "Continue collecting remaining post URLs from the sorted results.",
+          "correct": false,
+          "error_description": "Scrolled without capturing/storing URLs.",
+          "recovered": false
+        },
+        {
+          "step": 24,
+          "expected_action": "Click the next most recent post to capture its URL.",
+          "correct": false,
+          "error_description": "Clicked a result but still did not record the URL for GitLab.",
+          "recovered": false
+        },
+        {
+          "step": 25,
+          "expected_action": "Capture the post's short/canonical URL from the post page.",
+          "correct": false,
+          "error_description": "Went back without capturing/storing the URL.",
+          "recovered": false
+        },
+        {
+          "step": 26,
+          "expected_action": "Click the next post to capture its URL until 5 are collected.",
+          "correct": false,
+          "error_description": "Clicked another result but did not capture/store the URL.",
+          "recovered": false
+        },
+        {
+          "step": 27,
+          "expected_action": "Capture the post's short/canonical URL from the post page.",
+          "correct": false,
+          "error_description": "Went back without recording the URL.",
+          "recovered": false
+        },
+        {
+          "step": 28,
+          "expected_action": "Continue collecting remaining post URLs until you have exactly 5, then return to GitLab to create car/urls.txt.",
+          "correct": false,
+          "error_description": "Clicked another post but still did not return to GitLab or store URLs.",
+          "recovered": false
+        },
+        {
+          "step": 29,
+          "expected_action": "After collecting the 5th URL, navigate back to GitLab and create the car folder and urls.txt with those links.",
+          "correct": false,
+          "error_description": "Focused on the post page but did not capture/store URLs or perform any GitLab directory/file creation.",
+          "recovered": false
+        },
+        {
+          "step": 30,
+          "expected_action": "Create the car directory and add urls.txt in it containing the 5 most recent car post links.",
+          "correct": false,
+          "error_description": "Stopped early due to max steps without creating the required folder or urls.txt in the repository.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:23:57.195816+00:00"
+    },
+    "webarena::claude_m::31": {
+      "taskKey": "webarena::claude_m::31",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "31",
+      "keyStep": 4,
+      "failureSteps": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "Step 4\u2019s navigation (scrolling up/revisiting earlier results) was not corrected into a systematic, verifiable min/max-finding process, and subsequent steps continued to ignore the need to confirm sort state and product relevance. This led to unrecoverable misidentification of the price extremes (including unrelated items), so earlier recovered issues do not qualify.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Use the search box to enter the query 'teeth grinding mouth guard' and submit the search to reach relevant product results.",
+          "correct": false,
+          "error_description": "The agent typed the query into the page without clearly submitting or navigating to the search results.",
+          "recovered": true
+        },
+        {
+          "step": 1,
+          "expected_action": "On the search results page, inspect the product list and identify the minimum and maximum prices for teeth grinding mouth guards.",
+          "correct": false,
+          "error_description": "The agent only scrolled down without capturing the current visible min/max prices.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Continue reviewing products to find the lowest and highest prices, recording any extreme values seen.",
+          "correct": false,
+          "error_description": "The agent scrolled down again without recording the observed prices (e.g., $9.27, $14.99, $21.07).",
+          "recovered": true
+        },
+        {
+          "step": 3,
+          "expected_action": "Adjust the browsing direction to locate the lowest-priced and highest-priced relevant mouth guard items, then note those prices.",
+          "correct": false,
+          "error_description": "The agent scrolled up without a clear strategy to systematically find extremes; it did not explicitly record the min/max at this point.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Verify the price extremes by continuing to navigate toward the lowest and highest priced mouth guard results and record them.",
+          "correct": false,
+          "error_description": "The agent scrolled up again, effectively revisiting earlier results rather than progressing toward confirmed extremes.",
+          "recovered": false
+        },
+        {
+          "step": 5,
+          "expected_action": "Use the sort/filter controls (e.g., sort by price ascending/descending) to reliably determine the minimum and maximum prices.",
+          "correct": false,
+          "error_description": "The agent clicked the column header/select element rather than clearly setting a price sort direction.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Ensure the results are sorted by price (ascending or descending) so the first items reflect the min/max prices.",
+          "correct": false,
+          "error_description": "The agent clicked the same select element again without confirming the sort state.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "If sorting is not correctly applied, correct it by selecting the proper sort control rather than typing into the page.",
+          "correct": false,
+          "error_description": "The agent typed 'Price' into the page where a control was expected, likely corrupting the intended interaction.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "With price sorting applied, scroll minimally to capture the lowest and highest relevant mouth guard prices.",
+          "correct": false,
+          "error_description": "The agent scrolled down without extracting the min/max prices from the sorted results.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "When sorted by price, identify the lowest and highest prices from the first/last relevant items and record them.",
+          "correct": false,
+          "error_description": "The agent scrolled up and the visible items appear unrelated (e.g., TVs/lamps), indicating the search results were not reliably filtered to mouth guards.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Re-apply correct price sorting and ensure the items shown are teeth grinding mouth guards before determining min/max.",
+          "correct": false,
+          "error_description": "The agent clicked the sort control again without verifying that the results correspond to mouth guards.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Confirm the sort direction (ascending/descending) and then locate the extreme mouth guard prices from the sorted list.",
+          "correct": false,
+          "error_description": "The agent scrolled down while the page still showed category-like entries rather than clearly mouth-guard-specific extremes.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "After confirming the minimum and maximum prices for teeth grinding mouth guards, provide the final price range.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:24:07.197073+00:00"
+    },
+    "webarena::claude_m::36": {
+      "taskKey": "webarena::claude_m::36",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "36",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The agent repeatedly navigated to the wrong pages (e.g., 'My Account' and unrelated order URLs) and never performed the required extraction/summation for the mid-Jan to end-Jan 2023 food range. Earlier issues were not recovered because the agent\u2019s navigation/execution approach was fundamentally misaligned with the needed workflow, culminating in stopping at Step 14 with $0.00.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the 'My Orders' link (or navigate directly to order history) to access purchase totals for the date range.",
+          "correct": false,
+          "error_description": "Clicked 'My Account' instead of going to 'My Orders'/'order history' where spending can be calculated.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "On the account page, click 'My Orders' to open the sales order history list.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 2,
+          "expected_action": "Use the order history list to identify orders within mid-Jan to end-Jan 2023, then open each relevant order to sum food-shopping amounts.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Navigate to the next page of order history (or adjust pagination) while keeping track of which orders fall in the target date range.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 4,
+          "expected_action": "From the order list on page 2, open a specific order that falls within mid-Jan to end-Jan 2023.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "On the opened order, extract the order date and the total amount for food items (or item-level amounts) to include in the spending sum.",
+          "correct": false,
+          "error_description": "Clicked 'My Account' (via link [26]) instead of collecting the order details needed for the calculation.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Return to order history and continue opening relevant orders in the target date range to compute food spending.",
+          "correct": false,
+          "error_description": "Scrolled the order history list without opening/processing the correct order details for the required date range.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Continue pagination or select the next relevant order within mid-Jan to end-Jan 2023.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 8,
+          "expected_action": "Open an order from the list that is within the target date range.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 9,
+          "expected_action": "On the opened order, record the order date and the amount(s) corresponding to food shopping for inclusion in the total.",
+          "correct": false,
+          "error_description": "Navigated to a different order URL (order_id/148) rather than processing the currently opened order (order_id/163).",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Extract the order date and food-related total from order_id/148 to add to the mid-Jan to end-Jan 2023 spending sum.",
+          "correct": false,
+          "error_description": "Scrolled without capturing the needed order totals/item details for the calculation.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "Identify and record the order total (and/or item-level amounts) for food items from the current order page.",
+          "correct": false,
+          "error_description": "Clicked away to another order page without recording the required spending information from the current order.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "Extract the order date and food-related amount(s) from order_id/163 for the target date range.",
+          "correct": false,
+          "error_description": "Scrolled without recording the order totals/item details needed to compute the final food spending.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Record the relevant totals for the order (food shopping) and then proceed to the next relevant order until the date range is fully covered.",
+          "correct": false,
+          "error_description": "Navigated to order history page 3 without summing/recording the food spending from the current order.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Continue opening and summing all relevant orders in the date range, then output the computed total spending on food shopping.",
+          "correct": false,
+          "error_description": "Stopped immediately with result [$0.00] without performing the required summation of food shopping spending for mid-Jan to end-Jan 2023.",
+          "recovered": false
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:24:18.096674+00:00"
+    },
+    "webarena::claude_m::58": {
+      "taskKey": "webarena::claude_m::58",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "58",
+      "keyStep": 6,
+      "failureSteps": [
+        6,
+        7
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "Step 6\u2019s action led the agent to a lower-priced range page despite applying a $60+ filter, and Step 7 then selected a UI element tied to the filter rather than the actual top-priced product. Earlier hover/click navigation issues (Steps 1, 3, 4) were recovered and did not permanently block reaching the final answer.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Navigate to the Sports & Outdoors category page to reach the Competitive Swimwear subcategory.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the relevant subcategory path toward Competitive Swimwear (e.g., Sports -> Sport Specific Clothing) rather than hovering.",
+          "correct": false,
+          "error_description": "The agent only hovered over an element instead of clicking through to the next category level.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "Click into the Sports section (or the next category level) to continue drilling down toward Competitive Swimwear.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Select the Sport Specific Clothing section to reach the Competitive Swimwear category.",
+          "correct": false,
+          "error_description": "The agent hovered over a category link instead of clicking into Sport Specific Clothing.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Click the Sport Specific Clothing -> Competitive Swimwear link to open the Competitive Swimwear product listing.",
+          "correct": false,
+          "error_description": "The agent again hovered over the Sport Specific Clothing link rather than clicking it.",
+          "recovered": true
+        },
+        {
+          "step": 5,
+          "expected_action": "Open the Competitive Swimwear listing page (not just hover) so the agent can identify the highest-priced item.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 6,
+          "expected_action": "Apply a filter or sort to focus on the highest price range (e.g., $60+), then open the top-priced product.",
+          "correct": false,
+          "error_description": "The agent clicked the $60+ price filter but then proceeded in a way that led to a lower-priced range page.",
+          "recovered": true
+        },
+        {
+          "step": 7,
+          "expected_action": "From the filtered results, open the product with the highest price within the Competitive Swimwear category.",
+          "correct": false,
+          "error_description": "The agent clicked an element associated with the $60.00-$69.99 filter UI rather than directly selecting the highest-priced product listing item.",
+          "recovered": true
+        },
+        {
+          "step": 8,
+          "expected_action": "Report the most expensive product in Competitive Swimwear along with its price.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:24:26.235783+00:00"
+    },
+    "webarena::claude_m::65": {
+      "taskKey": "webarena::claude_m::65",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "65",
+      "keyStep": 4,
+      "failureSteps": [
+        4
+      ],
+      "failureCause": "Planning:InefficientPlanning",
+      "notes": "The agent bypassed the intended filtering steps by directly navigating to the final URL at Step 4, indicating the earlier filter-application actions were not reliably executed as planned. Earlier violations at Steps 1 and 3 were marked recovered and did not permanently block progress, but the overall approach culminated in an inefficient direct navigation rather than robust filter interaction.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "Click the 'Clothing, Shoes & Jewelry' category link to reach the clothing-shoes-jewelry listing page.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 1,
+          "expected_action": "On the clothing-shoes-jewelry page, select the 'Men' filter (not 'Women') to narrow results to men's items.",
+          "correct": false,
+          "error_description": "The agent clicked the 'Women' item instead of the 'Men' filter.",
+          "recovered": true
+        },
+        {
+          "step": 2,
+          "expected_action": "After filtering to men, select the 'Shoes' subcategory to focus on men's shoes.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 3,
+          "expected_action": "Apply the price filter for under $30 (i.e., $0-$29.99) to the men's shoes results.",
+          "correct": false,
+          "error_description": "The agent clicked a $0.00-$99.99 price range instead of setting the price filter to under $30.",
+          "recovered": true
+        },
+        {
+          "step": 4,
+          "expected_action": "Navigate to the correct URL/state that applies the $0-$29.99 price filter for cat=145 (men shoes).",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "Verify the page shows men's shoes under $30 and then stop.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:24:32.736398+00:00"
+    },
+    "webarena::claude_m::88": {
+      "taskKey": "webarena::claude_m::88",
+      "dataset": "webarena",
+      "model": "claude_m",
+      "taskId": "88",
+      "keyStep": 0,
+      "failureSteps": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "failureCause": "Planning:ConstraintIgnorance",
+      "notes": "The earliest unrecovered violation is Step 0, where the agent clicked an unrelated dashboard element instead of following the required admin navigation path to Content > Design > Themes. Subsequent steps repeatedly ignore the correct navigation constraints/structure (wrong URLs, wrong pages, and ineffective actions), and the agent only succeeds later, so the initial navigation/strategy failure is the permanent driver of the overall failure pattern.",
+      "step_analyses": [
+        {
+          "step": 0,
+          "expected_action": "From the Magento admin dashboard, navigate to Content > Design > Themes to find the Magento Blank theme.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated element on the dashboard instead of starting navigation to the Themes page.",
+          "recovered": false
+        },
+        {
+          "step": 1,
+          "expected_action": "Open the correct Themes index page (Content > Design > Themes) or directly go to the Themes listing URL.",
+          "correct": false,
+          "error_description": "The agent navigated to an incorrect URL (/design/theme/index/) that does not correspond to the Themes listing.",
+          "recovered": false
+        },
+        {
+          "step": 2,
+          "expected_action": "If the URL is wrong, correct it by returning to the dashboard and using the left navigation to reach Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent remained on the incorrect /design/theme/index/ page (no Themes list shown).",
+          "recovered": false
+        },
+        {
+          "step": 3,
+          "expected_action": "Recover by returning to the Magento admin UI and navigating to Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent went to a random port (4399) instead of correcting the Magento navigation.",
+          "recovered": false
+        },
+        {
+          "step": 4,
+          "expected_action": "From the WebArena landing page, click the Magento Admin Portal entry to return to the Magento admin.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 5,
+          "expected_action": "From the Magento dashboard, navigate to Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent again used an incorrect action (jumping to a URL) rather than navigating via the admin menu to Themes.",
+          "recovered": false
+        },
+        {
+          "step": 6,
+          "expected_action": "Open the Themes listing page (Content > Design > Themes) where Magento Blank can be selected.",
+          "correct": false,
+          "error_description": "The agent navigated to /admin/admin/design/theme/ which results in a 404 page, not the Themes listing.",
+          "recovered": false
+        },
+        {
+          "step": 7,
+          "expected_action": "Recover by using the admin menu to reach Content > Design > Themes (not by hovering).",
+          "correct": false,
+          "error_description": "The agent hovered on an element while still on a 404 page, making no progress toward Themes.",
+          "recovered": false
+        },
+        {
+          "step": 8,
+          "expected_action": "Recover by going to the correct Themes listing URL or using the menu to reach Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent navigated to /admin/admin/design_config/ which is not the Themes listing.",
+          "recovered": false
+        },
+        {
+          "step": 9,
+          "expected_action": "Recover by opening Content > Design > Themes (Themes index) to locate Magento Blank.",
+          "correct": false,
+          "error_description": "The agent navigated to another incorrect URL (/design/theme/index/) that does not show the Themes list.",
+          "recovered": false
+        },
+        {
+          "step": 10,
+          "expected_action": "Recover by opening the Themes index page where the Magento Blank theme row and preview action are available.",
+          "correct": false,
+          "error_description": "The agent navigated to /admin/admin/theme/design_config/ which is not the Themes index and shows no theme list.",
+          "recovered": false
+        },
+        {
+          "step": 11,
+          "expected_action": "If still not on the Themes list, return to the dashboard and navigate via Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent clicked to return to the dashboard without successfully reaching the Themes list.",
+          "recovered": false
+        },
+        {
+          "step": 12,
+          "expected_action": "From the dashboard, use the admin navigation to go to Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent clicked an unrelated dashboard element instead of navigating to Content > Design > Themes.",
+          "recovered": false
+        },
+        {
+          "step": 13,
+          "expected_action": "Continue navigation to Content > Design > Themes.",
+          "correct": false,
+          "error_description": "The agent remained on the dashboard and did not reach the Themes listing.",
+          "recovered": false
+        },
+        {
+          "step": 14,
+          "expected_action": "Use the admin menu to reach Content > Design > Themes (Themes grid).",
+          "correct": false,
+          "error_description": "The agent clicked an element that did not lead to the Themes listing.",
+          "recovered": false
+        },
+        {
+          "step": 15,
+          "expected_action": "On the Themes grid, locate the row for Magento Blank and use its View/preview action.",
+          "correct": false,
+          "error_description": "The agent ended up on a theme edit/list context (/system_design_theme/) without clearly selecting Magento Blank yet.",
+          "recovered": true
+        },
+        {
+          "step": 16,
+          "expected_action": "On the Themes grid, click the View action for the Magento Blank theme.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 17,
+          "expected_action": "On the Magento Blank theme page, click the Theme Preview image to open the storefront preview.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        },
+        {
+          "step": 18,
+          "expected_action": "Verify the preview opened successfully and stop once the Magento Blank storefront preview is accessible.",
+          "correct": true,
+          "error_description": null,
+          "recovered": null
+        }
+      ],
+      "annotator": "azure_gpt-5.4-nano_pass3",
+      "updatedAt": "2026-08-09T05:24:45.189240+00:00"
+    }
+  }
+}

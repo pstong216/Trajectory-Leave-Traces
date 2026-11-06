@@ -1,0 +1,353 @@
+{
+  "version": "2026-05-25",
+  "description": "Column definitions for the step-level feature_matrix.csv files built by codes/build_feature_matrix/build_feature_matrix.py.",
+  "macro_feature_count": 31,
+  "micro_uq_feature_count": 33,
+  "meta_column_count": 3,
+  "total_csv_column_count": 67,
+  "notes": [
+    "Each row is one (task_id, step_k) pair.",
+    "Mind2Web outcome: success if status == success, else failure.",
+    "WebArena outcome: success only if trajectory action-file score == 1.0, else failure.",
+    "Mind2Web grounding error means thought-derived grounding proxy signal at that step.",
+    "WebArena grounding error means explicit action-level grounding failure or thought-derived grounding proxy signal at that step.",
+    "consecutive_errors_now is the trailing run length of (grounding error OR parse error) ending at step_k."
+  ],
+  "features": [
+    {
+      "name": "task_id",
+      "group": "meta",
+      "definition": "Task identifier."
+    },
+    {
+      "name": "source",
+      "group": "meta",
+      "definition": "Benchmark source label: WebArena or Mind2Web."
+    },
+    {
+      "name": "outcome",
+      "group": "meta",
+      "definition": "Binary task outcome label. 0 = success, 1 = failure."
+    },
+    {
+      "name": "step_k",
+      "group": "macro",
+      "definition": "Current zero-based step index."
+    },
+    {
+      "name": "n_single_loops",
+      "group": "macro",
+      "definition": "Number of repeated single-action loop segments seen in actions[0..k]."
+    },
+    {
+      "name": "n_double_loops",
+      "group": "macro",
+      "definition": "Number of alternating two-action loop segments seen in actions[0..k]."
+    },
+    {
+      "name": "loop_length_current",
+      "group": "macro",
+      "definition": "Current loop type at the tail of the trajectory: 0 = none, 1 = same action repeated, 2 = alternating two-action loop."
+    },
+    {
+      "name": "n_distinct_actions",
+      "group": "macro",
+      "definition": "Number of distinct canonicalized actions observed up to step_k."
+    },
+    {
+      "name": "action_count_current",
+      "group": "macro",
+      "definition": "How many times the current canonical action has appeared up to step_k."
+    },
+    {
+      "name": "max_action_count",
+      "group": "macro",
+      "definition": "Maximum repetition count of any single canonical action up to step_k."
+    },
+    {
+      "name": "action_repeat_rate",
+      "group": "macro",
+      "definition": "Prefix length divided by number of distinct canonical actions, used as a repetition density measure."
+    },
+    {
+      "name": "n_grounding_errors",
+      "group": "macro",
+      "definition": "Cumulative count of grounding-error steps up to step_k. Mind2Web uses grounding proxy thought signals; WebArena uses explicit grounding actions plus grounding proxy thought signals."
+    },
+    {
+      "name": "n_parse_errors",
+      "group": "macro",
+      "definition": "Cumulative count of parse-error actions up to step_k."
+    },
+    {
+      "name": "consecutive_errors_now",
+      "group": "macro",
+      "definition": "Trailing run length ending at step_k where each step is either a grounding error or a parse error."
+    },
+    {
+      "name": "grounding_error_at_k",
+      "group": "macro",
+      "definition": "Whether the current step is a grounding error under the benchmark-specific grounding definition."
+    },
+    {
+      "name": "parse_error_at_k",
+      "group": "macro",
+      "definition": "Whether the current step is a parse-error action."
+    },
+    {
+      "name": "grounding_loop_count",
+      "group": "macro",
+      "definition": "Number of contiguous grounding-error streaks of length at least 2 up to step_k."
+    },
+    {
+      "name": "n_click",
+      "group": "macro",
+      "definition": "Cumulative number of click actions up to step_k."
+    },
+    {
+      "name": "n_type",
+      "group": "macro",
+      "definition": "Cumulative number of type actions up to step_k."
+    },
+    {
+      "name": "n_scroll",
+      "group": "macro",
+      "definition": "Cumulative number of scroll actions up to step_k."
+    },
+    {
+      "name": "n_go_back",
+      "group": "macro",
+      "definition": "Cumulative number of go_back actions up to step_k."
+    },
+    {
+      "name": "n_distinct_elements",
+      "group": "macro",
+      "definition": "Number of distinct element ids targeted up to step_k."
+    },
+    {
+      "name": "action_type_entropy",
+      "group": "macro",
+      "definition": "Entropy of action-type counts up to step_k."
+    },
+    {
+      "name": "steps_since_new_action",
+      "group": "macro",
+      "definition": "Number of steps since a previously unseen canonical action last appeared."
+    },
+    {
+      "name": "type_text_length",
+      "group": "macro",
+      "definition": "Cumulative number of typed characters up to step_k."
+    },
+    {
+      "name": "U_sem_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of U_sem over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_sem_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of U_sem over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_sem_at_k",
+      "group": "micro_uq",
+      "definition": "U_sem value at step_k."
+    },
+    {
+      "name": "U_change_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of U_change over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_change_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of U_change over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_change_at_k",
+      "group": "micro_uq",
+      "definition": "U_change value at step_k."
+    },
+    {
+      "name": "U_ground_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of U_ground over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_ground_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of U_ground over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_ground_at_k",
+      "group": "micro_uq",
+      "definition": "U_ground value at step_k."
+    },
+    {
+      "name": "U_cval_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of U_cval over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_cval_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of U_cval over valid UQ steps up to step_k."
+    },
+    {
+      "name": "U_cval_at_k",
+      "group": "micro_uq",
+      "definition": "U_cval value at step_k."
+    },
+    {
+      "name": "H_T_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of H_T over valid UQ steps up to step_k."
+    },
+    {
+      "name": "H_T_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of H_T over valid UQ steps up to step_k."
+    },
+    {
+      "name": "H_T_at_k",
+      "group": "micro_uq",
+      "definition": "H_T value at step_k."
+    },
+    {
+      "name": "C_S_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of C_S over valid UQ steps up to step_k."
+    },
+    {
+      "name": "C_S_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of C_S over valid UQ steps up to step_k."
+    },
+    {
+      "name": "C_S_at_k",
+      "group": "micro_uq",
+      "definition": "C_S value at step_k."
+    },
+    {
+      "name": "C_C_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of C_C over valid UQ steps up to step_k."
+    },
+    {
+      "name": "C_C_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of C_C over valid UQ steps up to step_k."
+    },
+    {
+      "name": "C_C_at_k",
+      "group": "micro_uq",
+      "definition": "C_C value at step_k."
+    },
+    {
+      "name": "R_T_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of R_T over valid UQ steps up to step_k."
+    },
+    {
+      "name": "R_T_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of R_T over valid UQ steps up to step_k."
+    },
+    {
+      "name": "R_T_at_k",
+      "group": "micro_uq",
+      "definition": "R_T value at step_k."
+    },
+    {
+      "name": "K_S_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of K_S over valid UQ steps up to step_k."
+    },
+    {
+      "name": "K_S_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of K_S over valid UQ steps up to step_k."
+    },
+    {
+      "name": "K_S_at_k",
+      "group": "micro_uq",
+      "definition": "K_S value at step_k."
+    },
+    {
+      "name": "K_C_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of K_C over valid UQ steps up to step_k."
+    },
+    {
+      "name": "K_C_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of K_C over valid UQ steps up to step_k."
+    },
+    {
+      "name": "K_C_at_k",
+      "group": "micro_uq",
+      "definition": "K_C value at step_k."
+    },
+    {
+      "name": "num_targets_cumul_mean",
+      "group": "micro_uq",
+      "definition": "Cumulative mean of num_targets over valid UQ steps up to step_k."
+    },
+    {
+      "name": "num_targets_cumul_max",
+      "group": "micro_uq",
+      "definition": "Cumulative max of num_targets over valid UQ steps up to step_k."
+    },
+    {
+      "name": "num_targets_at_k",
+      "group": "micro_uq",
+      "definition": "num_targets value at step_k."
+    },
+    {
+      "name": "thought_action_ineffective_at_k",
+      "group": "macro",
+      "definition": "Whether any thought sample at step_k explicitly says the chosen action or strategy was ineffective or had no effect."
+    },
+    {
+      "name": "thought_action_ineffective_cumul_count",
+      "group": "macro",
+      "definition": "Count of steps up to step_k where any thought sample explicitly said the action or strategy was ineffective."
+    },
+    {
+      "name": "thought_wrong_context_at_k",
+      "group": "macro",
+      "definition": "Whether any thought sample at step_k explicitly says the agent is on the wrong page, site, or workflow."
+    },
+    {
+      "name": "thought_wrong_context_cumul_count",
+      "group": "macro",
+      "definition": "Count of steps up to step_k where any thought sample explicitly says the agent is in the wrong context."
+    },
+    {
+      "name": "thought_environment_error_at_k",
+      "group": "macro",
+      "definition": "Whether any thought sample at step_k explicitly describes an environment, site, app, or blocking UI failure."
+    },
+    {
+      "name": "thought_environment_error_cumul_count",
+      "group": "macro",
+      "definition": "Count of steps up to step_k where any thought sample explicitly describes an environment or UI failure."
+    },
+    {
+      "name": "reasoning_len_at_k",
+      "group": "macro",
+      "definition": "Mean reasoning-text length for step_k."
+    },
+    {
+      "name": "reasoning_len_cumul_mean",
+      "group": "macro",
+      "definition": "Cumulative mean reasoning-text length over steps 0..k with available text."
+    },
+    {
+      "name": "reasoning_len_cumul_max",
+      "group": "macro",
+      "definition": "Cumulative max reasoning-text length over steps 0..k with available text."
+    }
+  ]
+}
