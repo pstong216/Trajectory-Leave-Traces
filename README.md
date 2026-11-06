@@ -35,12 +35,13 @@ calibration.
 
 ## Highlights
 
-* **No internal signals needed.** Averaged over the 10 benchmark-backbone
-  settings, our Macro+Micro predictor reaches **0.770 AUROC**, against 0.620 for
-  verbalized confidence and 0.47 to 0.58 for token-logprob and entropy scalars.
-* **Competitive with methods that read internal signals.** On the 8 settings
+* **Competitive with methods that use internal signals.** On the 8 settings
   where the backbone exposes logits, HTC-Full (which uses them) scores 0.756 AUROC;
-  our Macro features alone, on the same population, score 0.786.
+  our Macro features alone, on the same population, score 0.786, from observable
+  signals only.
+* **Stronger than scalar uncertainty baselines.** Averaged over the 10
+  benchmark-backbone settings, Macro+Micro reaches **0.770 AUROC**, against 0.620
+  for verbalized confidence and 0.47 to 0.58 for token-logprob and entropy scalars.
 * **Key-step supervision cuts false alarms.** Supervising on the key step instead
   of the final outcome lowers the false-cut rate at every threshold, on both
   benchmarks (figure below, left).
